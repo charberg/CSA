@@ -1,0 +1,49 @@
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="Front_Page_CSS.css"/>
+</head>
+
+
+
+<script>
+        function test()
+        {
+            var SNumber = document.getElementById("SNumberPrompt").value;
+			var Stream =  document.getElementById("StreamPrompt").value;
+            document.writeln(SNumber);
+			document.writeln(Stream);
+        }
+</script>
+
+<body>
+
+	<input type="text" id="SNumberPrompt"=></input>
+	<br>
+	<input type="text" id="StreamPrompt"=></input>
+	<br>
+    <button onclick="test()">Submit</button><br><br>
+	
+    Please select amount of years completed to date, OR enter each completed credit individually
+	<br>
+	Year Completed:
+	<select id = yearCompleted>
+	
+		<option value=""></option>
+		<option value="1">1st</option>
+		<option value="2">2nd</option>
+		<option value="3">3rd</option>
+		<option value="4">4th</option>
+		
+	</select>
+	
+	<br>
+	ClassA
+	<input type="checkbox" name="food[]" value="ClassA" />
+	ClassB
+	<input type="checkbox" name="food[]" value="ClassB" />
+	ClassC
+	<input type="checkbox" name="food[]" value="ClassC" />
+	
+</body>
+
+</html>
