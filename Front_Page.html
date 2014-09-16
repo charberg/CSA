@@ -1,11 +1,13 @@
 <html>
 <head>
 	<link type="text/css" rel="stylesheet" href="Front_Page_CSS.css"/>
+	<!-- Link to .css file -->
 </head>
 
 
 
 <script>
+
         function test()
         {
             var SNumber = document.getElementById("SNumberPrompt").value;
@@ -13,6 +15,10 @@
             document.writeln(SNumber);
 			document.writeln(Stream);
         }
+		
+		<!-- Grabs variables from text boxes and writes to document -->
+		<!-- Just an example that variable is stored and usable -->
+		
 </script>
 
 <body>
@@ -27,7 +33,7 @@
 	<br>
 	Year Completed:
 	<select id = yearCompleted>
-	
+		<!-- Drop-down menu for years completed -->
 		<option value=""></option>
 		<option value="1">1st</option>
 		<option value="2">2nd</option>
@@ -38,11 +44,27 @@
 	
 	<br>
 	ClassA
-	<input type="checkbox" name="food[]" value="ClassA" />
+	<input type="checkbox" name="classes[]" value="ClassA" />
 	ClassB
-	<input type="checkbox" name="food[]" value="ClassB" />
+	<input type="checkbox" name="classes[]" value="ClassB" />
 	ClassC
-	<input type="checkbox" name="food[]" value="ClassC" />
+	<input type="checkbox" name="classes[]" value="ClassC" />
+	ClassD
+	<input type="checkbox" name="classes[]" value="ClassD" />
+	
+	<!-- classes[] array can be used in php, as $_POST['classes']
+	
+	<!-- TO BE DONE
+	
+		Add verification that student number is the correct length, starts with 100
+		Convert student number to int (Is this necessary?)
+		Add verification that either a year is selected, OR boxes are checked
+		Practice accessing database with php
+		
+		
+	-->
+	
+	
 	
 </body>
 
