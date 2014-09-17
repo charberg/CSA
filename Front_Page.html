@@ -14,6 +14,7 @@
 			var Stream =  document.getElementById("StreamPrompt").value;
             document.writeln(SNumber);
 			document.writeln(Stream);
+			<!-- Could wrap this in php tag instead, echo $SNumber and $Stream -->
         }
 		
 		<!-- Grabs variables from text boxes and writes to document -->
@@ -52,7 +53,10 @@
 	ClassD
 	<input type="checkbox" name="classes[]" value="ClassD" />
 	
+	<!-- TURN ALL OF THESE INTO FORMS -->
 	<!-- classes[] array can be used in php, as $_POST['classes']
+	<!-- Alternatively, could set value to classes[i], then variable in php is simply $classes -->
+	<!-- Need to check how results are stored, i.e. bools? -->
 	
 	<!-- TO BE DONE
 	
@@ -60,6 +64,8 @@
 		Convert student number to int (Is this necessary?)
 		Add verification that either a year is selected, OR boxes are checked
 		Practice accessing database with php
+		Change input boxes into <form>, send to .php file if verification is passed
+		<form method="GET" action="info.php"> or something along those lines
 		
 		
 	-->
