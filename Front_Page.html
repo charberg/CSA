@@ -11,9 +11,7 @@
         function test()
         {
             var SNumber = document.getElementById("SNumberPrompt").value;
-			var Stream =  document.getElementById("StreamPrompt").value;
             document.writeln(SNumber);
-			document.writeln(Stream);
 			<!-- Could wrap this in php tag instead, echo $SNumber and $Stream -->
         }
 		
@@ -26,14 +24,24 @@
 
 	<input type="text" id="SNumberPrompt"=></input>
 	<br>
-	<input type="text" id="StreamPrompt"=></input>
 	<br>
     <button onclick="test()">Submit</button><br><br>
+	
+	Stream:
+	<select id = yearCompleted name = yearCompleted>
+		<!-- Drop-down menu for years completed -->
+		<option value=""></option>
+		<option value="1">Software Engineering</option>
+		<option value="2">Biomed-Elec</option>
+		<option value="3">Aero A</option>
+		<option value="4">Aero D</option>
+		
+	</select>
 	
     Please select amount of years completed to date, OR enter each completed credit individually
 	<br>
 	Year Completed:
-	<select id = yearCompleted>
+	<select id = yearCompleted name = yearCompleted>
 		<!-- Drop-down menu for years completed -->
 		<option value=""></option>
 		<option value="1">1st</option>
