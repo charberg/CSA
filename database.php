@@ -1,19 +1,7 @@
 <?php
 
-	$login = $_GET['login'];
-	$password = $_GET['password'];
-	$program = $_GET['program'];
-	$method = $_GET['operation']; // Possible methods to be performed on database
-
-	echo "You login is $login and your password is $password in prog $program";
-	
-	if($method=="send"){
-	
-	}
-	
 	class DataBase{
 	
-		val $db;
 		val $dbName = "SchedulerDatabase.db";
 		
 		val $table_CTCMapping = "CourseToCourseMapping",
@@ -29,11 +17,20 @@
 			
 	
 		function __construct($user, $pass, $dataBaseName) {
-			$db = new mysqli('localhost', '$user', '$pass', '$dataBaseName');
-			
-			if($db->connect_errno > 0){
-				die('Unable to connect to database [' . $db->connect_error . ']');
-			}	
+
+			if ($dataBaseName == "") {
+				$this->connection = mysqli_connect('localhost', $user, $pass);
+			} else {
+				$this->connection = mysqli_connect('localhost', $user, $pass, $dataBaseName);
+			}
+		}
+		
+		function execute($sql){
+			return $this->connection->query($sql);
+		}
+		
+		function getError(){
+			return mysqli_error($this->connection);
 		}
 		
 		function createDatabase() {
