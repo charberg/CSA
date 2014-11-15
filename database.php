@@ -1,112 +1,36 @@
 <?php
 
-	class DataBase{
-	
-		val $dbName = "SchedulerDatabase.db";
-		
-		val $table_CTCMapping = "CourseToCourseMapping",
-			$table_Section = "Section",
-			$table_Programs = "AcademicPrograms",
-			$table_ProgramToCourseMapping = "AcademicProgramToCourseMapping",
-			$table_CourseToPrereqMapping = "CourseToPrerequisiteMapping",
-			$table_CourseTypes = "CourseType",
-			$table_PrereqTypes = "PrerequisiteTypes",
-			$table_Schedule = "Schedule",
-			$table_Course = "Course",
-			$table_Subjects = "Subjects";
-			
-	
-		function __construct($user, $pass, $dataBaseName) {
+/*
+If you use database (mySql), have a class db.php or database.php where the
+mysql host, user, password, database name  are specified. This file must include a 
+method that creates the database where you will store your data. Your project 
+must not use more than one database. When evaluating your work, that is the 
+ONLY file that will be modified to set the actual values of the parameters (mysql 
+host, user, password, database name) .  ALL queries in mySql must be done 
+through a call of a method implemented in that php file.
+*/
 
-			if ($dataBaseName == "") {
-				$this->connection = mysqli_connect('localhost', $user, $pass);
-			} else {
-				$this->connection = mysqli_connect('localhost', $user, $pass, $dataBaseName);
-			}
+	class DataBase{
+
+		$host = "localhost";
+		$user = "root";
+		$password = "";
+		$dbName = "";
+	
+		function __construct($dataBaseName) {
+		
+			if ($dataBaseName == "")
+				$this->connection = mysqli_connect($host, $user, $password);
+			else
+				$this->connection = mysqli_connect($host, $user, $password, $dataBaseName);
 		}
 		
-		function execute($sql){
+		function execute($sql) {
 			return $this->connection->query($sql);
 		}
 		
 		function getError(){
 			return mysqli_error($this->connection);
-		}
-		
-		function createDatabase() {
-			$createDB = "CREATE DATABASE IF NOT EXISTS $dbName;";
-			$dropDB = "DROP DATABASE IF EXIST $dbName;";
-			
-			$CreateSubjectsTable = "CREATE TABLE IF NOT EXISTS $table_Subjects
-										(SubjectID VARCHAR(10) NOT NULL PRIMARY KEY,
-										 SubjectCode VARCHAR(MAX) NOT NULL);";
-										 
-			$CreateCourseTable = "CREATE TABLE IF NOT EXISTS $table_Course
-										(SubjectID VARCHAR(10) NOT NULL,
-										 CourseNumber VARCHAR(MAX) NOT NULL,
-										 Title VARCHAR(MAX) NOT NULL,
-										 Credits DECIMAL(1,1) NOT NULL,
-										 PRIMARY KEY(SubjectID, CourseNumber),
-										 FOREIGN KEY(SubjectID) REFERENCES $table_Subjects(SubjectID));";
-										 
-			$CreateScheduleTable = "CREATE TABLE IF NOT EXISTS $table_Schedule
-										(ScheduleID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-										 ScheduleCode VARCHAR(MAX) NOT NULL);";
-										 
-			$CreatePrereqTypeTable = "CREATE TABLE IF NOT EXISTS $table_PrereqTypes
-										(PrerequisiteTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-										 PrerequisiteTypeCode VARCHAR(MAX) NOT NULL);";	
-
-			$CreateCourseTypeTable = "CREATE TABLE IF NOT EXISTS $table_CourseTypes
-										(CourseTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-										 CourseTypeCode VARCHAR(MAX) NOT NULL);";	
-			
-			$CreateProgramsTable = "CREATE TABLE IF NOT EXISTS $table_Programs
-										(ProgramID VARCHAR(10) NOT NULL PRIMARY KEY,
-										 ProgramCode VARCHAR(MAX) NOT NULL);";
-										 
-			$CreateSectionTable = "CREATE TABLE IF NOT EXISTS $table_Section
-										(SubjectID VARCHAR(10) NOT NULL,
-										 CourseNumber VARCHAR(MAX) NOT NULL,
-										 CourseCRN VARCHAR(10) NOT NULL,
-										 ScheduleID INT NOT NULL,
-										 SectionCode CHAR(1) NOT NULL,
-										 Year INT NOT NULL,
-										 Term CHAR(1) NOT NULL,
-										 Time VARCHAR(MAX) NOT NULL,
-										 Days CHAR(5) NOT NULL,
-										 Capacity INT NOT NULL,
-										 NumberOfStudents INT NOT NULL,
-										 PRIMARY KEY(SubjectID, CourseNumber, CourseCRN),
-										 FOREIGN KEY(SubjectID) REFERENCES $table_Subjects(SubjectID),
-										 FOREIGN KEY(CourseNumber) REFERENCES $table_Course(CourseNumber),
-										 FOREIGN KEY(ScheduleID) REFERENCES $table_Schedule(ScheduleID));";	
-
-			$CreateCTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_CTCMapping
-										(PrimaryCRN VARCHAR(10) NOT NULL,
-										 SecondaryCRN VARCHAR(10) NOT NULL,
-										 PRIMARY KEY(PrimaryCRN, SecondaryCRN),
-										 FOREIGN KEY(PrimaryCRN) REFERENCES $table_Section(CourseCRN),
-										 FOREIGN KEY(SecondaryCRN) REFERENCES $table_Section(CourseCRN);";
-										 
-			$CreatePTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_ProgramToCourseMapping
-										(ProgramID VARCHAR(10) NOT NULL,
-										 CourseTypeID INT NOT NULL,
-										 CourseCRN VARCHAR(10) NOT NULL,
-										 PRIMARY KEY(ProgramID, CourseTypeID, CourseCRN),
-										 FOREIGN KEY(ProgramID) REFERENCES $table_Programs(ProgramID),
-										 FOREIGN KEY(CourseTypeID) REFERENCES $table_CourseTypes(CourseTypeID),
-										 FOREIGN KEY(CourseCRN) REFERENCES $table_Section(CourseCRN);";
-
-			$CreateCTPMappingTable = "CREATE TABLE IF NOT EXISTS $table_CourseToPrereqMapping
-										(CourseCRN VARCHAR(10) NOT NULL,
-										 PrerequisiteID INT NOT NULL,
-										 PrerequisiteTypeID INT NOT NULL,
-										 PrerequisiteAttribute VARCHAR(10) NOT NULL,
-										 PRIMARY KEY(ProgramID, CourseTypeID, CourseCRN),	
-										 FOREIGN KEY(CourseCRN) REFERENCES $table_Section(CourseCRN),
-										 FOREIGN KEY(PrerequisiteTypeID) REFERENCES $table_PrereqTypes(PrerequisiteTypeID);";
-										 //review^^ PK
 		}
 		
 	}
