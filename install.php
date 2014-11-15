@@ -7,6 +7,8 @@ your install.php read the file to import the data in the tables. This file will 
 executed first before your application is evaluated.
 */
 
+	//Define database name and table names
+
 	$dbName = "SchedulerDatabase";
 		
 	$table_CTCMapping = "CourseToCourseMapping";
@@ -19,6 +21,8 @@ executed first before your application is evaluated.
 	$table_Schedule = "Schedule";
 	$table_Course = "Course";
 	$table_Subjects = "Subjects";
+	
+	//Define queries to create database and its tables
 		
 	$createDB = "CREATE DATABASE IF NOT EXISTS $dbName;";
 	$dropDB = "DROP DATABASE IF EXIST $dbName;";
@@ -94,6 +98,8 @@ executed first before your application is evaluated.
 								 FOREIGN KEY(PrerequisiteTypeID) REFERENCES $table_PrereqTypes(PrerequisiteTypeID);";
 								 //review^^ PK
 	
+	//Create Database
+	
 	require_once("myDB.php");
 	
 	$db = new DataBase("");
@@ -102,46 +108,121 @@ executed first before your application is evaluated.
 	
 	$db = new DataBase("$dbName");
 	
+	//Create tables
+	
 	if ($db->execute($CreateSubjectsTable)) {
+		echo "Successfully Create Subjects Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreateCourseTable)) {
+		echo "Successfully Create Course Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreateScheduleTable)) {
+		echo "Successfully Create Schedule Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreatePrereqTypeTable)) {
+		echo "Successfully Create Prerequisite Type Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreateCourseTypeTable)) {
+		echo "Successfully Create Course Type Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreateProgramsTable)) {
+		echo "Successfully Create Academic Programs Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreateSectionTable)) {
+		echo "Successfully Create Section Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreateCTCMappingTable)) {
+		echo "Successfully Create Course to Course Mapping Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreatePTCMappingTable)) {
+		echo "Successfully Create Program to Course Mapping Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
 	if ($db->execute($CreateCTPMappingTable)) {
+		echo "Successfully Create Course to Prerequisite Mapping Table"
+	} else {
 		echo $db->getError();
+		exit;
 	}
 	
+	/*-- Populate Tables --*/
 	
+	//Add Academic Programs
+	$PopulateAcademicProgram = "INSERT INTO $table_Programs VALUES(('CE','Communications Engineering'),
+																   ('CSE','Computer Systems Engineering'),
+																   ('SE','Sooftware Engineering'));";
 	
+	if ($db->execute($PopulateAcademicProgram)) {
+		echo "Successfully populates Academic Program Table"
+	} else {
+		echo $db->getError();
+		exit;
+	}
+	
+	$dataFile = fopen("data/data.csv","r");	//open data file for reading
+	
+	//SUBJ;"CRSE";"SEQ";"CATALOG_TITLE";"INSTR_TYPE";"DAYS";"START_TIME";"END_TIME";"ROOM_CAP"
+	
+	while (!feof($dataFile) ) {		//while not at end of file
+
+		$line = fgetcsv($dataFile, 1024);	//read up to 1 kilobyte in a row
+	
+		//Course Table
+		$SubjectID = $line[0];
+		$CourseNumber = $line[1];
+		$Title = $line[3];
+		$Credits = 0.5;
+		
+		//Section Table
+		$CRN = "";
+		$ScheduleCode = $line[4];
+		$SectionCode = $line[2];
+		$Year = 2014;
+		$Term = "fall"
+		$StartTime = $line[6];
+		$EndTime = $line[7];
+		$Time = $StartTime."-".$EndTime;
+		$Days = $line[5];
+		$Capacity = $line[8];
+		$NumberOfStudents = 0;
+		
+	}
+
+	fclose($dataFile);
+		
 ?>
