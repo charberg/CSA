@@ -12,17 +12,17 @@ through a call of a method implemented in that php file.
 
 	class DataBase{
 
-		$host = "localhost";
-		$user = "root";
-		$password = "";
-		$dbName = "SchedulerDatabase";
+		private $host = "localhost";
+		private $user = "root";
+		private $password = "";
+		private $dbName = "SchedulerDatabase";
 	
 		function __construct($dataBaseName) {
 		
 			if ($dataBaseName == "")
-				$this->connection = mysqli_connect($host, $user, $password);
+				$this->connection = mysqli_connect($this->host, $this->user, $this->password);
 			else
-				$this->connection = mysqli_connect($host, $user, $password, $dataBaseName);
+				$this->connection = mysqli_connect($this->host, $this->user, $this->password, $dataBaseName);
 		}
 		
 		function execute($sql) {
@@ -55,7 +55,7 @@ through a call of a method implemented in that php file.
 			
 			while ( ($row = $rows->fetch_object() ) ) {
 			
-				fputcsv($output, $row);	//Isert every row in table to output file
+				fputcsv($output, $row);	//Insert every row in table to output file
 			}
 			
 			fclose($output);	//close file

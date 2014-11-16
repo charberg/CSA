@@ -29,43 +29,43 @@ executed first before your application is evaluated.
 	
 	$CreateSubjectsTable = "CREATE TABLE IF NOT EXISTS $table_Subjects
 								(SubjectID VARCHAR(10) NOT NULL PRIMARY KEY,
-								 SubjectCode VARCHAR(MAX) NOT NULL);";
+								 SubjectCode VARCHAR(200) NOT NULL);";
 								 
 	$CreateCourseTable = "CREATE TABLE IF NOT EXISTS $table_Course
 								(SubjectID VARCHAR(10) NOT NULL,
-								 CourseNumber VARCHAR(MAX) NOT NULL,
-								 Title VARCHAR(MAX) NOT NULL,
+								 CourseNumber VARCHAR(200) NOT NULL,
+								 Title VARCHAR(200) NOT NULL,
 								 Credits DECIMAL(1,1) NOT NULL,
 								 PRIMARY KEY(SubjectID, CourseNumber),
 								 FOREIGN KEY(SubjectID) REFERENCES $table_Subjects(SubjectID));";
 								 
 	$CreateScheduleTable = "CREATE TABLE IF NOT EXISTS $table_Schedule
 								(ScheduleID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-								 ScheduleCode VARCHAR(MAX) NOT NULL);";
+								 ScheduleCode VARCHAR(200) NOT NULL);";
 								 
 	$CreatePrereqTypeTable = "CREATE TABLE IF NOT EXISTS $table_PrereqTypes
 								(PrerequisiteTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-								 PrerequisiteTypeCode VARCHAR(MAX) NOT NULL);";	
+								 PrerequisiteTypeCode VARCHAR(200) NOT NULL);";	
 
 	$CreateCourseTypeTable = "CREATE TABLE IF NOT EXISTS $table_CourseTypes
 								(CourseTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-								 CourseTypeCode VARCHAR(MAX) NOT NULL);";	
+								 CourseTypeCode VARCHAR(200) NOT NULL);";	
 	
 	$CreateProgramsTable = "CREATE TABLE IF NOT EXISTS $table_Programs
 								(ProgramID VARCHAR(10) NOT NULL PRIMARY KEY,
-								 ProgramCode VARCHAR(MAX) NOT NULL);";
+								 ProgramCode VARCHAR(200) NOT NULL);";
 								 
 	$CreateSectionTable = "CREATE TABLE IF NOT EXISTS $table_Section
 								(SubjectID VARCHAR(10) NOT NULL,
-								 CourseNumber VARCHAR(MAX) NOT NULL,
+								 CourseNumber VARCHAR(200) NOT NULL,
 								 CourseCRN VARCHAR(10) NOT NULL,
 								 ScheduleID INT NOT NULL,
 								 SectionCode CHAR(1) NOT NULL,
 								 Year INT NOT NULL,
 								 Term CHAR(1) NOT NULL,
-								 Time VARCHAR(MAX) NOT NULL,
-								 Days CHAR(5) NOT NULL,
-								 Capacity INT NOT NULL,
+								 Time VARCHAR(200) NULL,
+								 Days CHAR(5) NULL,
+								 Capacity INT NULL,
 								 NumberOfStudents INT NOT NULL,
 								 PRIMARY KEY(SubjectID, CourseNumber, CourseCRN),
 								 FOREIGN KEY(SubjectID) REFERENCES $table_Subjects(SubjectID),
@@ -73,34 +73,41 @@ executed first before your application is evaluated.
 								 FOREIGN KEY(ScheduleID) REFERENCES $table_Schedule(ScheduleID));";	
 
 	$CreateCTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_CTCMapping
-								(PrimaryCRN VARCHAR(10) NOT NULL,
+								(PrimarySubjectID VARCHAR(10) NOT NULL,
+								 PrimaryCourseNumber VARCHAR(200) NOT NULL,
+								 PrimaryCRN VARCHAR(10) NOT NULL,
+								 SecondarySubjectID VARCHAR(10) NOT NULL,
+								 SecondaryCourseNumber VARCHAR(200) NOT NULL,
 								 SecondaryCRN VARCHAR(10) NOT NULL,
-								 PRIMARY KEY(PrimaryCRN, SecondaryCRN),
-								 FOREIGN KEY(PrimaryCRN) REFERENCES $table_Section(CourseCRN),
-								 FOREIGN KEY(SecondaryCRN) REFERENCES $table_Section(CourseCRN);";
+								 PRIMARY KEY(PrimarySubjectID, PrimaryCourseNumber, PrimaryCRN, SecondarySubjectID, SecondaryCourseNumber, SecondaryCRN),
+								 FOREIGN KEY(PrimarySubjectID, PrimaryCourseNumber, PrimaryCRN) REFERENCES $table_Section(SubjectID, CourseNumber, CourseCRN),
+								 FOREIGN KEY(SecondarySubjectID, SecondaryCourseNumber, SecondaryCRN) REFERENCES $table_Section(SubjectID, CourseNumber, CourseCRN));";
 								 
 	$CreatePTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_ProgramToCourseMapping
 								(ProgramID VARCHAR(10) NOT NULL,
 								 CourseTypeID INT NOT NULL,
+								 SubjectID VARCHAR(10) NOT NULL,
+								 CourseNumber VARCHAR(200) NOT NULL,
 								 CourseCRN VARCHAR(10) NOT NULL,
-								 PRIMARY KEY(ProgramID, CourseTypeID, CourseCRN),
+								 PRIMARY KEY(ProgramID, CourseTypeID, SubjectID, CourseNumber, CourseCRN),
 								 FOREIGN KEY(ProgramID) REFERENCES $table_Programs(ProgramID),
 								 FOREIGN KEY(CourseTypeID) REFERENCES $table_CourseTypes(CourseTypeID),
-								 FOREIGN KEY(CourseCRN) REFERENCES $table_Section(CourseCRN);";
+								 FOREIGN KEY(SubjectID, CourseNumber, CourseCRN) REFERENCES $table_Section(SubjectID, CourseNumber, CourseCRN));";
 
 	$CreateCTPMappingTable = "CREATE TABLE IF NOT EXISTS $table_CourseToPrereqMapping
-								(CourseCRN VARCHAR(10) NOT NULL,
+								(SubjectID VARCHAR(10) NOT NULL,
+								 CourseNumber VARCHAR(200) NOT NULL,
+								 CourseCRN VARCHAR(10) NOT NULL,
 								 PrerequisiteID INT NOT NULL,
 								 PrerequisiteTypeID INT NOT NULL,
 								 PrerequisiteAttribute VARCHAR(10) NOT NULL,
-								 PRIMARY KEY(ProgramID, CourseTypeID, CourseCRN),	
-								 FOREIGN KEY(CourseCRN) REFERENCES $table_Section(CourseCRN),
-								 FOREIGN KEY(PrerequisiteTypeID) REFERENCES $table_PrereqTypes(PrerequisiteTypeID);";
-								 //review^^ PK
+								 PRIMARY KEY(SubjectID, CourseNumber, CourseCRN, PrerequisiteID, PrerequisiteTypeID),	
+								 FOREIGN KEY(SubjectID, CourseNumber, CourseCRN) REFERENCES $table_Section(SubjectID, CourseNumber, CourseCRN),
+								 FOREIGN KEY(PrerequisiteTypeID) REFERENCES $table_PrereqTypes(PrerequisiteTypeID));";
 	
 	//Create Database
 	
-	require_once("myDB.php");
+	require_once("database.php");
 	
 	$db = new DataBase("");
 								 
@@ -110,93 +117,113 @@ executed first before your application is evaluated.
 	
 	//Create tables
 	
-	if ($db->execute($CreateSubjectsTable)) {
-		echo "Successfully Create Subjects Table"
+	/*if ($db->execute($CreateSubjectsTable)) {
+		echo "Successfully Created Subjects Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Subjects Table: ".$db->getError()."<br/>";
 		exit;
-	}
+	}*/
 	
 	if ($db->execute($CreateCourseTable)) {
-		echo "Successfully Create Course Table"
+		echo "Successfully Created Course Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Course Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
-	if ($db->execute($CreateScheduleTable)) {
-		echo "Successfully Create Schedule Table"
+	/*if ($db->execute($CreateScheduleTable)) {
+		echo "Successfully Created Schedule Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Schedule Table: ".$db->getError()."<br/>";
 		exit;
-	}
+	}*/
 	
 	if ($db->execute($CreatePrereqTypeTable)) {
-		echo "Successfully Create Prerequisite Type Table"
+		echo "Successfully Created Prerequisite Type Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Prerequisite Type Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
-	if ($db->execute($CreateCourseTypeTable)) {
-		echo "Successfully Create Course Type Table"
+	/*if ($db->execute($CreateCourseTypeTable)) {
+		echo "Successfully Created Course Type Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Course Type Table: ".$db->getError()."<br/>";
 		exit;
-	}
+	}*/
 	
 	if ($db->execute($CreateProgramsTable)) {
-		echo "Successfully Create Academic Programs Table"
+		echo "Successfully Created Academic Programs Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Academic Programs Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
 	if ($db->execute($CreateSectionTable)) {
-		echo "Successfully Create Section Table"
+		echo "Successfully Created Section Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Section Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
 	if ($db->execute($CreateCTCMappingTable)) {
-		echo "Successfully Create Course to Course Mapping Table"
+		echo "Successfully Created Course to Course Mapping Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Course to Course Mapping Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
 	if ($db->execute($CreatePTCMappingTable)) {
-		echo "Successfully Create Program to Course Mapping Table"
+		echo "Successfully Created Program to Course Mapping Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Program to Course Mapping Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
 	if ($db->execute($CreateCTPMappingTable)) {
-		echo "Successfully Create Course to Prerequisite Mapping Table"
+		echo "Successfully Created Course to Prerequisite Mapping Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error Creating Course to Prerequisite Mapping Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
 	/*-- Populate Tables --*/
 	
 	//Add Academic Programs
-	$PopulateAcademicProgram = "INSERT INTO $table_Programs VALUES(('CE','Communications Engineering'),
-																   ('CSE','Computer Systems Engineering'),
-																   ('SE','Sooftware Engineering'));";
+	$PopulateAcademicProgram = "INSERT INTO $table_Programs VALUES('CE', 'Communications Engineering'),
+																   ('CSE', 'Computer Systems Engineering'),
+																   ('SE', 'Software Engineering');";
 	
 	if ($db->execute($PopulateAcademicProgram)) {
-		echo "Successfully populates Academic Program Table"
+		echo "Successfully populated Academic Program Table<br/>";
 	} else {
-		echo $db->getError();
+		echo "Error populating Academic Program Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
+	//Add Prerequisite Types
+	$PopulatePrereqTypes = "INSERT INTO $table_PrereqTypes VALUES ('Attribute1 AND Attribute2'),
+																  ('Attribute1 amount of credits in Year 1'),
+																  ('Attribute1 amount of credits in Year 2'),
+																  ('Attribute1 amount of credits in Year 3'),
+																  ('Attribute1 amount of credits in current Year'),
+																  ('Attribute1 concurently'),
+																  ('Attribute1 points to other attribute set'),
+																  ('Attribute1 OR Attribute2');";
+	
+	if ($db->execute($PopulatePrereqTypes)) {
+		echo "Successfully populated Prerequisite Types Table<br/>";
+	} else {
+		echo "Error populating Prerequisite Types Table: ".$db->getError()."<br/>";
+		exit;
+	}
+	
+	/*
 	$dataFile = fopen("data/data.csv","r");	//open data file for reading
 	
 	//SUBJ;"CRSE";"SEQ";"CATALOG_TITLE";"INSTR_TYPE";"DAYS";"START_TIME";"END_TIME";"ROOM_CAP"
+	
+	var $CRNCounter = 1;	//counter to generate MOCK CRN values for course sections since they are not provided in given data
 	
 	while (!feof($dataFile) ) {		//while not at end of file
 
@@ -209,20 +236,44 @@ executed first before your application is evaluated.
 		$Credits = 0.5;
 		
 		//Section Table
-		$CRN = "";
+		$CRN = $CRNCounter;
 		$ScheduleCode = $line[4];
 		$SectionCode = $line[2];
 		$Year = 2014;
-		$Term = "fall"
-		$StartTime = $line[6];
-		$EndTime = $line[7];
-		$Time = $StartTime."-".$EndTime;
-		$Days = $line[5];
-		$Capacity = $line[8];
+		$Term = "fall";
+		
+		$StartTime =  NULL;	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
+		@EndTime = NULL;
+		$Time = NULL;
+		$Days = NULL;
+		$Capacity = NULL;
+		
+		if ($line[6] != "") {		//If course has a start time
+			$StartTime = $line[6];
+		}
+		if ($line[7] != "") {		//If course has a end time
+			$EndTime = $line[7];
+		}
+		if (!is_null($StartTime)) {				//If course has valid time (Start time is not null)
+			$Time = $StartTime."-".$EndTime;
+		}
+		if ($line[5] != "") {		//If course has a Day value
+			$Days = $line[5];
+		}
+		if ($line[8] != "") {		//If course has a capacity
+			$Capacity = $line[8];
+		}
 		$NumberOfStudents = 0;
+		
+		//Insert into Course Table if not aready there
+		
+		//Insert into Section Table
+		
+		$CRNCounter = $CRNCounter + 1;	//increment CRN counter
 		
 	}
 
 	fclose($dataFile);
+	*/
 		
 ?>
