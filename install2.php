@@ -51,8 +51,8 @@ executed first before your application is evaluated.
 								 Days CHAR(5) NULL,
 								 Capacity INT NULL,
 								 NumberOfStudents INT NOT NULL,
-								 PRIMARY KEY(SubjectID, CourseNumber, CourseCRN)
-								 FOREIGN KEY(CourseNumber) REFERENCES $table_Course(CourseNumber));";	
+								 PRIMARY KEY(SubjectID, CourseNumber, CourseCRN),
+								 FOREIGN KEY(SubjectID, CourseNumber) REFERENCES $table_Course(SubjectID, CourseNumber));";	
 
 	$CreateCTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_CTCMapping
 								(PrimarySubjectID VARCHAR(10) NOT NULL,
@@ -88,13 +88,18 @@ executed first before your application is evaluated.
 	
 	//Create Database
 	
-	require_once("database.php");
+	require_once("database.php");	//Connect to database file 
 	
-	$db = new DataBase("");
-								 
-	$db->execute($createDB);
+	$db = new DataBase("");	//Connect to server
 	
-	$db = new DataBase("$dbName");
+	 if ($db->execute($createDB)) {	//Create database in non exist
+		echo "Successfully CReated Database<br/>";
+	} else {
+		echo "Error Creating Database: ".$db->getError()."<br/>";
+		exit;
+	}
+	
+	$db = new DataBase("$dbName");	//Connect to database created
 	
 	//Create tables
 	
@@ -150,7 +155,7 @@ executed first before your application is evaluated.
 	/*-- Populate Tables --*/
 	
 	//Add Academic Programs
-	$PopulateAcademicProgram = "INSERT INTO $table_Programs VALUES('CE', 'Communications Engineering'),
+	$PopulateAcademicProgram = "INSERT IGNORE INTO $table_Programs VALUES('CE', 'Communications Engineering'),
 																   ('CSE', 'Computer Systems Engineering'),
 																   ('SE', 'Software Engineering');";
 	
@@ -161,80 +166,120 @@ executed first before your application is evaluated.
 		exit;
 	}
 	
-	//Add Prerequisite Types
-	$PopulatePrereqTypes = "INSERT INTO $table_PrereqTypes VALUES ('Attribute1 AND Attribute2'),
-																  ('Attribute1 amount of credits in Year 1'),
-																  ('Attribute1 amount of credits in Year 2'),
-																  ('Attribute1 amount of credits in Year 3'),
-																  ('Attribute1 amount of credits in current Year'),
-																  ('Attribute1 concurently'),
-																  ('Attribute1 points to other attribute set'),
-																  ('Attribute1 OR Attribute2');";
-	
-	if ($db->execute($PopulatePrereqTypes)) {
-		echo "Successfully populated Prerequisite Types Table<br/>";
-	} else {
-		echo "Error populating Prerequisite Types Table: ".$db->getError()."<br/>";
-		exit;
-	}
-	
-	/*
+	//Enter Fall Course data
 	$dataFile = fopen("data/data.csv","r");	//open data file for reading
+
+	$line = fgetcsv($dataFile, 1024);	//Get first line (Column Names)
 	
-	//SUBJ;"CRSE";"SEQ";"CATALOG_TITLE";"INSTR_TYPE";"DAYS";"START_TIME";"END_TIME";"ROOM_CAP"
-	
-	var $CRNCounter = 1;	//counter to generate MOCK CRN values for course sections since they are not provided in given data
+	$CRNCounter = 1;	//counter to generate MOCK CRN values for course sections since they are not provided in given data
 	
 	while (!feof($dataFile) ) {		//while not at end of file
 
 		$line = fgetcsv($dataFile, 1024);	//read up to 1 kilobyte in a row
 	
+		//	Get Column values for Course and Section Table insertion
+	
+		$values = explode(";",$line);	//Split line into array based on ';'
+	
 		//Course Table
-		$SubjectID = $line[0];
-		$CourseNumber = $line[1];
-		$Title = $line[3];
+		$SubjectID = $values[0];
+		$CourseNumber = $values[1];
+		$Title = $values[3];
 		$Credits = 0.5;
 		
 		//Section Table
 		$CRN = $CRNCounter;
-		$ScheduleCode = $line[4];
-		$SectionCode = $line[2];
+		$ScheduleCode = $values[4];
+		$SectionCode = $values[2];
 		$Year = 2014;
 		$Term = "fall";
 		
 		$StartTime =  NULL;	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
-		@EndTime = NULL;
+		$EndTime = NULL;
 		$Time = NULL;
 		$Days = NULL;
 		$Capacity = NULL;
 		
-		if ($line[6] != "") {		//If course has a start time
-			$StartTime = $line[6];
+		if ($values[6] != "") {					//If course has a start time
+			$StartTime = $values[6];
 		}
-		if ($line[7] != "") {		//If course has a end time
-			$EndTime = $line[7];
+		if ($values[7] != "") {					//If course has a end time
+			$EndTime = $values[7];
 		}
 		if (!is_null($StartTime)) {				//If course has valid time (Start time is not null)
 			$Time = $StartTime."-".$EndTime;
 		}
-		if ($line[5] != "") {		//If course has a Day value
-			$Days = $line[5];
+		if ($values[5] != "") {					//If course has a Day value
+			$Days = $values[5];
 		}
-		if ($line[8] != "") {		//If course has a capacity
-			$Capacity = $line[8];
+		if ($values[8] != "") {					//If course has a capacity
+			$Capacity = $values[8];
 		}
-		$NumberOfStudents = 0;
+		$NumberOfStudents = 0;					//Number of students in class always starts at 0
 		
 		//Insert into Course Table if not aready there
+		$checkIfCourseInDB = "SELECT * FROM $table_Course WHERE SubjectID = '$SubjectID' AND CourseNumber = '$CourseNumber';";
 		
+		$Result = $db->execute($checkIfCourseInDB);
+		$NumRowsReturned = $Result->num_rows;			//Get number of rows returned from table
 		
-		//Insert into Section Table
+		if ($NumRowsReturned == 1) {	//If query returned one row then Course already in database
+		
+			echo "Course ".$SubjectID.$CourseNumber." is already in DB<br/>";
+			
+		} else if ($NumRowsReturned == 0) {	//If query returned 0 rows, add course to database
+			
+			$insertCourseIntoDB = "INSERT IGNORE INTO $table_Course VALUES ('$SubjectID',
+																	 '$CourseNumber',
+																	 '$Title',
+																	 $Credits);";
+			
+			if ($db->execute($insertCourseIntoDB)) {
+				echo "Successfully populated Course Table<br/>";
+			} else {
+				echo "Error populating Course Table: ".$db->getError()."<br/>";
+				exit;
+			}
+			
+		} else {	//If query didn't return 0 or 1, then error
+		
+			echo "ERROR: Check for course in DB resulted in error. Returned "/$NumRowsReturned." rows<br/>";
+			exit;
+		} 
+		
+		//Insert into Section Table	
+		$insertSectionIntoDB = "INSERT IGNORE INTO $table_Section VALUES ('$SubjectID',
+																	   '$CourseNumber',
+																	   '$CRN',
+																	   '$ScheduleCode',
+																	   '$SectionCode',
+																	   $Year,
+																	   '$Term',
+																	   '$Time',
+																	   '$Days',
+																	   $Capacity,
+																	   $NumberOfStudents);";
+		
+		if ($db->execute($insertSectionIntoDB)) {
+			echo "Successfully populated Section Table<br/>";
+		} else {
+			echo "Error populating Section Table: ".$db->getError()."<br/>";
+			exit;
+		}
 		
 		$CRNCounter = $CRNCounter + 1;	//increment CRN counter
 		
 	}
 
 	fclose($dataFile);
-	*/
+	
+	//Enter Winter Course Data
+	
+	
+	
+	
+	//Enter Prerequisite Data
+	
+	
 		
 ?>

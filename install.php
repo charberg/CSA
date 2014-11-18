@@ -192,7 +192,8 @@ executed first before your application is evaluated.
 	//Add Academic Programs
 	$PopulateAcademicProgram = "INSERT INTO $table_Programs VALUES('CE', 'Communications Engineering'),
 																   ('CSE', 'Computer Systems Engineering'),
-																   ('SE', 'Software Engineering');";
+																   ('SE', 'Software Engineering')
+																   ON DUPLICATE KEY UPDATE;";
 	
 	if ($db->execute($PopulateAcademicProgram)) {
 		echo "Successfully populated Academic Program Table<br/>";
@@ -202,14 +203,21 @@ executed first before your application is evaluated.
 	}
 	
 	//Add Prerequisite Types
-	$PopulatePrereqTypes = "INSERT INTO $table_PrereqTypes VALUES ('Attribute1 AND Attribute2'),
+	$PopulatePrereqTypes = "INSERT INTO $table_PrereqTypes VALUES ('Must have completed Attribute1 AND Attribute2'),
 																  ('Attribute1 amount of credits in Year 1'),
 																  ('Attribute1 amount of credits in Year 2'),
 																  ('Attribute1 amount of credits in Year 3'),
+																  ('Attribute1 amount of credits in Year 4'),
 																  ('Attribute1 amount of credits in current Year'),
-																  ('Attribute1 concurently'),
+																  ('Must be taking Attribute1 concurently'),
+																  ('Must be in first year standing'),
+																  ('Must be in second year standing'),
+																  ('Must be in third year standing'),
+																  ('Must be in fourth year standing'),
+																  ('Must be registered in Attibute1 Program'),
 																  ('Attribute1 points to other attribute set'),
-																  ('Attribute1 OR Attribute2');";
+																  ('Must have completed Attribute1 OR Attribute2')
+																   ON DUPLICATE KEY UPDATE;";
 	
 	if ($db->execute($PopulatePrereqTypes)) {
 		echo "Successfully populated Prerequisite Types Table<br/>";
