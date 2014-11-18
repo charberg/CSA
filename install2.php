@@ -43,17 +43,17 @@ executed first before your application is evaluated.
 								(SubjectID VARCHAR(10) NOT NULL,
 								 CourseNumber VARCHAR(200) NOT NULL,
 								 CourseCRN VARCHAR(10) NOT NULL,
-								 ScheduleID INT NOT NULL,
+								 ScheduleCode VARCHAR(10) NOT NULL,
 								 SectionCode CHAR(1) NOT NULL,
 								 Year INT NOT NULL,
-								 Term CHAR(1) NOT NULL,
+								 Term VARCHAR(10) NOT NULL,
 								 Time VARCHAR(200) NULL,
 								 Days CHAR(5) NULL,
 								 Capacity INT NULL,
 								 NumberOfStudents INT NOT NULL,
 								 PRIMARY KEY(SubjectID, CourseNumber, CourseCRN),
 								 FOREIGN KEY(SubjectID, CourseNumber) REFERENCES $table_Course(SubjectID, CourseNumber));";	
-
+7
 	$CreateCTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_CTCMapping
 								(PrimarySubjectID VARCHAR(10) NOT NULL,
 								 PrimaryCourseNumber VARCHAR(200) NOT NULL,
@@ -179,40 +179,46 @@ executed first before your application is evaluated.
 	
 		//	Get Column values for Course and Section Table insertion
 	
-		$values = explode(";",$line);	//Split line into array based on ';'
+		$values = explode(";",$line[0]);	//Split line into array based on ';'
+	
+		for ($i = 0; $i < 9;$i++) {
+			if (!is_null($values[$i])) {
+				echo $values[$i]."<br/>";
+			}
+		}
 	
 		//Course Table
-		$SubjectID = $values[0];
+		$SubjectID = "$values[0]";
 		$CourseNumber = $values[1];
 		$Title = $values[3];
 		$Credits = 0.5;
 		
 		//Section Table
 		$CRN = $CRNCounter;
-		$ScheduleCode = $values[4];
-		$SectionCode = $values[2];
+		$ScheduleCode = "$values[4]";
+		$SectionCode = "$values[2]";
 		$Year = 2014;
 		$Term = "fall";
 		
-		$StartTime =  NULL;	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
-		$EndTime = NULL;
-		$Time = NULL;
-		$Days = NULL;
-		$Capacity = NULL;
+		$StartTime =  "NULL";	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
+		$EndTime = "NULL";
+		$Time = "NULL";
+		$Days = "NULL";
+		$Capacity = "NULL";
 		
-		if ($values[6] != "") {					//If course has a start time
+		if (!is_null($values[6])) {					//If course has a start time
 			$StartTime = $values[6];
 		}
-		if ($values[7] != "") {					//If course has a end time
+		if (!is_null($values[7])) {				//If course has a end time
 			$EndTime = $values[7];
 		}
-		if (!is_null($StartTime)) {				//If course has valid time (Start time is not null)
+		if (!is_null($values[6])) {					//If course has valid time (Start time is not null)
 			$Time = $StartTime."-".$EndTime;
 		}
-		if ($values[5] != "") {					//If course has a Day value
+		if (!is_null($values[5])) {					//If course has a Day value
 			$Days = $values[5];
 		}
-		if ($values[8] != "") {					//If course has a capacity
+		if (!is_null($values[8])) {					//If course has a capacity
 			$Capacity = $values[8];
 		}
 		$NumberOfStudents = 0;					//Number of students in class always starts at 0
