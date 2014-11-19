@@ -5,8 +5,10 @@ html {
 table{
 	table-layout:fixed;
 	border: 2px solid black;
-	width:85%;
+	width: 90%;
 }
 td{
-	border: 5px solid;
+	border: 1px solid;
+	height:60px;
 }
+
