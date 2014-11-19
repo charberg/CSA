@@ -1,0 +1,14 @@
+html {
+	background-color:#f5f5dc;
+}
+
+table{
+	border: 2px solid black;
+}
+td{
+	border: 5px solid;
+}
+td1{
+	border: 0px;
+	width: 100px;
+}

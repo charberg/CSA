@@ -1,0 +1,225 @@
+<html>
+	<!-- NOTES:
+		- The elective on the bottom row should be between semesters in year 2
+		- Submit convention for electives:
+			"electcomp" for elective complementary studies
+			"electenga" for elective engineering note a
+			"electengb" for elective engineering note b
+			All electives are followed with "_y#_s#" for year number and semester number
+			NOTE that electives that can be taken in either semester are denoted "_y#_x"
+	-->
+	<head>
+	<link type="text/css" rel="stylesheet" href="../css/off_schedule_course_select.css"/>
+	<!-- Link to .css file -->
+	</head>
+	
+	<script>
+	</script>
+	<body>
+		<center>
+		<h3>Please select the courses you have taken:</h3>
+		<form method="post" action="server.php">
+		<table>
+			<tr>
+				<td width="120px" style="border:0px">Year 1 FALL</td>
+				<td width="120px" style="border:0px">Year 1 WINTER</td>
+				<td width="120px" style="border:0px">Year 2 FALL</td>
+				<td width="120px" style="border:0px">Year 2 WINTER</td>
+				<td width="120px" style="border:0px">Year 3 FALL</td>
+				<td width="120px" style="border:0px">Year 3 WINTER</td>
+				<td width="120px" style="border:0px">Year 4 FALL</td>
+				<td width="120px" style="border:0px">Year 4 WINTER</td>
+			</tr>
+			<tr> <!-- 1 -->
+				<td style="border-color:339933" height="100px">
+					Math1104
+					<input type="checkbox" name="math1104"/>
+				</td>
+				<td style="border-color:339933" height="100px">
+					Math1005
+					<input type="checkbox" name="math1005"/>
+				</td>
+				<td style="border-color:339933" height="100px">
+					Math2004
+					<input type="checkbox" name="math2004"/>
+				</td>
+				<td style="border-color:339933" height="100px">
+					Math1805
+					<input type="checkbox" name="math1805"/>
+				</td>
+				<td style="border-color:black" height="100px">
+					ECOR3800
+					<input type="checkbox" name="ecor3800"/>
+				</td>
+				<td style="border-color:339933" height="100px">
+					STAT3502
+					<input type="checkbox" name="stat3502"/>
+				</td>
+				<td style="border-color:FF9900" height="100px">
+					ELEC4705
+					<input type="checkbox" name="elec4705"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC4005
+					<input type="checkbox" name="sysc4005"/>
+				</td>
+			</tr>
+			<tr> <!-- 2 -->
+				<td style="border-color:339933" height="100px">
+					Math1004
+					<input type="checkbox" name="math1004"/>
+				</td>
+				<td style="border-color:FFFF33" height="100px">
+					PHYS1004
+					<input type="checkbox" name="phys1004"/>
+				</td>
+				<td style="border-color:FF9900" height="100px">
+					ELEC2501
+					<input type="checkbox" name="elec2501"/>
+				</td>
+				<td style="border-color:FF9900" height="100px">
+					ELEC2607
+					<input type="checkbox" name="elec2607"/>
+				</td>
+				<td style="border-color:FFFF33" height="100px">
+					COMP3005
+					<input type="checkbox" name="comp3005"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC3303
+					<input type="checkbox" name="sysc3303"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC4101
+					<input type="checkbox" name="sysc4101"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC4507
+					<input type="checkbox" name="sysc4507"/>
+				</td>
+			</tr>
+			<tr> <!-- 3 -->
+				<td style="border-color:FFFF33" height="100px">
+					PHYS1003
+					<input type="checkbox" name="phys1003"/>
+				</td>
+				<td style="border-color:black" height="100px">
+					ECOR1101
+					<input type="checkbox" name="ecor1101"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC2001
+					<input type="checkbox" name="sysc2001"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC2003
+					<input type="checkbox" name="sysc2003"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC4001
+					<input type="checkbox" name="sysc4001"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC3101
+					<input type="checkbox" name="sysc3101"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC4120
+					<input type="checkbox" name="sysc4120"/>
+				</td>
+				<td style="border-color:black" height="100px">
+					ECOR4995
+					<input type="checkbox" name="ecor4995"/>
+				</td>
+			</tr>
+			<tr> <!-- 4 -->
+				<td style="border-color:990099" height="100px">
+					SYSC1005
+					<input type="checkbox" name="sysc1005"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC2006
+					<input type="checkbox" name="sysc2006"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC2004
+					<input type="checkbox" name="sysc2004"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC2100
+					<input type="checkbox" name="sysc2100"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC3110
+					<input type="checkbox" name="sysc3110"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC3120
+					<input type="checkbox" name="sysc3120"/>
+				</td>
+				<td colspan="2" style="border-color:990099" height="100px">
+					SYSC4927
+					<input type="checkbox" name="sysc4927"/>
+				</td>
+			</tr>
+			<tr> <!-- 5 -->
+				<td style="border-color:black" height="100px">
+					ECOR1010
+					<input type="checkbox" name="ecor1010"/>
+				</td>
+				<td style="border-color:FFFF33" height="100px">
+					CHEM1101
+					<input type="checkbox" name="chem1101"/>
+				</td>
+				<td style="border-color:black" height="100px">
+					CCDP2100
+					<input type="checkbox" name="ccdp2100"/>
+				</td>
+				<td style="border-color:#A8A8A8" height="100px">
+					ELECTIVE COMP STUDIES
+					<input type="checkbox" name="electcomp_y2_s2"/>
+				</td>
+				<td style="border-color:#A8A8A8" height="100px">
+					ELECTIVE ENG A
+					<input type="checkbox" name="electenga_y3_s1"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC4106
+					<input type="checkbox" name="sysc4106"/>
+				</td>
+				<td style="border-color:#A8A8A8" height="100px">
+					ELECTIVE ENG A
+					<input type="checkbox" name="electenga_y4_s1"/>
+				</td>
+				<td style="border-color:990099" height="100px">
+					SYSC4806
+					<input type="checkbox" name="sysc4806"/>
+				</td>
+			</tr>
+			<tr> <!-- 6 -->
+				<td style="border:0px" height="100px"></td>
+				<td style="border:0px" height="100px"></td>
+				<td style="border-color:#A8A8A8" height="100px">
+					ELECTIVE COMP STUDIES
+					<input type="checkbox" name="electcomp_y2_x"/>
+				</td>
+				<td style="border:0px" height="100px"></td>
+				<td style="border:0px" height="100px"></td>
+				<td style="border:0px" height="100px"></td>
+				<td style="border-color:#A8A8A8" height="100px">
+					ELECTIVE ENG B
+					<input type="checkbox" name="electengb_y4_s1"/>
+				</td>
+				<td style="border-color:#A8A8A8" height="100px">
+					ELECTIVE ENG A
+					<input type="checkbox" name="electenga_y4_y2"/>
+				</td>
+			</tr>
+		</table>
+	
+		<input type="hidden" value="submitcompleted" name="requesttype"/>
+		<input type="submit" value="SUBMIT"/>
+		</form>
+		</center>
+	</body>
+</html>
