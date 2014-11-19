@@ -16,40 +16,24 @@ executed first before your application is evaluated.
 	$table_Programs = "AcademicPrograms";
 	$table_ProgramToCourseMapping = "AcademicProgramToCourseMapping";
 	$table_CourseToPrereqMapping = "CourseToPrerequisiteMapping";
-	$table_CourseTypes = "CourseType";
 	$table_PrereqTypes = "PrerequisiteTypes";
-	$table_Schedule = "Schedule";
 	$table_Course = "Course";
-	$table_Subjects = "Subjects";
 	
 	//Define queries to create database and its tables
 		
 	$createDB = "CREATE DATABASE IF NOT EXISTS $dbName;";
 	$dropDB = "DROP DATABASE IF EXIST $dbName;";
-	
-	$CreateSubjectsTable = "CREATE TABLE IF NOT EXISTS $table_Subjects
-								(SubjectID VARCHAR(10) NOT NULL PRIMARY KEY,
-								 SubjectCode VARCHAR(200) NOT NULL);";
 								 
 	$CreateCourseTable = "CREATE TABLE IF NOT EXISTS $table_Course
 								(SubjectID VARCHAR(10) NOT NULL,
 								 CourseNumber VARCHAR(200) NOT NULL,
 								 Title VARCHAR(200) NOT NULL,
 								 Credits DECIMAL(1,1) NOT NULL,
-								 PRIMARY KEY(SubjectID, CourseNumber),
-								 FOREIGN KEY(SubjectID) REFERENCES $table_Subjects(SubjectID));";
-								 
-	$CreateScheduleTable = "CREATE TABLE IF NOT EXISTS $table_Schedule
-								(ScheduleID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-								 ScheduleCode VARCHAR(200) NOT NULL);";
+								 PRIMARY KEY(SubjectID, CourseNumber));";
 								 
 	$CreatePrereqTypeTable = "CREATE TABLE IF NOT EXISTS $table_PrereqTypes
 								(PrerequisiteTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 								 PrerequisiteTypeCode VARCHAR(200) NOT NULL);";	
-
-	$CreateCourseTypeTable = "CREATE TABLE IF NOT EXISTS $table_CourseTypes
-								(CourseTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-								 CourseTypeCode VARCHAR(200) NOT NULL);";	
 	
 	$CreateProgramsTable = "CREATE TABLE IF NOT EXISTS $table_Programs
 								(ProgramID VARCHAR(10) NOT NULL PRIMARY KEY,
@@ -59,18 +43,16 @@ executed first before your application is evaluated.
 								(SubjectID VARCHAR(10) NOT NULL,
 								 CourseNumber VARCHAR(200) NOT NULL,
 								 CourseCRN VARCHAR(10) NOT NULL,
-								 ScheduleID INT NOT NULL,
+								 ScheduleCode VARCHAR(10) NOT NULL,
 								 SectionCode CHAR(1) NOT NULL,
 								 Year INT NOT NULL,
-								 Term CHAR(1) NOT NULL,
+								 Term VARCHAR(10) NOT NULL,
 								 Time VARCHAR(200) NULL,
 								 Days CHAR(5) NULL,
 								 Capacity INT NULL,
 								 NumberOfStudents INT NOT NULL,
 								 PRIMARY KEY(SubjectID, CourseNumber, CourseCRN),
-								 FOREIGN KEY(SubjectID) REFERENCES $table_Subjects(SubjectID),
-								 FOREIGN KEY(CourseNumber) REFERENCES $table_Course(CourseNumber),
-								 FOREIGN KEY(ScheduleID) REFERENCES $table_Schedule(ScheduleID));";	
+								 FOREIGN KEY(SubjectID, CourseNumber) REFERENCES $table_Course(SubjectID, CourseNumber));";	
 
 	$CreateCTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_CTCMapping
 								(PrimarySubjectID VARCHAR(10) NOT NULL,
@@ -91,7 +73,6 @@ executed first before your application is evaluated.
 								 CourseCRN VARCHAR(10) NOT NULL,
 								 PRIMARY KEY(ProgramID, CourseTypeID, SubjectID, CourseNumber, CourseCRN),
 								 FOREIGN KEY(ProgramID) REFERENCES $table_Programs(ProgramID),
-								 FOREIGN KEY(CourseTypeID) REFERENCES $table_CourseTypes(CourseTypeID),
 								 FOREIGN KEY(SubjectID, CourseNumber, CourseCRN) REFERENCES $table_Section(SubjectID, CourseNumber, CourseCRN));";
 
 	$CreateCTPMappingTable = "CREATE TABLE IF NOT EXISTS $table_CourseToPrereqMapping
@@ -107,22 +88,20 @@ executed first before your application is evaluated.
 	
 	//Create Database
 	
-	require_once("database.php");
+	require_once("database.php");	//Connect to database file 
 	
-	$db = new DataBase("");
-								 
-	$db->execute($createDB);
+	$db = new DataBase("");	//Connect to server
 	
-	$db = new DataBase("$dbName");
+	 if ($db->execute($createDB)) {	//Create database in non exist
+		echo "Successfully Created Database<br/>";
+	} else {
+		echo "Error Creating Database: ".$db->getError()."<br/>";
+		exit;
+	}
+	
+	$db = new DataBase("$dbName");	//Connect to database created
 	
 	//Create tables
-	
-	/*if ($db->execute($CreateSubjectsTable)) {
-		echo "Successfully Created Subjects Table<br/>";
-	} else {
-		echo "Error Creating Subjects Table: ".$db->getError()."<br/>";
-		exit;
-	}*/
 	
 	if ($db->execute($CreateCourseTable)) {
 		echo "Successfully Created Course Table<br/>";
@@ -131,26 +110,12 @@ executed first before your application is evaluated.
 		exit;
 	}
 	
-	/*if ($db->execute($CreateScheduleTable)) {
-		echo "Successfully Created Schedule Table<br/>";
-	} else {
-		echo "Error Creating Schedule Table: ".$db->getError()."<br/>";
-		exit;
-	}*/
-	
 	if ($db->execute($CreatePrereqTypeTable)) {
 		echo "Successfully Created Prerequisite Type Table<br/>";
 	} else {
 		echo "Error Creating Prerequisite Type Table: ".$db->getError()."<br/>";
 		exit;
 	}
-	
-	/*if ($db->execute($CreateCourseTypeTable)) {
-		echo "Successfully Created Course Type Table<br/>";
-	} else {
-		echo "Error Creating Course Type Table: ".$db->getError()."<br/>";
-		exit;
-	}*/
 	
 	if ($db->execute($CreateProgramsTable)) {
 		echo "Successfully Created Academic Programs Table<br/>";
@@ -190,98 +155,272 @@ executed first before your application is evaluated.
 	/*-- Populate Tables --*/
 	
 	//Add Academic Programs
-	$PopulateAcademicProgram = "INSERT INTO $table_Programs VALUES('CE', 'Communications Engineering'),
-																   ('CSE', 'Computer Systems Engineering'),
-																   ('SE', 'Software Engineering')
-																   ON DUPLICATE KEY UPDATE;";
+	$dataFile = fopen("data/AcademicPrograms.txt","r");	//open data file for reading
 	
-	if ($db->execute($PopulateAcademicProgram)) {
-		echo "Successfully populated Academic Program Table<br/>";
-	} else {
-		echo "Error populating Academic Program Table: ".$db->getError()."<br/>";
-		exit;
+	while (($line = fgets($dataFile)) !== false) {
+		
+		$values = explode(";", $line);
+		
+		$PopulateAcademicProgram = "INSERT IGNORE INTO $table_Programs VALUES('$values[0]', '$values[1]');";
+		if ($db->execute($PopulateAcademicProgram)) {
+			echo "Successfully populated Academic Program Table<br/>";
+		} else {
+			echo "Error populating Academic Program Table: ".$db->getError()."<br/>";
+			exit;
+		}
 	}
 	
-	//Add Prerequisite Types
-	$PopulatePrereqTypes = "INSERT INTO $table_PrereqTypes VALUES ('Must have completed Attribute1 AND Attribute2'),
-																  ('Attribute1 amount of credits in Year 1'),
-																  ('Attribute1 amount of credits in Year 2'),
-																  ('Attribute1 amount of credits in Year 3'),
-																  ('Attribute1 amount of credits in Year 4'),
-																  ('Attribute1 amount of credits in current Year'),
-																  ('Must be taking Attribute1 concurently'),
-																  ('Must be in first year standing'),
-																  ('Must be in second year standing'),
-																  ('Must be in third year standing'),
-																  ('Must be in fourth year standing'),
-																  ('Must be registered in Attibute1 Program'),
-																  ('Attribute1 points to other attribute set'),
-																  ('Must have completed Attribute1 OR Attribute2')
-																   ON DUPLICATE KEY UPDATE;";
+	fclose($dataFile);
 	
-	if ($db->execute($PopulatePrereqTypes)) {
-		echo "Successfully populated Prerequisite Types Table<br/>";
-	} else {
-		echo "Error populating Prerequisite Types Table: ".$db->getError()."<br/>";
-		exit;
-	}
-	
-	/*
+	//Enter Fall Course data
 	$dataFile = fopen("data/data.csv","r");	//open data file for reading
+
+	$line = fgetcsv($dataFile, 1024);	//Get first line (Column Names)
 	
-	//SUBJ;"CRSE";"SEQ";"CATALOG_TITLE";"INSTR_TYPE";"DAYS";"START_TIME";"END_TIME";"ROOM_CAP"
-	
-	var $CRNCounter = 1;	//counter to generate MOCK CRN values for course sections since they are not provided in given data
+	$CRNCounter = 1;	//counter to generate MOCK CRN values for course sections since they are not provided in given data
 	
 	while (!feof($dataFile) ) {		//while not at end of file
 
 		$line = fgetcsv($dataFile, 1024);	//read up to 1 kilobyte in a row
 	
+		//	Get Column values for Course and Section Table insertion
+	
+		$values = explode(";",$line[0]);	//Split line into array based on ';'
+	
+		/*for ($i = 0; $i < 9;$i++) {
+			if (!is_null($values[$i])) {
+				echo "|".$values[$i]."|";
+			}
+		}
+		echo "<br/>";*/
+		
 		//Course Table
-		$SubjectID = $line[0];
-		$CourseNumber = $line[1];
-		$Title = $line[3];
+		$SubjectID = "$values[0]";
+		$CourseNumber = $values[1];
+		$Title = $values[3];
 		$Credits = 0.5;
 		
 		//Section Table
 		$CRN = $CRNCounter;
-		$ScheduleCode = $line[4];
-		$SectionCode = $line[2];
+		$ScheduleCode = "$values[4]";
+		$SectionCode = "$values[2]";
 		$Year = 2014;
 		$Term = "fall";
 		
-		$StartTime =  NULL;	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
-		@EndTime = NULL;
-		$Time = NULL;
-		$Days = NULL;
-		$Capacity = NULL;
+		$StartTime =  "NULL";	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
+		$EndTime = "NULL";
+		$Time = "NULL";
+		$Days = "NULL";
+		$Capacity = "NULL";
 		
-		if ($line[6] != "") {		//If course has a start time
-			$StartTime = $line[6];
+		if ($values[6]!="") {					//If course has a start time
+			$StartTime = $values[6];
 		}
-		if ($line[7] != "") {		//If course has a end time
-			$EndTime = $line[7];
+		if ($values[7]!="") {				//If course has a end time
+			$EndTime = $values[7];
 		}
-		if (!is_null($StartTime)) {				//If course has valid time (Start time is not null)
+		if ($values[6]!="") {					//If course has valid time (Start time is not null)
 			$Time = $StartTime."-".$EndTime;
 		}
-		if ($line[5] != "") {		//If course has a Day value
-			$Days = $line[5];
+		if ($values[5]!="") {					//If course has a Day value
+			$Days = $values[5];
 		}
-		if ($line[8] != "") {		//If course has a capacity
-			$Capacity = $line[8];
+		if ($values[8]!="") {					//If course has a capacity
+			$Capacity = $values[8];
 		}
-		$NumberOfStudents = 0;
+		$NumberOfStudents = 0;					//Number of students in class always starts at 0
 		
 		//Insert into Course Table if not aready there
+		$checkIfCourseInDB = "SELECT * FROM $table_Course WHERE SubjectID = '$SubjectID' AND CourseNumber = '$CourseNumber';";
 		
-		//Insert into Section Table
+		$Result = $db->execute($checkIfCourseInDB);
+		$NumRowsReturned = $Result->num_rows;			//Get number of rows returned from table
+		
+		if ($NumRowsReturned == 1) {	//If query returned one row then Course already in database
+		
+			echo "Course ".$SubjectID.$CourseNumber." is already in DB<br/>";
+			
+		} else if ($NumRowsReturned == 0) {	//If query returned 0 rows, add course to database
+			
+			$insertCourseIntoDB = "INSERT IGNORE INTO $table_Course VALUES ('$SubjectID',
+																	 '$CourseNumber',
+																	 '$Title',
+																	 $Credits);";
+			
+			if ($db->execute($insertCourseIntoDB)) {
+				echo "Successfully populated Course Table<br/>";
+			} else {
+				echo "Error populating Course Table: ".$db->getError()."<br/>";
+				exit;
+			}
+			
+		} else {	//If query didn't return 0 or 1, then error
+		
+			echo "ERROR: Check for course in DB resulted in error. Returned "/$NumRowsReturned." rows<br/>";
+			exit;
+		} 
+		
+		//Insert into Section Table	
+		$insertSectionIntoDB = "INSERT IGNORE INTO $table_Section VALUES ('$SubjectID',
+																	   '$CourseNumber',
+																	   '$CRN',
+																	   '$ScheduleCode',
+																	   '$SectionCode',
+																	   $Year,
+																	   '$Term',
+																	   '$Time',
+																	   '$Days',
+																	   $Capacity,
+																	   $NumberOfStudents);";
+		
+		if ($db->execute($insertSectionIntoDB)) {
+			echo "Successfully populated Section Table<br/>";
+		} else {
+			echo "Error populating Section Table: ".$db->getError()."<br/>";
+			exit;
+		}
 		
 		$CRNCounter = $CRNCounter + 1;	//increment CRN counter
 		
 	}
 
 	fclose($dataFile);
-	*/
+	
+	//Enter Winter Course Data
+	$dataFile = fopen("data/datawinter.csv","r");	//open data file for reading
+
+	$line = fgetcsv($dataFile, 1024);	//Get first line (Column Names)
+
+	while (!feof($dataFile) ) {		//while not at end of file
+
+		$line = fgetcsv($dataFile, 1024);	//read up to 1 kilobyte in a row
+	
+		//	Get Column values for Course and Section Table insertion
+	
+		$values = explode(";",$line[0]);	//Split line into array based on ';'
+	
+		/*for ($i = 0; $i < 9;$i++) {
+			if (!is_null($values[$i])) {
+				echo "|".$values[$i]."|";
+			}
+		}
+		echo "<br/>";*/
+		
+		//Course Table
+		$SubjectID = "$values[0]";
+		$CourseNumber = "$values[1]";
+		$Title = "$values[3]";
+		$Credits = 0.5;
+		
+		//Section Table
+		$CRN = $CRNCounter;
+		$ScheduleCode = "$values[4]";
+		$SectionCode = "$values[2]";
+		$Year = 2015;
+		$Term = "winter";
+		
+		$StartTime =  "NULL";	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
+		$EndTime = "NULL";
+		$Time = "NULL";
+		$Days = "NULL";
+		$Capacity = "NULL";
+		
+		if ($values[6]!="") {					//If course has a start time
+			$StartTime = $values[6];
+		}
+		if ($values[7]!="") {				//If course has a end time
+			$EndTime = $values[7];
+		}
+		if ($values[6]!="") {					//If course has valid time (Start time is not null)
+			$Time = $StartTime."-".$EndTime;
+		}
+		if ($values[5]!="") {					//If course has a Day value
+			$Days = $values[5];
+		}
+		if ($values[8]!="") {					//If course has a capacity
+			$Capacity = $values[8];
+		}
+		$NumberOfStudents = 0;					//Number of students in class always starts at 0
+		
+		//Insert into Course Table if not aready there
+		$checkIfCourseInDB = "SELECT * FROM $table_Course WHERE SubjectID = '$SubjectID' AND CourseNumber = '$CourseNumber';";
+		
+		$Result = $db->execute($checkIfCourseInDB);
+		$NumRowsReturned = $Result->num_rows;			//Get number of rows returned from table
+		
+		if ($NumRowsReturned == 1) {	//If query returned one row then Course already in database
+		
+			echo "Course ".$SubjectID.$CourseNumber." is already in DB<br/>";
+			
+		} else if ($NumRowsReturned == 0) {	//If query returned 0 rows, add course to database
+			
+			$insertCourseIntoDB = "INSERT IGNORE INTO $table_Course VALUES ('$SubjectID',
+																	 '$CourseNumber',
+																	 '$Title',
+																	 $Credits);";
+			
+			if ($db->execute($insertCourseIntoDB)) {
+				echo "Successfully populated Course Table<br/>";
+			} else {
+				echo "Error populating Course Table: ".$db->getError()."<br/>";
+				exit;
+			}
+			
+		} else {	//If query didn't return 0 or 1, then error
+		
+			echo "ERROR: Check for course in DB resulted in error. Returned "/$NumRowsReturned." rows<br/>";
+			exit;
+		} 
+		
+		//Insert into Section Table	
+		$insertSectionIntoDB = "INSERT IGNORE INTO $table_Section VALUES ('$SubjectID',
+																	   '$CourseNumber',
+																	   '$CRN',
+																	   '$ScheduleCode',
+																	   '$SectionCode',
+																	   $Year,
+																	   '$Term',
+																	   '$Time',
+																	   '$Days',
+																	   $Capacity,
+																	   $NumberOfStudents);";
+		
+		if ($db->execute($insertSectionIntoDB)) {
+			echo "Successfully populated Section Table<br/>";
+		} else {
+			echo "Error populating Section Table: ".$db->getError()."<br/>";
+			exit;
+		}
+		
+		$CRNCounter = $CRNCounter + 1;	//increment CRN counter
+		
+	}
+
+	fclose($dataFile);
+	
+	//Enter Prerequisite Data
+	
+	
+	//Map program to courses
+	$dataFile = fopen("data/Program_Mappings/SEMapping.txt","r");	//open data file for reading
+	
+	while (($line = fgets($dataFile)) !== false) {
+		
+		$values = explode(";", $line);
+		
+		$PopulateP2CMapping = "INSERT IGNORE INTO $table_ProgramToCourseMapping VALUES('SE',
+																					   '$values[0]',
+																					   '$values[1]',
+																					   '$values[2]',
+																					   '$values[3]');";
+		if ($db->execute($PopulateP2CMapping)) {
+			echo "Successfully populated Program to Course Table<br/>";
+		} else {
+			echo "Error populating Program to Course Table: ".$db->getError()."<br/>";
+			exit;
+		}
+	}
+	
+	fclose($dataFile);
 		
 ?>
