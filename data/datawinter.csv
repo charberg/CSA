@@ -181,7 +181,7 @@
 "ARTH";3000;"B";"Themes in Canadian Art";"LEC";"M";1805;2055;27
 "ARTH";3002;"B";"Canadian Architecture";"LEC";"W";835;1125;75
 "ARTH";3106;"A";"History of Methods of Art Hist";"SEM";"T";835;1125;32
-"ARTH";3505;"A";"French Impress:Art, Leis & Soc";"LEC";"MW";1135;1255;52
+"ARTH";3505;"A";"French Impress:Art Leis & Soc";"LEC";"MW";1135;1255;52
 "ARTH";3600;"B";"Modern Art from c.1945-c. 1980";"LEC";"T";1435;1725;32
 "ARTH";3809;"B";"Closer Look@Art&Visual Culture";"LEC";"R";1135;1425;40
 "ARTH";3900;"B";"Practicum in Art History";"PRC";;;;
@@ -585,7 +585,7 @@
 "BUSI";3602;"A";"Organizational Systems Design";"LEC";"M";835;1125;84
 "BUSI";3700;"A";"Cross-Cultural Communication";"OTH";;;;
 "BUSI";3700;"B";"Cross-Cultural Communication";"OTH";;;;
-"BUSI";3703;"B";"Int'l & Comparative Management";"LEC";"M";1435;1725;58
+"BUSI";3703;"B";"Intl & Comparative Management";"LEC";"M";1435;1725;58
 "BUSI";3705;"B";"International Buyer Behaviour";"LEC";"R";1135;1425;56
 "BUSI";3706;"A";"Intl. Business Negotiations";"LEC";"M";835;1125;58
 "BUSI";3800;"B";"Business Case Analysis";"WKS";;;;
@@ -626,10 +626,10 @@
 "BUSI";4609;"D";"Strategic Management";"LEC";"R";835;1125;43
 "BUSI";4609;"E";"Strategic Management";"LEC";"W";835;1125;55
 "BUSI";4705;"B";"Ethics&Cross-cultural Interact";"LEC";"T";1805;2055;67
-"BUSI";4706;"A";"Int'l Human Resource Mgmnt";"LEC";"M";1435;1725;58
+"BUSI";4706;"A";"Intl Human Resource Mgmnt";"LEC";"M";1435;1725;58
 "BUSI";4707;"A";"Regionalism & Globalization";"LEC";"R";1435;1725;58
-"BUSI";4709;"B";"Strategic Mgnt Int'l Business";"LEC";"W";935;1025;51
-"BUSI";4709;"B1";"Strategic Mgnt Int'l Business";"TUT";"W";1135;1425;51
+"BUSI";4709;"B";"Strategic Mgnt Intl Business";"LEC";"W";935;1025;51
+"BUSI";4709;"B1";"Strategic Mgnt Intl Business";"TUT";"W";1135;1425;51
 "BUSI";4719;"A";"Practicum in International Bus";"LEC";;;;
 "BUSI";4810;"A";"Practicum in Business Creation";"FIE";;;;
 "BUSI";4900;"B";"Auditing III";"LEC";"W";1805;2055;78
@@ -817,11 +817,11 @@
 "CHST";2504;"A";"Issues in Child Studies II";"LEC";"T";1135;1325;96
 "CHST";2504;"A1";"Issues in Child Studies II";"GRP";"R";1235;1325;48
 "CHST";2504;"A2";"Issues in Child Studies II";"GRP";"M";1335;1425;42
-"CHST";3001;"A";"Vlnrble Chld: Risk,Relinc&Prot";"LEC";"F";1135;1425;36
+"CHST";3001;"A";"Vlnrble Chld: RiskRelinc&Prot";"LEC";"F";1135;1425;36
 "CHST";3002;"A";"Spec Topics in Child Studies";"LEC";"T";835;1125;39
 "CHST";3004;"A";"Practicum Community Settings";"PRC";;;;
-"CHST";3303;"A";"Childrens' Rights";"LEC";"W";1435;1725;78
-"CHST";4000;"A";"Children, Policy & Practice";"SEM";"R";1435;1725;23
+"CHST";3303;"A";"Childrens Rights";"LEC";"W";1435;1725;78
+"CHST";4000;"A";"Children Policy & Practice";"SEM";"R";1435;1725;23
 "CHST";4001;"A";"Advncd Topics in Child Studies";"LEC";"M";835;1125;48
 "CHST";4002;"A";"Pract in Community Settings";"FIE";;;;
 "CHST";4908;"A";"Honours Project";"HON";"T";1135;1425;23
@@ -982,15 +982,15 @@
 "COMM";4306;"B";"Media and Conflict";"LEC";"R";1805;2055;23
 "COMM";4307;"A";"Poli. Comm. & Publicity State";"LEC";"M";1135;1425;31
 "COMM";4310;"B";"Communication & Community";"LEC";"W";1805;2055;31
-"COMM";4319;"A";"Selct Tpcs:Imge,Pltcs&Persuasn";"LEC";"M";1805;2055;31
-"COMM";4329;"A";"Selct Tpcs:Imge,Pltcs&Persuasn";"LEC";"R";1805;2055;25
-"COMM";4339;"A";"Selct Tpcs:Imge,Pltcs&Persuasn";"LEC";"W";1805;2055;27
+"COMM";4319;"A";"Selct Tpcs:ImgePltcs&Persuasn";"LEC";"M";1805;2055;31
+"COMM";4329;"A";"Selct Tpcs:ImgePltcs&Persuasn";"LEC";"R";1805;2055;25
+"COMM";4339;"A";"Selct Tpcs:ImgePltcs&Persuasn";"LEC";"W";1805;2055;27
 "COMM";4401;"B";"Intl Communication Regulations";"LEC";"M";835;1125;40
 "COMM";4402;"B";"Media and Entertainment";"LEC";"F";835;1125;40
 "COMM";4404;"B";"Broadcast and Digital Media";"LEC";"R";1805;2055;42
-"COMM";4419;"A";"Selct Tpcs Media,Indust&Instit";"LEC";"M";1805;2055;25
-"COMM";4429;"B";"Selct Tpcs Media,Indust&Instit";"LEC";"W";1805;2055;27
-"COMM";4602;"B";"Children, Youth and Media";"LEC";"R";1435;1725;40
+"COMM";4419;"A";"Selct Tpcs MediaIndust&Instit";"LEC";"M";1805;2055;25
+"COMM";4429;"B";"Selct Tpcs MediaIndust&Instit";"LEC";"W";1805;2055;27
+"COMM";4602;"B";"Children Youth and Media";"LEC";"R";1435;1725;40
 "COMM";4603;"A";"Diaspora and Communication";"LEC";;;;
 "COMM";4619;"A";"Selct Tpcs: Comm & Identity";"LEC";"W";835;1125;32
 "COMM";4629;"B";"Selct Tpcs: Comm & Identity";"LEC";"M";1135;1425;32
@@ -1205,8 +1205,8 @@
 "ECON";3202;"A";"Cdn Economic History to 1914";"LEC";"R";1435;1725;66
 "ECON";3403;"A";"Intro Public Econ:Expenditures";"LEC";"T";1135;1425;61
 "ECON";3509;"A";"Dev Planning & Project Eval";"LEC";"M";1805;2055;71
-"ECON";3601;"B";"Introduction to Int'l Trade";"LEC";"M";1435;1725;94
-"ECON";3602;"A";"Int'l Monetary Problems";"LEC";"T";1435;1725;98
+"ECON";3601;"B";"Introduction to Intl Trade";"LEC";"M";1435;1725;94
+"ECON";3602;"A";"Intl Monetary Problems";"LEC";"T";1435;1725;98
 "ECON";3706;"A";"Applied Econometrics";"LEC";"MW";1135;1255;71
 "ECON";3706;"A01";"Applied Econometrics";"GRP";"W";1305;1425;71
 "ECON";3803;"A";"The Econ of Natural Resources";"LEC";"R";1135;1425;66
@@ -1224,7 +1224,7 @@
 "ECON";4052;"A";"Corporate Financial Economics";"LEC";"W";1805;2055;58
 "ECON";4057;"A";"Behavioural Financial Economi";"LEC";"R";1135;1425;58
 "ECON";4507;"A";"The Economics of Development";"LEC";"M";1135;1425;58
-"ECON";4601;"A";"Int'l Trade Theory & Policy";"LEC";"T";1135;1425;59
+"ECON";4601;"A";"Intl Trade Theory & Policy";"LEC";"T";1135;1425;59
 "ECON";4700;"A";"Measurement Economics";"LEC";;;;
 "ECON";4707;"A";"Econometrics II";"LEC";"R";1435;1725;58
 "ECON";4890;"A";"Applied Honours Seminar";"LEC";"W";1435;1725;39
@@ -1393,29 +1393,29 @@
 "ELEC";4707;"A2E";"Analog Integrated Electronics";"LAB";"R";1435;1725;19
 "ELEC";4907;"A";"Engineering Project";"LEC";;;;
 "ELEC";4908;"A";"Engineering Project";"LEC";;;;
-"ENGL";1000;"A";"Literature, Genre, Context";"LEC";"M";835;1025;78
-"ENGL";1000;"A1";"Literature, Genre, Context";"GRP";"M";1535;1625;39
-"ENGL";1000;"A2";"Literature, Genre, Context";"GRP";"M";1635;1725;39
-"ENGL";1000;"B";"Literature, Genre, Context";"LEC";"TR";1135;1255;66
-"ENGL";1000;"C";"Literature, Genre, Context";"LEC";"TR";1305;1425;79
-"ENGL";1000;"D";"Literature, Genre, Context";"LEC";"WF";1605;1725;78
-"ENGL";1000;"E";"Literature, Genre, Context";"LEC";"WF";1435;1555;58
-"ENGL";1000;"F";"Literature, Genre, Context";"LEC";"T";1805;2055;98
-"ENGL";1000;"G";"Literature, Genre, Context";"LEC";"WF";1135;1255;58
-"ENGL";1000;"H";"Literature, Genre, Context";"LEC";"WF";1005;1125;66
-"ENGL";1000;"I";"Literature, Genre, Context";"LEC";"TR";1435;1555;63
-"ENGL";1000;"J";"Literature, Genre, Context";"LEC";;;;
-"ENGL";1000;"K";"Literature, Genre, Context";"LEC";;;;
-"ENGL";1000;"L";"Literature, Genre, Context";"LEC";"TR";835;955;78
+"ENGL";1000;"A";"Literature Genre Context";"LEC";"M";835;1025;78
+"ENGL";1000;"A1";"Literature Genre Context";"GRP";"M";1535;1625;39
+"ENGL";1000;"A2";"Literature Genre Context";"GRP";"M";1635;1725;39
+"ENGL";1000;"B";"Literature Genre Context";"LEC";"TR";1135;1255;66
+"ENGL";1000;"C";"Literature Genre Context";"LEC";"TR";1305;1425;79
+"ENGL";1000;"D";"Literature Genre Context";"LEC";"WF";1605;1725;78
+"ENGL";1000;"E";"Literature Genre Context";"LEC";"WF";1435;1555;58
+"ENGL";1000;"F";"Literature Genre Context";"LEC";"T";1805;2055;98
+"ENGL";1000;"G";"Literature Genre Context";"LEC";"WF";1135;1255;58
+"ENGL";1000;"H";"Literature Genre Context";"LEC";"WF";1005;1125;66
+"ENGL";1000;"I";"Literature Genre Context";"LEC";"TR";1435;1555;63
+"ENGL";1000;"J";"Literature Genre Context";"LEC";;;;
+"ENGL";1000;"K";"Literature Genre Context";"LEC";;;;
+"ENGL";1000;"L";"Literature Genre Context";"LEC";"TR";835;955;78
 "ENGL";1010;"A";"Essay Writing";"LEC";;;;
 "ENGL";2005;"B";"Theory and Criticism";"LEC";"M";1435;1725;78
 "ENGL";2007;"A";"Classical Mythology";"LEC";"WF";1435;1555;236
-"ENGL";2011;"B";"Children's Literature";"LEC";"TR";1605;1725;96
+"ENGL";2011;"B";"Childrens Literature";"LEC";"TR";1605;1725;96
 "ENGL";2100;"B";"Topics in Popular Culture";"LEC";"WF";1605;1725;120
 "ENGL";2102;"A";"Comedy and Satire";"LEC";"MW";1135;1255;66
 "ENGL";2103;"B";"Introduction to the Novel";"LEC";"MW";1005;1125;58
 "ENGL";2107;"B";"Science Fiction";"LEC";"TR";1305;1425;66
-"ENGL";2109;"A";"Gender, Sexuality & Literature";"LEC";"MW";1435;1555;71
+"ENGL";2109;"A";"Gender Sexuality & Literature";"LEC";"MW";1435;1555;71
 "ENGL";2300;"A";"British Literatures I";"LEC";"TR";1005;1125;79
 "ENGL";2300;"B";"British Literatures I";"LEC";"R";1805;2055;67
 "ENGL";2300;"C";"British Literatures I";"LEC";"MW";1135;1255;67
@@ -1474,16 +1474,16 @@
 "ENST";1001;"A02";"Intro. Environmental Studies";"TUT";"W";835;1025;29
 "ENST";1001;"A03";"Intro. Environmental Studies";"TUT";"W";1535;1725;21
 "ENST";1001;"A04";"Intro. Environmental Studies";"TUT";"W";1435;1625;30
-"ENST";1020;"B";"People, Places & Environments";"LEC";"M";1805;1955;236
-"ENST";1020;"B01";"People, Places & Environments";"TUT";"T";1905;1955;33
-"ENST";1020;"B02";"People, Places & Environments";"TUT";"T";1805;1855;33
-"ENST";1020;"B03";"People, Places & Environments";"TUT";"T";1135;1225;33
-"ENST";1020;"B04";"People, Places & Environments";"TUT";"T";1635;1725;33
-"ENST";1020;"B05";"People, Places & Environments";"TUT";"T";1235;1325;33
-"ENST";1020;"B06";"People, Places & Environments";"TUT";"T";1035;1125;33
-"ENST";1020;"B07";"People, Places & Environments";"TUT";"T";1335;1425;33
-"ENST";1020;"B08";"People, Places & Environments";"TUT";"T";935;1025;33
-"ENST";1020;"B09";"People, Places & Environments";"TUT";"T";835;925;33
+"ENST";1020;"B";"People Places & Environments";"LEC";"M";1805;1955;236
+"ENST";1020;"B01";"People Places & Environments";"TUT";"T";1905;1955;33
+"ENST";1020;"B02";"People Places & Environments";"TUT";"T";1805;1855;33
+"ENST";1020;"B03";"People Places & Environments";"TUT";"T";1135;1225;33
+"ENST";1020;"B04";"People Places & Environments";"TUT";"T";1635;1725;33
+"ENST";1020;"B05";"People Places & Environments";"TUT";"T";1235;1325;33
+"ENST";1020;"B06";"People Places & Environments";"TUT";"T";1035;1125;33
+"ENST";1020;"B07";"People Places & Environments";"TUT";"T";1335;1425;33
+"ENST";1020;"B08";"People Places & Environments";"TUT";"T";935;1025;33
+"ENST";1020;"B09";"People Places & Environments";"TUT";"T";835;925;33
 "ENST";2001;"A";"Sustainable Futures";"LEC";"T";1435;1725;96
 "ENST";2006;"A";"Intro Quantitative Research";"LEC";"F";1135;1325;134
 "ENST";2006;"A01";"Intro Quantitative Research";"LAB";"F";1435;1625;32
@@ -1537,9 +1537,9 @@
 "ERTH";1009;"VOD";"The Earth System Through Time";"VOD";;;;
 "ERTH";1011;"V";"Evolution of the Earth";"LEC";;;;
 "ERTH";1011;"VOD";"Evolution of the Earth";"VOD";;;;
-"ERTH";2104;"A";"Igneous Syst,Geochemistry&Proc";"LEC";"MW";1135;1225;48
-"ERTH";2104;"A01";"Igneous Syst,Geochemistry&Proc";"LAB";"W";835;1125;24
-"ERTH";2104;"A02";"Igneous Syst,Geochemistry&Proc";"LAB";"T";1135;1425;24
+"ERTH";2104;"A";"Igneous SystGeochemistry&Proc";"LEC";"MW";1135;1225;48
+"ERTH";2104;"A01";"Igneous SystGeochemistry&Proc";"LAB";"W";835;1125;24
+"ERTH";2104;"A02";"Igneous SystGeochemistry&Proc";"LAB";"T";1135;1425;24
 "ERTH";2312;"A";"Paleontology";"LEC";"MW";1335;1425;63
 "ERTH";2312;"A01";"Paleontology";"LAB";"M";1435;1725;24
 "ERTH";2312;"A02";"Paleontology";"LAB";"F";835;1125;24
@@ -1644,7 +1644,7 @@
 "EURR";4003;"A";"Soc./Pol. Perspectives in Euro";"SEM";"F";835;1125;15
 "EURR";4201;"A";"Spec Top in European Studies";"SEM";"M";835;1125;15
 "EURR";4202;"A";"Spec Top in Russian & Eurasian";"SEM";"W";1135;1425;31
-"EURR";4204;"A";"Central Europe, Past & Present";"SEM";"T";1805;2055;58
+"EURR";4204;"A";"Central Europe Past & Present";"SEM";"T";1805;2055;58
 "EURR";4206;"A";"Internship & Appl Policy Skill";"SEM";"R";1805;2055;15
 "EURR";4900;"A";"Tutorial-Eur/Russ Studies";"TUT";;;;
 "EURR";4901;"A";"Tutorial-Eur/Russ Studies";"TUT";;;;
@@ -1767,11 +1767,11 @@
 "FREN";2110;"A";"Written French 2";"LEC";"MW";835;955;42
 "FREN";2201;"A";"Intro aux etudes litteraires";"LEC";"T";1805;2055;47
 "FREN";2201;"B";"Intro aux etudes litteraires";"LEC";"WF";1435;1555;48
-"FREN";2401;"A";"Fonctionnement d'une langue";"LEC";"TR";1305;1425;58
-"FREN";2401;"B";"Fonctionnement d'une langue";"LEC";"MW";1305;1425;58
+"FREN";2401;"A";"Fonctionnement dune langue";"LEC";"TR";1305;1425;58
+"FREN";2401;"B";"Fonctionnement dune langue";"LEC";"MW";1305;1425;58
 "FREN";3212;"A";"Manuscrits aux belles-lettres";"LEC";"WF";1005;1125;39
 "FREN";3214;"A";"Du 19e siecle aux annees 1950";"SEM";"R";1805;2055;40
-"FREN";3251;"A";"methodes d'analyse litteraire";"SEM";"TR";1605;1725;57
+"FREN";3251;"A";"methodes danalyse litteraire";"SEM";"TR";1605;1725;57
 "FREN";3412;"A";"Morphologie et semantique";"SEM";"TR";1005;1125;36
 "FREN";3414;"A";"Sociolinguistique du francais";"LEC";"W";1435;1725;20
 "FREN";3451;"A";"Analyse linguistique francais";"LEC";"M";1805;2055;35
@@ -1784,11 +1784,11 @@
 "FREN";4801;"B";"Tutorial A";"TUT";;;;
 "FREN";4801;"C";"Tutorial A";"TUT";;;;
 "FREN";4802;"B";"Tutorial B";"TUT";;;;
-"FYSM";1004;"A";"Literature, Genre, Context";"SEM";"TR";1435;1555;40
-"FYSM";1004;"B";"Literature, Genre, Context";"SEM";"TR";1005;1125;27
-"FYSM";1004;"C";"Literature, Genre, Context";"SEM";"TR";835;955;27
-"FYSM";1004;"D";"Literature, Genre, Context";"SEM";"MW";1435;1555;27
-"FYSM";1004;"E";"Literature, Genre, Context";"SEM";"MW";1005;1125;47
+"FYSM";1004;"A";"Literature Genre Context";"SEM";"TR";1435;1555;40
+"FYSM";1004;"B";"Literature Genre Context";"SEM";"TR";1005;1125;27
+"FYSM";1004;"C";"Literature Genre Context";"SEM";"TR";835;955;27
+"FYSM";1004;"D";"Literature Genre Context";"SEM";"MW";1435;1555;27
+"FYSM";1004;"E";"Literature Genre Context";"SEM";"MW";1005;1125;47
 "FYSM";1100;"A";"Sustainable Environments";"SEM";"R";835;1125;32
 "FYSM";1100;"B";"Sustainable Environments";"SEM";"W";1135;1425;30
 "FYSM";1101;"A";"Location is Everything";"SEM";"WF";1005;1125;36
@@ -1796,7 +1796,7 @@
 "FYSM";1106;"A";"Issues in Classics";"SEM";"TR";835;955;31
 "FYSM";1106;"B";"Issues in Classics";"SEM";"T";1805;2055;40
 "FYSM";1208;"A";"Looking at Philosophy";"SEM";"TR";1605;1725;58
-"FYSM";1209;"A";"Cont Moral, Soc & Rel Issues";"SEM";"TR";1305;1425;40
+"FYSM";1209;"A";"Cont Moral Soc & Rel Issues";"SEM";"TR";1305;1425;40
 "FYSM";1217;"B";"Selected Topics in Comm Studie";"SEM";"F";1135;1425;31
 "FYSM";1306;"A";"Diversity in Psych World Views";"SEM";"TR";1305;1425;42
 "FYSM";1306;"B";"Diversity in Psych World Views";"SEM";"TR";1605;1725;35
@@ -1817,9 +1817,9 @@
 "FYSM";1502;"B";"Topics in Legal Studies";"SEM";"TR";1005;1125;30
 "FYSM";1502;"D";"Topics in Legal Studies";"SEM";"TR";1435;1555;40
 "FYSM";1506;"B";"Top. in the Study of Societies";"SEM";"R";1135;1425;47
-"FYSM";1508;"A";"Stress, Coping & Well-Being";"SEM";"MW";835;955;36
-"FYSM";1508;"B";"Stress, Coping & Well-Being";"SEM";"WF";1005;1125;29
-"FYSM";1509;"A";"Spec Studies in Art Hist, Film";"SEM";"W";1435;1725;32
+"FYSM";1508;"A";"Stress Coping & Well-Being";"SEM";"MW";835;955;36
+"FYSM";1508;"B";"Stress Coping & Well-Being";"SEM";"WF";1005;1125;29
+"FYSM";1509;"A";"Spec Studies in Art Hist Film";"SEM";"W";1435;1725;32
 "FYSM";1600;"A";"Contemp Controver in Cdn Soc";"SEM";;;;
 "FYSM";1601;"A";"Lit & Pol Change in Europe";"SEM";;;;
 "FYSM";1607;"A";"Thinking and Knowing";"SEM";"WF";835;955;35
@@ -1850,17 +1850,17 @@
 "GEOG";1010;"B08";"Global Environmental Systems";"LAB";"R";835;1025;25
 "GEOG";1010;"B09";"Global Environmental Systems";"LAB";"W";1135;1325;25
 "GEOG";1010;"PA1";"Global Environmental Systems";"PAS";;;;
-"GEOG";1020;"B";"People, Places & Environments";"LEC";"M";1805;1955;236
-"GEOG";1020;"B01";"People, Places & Environments";"TUT";"T";1905;1955;33
-"GEOG";1020;"B02";"People, Places & Environments";"TUT";"T";1805;1855;33
-"GEOG";1020;"B03";"People, Places & Environments";"TUT";"T";1135;1225;33
-"GEOG";1020;"B04";"People, Places & Environments";"TUT";"T";1635;1725;33
-"GEOG";1020;"B05";"People, Places & Environments";"TUT";"T";1235;1325;33
-"GEOG";1020;"B06";"People, Places & Environments";"TUT";"T";1035;1125;33
-"GEOG";1020;"B07";"People, Places & Environments";"TUT";"T";1335;1425;33
-"GEOG";1020;"B08";"People, Places & Environments";"TUT";"T";935;1025;33
-"GEOG";1020;"B09";"People, Places & Environments";"TUT";"T";835;925;33
-"GEOG";1020;"PA2";"People, Places & Environments";"PAS";;;;
+"GEOG";1020;"B";"People Places & Environments";"LEC";"M";1805;1955;236
+"GEOG";1020;"B01";"People Places & Environments";"TUT";"T";1905;1955;33
+"GEOG";1020;"B02";"People Places & Environments";"TUT";"T";1805;1855;33
+"GEOG";1020;"B03";"People Places & Environments";"TUT";"T";1135;1225;33
+"GEOG";1020;"B04";"People Places & Environments";"TUT";"T";1635;1725;33
+"GEOG";1020;"B05";"People Places & Environments";"TUT";"T";1235;1325;33
+"GEOG";1020;"B06";"People Places & Environments";"TUT";"T";1035;1125;33
+"GEOG";1020;"B07";"People Places & Environments";"TUT";"T";1335;1425;33
+"GEOG";1020;"B08";"People Places & Environments";"TUT";"T";935;1025;33
+"GEOG";1020;"B09";"People Places & Environments";"TUT";"T";835;925;33
+"GEOG";1020;"PA2";"People Places & Environments";"PAS";;;;
 "GEOG";2006;"A";"Intro. Quantitative Research";"LEC";"F";1135;1325;134
 "GEOG";2006;"A01";"Intro. Quantitative Research";"LAB";"F";1435;1625;32
 "GEOG";2006;"A02";"Intro. Quantitative Research";"LAB";"T";1135;1325;32
@@ -1875,11 +1875,11 @@
 "GEOG";2013;"A04";"Weather and Water";"LAB";"F";835;1125;30
 "GEOG";2013;"A06";"Weather and Water";"LAB";"F";1435;1725;30
 "GEOG";2013;"PA1";"Weather and Water";"PAS";;;;
-"GEOG";2300;"A";"Space, Place and Culture";"LEC";"R";1235;1425;236
-"GEOG";2300;"A01";"Space, Place and Culture";"GRP";"F";835;925;33
-"GEOG";2300;"A02";"Space, Place and Culture";"GRP";"F";1135;1225;33
-"GEOG";2300;"A03";"Space, Place and Culture";"GRP";"R";1635;1725;33
-"GEOG";2300;"A04";"Space, Place and Culture";"GRP";"R";1535;1625;33
+"GEOG";2300;"A";"Space Place and Culture";"LEC";"R";1235;1425;236
+"GEOG";2300;"A01";"Space Place and Culture";"GRP";"F";835;925;33
+"GEOG";2300;"A02";"Space Place and Culture";"GRP";"F";1135;1225;33
+"GEOG";2300;"A03";"Space Place and Culture";"GRP";"R";1635;1725;33
+"GEOG";2300;"A04";"Space Place and Culture";"GRP";"R";1535;1625;33
 "GEOG";2500;"A";"Climate Change:SS Perspectives";"LEC";"MW";1135;1255;79
 "GEOG";2600;"A";"Geography behind the Headlines";"LEC";"WF";1605;1725;148
 "GEOG";3003;"A";"Quantitative Geography";"LEC";"W";935;1125;22
@@ -1898,7 +1898,7 @@
 "GEOG";3108;"A02";"Soil Properties";"LAB";"M";1435;1725;25
 "GEOG";3108;"A03";"Soil Properties";"LAB";"T";1135;1425;25
 "GEOG";3108;"A04";"Soil Properties";"LAB";"T";835;1125;25
-"GEOG";3206;"A";"Health, Environment, Society";"LEC";"T";1805;2055;71
+"GEOG";3206;"A";"Health Environment Society";"LEC";"T";1805;2055;71
 "GEOG";3404;"A";"Geographies of Econ Dvlp";"LEC";;;;
 "GEOG";3501;"A";"Geographies Canadian North";"LEC";;;;
 "GEOG";4000;"B";"Field Studies";"IND";;;;
@@ -1915,10 +1915,10 @@
 "GEOG";4909;"A";"Honours Research Essay";"IND";;;;
 "GEOG";4909;"B";"Honours Research Essay";"IND";;;;
 "GEOG";4909;"C";"Honours Research Essay";"IND";;;;
-"GEOM";1004;"B";"Maps, Satllits& Geospatial Rev";"LEC";"M";1135;1325;96
-"GEOM";1004;"B1";"Maps, Satllits& Geospatial Rev";"LAB";"T";1535;1725;32
-"GEOM";1004;"B2";"Maps, Satllits& Geospatial Rev";"LAB";"W";1435;1625;32
-"GEOM";1004;"B3";"Maps, Satllits& Geospatial Rev";"LAB";"T";1335;1525;32
+"GEOM";1004;"B";"Maps Satllits& Geospatial Rev";"LEC";"M";1135;1325;96
+"GEOM";1004;"B1";"Maps Satllits& Geospatial Rev";"LAB";"T";1535;1725;32
+"GEOM";1004;"B2";"Maps Satllits& Geospatial Rev";"LAB";"W";1435;1625;32
+"GEOM";1004;"B3";"Maps Satllits& Geospatial Rev";"LAB";"T";1335;1525;32
 "GEOM";2007;"B";"Geographic Information Systems";"LEC";"T";835;1125;32
 "GEOM";2007;"C";"Geographic Information Systems";"LEC";"T";1435;1625;66
 "GEOM";2007;"C1";"Geographic Information Systems";"LAB";"R";935;1125;32
@@ -2031,7 +2031,7 @@
 "HIST";2402;"A02";"Hist of United States fm 1865";"GRP";"W";935;1025;40
 "HIST";2402;"A03";"Hist of United States fm 1865";"GRP";"R";835;925;32
 "HIST";2402;"A04";"Hist of United States fm 1865";"GRP";"W";835;925;58
-"HIST";2506;"A";"Intro to Women's&Gender Histor";"LEC";"TR";835;955;69
+"HIST";2506;"A";"Intro to Womens&Gender Histor";"LEC";"TR";835;955;69
 "HIST";2510;"A";"19th Century Germany";"LEC";"T";1435;1625;115
 "HIST";2510;"A01";"19th Century Germany";"GRP";"W";1135;1225;28
 "HIST";2510;"A02";"19th Century Germany";"GRP";"W";1235;1325;28
@@ -2044,17 +2044,17 @@
 "HIST";2710;"A02";"Intro to Caribbean History";"GRP";"F";1135;1225;57
 "HIST";2710;"A03";"Intro to Caribbean History";"GRP";"F";1335;1425;57
 "HIST";2710;"A04";"Intro to Caribbean History";"GRP";"F";1135;1225;28
-"HIST";2803;"A";"War&Soc Mdrn Eurp, 1914-1950";"LEC";"TR";1635;1725;115
-"HIST";2803;"A01";"War&Soc Mdrn Eurp, 1914-1950";"GRP";"F";1135;1225;35
-"HIST";2803;"A02";"War&Soc Mdrn Eurp, 1914-1950";"GRP";"F";935;1025;36
-"HIST";2803;"A03";"War&Soc Mdrn Eurp, 1914-1950";"GRP";"F";835;925;30
-"HIST";2803;"A04";"War&Soc Mdrn Eurp, 1914-1950";"GRP";"F";835;925;27
+"HIST";2803;"A";"War&Soc Mdrn Eurp 1914-1950";"LEC";"TR";1635;1725;115
+"HIST";2803;"A01";"War&Soc Mdrn Eurp 1914-1950";"GRP";"F";1135;1225;35
+"HIST";2803;"A02";"War&Soc Mdrn Eurp 1914-1950";"GRP";"F";935;1025;36
+"HIST";2803;"A03";"War&Soc Mdrn Eurp 1914-1950";"GRP";"F";835;925;30
+"HIST";2803;"A04";"War&Soc Mdrn Eurp 1914-1950";"GRP";"F";835;925;27
 "HIST";2806;"A";"History of Japan";"LEC";"T";1805;2055;115
-"HIST";2809;"B";"The Historian's Craft";"LEC";"F";1535;1725;154
-"HIST";2809;"B01";"The Historian's Craft";"GRP";"M";935;1025;29
-"HIST";2809;"B02";"The Historian's Craft";"GRP";"T";1135;1225;28
-"HIST";2809;"B03";"The Historian's Craft";"GRP";"M";935;1025;31
-"HIST";2809;"B04";"The Historian's Craft";"GRP";"T";1135;1225;27
+"HIST";2809;"B";"The Historians Craft";"LEC";"F";1535;1725;154
+"HIST";2809;"B01";"The Historians Craft";"GRP";"M";935;1025;29
+"HIST";2809;"B02";"The Historians Craft";"GRP";"T";1135;1225;28
+"HIST";2809;"B03";"The Historians Craft";"GRP";"M";935;1025;31
+"HIST";2809;"B04";"The Historians Craft";"GRP";"T";1135;1225;27
 "HIST";2903;"A";"History of Ancient Greece II";"LEC";"MW";835;955;98
 "HIST";2905;"A";"History of Ancient Rome II";"LEC";"M";1435;1725;133
 "HIST";2910;"D";"Special Subject in History";"LEC";"F";835;1025;102
@@ -2103,8 +2103,8 @@
 "HIST";4304;"A";"Canada: Politics & Society";"SEM";"R";1805;2055;28
 "HIST";4400;"A";"Seminar in U.S. History";"SEM";"W";1135;1425;16
 "HIST";4500;"A";"Seminar in British History";"SEM";"W";1435;1725;27
-"HIST";4505;"A";"Sem: Women's and Gender Hist";"SEM";"W";835;1125;28
-"HIST";4604;"A";"Central Europe, Past & Present";"SEM";"T";1805;2055;58
+"HIST";4505;"A";"Sem: Womens and Gender Hist";"SEM";"W";835;1125;28
+"HIST";4604;"A";"Central Europe Past & Present";"SEM";"T";1805;2055;58
 "HIST";4700;"A";"Seminar in World History";"SEM";;;;
 "HIST";4802;"A";"Sem. in International History";"SEM";"F";835;1125;28
 "HIST";4805;"A";"Seminar on Transnational Topic";"SEM";"F";1135;1425;40
@@ -2167,12 +2167,12 @@
 "HUMR";2502;"A1";"Social & Political Movements";"GRP";"M";1335;1425;29
 "HUMR";2502;"A2";"Social & Political Movements";"GRP";"M";1135;1225;40
 "HUMR";3002;"A";"Right to the City";"LEC";"F";1435;1725;29
-"HUMR";3302;"A";"Culture, Reli & Women's HR";"LEC";"R";1805;2055;35
+"HUMR";3302;"A";"Culture Reli & Womens HR";"LEC";"R";1805;2055;35
 "HUMR";3303;"A";"Child Rights";"LEC";"W";1435;1725;78
 "HUMR";3401;"A";"Hist of Persecution & Genocide";"LEC";"F";1135;1425;23
 "HUMR";3503;"A";"Global Environmental Justice";"LEC";"M";1435;1725;27
 "HUMR";4302;"A";"Transgender Human Rights";"SEM";"T";835;1125;25
-"HUMR";4401;"A";"Gender, Citizenship and Social";"SEM";"W";1435;1725;36
+"HUMR";4401;"A";"Gender Citizenship and Social";"SEM";"W";1435;1725;36
 "HUMR";4905;"A";"Practic Placement Human Rights";"OTH";;;;
 "HUMR";4907;"A";"Special Topic in Human Rights";"SEM";"F";1135;1425;27
 "HUMR";4908;"B";"Independent Study";"IND";;;;
@@ -2194,9 +2194,9 @@
 "HUMS";3000;"A3";"Culture and Imagination";"TUT";"T";1005;1125;19
 "HUMS";3103;"A";"Western Music 1850-2000";"LEC";"T";1805;2055;93
 "HUMS";3200;"A";"European Literature";"LEC";"TR";1605;1725;93
-"HUMS";4000;"A";"Pol, Modernity & Common Good";"LEC";"TR";1005;1125;93
-"HUMS";4000;"A1";"Pol, Modernity & Common Good";"TUT";"M";1435;1555;19
-"HUMS";4000;"A2";"Pol, Modernity & Common Good";"TUT";"W";1005;1125;19
+"HUMS";4000;"A";"Pol Modernity & Common Good";"LEC";"TR";1005;1125;93
+"HUMS";4000;"A1";"Pol Modernity & Common Good";"TUT";"M";1435;1555;19
+"HUMS";4000;"A2";"Pol Modernity & Common Good";"TUT";"W";1005;1125;19
 "HUMS";4002;"A";"Directed Studies in Humanities";"IND";;;;
 "HUMS";4104;"A";"Modern Intellectual History";"LEC";"R";1135;1425;93
 "HUMS";4901;"B";"Res Sem: Antiquity to Mid Ages";"SEM";"M";835;1125;21
@@ -2257,7 +2257,7 @@
 "INDG";2011;"A";"Framing Contempor Indig Issues";"LEC";"T";1135;1425;57
 "INDG";2011;"A1";"Framing Contempor Indig Issues";"GRP";;;;
 "INDG";2011;"A2";"Framing Contempor Indig Issues";"GRP";;;;
-"INDG";3010;"A";"Indigen Resurg,Rights & Resist";"SEM";"T";835;1125;51
+"INDG";3010;"A";"Indigen ResurgRights & Resist";"SEM";"T";835;1125;51
 "INSC";3907;"A";"Topics in Integrated Science";"WKS";"M";935;1125;35
 "INSC";3909;"A";"Independent Study";"IND";;;;
 "INSC";4907;"A";"Honours Essay & Resea Proposal";"HON";;;;
@@ -2409,15 +2409,15 @@
 "LAWS";2302;"F";"Criminal Law";"LEC";"F";1135;1425;102
 "LAWS";2302;"V";"Criminal Law";"LEC";;;;
 "LAWS";2302;"VOD";"Criminal Law";"VOD";;;;
-"LAWS";2501;"B";"Law, State and Constitution";"LEC";"M";1135;1425;78
-"LAWS";2501;"D";"Law, State and Constitution";"LEC";"T";1805;2055;79
-"LAWS";2502;"A";"Law, State and Citizen";"LEC";"R";1805;2055;98
-"LAWS";2502;"AOD";"Law, State and Citizen";"VOD";;;;
-"LAWS";2502;"B";"Law, State and Citizen";"LEC";"W";1135;1425;98
-"LAWS";2502;"C";"Law, State and Citizen";"LEC";"F";835;1125;96
-"LAWS";2502;"PA1";"Law, State and Citizen";"PAS";"MWF";935;1025;11
-"LAWS";2502;"V";"Law, State and Citizen";"LEC";;;;
-"LAWS";2502;"VOD";"Law, State and Citizen";"VOD";;;;
+"LAWS";2501;"B";"Law State and Constitution";"LEC";"M";1135;1425;78
+"LAWS";2501;"D";"Law State and Constitution";"LEC";"T";1805;2055;79
+"LAWS";2502;"A";"Law State and Citizen";"LEC";"R";1805;2055;98
+"LAWS";2502;"AOD";"Law State and Citizen";"VOD";;;;
+"LAWS";2502;"B";"Law State and Citizen";"LEC";"W";1135;1425;98
+"LAWS";2502;"C";"Law State and Citizen";"LEC";"F";835;1125;96
+"LAWS";2502;"PA1";"Law State and Citizen";"PAS";"MWF";935;1025;11
+"LAWS";2502;"V";"Law State and Citizen";"LEC";;;;
+"LAWS";2502;"VOD";"Law State and Citizen";"VOD";;;;
 "LAWS";2601;"C";"Public International Law";"LEC";;;;
 "LAWS";2601;"D";"Public International Law";"LEC";"W";1135;1425;98
 "LAWS";2908;"D";"Approaches in Legal Studies I";"LEC";"W";1435;1555;79
@@ -2433,10 +2433,10 @@
 "LAWS";3208;"A";"International Trade Regulation";"LEC";"T";1135;1425;66
 "LAWS";3305;"C";"Crime and State in History";"LEC";"R";1805;2055;61
 "LAWS";3305;"D";"Crime and State in History";"LEC";"W";1805;2055;78
-"LAWS";3306;"A";"Crime, Law, Process & Politics";"LEC";"R";1805;2055;59
-"LAWS";3306;"AOD";"Crime, Law, Process & Politics";"VOD";;;;
-"LAWS";3306;"V";"Crime, Law, Process & Politics";"LEC";;;;
-"LAWS";3306;"VOD";"Crime, Law, Process & Politics";"VOD";;;;
+"LAWS";3306;"A";"Crime Law Process & Politics";"LEC";"R";1805;2055;59
+"LAWS";3306;"AOD";"Crime Law Process & Politics";"VOD";;;;
+"LAWS";3306;"V";"Crime Law Process & Politics";"LEC";;;;
+"LAWS";3306;"VOD";"Crime Law Process & Politics";"VOD";;;;
 "LAWS";3307;"C";"Youth and Criminal Law";"LEC";"M";1135;1425;91
 "LAWS";3307;"D";"Youth and Criminal Law";"LEC";"T";1805;2055;66
 "LAWS";3308;"B";"Punishment and The Law";"LEC";"T";1805;2055;66
@@ -2462,8 +2462,8 @@
 "LAWS";4209;"B";"Topics in Business Law";"SEM";"T";1805;2055;35
 "LAWS";4209;"C";"Topics in Business Law";"SEM";"M";1805;2055;42
 "LAWS";4302;"B";"Regulation of Corporate Crime";"SEM";"W";1435;1725;43
-"LAWS";4303;"C";"Drugs, The User and The State";"SEM";"W";835;1125;39
-"LAWS";4303;"D";"Drugs, The User and The State";"SEM";"W";1435;1725;40
+"LAWS";4303;"C";"Drugs The User and The State";"SEM";"W";835;1125;39
+"LAWS";4303;"D";"Drugs The User and The State";"SEM";"W";1435;1725;40
 "LAWS";4304;"B";"Policing & Social Surveillance";"SEM";"M";1135;1425;47
 "LAWS";4305;"B";"Criminal Justice Reform";"SEM";"F";835;1125;42
 "LAWS";4306;"B";"Criminal Law Issues";"SEM";"M";1805;2055;42
@@ -2475,7 +2475,7 @@
 "LAWS";4504;"B";"Aboriginal Criminal Justice";"SEM";"F";835;1125;40
 "LAWS";4507;"A";"Administrative Law and Control";"SEM";"W";1805;2055;40
 "LAWS";4603;"B";"Transitional Justice";"SEM";"F";1135;1425;39
-"LAWS";4606;"B";"In'tl Law and Armed Conflict";"SEM";"R";1135;1425;35
+"LAWS";4606;"B";"Intl Law and Armed Conflict";"SEM";"R";1135;1425;35
 "LAWS";4800;"B";"Environmental & Social Justice";"SEM";"T";1805;2055;35
 "LAWS";4801;"C";"Risk and the Legal Process";"SEM";"W";1135;1425;56
 "LAWS";4901;"B";"Tutorial in Law";"TUT";;;;
@@ -2834,7 +2834,7 @@
 "MUSI";1915;"I";"Instrumental Ensemble II";"OTH";"M";1735;2055;75
 "MUSI";1915;"J";"Instrumental Ensemble II";"OTH";"W";1805;2055;75
 "MUSI";1915;"K";"Instrumental Ensemble II";"OTH";"F";1305;1425;75
-"MUSI";2008;"B";"Music of the World's Peoples";"LEC";"W";1435;1725;75
+"MUSI";2008;"B";"Music of the Worlds Peoples";"LEC";"W";1435;1725;75
 "MUSI";2101;"B";"Music in the Renaissance";"LEC";"MW";835;955;54
 "MUSI";2105;"B";"20th Century Music to 1945";"LEC";"TR";835;955;75
 "MUSI";2602;"A";"Introduction to Composition";"LEC";"T";1135;1425;22
@@ -2995,7 +2995,7 @@
 "PAPM";4908;"C";"Honours Research Essay";"HON";;;;
 "PHIL";1000;"B";"Introductory Philosophy";"LEC";"TR";1805;1925;133
 "PHIL";1200;"A";"The Meaning of Life";"LEC";"TR";1435;1555;236
-"PHIL";1301;"B";"Mind, World, & Knowledge";"LEC";"WF";1135;1255;236
+"PHIL";1301;"B";"Mind World & Knowledge";"LEC";"WF";1135;1255;236
 "PHIL";1550;"B";"Intro Ethics & Social Issues";"LEC";"WF";835;955;331
 "PHIL";1600;"A";"History of Philosophy";"LEC";;;;
 "PHIL";1700;"A";"Philosophy of Love and Sex";"LEC";"M";1435;1725;236
@@ -3012,7 +3012,7 @@
 "PHIL";3003;"A";"18th Century Philosophy";"LEC";"MW";1305;1425;61
 "PHIL";3140;"A";"Epistemology";"LEC";"WF";1005;1125;51
 "PHIL";3340;"A";"Top Contemp Soc & Pol Phil";"LEC";"W";1805;2055;48
-"PHIL";3380;"A";"Environ, Technology & Values";"LEC";"MW";1605;1725;79
+"PHIL";3380;"A";"Environ Technology & Values";"LEC";"MW";1605;1725;79
 "PHIL";3506;"A";"Semantics";"LEC";"TR";1005;1125;96
 "PHIL";3530;"A";"Philosophy of Language";"LEC";"T";1805;2055;48
 "PHIL";3902;"A";"Independent Study";"IND";;;;
@@ -3088,8 +3088,8 @@
 "PHYS";4708;"A";"Intro. to Quantum Mechanics II";"LEC";"MW";1605;1725;98
 "PHYS";4908;"A";"Fourth-Year Project";"REP";;;;
 "PHYS";4909;"A";"Fourth-Year Project";"REP";;;;
-"PLT";1001;"A";"Laser Safety, WHIMS and Ethics";"LEC";;;;
-"PLT";1001;"A1";"Laser Safety, WHIMS and Ethics";"LAB";;;;
+"PLT";1001;"A";"Laser Safety WHIMS and Ethics";"LEC";;;;
+"PLT";1001;"A1";"Laser Safety WHIMS and Ethics";"LAB";;;;
 "PLT";1003;"A";"Optic/Optical FibersI-Principl";"LEC";"T";1105;1255;48
 "PLT";1003;"A1";"Optic/Optical FibersI-Principl";"LAB";"R";1205;1355;24
 "PLT";1004;"A";"Manufactur Photonics Component";"LEC";;;;
@@ -3268,12 +3268,12 @@
 "PSCI";3007;"B";"Constitutional Politics in Cda";"LEC";"W";1435;1725;58
 "PSCI";3100;"B";"Politics of Dev in Africa";"LEC";"TR";835;955;58
 "PSCI";3107;"B";"The Causes of War";"LEC";"R";1135;1425;78
-"PSCI";3203;"B";"Gov't & Politics in Mid East";"LEC";"T";1135;1425;75
+"PSCI";3203;"B";"Govt & Politics in Mid East";"LEC";"T";1135;1425;75
 "PSCI";3204;"B";"Politics of Latin America";"LEC";"T";1435;1725;58
-"PSCI";3207;"B";"Gov't & Politics of Euro Integ";"LEC";"MW";1005;1125;59
-"PSCI";3207;"BOD";"Gov't & Politics of Euro Integ";"VOD";;;;
-"PSCI";3207;"V";"Gov't & Politics of Euro Integ";"LEC";;;;
-"PSCI";3207;"VOD";"Gov't & Politics of Euro Integ";"VOD";;;;
+"PSCI";3207;"B";"Govt & Politics of Euro Integ";"LEC";"MW";1005;1125;59
+"PSCI";3207;"BOD";"Govt & Politics of Euro Integ";"VOD";;;;
+"PSCI";3207;"V";"Govt & Politics of Euro Integ";"LEC";;;;
+"PSCI";3207;"VOD";"Govt & Politics of Euro Integ";"VOD";;;;
 "PSCI";3307;"B";"Politics of Human Rights";"LEC";"W";835;1125;79
 "PSCI";3309;"B";"Modern Ideologies";"LEC";"R";1805;2055;58
 "PSCI";3402;"B";"Canadian Public Policy";"LEC";"T";1805;2055;58
@@ -3294,13 +3294,13 @@
 "PSCI";3906;"A";"Full-Year Politi Sci Internshi";"OTH";;;;
 "PSCI";3907;"B";"One-Term Politic Sci Internshi";"OTH";;;;
 "PSCI";3999;"A";"Co-op Work Term";"WRK";;;;
-"PSCI";4008;"B";"Nat'l Security & Intelligence";"SEM";"M";835;1125;32
+"PSCI";4008;"B";"Natl Security & Intelligence";"SEM";"M";835;1125;32
 "PSCI";4010;"B";"Exec Power Canadian Politics";"SEM";"R";835;1125;29
 "PSCI";4104;"B";"Theory& Prac: Devl in Glob Sth";"SEM";"R";1805;2055;36
 "PSCI";4105;"B";"Slctd Prob:Devlp Global Sth";"SEM";"R";1135;1425;51
 "PSCI";4203;"B";"Southern Africa Post Apart.Era";"SEM";"T";1135;1425;51
 "PSCI";4204;"B";"Elections";"SEM";"M";1135;1425;25
-"PSCI";4209;"B";"Wstmnstr Dem:Prlmts,Prts&Elcts";"SEM";"W";835;1125;51
+"PSCI";4209;"B";"Wstmnstr Dem:PrlmtsPrts&Elcts";"SEM";"W";835;1125;51
 "PSCI";4302;"B";"Pol Thought in Modern Muslim";"SEM";"M";1805;2055;51
 "PSCI";4303;"B";"Governmentality and Politics";"SEM";"M";1135;1425;51
 "PSCI";4305;"A";"Contemporary Political Theory";"SEM";"T";1435;1725;27
@@ -3313,7 +3313,7 @@
 "PSCI";4506;"B";"Women and Politics in N.A.";"SEM";"W";1435;1725;27
 "PSCI";4603;"B";"Analysis of IPE";"SEM";"F";835;1125;40
 "PSCI";4606;"B";"American Foreign Policy";"SEM";"W";1135;1425;51
-"PSCI";4800;"B";"Adv Int'l Relations Theory";"SEM";"M";835;1125;51
+"PSCI";4800;"B";"Adv Intl Relations Theory";"SEM";"M";835;1125;51
 "PSCI";4803;"B";"Foreign Pol of Major East Asia";"SEM";"W";1135;1425;25
 "PSCI";4805;"B";"Pol. Economy of Global Finance";"SEM";"M";1435;1725;23
 "PSCI";4806;"B";"Transatlantic Security Issues";"SEM";"T";835;1125;51
@@ -3629,7 +3629,7 @@
 "SREE";3002;"A01";"Energy Distri & Efficient Util";"LAB";"T";1135;1225;40
 "SREE";3003;"A";"Sustainable Energy System Desi";"LEC";"TR";835;955;40
 "SREE";3003;"A01";"Sustainable Energy System Desi";"LAB";"M";1435;1725;27
-"SREE";4002;"A";"Energy Econ, Reliablity & Risk";"LEC";"MW";1135;1255;52
+"SREE";4002;"A";"Energy Econ Reliablity & Risk";"LEC";"MW";1135;1255;52
 "SREE";4907;"A";"Energy Engineering Project";"LEC";"W";835;955;78
 "SREE";4907;"B";"Energy Engineering Project";"LEC";"M";835;1125;27
 "STAT";2507;"E";"Intro to Stat Modelling I";"LEC";"MW";1935;2055;204
@@ -3827,25 +3827,25 @@
 "TSES";4009;"B";"Special Topics";"SEM";;;;
 "TSES";4011;"A";"Technology&Society:Developme";"LEC";"TR";1735;1855;29
 "TSES";4012;"A";"Science&Fiction:Creating Tomor";"LEC";"MW";1735;1855;39
-"WGST";1808;"A";"Intro Women's & Gender Studies";"LEC";"T";1435;1625;444
-"WGST";1808;"A01";"Intro Women's & Gender Studies";"GRP";"R";1535;1625;32
-"WGST";1808;"A02";"Intro Women's & Gender Studies";"GRP";"R";1635;1725;31
-"WGST";1808;"A03";"Intro Women's & Gender Studies";"GRP";"R";1535;1625;39
-"WGST";1808;"A04";"Intro Women's & Gender Studies";"GRP";"R";1635;1725;32
-"WGST";1808;"A05";"Intro Women's & Gender Studies";"GRP";"W";835;925;30
-"WGST";1808;"A06";"Intro Women's & Gender Studies";"GRP";"W";935;1025;48
-"WGST";1808;"A07";"Intro Women's & Gender Studies";"GRP";"W";835;925;29
-"WGST";1808;"A08";"Intro Women's & Gender Studies";"GRP";"W";1035;1125;47
-"WGST";1808;"A09";"Intro Women's & Gender Studies";"GRP";"R";1535;1625;31
-"WGST";1808;"A10";"Intro Women's & Gender Studies";"GRP";"R";1635;1725;32
-"WGST";1808;"A11";"Intro Women's & Gender Studies";"GRP";"R";1535;1625;40
-"WGST";1808;"B";"Intro Women's & Gender Studies";"LEC";"R";1805;1955;98
-"WGST";1808;"B01";"Intro Women's & Gender Studies";"GRP";"R";2005;2055;31
-"WGST";1808;"B02";"Intro Women's & Gender Studies";"GRP";"R";2105;2155;27
-"WGST";1808;"B03";"Intro Women's & Gender Studies";"GRP";"R";2005;2055;27
-"WGST";1808;"B04";"Intro Women's & Gender Studies";"GRP";"R";2105;2155;29
-"WGST";1808;"B05";"Intro Women's & Gender Studies";"GRP";"R";2005;2055;27
-"WGST";1808;"B06";"Intro Women's & Gender Studies";"GRP";"R";2105;2155;
+"WGST";1808;"A";"Intro Womens & Gender Studies";"LEC";"T";1435;1625;444
+"WGST";1808;"A01";"Intro Womens & Gender Studies";"GRP";"R";1535;1625;32
+"WGST";1808;"A02";"Intro Womens & Gender Studies";"GRP";"R";1635;1725;31
+"WGST";1808;"A03";"Intro Womens & Gender Studies";"GRP";"R";1535;1625;39
+"WGST";1808;"A04";"Intro Womens & Gender Studies";"GRP";"R";1635;1725;32
+"WGST";1808;"A05";"Intro Womens & Gender Studies";"GRP";"W";835;925;30
+"WGST";1808;"A06";"Intro Womens & Gender Studies";"GRP";"W";935;1025;48
+"WGST";1808;"A07";"Intro Womens & Gender Studies";"GRP";"W";835;925;29
+"WGST";1808;"A08";"Intro Womens & Gender Studies";"GRP";"W";1035;1125;47
+"WGST";1808;"A09";"Intro Womens & Gender Studies";"GRP";"R";1535;1625;31
+"WGST";1808;"A10";"Intro Womens & Gender Studies";"GRP";"R";1635;1725;32
+"WGST";1808;"A11";"Intro Womens & Gender Studies";"GRP";"R";1535;1625;40
+"WGST";1808;"B";"Intro Womens & Gender Studies";"LEC";"R";1805;1955;98
+"WGST";1808;"B01";"Intro Womens & Gender Studies";"GRP";"R";2005;2055;31
+"WGST";1808;"B02";"Intro Womens & Gender Studies";"GRP";"R";2105;2155;27
+"WGST";1808;"B03";"Intro Womens & Gender Studies";"GRP";"R";2005;2055;27
+"WGST";1808;"B04";"Intro Womens & Gender Studies";"GRP";"R";2105;2155;29
+"WGST";1808;"B05";"Intro Womens & Gender Studies";"GRP";"R";2005;2055;27
+"WGST";1808;"B06";"Intro Womens & Gender Studies";"GRP";"R";2105;2155;
 "WGST";2801;"A";"Activism Feminisms&Soci Justic";"LEC";"F";1435;1625;134
 "WGST";2801;"A01";"Activism Feminisms&Soci Justic";"GRP";"T";835;925;47
 "WGST";2801;"A02";"Activism Feminisms&Soci Justic";"GRP";"T";935;1025;47
@@ -3853,29 +3853,29 @@
 "WGST";2801;"A04";"Activism Feminisms&Soci Justic";"GRP";"T";935;1025;40
 "WGST";2801;"A05";"Activism Feminisms&Soci Justic";"GRP";"M";935;1025;56
 "WGST";2801;"A06";"Activism Feminisms&Soci Justic";"GRP";"M";835;925;23
-"WGST";2812;"A";"Sel Topi:Women's&Gender Stud";"LEC";"T";1805;1955;75
-"WGST";2812;"A01";"Sel Topi:Women's&Gender Stud";"GRP";"W";1805;1855;25
-"WGST";2812;"A02";"Sel Topi:Women's&Gender Stud";"GRP";"W";1905;1955;25
-"WGST";2812;"A03";"Sel Topi:Women's&Gender Stud";"GRP";"W";1805;1855;25
-"WGST";2812;"A04";"Sel Topi:Women's&Gender Stud";"GRP";"W";1905;1955;25
-"WGST";2812;"B";"Sel Topi:Women's&Gender Stud";"LEC";"TR";1135;1225;84
-"WGST";2812;"B01";"Sel Topi:Women's&Gender Stud";"GRP";"F";1235;1325;36
-"WGST";2812;"B02";"Sel Topi:Women's&Gender Stud";"GRP";"F";1335;1425;36
-"WGST";2812;"B03";"Sel Topi:Women's&Gender Stud";"GRP";"F";1135;1225;25
-"WGST";2812;"B04";"Sel Topi:Women's&Gender Stud";"GRP";"F";1235;1325;25
-"WGST";2814;"A";"Gender,Sexuality&Cultur Produc";"LEC";"M";1135;1325;133
-"WGST";2814;"A01";"Gender,Sexuality&Cultur Produc";"GRP";"R";1235;1325;25
-"WGST";2814;"A02";"Gender,Sexuality&Cultur Produc";"GRP";"R";1135;1225;28
-"WGST";2814;"A03";"Gender,Sexuality&Cultur Produc";"GRP";"R";1235;1325;27
-"WGST";2814;"A04";"Gender,Sexuality&Cultur Produc";"GRP";"R";1135;1225;27
+"WGST";2812;"A";"Sel Topi:Womens&Gender Stud";"LEC";"T";1805;1955;75
+"WGST";2812;"A01";"Sel Topi:Womens&Gender Stud";"GRP";"W";1805;1855;25
+"WGST";2812;"A02";"Sel Topi:Womens&Gender Stud";"GRP";"W";1905;1955;25
+"WGST";2812;"A03";"Sel Topi:Womens&Gender Stud";"GRP";"W";1805;1855;25
+"WGST";2812;"A04";"Sel Topi:Womens&Gender Stud";"GRP";"W";1905;1955;25
+"WGST";2812;"B";"Sel Topi:Womens&Gender Stud";"LEC";"TR";1135;1225;84
+"WGST";2812;"B01";"Sel Topi:Womens&Gender Stud";"GRP";"F";1235;1325;36
+"WGST";2812;"B02";"Sel Topi:Womens&Gender Stud";"GRP";"F";1335;1425;36
+"WGST";2812;"B03";"Sel Topi:Womens&Gender Stud";"GRP";"F";1135;1225;25
+"WGST";2812;"B04";"Sel Topi:Womens&Gender Stud";"GRP";"F";1235;1325;25
+"WGST";2814;"A";"GenderSexuality&Cultur Produc";"LEC";"M";1135;1325;133
+"WGST";2814;"A01";"GenderSexuality&Cultur Produc";"GRP";"R";1235;1325;25
+"WGST";2814;"A02";"GenderSexuality&Cultur Produc";"GRP";"R";1135;1225;28
+"WGST";2814;"A03";"GenderSexuality&Cultur Produc";"GRP";"R";1235;1325;27
+"WGST";2814;"A04";"GenderSexuality&Cultur Produc";"GRP";"R";1135;1225;27
 "WGST";3803;"A";"Feminisms and Transnationalism";"SEM";"T";835;1125;48
 "WGST";3810;"A";"Feminist Research";"SEM";"R";835;1125;42
 "WGST";3812;"A";"Sel Top:Women&Gender Studies";"SEM";"T";1435;1725;51
 "WGST";3812;"B";"Sel Top:Women&Gender Studies";"SEM";"W";1435;1725;56
-"WGST";4800;"A";"Women's&Gender Studies Pract";"PRC";"M";1135;1425;15
-"WGST";4801;"A";"Women's&Gender Studies Pract";"PRC";"M";1135;1425;15
+"WGST";4800;"A";"Womens&Gender Studies Pract";"PRC";"M";1135;1425;15
+"WGST";4801;"A";"Womens&Gender Studies Pract";"PRC";"M";1135;1425;15
 "WGST";4803;"A";"Globalized Bodies";"SEM";"T";1435;1725;25
 "WGST";4811;"F";"Hons Research Project in WGST";"REP";;;;
-"WGST";4812;"A";"Sel Top:Women's&Gender Studi";"SEM";"W";1435;1725;58
+"WGST";4812;"A";"Sel Top:Womens&Gender Studi";"SEM";"W";1435;1725;58
 "WGST";4814;"W";"Independent Study";"IND";;;;
 "WGST";4815;"A";"Women in Management";"LEC";"T";1805;2055;58
