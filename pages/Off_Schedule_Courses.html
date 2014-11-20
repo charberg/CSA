@@ -14,11 +14,54 @@
 	</head>
 	
 	<script>
+		function classInfo(course){
+			document.getElementById('classinfo').innerHTML = "TESTING 1";
+		}
+		function getClasses(prog){
+			var request = new XMLHttpRequest();
+			request.open("post","../server.php",true);
+			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
+			request.send("&requestType='GetPattern'&program='"+prog);
+			
+			request.onreadystatechange = function(){
+				if(request.readyState == 4){
+					var response = request.responseXML;
+					fillTable(response);
+				}
+			}
+		}
+		
+		function fillTable(classList){
+			var parser = new DOMParser();
+			var xmlData = parser.parseFromString(classList,"text/xml");
+			var res = xmlData.getElementsByTagName('Section');
+			alert(res.length);
+			//alert(res[0].innerHTML);
+		}
+		var temp = "<Section><courseNum>COMP1</courseNum></Section><Section><courseNum>SYSC</courseNum></Section>";
+		//fillTable(temp);
+		getClasses("SE");
+		/*
+		"<Section>
+			<subjectID></subjectID>
+			<courseNum></courseNum>
+			<year></year>
+			<term></term>
+			<title></title>
+			<credits></credits>
+			<scheduleCode></scheduleCode>
+			<sectionCode></sectionCode>
+			<time></time>
+			<days></days>
+			<capacity></capacity>
+			<numberOfStudents></numberOfStudents>
+		</Section>"
+		*/
 	</script>
 	<body>
 		<center>
 		<h3>Please select the courses you have taken:</h3>
-		<form method="post" action="server.php">
+		<form method="post" action="../server.php">
 		<table>
 			<tr>
 				<td width="120px" style="border:0px">Year 1 FALL</td>
@@ -31,168 +74,168 @@
 				<td width="120px" style="border:0px">Year 4 WINTER</td>
 			</tr>
 			<tr> <!-- 1 -->
-				<td style="border-color:339933" height="100px">
-					Math1104
+				<td style="border-color:339933" height="100px" onmouseover="classInfo('math1104')">
+					Math1104<br/>
 					<input type="checkbox" name="math1104"/>
 				</td>
 				<td style="border-color:339933" height="100px">
-					Math1005
+					Math1005<br/>
 					<input type="checkbox" name="math1005"/>
 				</td>
 				<td style="border-color:339933" height="100px">
-					Math2004
+					Math2004<br/>
 					<input type="checkbox" name="math2004"/>
 				</td>
 				<td style="border-color:339933" height="100px">
-					Math1805
+					Math1805<br/>
 					<input type="checkbox" name="math1805"/>
 				</td>
 				<td style="border-color:black" height="100px">
-					ECOR3800
+					ECOR3800<br/>
 					<input type="checkbox" name="ecor3800"/>
 				</td>
 				<td style="border-color:339933" height="100px">
-					STAT3502
+					STAT3502<br/>
 					<input type="checkbox" name="stat3502"/>
 				</td>
 				<td style="border-color:FF9900" height="100px">
-					ELEC4705
+					ELEC4705<br/>
 					<input type="checkbox" name="elec4705"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC4005
+					SYSC4005<br/>
 					<input type="checkbox" name="sysc4005"/>
 				</td>
 			</tr>
 			<tr> <!-- 2 -->
 				<td style="border-color:339933" height="100px">
-					Math1004
+					Math1004<br/>
 					<input type="checkbox" name="math1004"/>
 				</td>
 				<td style="border-color:FFFF33" height="100px">
-					PHYS1004
+					PHYS1004<br/>
 					<input type="checkbox" name="phys1004"/>
 				</td>
 				<td style="border-color:FF9900" height="100px">
-					ELEC2501
+					ELEC2501<br/>
 					<input type="checkbox" name="elec2501"/>
 				</td>
 				<td style="border-color:FF9900" height="100px">
-					ELEC2607
+					ELEC2607<br/>
 					<input type="checkbox" name="elec2607"/>
 				</td>
 				<td style="border-color:FFFF33" height="100px">
-					COMP3005
+					COMP3005<br/>
 					<input type="checkbox" name="comp3005"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC3303
+					SYSC3303<br/>
 					<input type="checkbox" name="sysc3303"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC4101
+					SYSC4101<br/>
 					<input type="checkbox" name="sysc4101"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC4507
+					SYSC4507<br/>
 					<input type="checkbox" name="sysc4507"/>
 				</td>
 			</tr>
 			<tr> <!-- 3 -->
 				<td style="border-color:FFFF33" height="100px">
-					PHYS1003
+					PHYS1003<br/>
 					<input type="checkbox" name="phys1003"/>
 				</td>
 				<td style="border-color:black" height="100px">
-					ECOR1101
+					ECOR1101<br/>
 					<input type="checkbox" name="ecor1101"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC2001
+					SYSC2001<br/>
 					<input type="checkbox" name="sysc2001"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC2003
+					SYSC2003<br/>
 					<input type="checkbox" name="sysc2003"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC4001
+					SYSC4001<br/>
 					<input type="checkbox" name="sysc4001"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC3101
+					SYSC3101<br/>
 					<input type="checkbox" name="sysc3101"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC4120
+					SYSC4120<br/>
 					<input type="checkbox" name="sysc4120"/>
 				</td>
 				<td style="border-color:black" height="100px">
-					ECOR4995
+					ECOR4995<br/>
 					<input type="checkbox" name="ecor4995"/>
 				</td>
 			</tr>
 			<tr> <!-- 4 -->
 				<td style="border-color:990099" height="100px">
-					SYSC1005
+					SYSC1005<br/>
 					<input type="checkbox" name="sysc1005"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC2006
+					SYSC2006<br/>
 					<input type="checkbox" name="sysc2006"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC2004
+					SYSC2004<br/>
 					<input type="checkbox" name="sysc2004"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC2100
+					SYSC2100<br/>
 					<input type="checkbox" name="sysc2100"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC3110
+					SYSC3110<br/>
 					<input type="checkbox" name="sysc3110"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC3120
+					SYSC3120<br/>
 					<input type="checkbox" name="sysc3120"/>
 				</td>
 				<td colspan="2" style="border-color:990099" height="100px">
-					SYSC4927
+					SYSC4927<br/>
 					<input type="checkbox" name="sysc4927"/>
 				</td>
 			</tr>
 			<tr> <!-- 5 -->
 				<td style="border-color:black" height="100px">
-					ECOR1010
+					ECOR1010<br/>
 					<input type="checkbox" name="ecor1010"/>
 				</td>
 				<td style="border-color:FFFF33" height="100px">
-					CHEM1101
+					CHEM1101<br/>
 					<input type="checkbox" name="chem1101"/>
 				</td>
 				<td style="border-color:black" height="100px">
-					CCDP2100
+					CCDP2100<br/>
 					<input type="checkbox" name="ccdp2100"/>
 				</td>
 				<td style="border-color:#A8A8A8" height="100px">
-					ELECTIVE COMP STUDIES
+					ELECTIVE COMP STUDIES<br/>
 					<input type="checkbox" name="electcomp_y2_s2"/>
 				</td>
 				<td style="border-color:#A8A8A8" height="100px">
-					ELECTIVE ENG A
+					ELECTIVE ENG A<br/>
 					<input type="checkbox" name="electenga_y3_s1"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC4106
+					SYSC4106<br/>
 					<input type="checkbox" name="sysc4106"/>
 				</td>
 				<td style="border-color:#A8A8A8" height="100px">
-					ELECTIVE ENG A
+					ELECTIVE ENG A<br/>
 					<input type="checkbox" name="electenga_y4_s1"/>
 				</td>
 				<td style="border-color:990099" height="100px">
-					SYSC4806
+					SYSC4806<br/>
 					<input type="checkbox" name="sysc4806"/>
 				</td>
 			</tr>
@@ -200,18 +243,18 @@
 				<td style="border:0px" height="100px"></td>
 				<td style="border:0px" height="100px"></td>
 				<td style="border-color:#A8A8A8" height="100px">
-					ELECTIVE COMP STUDIES
+					ELECTIVE COMP STUDIES<br/>
 					<input type="checkbox" name="electcomp_y2_x"/>
 				</td>
 				<td style="border:0px" height="100px"></td>
 				<td style="border:0px" height="100px"></td>
 				<td style="border:0px" height="100px"></td>
 				<td style="border-color:#A8A8A8" height="100px">
-					ELECTIVE ENG B
+					ELECTIVE ENG B<br/>
 					<input type="checkbox" name="electengb_y4_s1"/>
 				</td>
 				<td style="border-color:#A8A8A8" height="100px">
-					ELECTIVE ENG A
+					ELECTIVE ENG A<br/>
 					<input type="checkbox" name="electenga_y4_y2"/>
 				</td>
 			</tr>
@@ -219,6 +262,9 @@
 		<br/>
 		<input type="hidden" value="submitcompleted" name="requesttype"/>
 		<input type="submit" value="SUBMIT"/>
+		<br/>
+		<br/>
+		<h3><p id="classinfo"></p></h3>
 		</form>
 		</center>
 	</body>

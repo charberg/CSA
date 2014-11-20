@@ -1,5 +1,6 @@
 html {
 	background-color:#f5f5dc;
+	font-family:"calibri";
 }
 
 table{
@@ -10,5 +11,6 @@ table{
 td{
 	border: 1px solid;
 	height:60px;
+	font-weight:bold;
 }
 

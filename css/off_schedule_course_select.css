@@ -1,7 +1,11 @@
 html {
 	background-color:#f5f5dc;
+	font-family:"calibri";
 }
-
+input[type='checkbox'] {
+    width:30px;
+    height:30px;
+}
 table{
 	table-layout:fixed;
 	border: 2px solid black;
@@ -9,4 +13,6 @@ table{
 }
 td{
 	border: 5px solid;
+	text-align:center;
+	font-weight:bold;
 }
