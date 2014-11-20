@@ -60,7 +60,7 @@ executed first before your application is evaluated.
 	
 	//Create Database
 	
-	require_once("database.php");	//Connect to database file 
+	require_once("classes/database.php");	//Connect to database file 
 	
 	$db = new DataBase("");	//Connect to server
 	

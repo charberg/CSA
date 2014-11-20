@@ -1,8 +1,8 @@
 <?php
 
-	require_once("database.php");
-	require_once("Section.php");
-	require_once("pattern.php");
+	require_once("classes/database.php");
+	require_once("classes/Section.php");
+	require_once("classes/pattern.php");
 
 	$requestType = $_POST['requesttype'];
 	
