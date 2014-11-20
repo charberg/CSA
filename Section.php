@@ -16,6 +16,7 @@
 		public $capacity;
 		public $numberOfStudents;
 		public $labsList;
+		public $prereq;
 	
 		function __construct($subjectID,
 							 $courseNum,
@@ -82,6 +83,19 @@
 						<capacity>".$this->capacity."</capacity>
 						<numberOfStudents>".$this->numberOfStudents."</numberOfStudents>
 					</Section>";
+		
+		}
+		
+		private $yearStatusID = strtoupper("-year status");
+		private $concurrentID = strtoupper("concurrently");
+		private $permissionID = strtoupper("permission");
+		private $programID = strtoupper("in");
+		
+		function getPrereqFromString($prereqs) {
+		
+			$prereqs = trim(strtoupper($prereqs));
+			
+			
 		
 		}
 	

@@ -40,7 +40,7 @@
 		
 		case "RegisterCourses":
 		
-		
+			
 			exit;
 			
 		case "getPrograms":
@@ -62,6 +62,14 @@
 			
 			header("content-type: text/xml");
 			echo $returnval;
+	
+			exit;
+	
+		case "getScienceElectives":
+		
+			exit;
+			
+		case "GetEngineeringElectives":
 	
 			exit;
 	

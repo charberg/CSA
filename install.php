@@ -17,7 +17,6 @@ executed first before your application is evaluated.
 	$table_Programs = "AcademicPrograms";
 	$table_ProgramToCourseMapping = "AcademicProgramToCourseMapping";
 	$table_CourseToPrereqMapping = "CourseToPrerequisiteMapping";
-	$table_PrereqTypes = "PrerequisiteTypes";
 	
 	//Define queries to create database and its tables
 		
@@ -37,11 +36,7 @@ executed first before your application is evaluated.
 								 Days CHAR(5) NULL,
 								 Capacity INT NULL,
 								 NumberOfStudents INT NOT NULL,
-								 PRIMARY KEY(SubjectID, CourseNumber, Year, Term));";	
-								 
-	$CreatePrereqTypeTable = "CREATE TABLE IF NOT EXISTS $table_PrereqTypes
-								(PrerequisiteTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-								 PrerequisiteTypeCode VARCHAR(200) NOT NULL);";	
+								 PRIMARY KEY(SubjectID, CourseNumber, Year, Term));";		
 	
 	$CreateProgramsTable = "CREATE TABLE IF NOT EXISTS $table_Programs
 								(ProgramID VARCHAR(10) NOT NULL PRIMARY KEY,
@@ -60,14 +55,8 @@ executed first before your application is evaluated.
 	$CreateCTPMappingTable = "CREATE TABLE IF NOT EXISTS $table_CourseToPrereqMapping
 								(SubjectID VARCHAR(10) NOT NULL,
 								 CourseNumber VARCHAR(200) NOT NULL,
-								 Year INT NOT NULL,
-								 Term VARCHAR(10) NOT NULL,
-								 PrerequisiteID INT NOT NULL,
-								 PrerequisiteTypeID INT NOT NULL,
-								 PrerequisiteAttribute VARCHAR(10) NOT NULL,
-								 PRIMARY KEY(SubjectID, CourseNumber, Year, Term, PrerequisiteID, PrerequisiteTypeID),	
-								 FOREIGN KEY(SubjectID, CourseNumber, Year, Term) REFERENCES $table_Section(SubjectID, CourseNumber, Year, Term),
-								 FOREIGN KEY(PrerequisiteTypeID) REFERENCES $table_PrereqTypes(PrerequisiteTypeID));";
+								 Prerequisites VARCHAR(250) NOT NULL,
+								 PRIMARY KEY(SubjectID, CourseNumber));";
 	
 	//Create Database
 	
@@ -90,13 +79,6 @@ executed first before your application is evaluated.
 		//echo "Successfully Created Section Table<br/>";
 	} else {
 		echo "Error Creating Section Table: ".$db->getError()."<br/>";
-		exit;
-	}
-	
-	if ($db->execute($CreatePrereqTypeTable)) {
-		//echo "Successfully Created Prerequisite Type Table<br/>";
-	} else {
-		echo "Error Creating Prerequisite Type Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
@@ -333,6 +315,28 @@ executed first before your application is evaluated.
 			//echo "Successfully populated Program to Course Table<br/>";
 		} else {
 			echo "Error populating Program to Course Table: ".$db->getError()."<br/>";
+			exit;
+		}
+	}
+	
+	fclose($dataFile);
+	
+	//Populate prerequisites table
+	$dataFile = fopen("data/prereq.txt","r");	//open data file for reading
+	
+	while (($line = fgets($dataFile)) !== false) {
+		
+		$values = explode(";", $line);
+		
+		$subID = explode(" ",$values[0]);
+		
+		$PopulatePrerequisites = "INSERT IGNORE INTO $table_CourseToPrereqMapping VALUES('$subID[0]',
+																						 '$subID[1]',
+																						 '$values[1]');";
+		if ($db->execute($PopulatePrerequisites)) {
+			//echo "Successfully populated Prerequisite Table<br/>";
+		} else {
+			echo "Error populating Prerequisite Table: ".$db->getError()."<br/>";
 			exit;
 		}
 	}
