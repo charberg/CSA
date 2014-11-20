@@ -307,9 +307,6 @@ executed first before your application is evaluated.
 
 	fclose($dataFile);
 	
-	//Enter Prerequisite Data
-	
-	
 	//Map program to courses
 	$dataFile = fopen("data/Program_Mappings/SEMapping.txt","r");	//open data file for reading
 	
