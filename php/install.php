@@ -106,7 +106,7 @@ executed first before your application is evaluated.
 	/*-- Populate Tables --*/
 	
 	//Add Academic Programs
-	$dataFile = fopen("data/AcademicPrograms.txt","r");	//open data file for reading
+	$dataFile = fopen("../data/AcademicPrograms.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {
 		
@@ -124,7 +124,7 @@ executed first before your application is evaluated.
 	fclose($dataFile);
 	
 	//Enter Fall Course data
-	$dataFile = fopen("data/data.csv","r");	//open data file for reading
+	$dataFile = fopen("../data/data.csv","r");	//open data file for reading
 
 	$line = fgetcsv($dataFile, 1024);	//Get first line (Column Names)
 	
@@ -209,7 +209,7 @@ executed first before your application is evaluated.
 	fclose($dataFile);
 	
 	//Enter Winter Course Data
-	$dataFile = fopen("data/datawinter.csv","r");	//open data file for reading
+	$dataFile = fopen("../data/datawinter.csv","r");	//open data file for reading
 
 	$line = fgetcsv($dataFile, 1024);	//Get first line (Column Names)
 
@@ -292,7 +292,7 @@ executed first before your application is evaluated.
 	fclose($dataFile);
 	
 	//Map program to courses
-	$dataFile = fopen("data/Program_Mappings/SEMapping.txt","r");	//open data file for reading
+	$dataFile = fopen("../data/Program_Mappings/SEMapping.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {
 		
@@ -322,7 +322,7 @@ executed first before your application is evaluated.
 	fclose($dataFile);
 	
 	//Populate prerequisites table
-	$dataFile = fopen("data/prereq.txt","r");	//open data file for reading
+	$dataFile = fopen("../data/prereq.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {
 		

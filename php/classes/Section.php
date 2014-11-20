@@ -86,10 +86,11 @@
 		
 		}
 		
-		private $yearStatusID = strtoupper("-year status");
-		private $concurrentID = strtoupper("concurrently");
-		private $permissionID = strtoupper("permission");
-		private $programID = strtoupper("in");
+		
+		//private $yearStatusID = strtoupper("-year status");
+		//private $concurrentID = strtoupper("concurrently");
+		//private $permissionID = strtoupper("permission");
+		//private $programID = strtoupper("in");
 		
 		function getPrereqFromString($prereqs) {
 		
