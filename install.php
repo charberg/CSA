@@ -8,6 +8,8 @@ executed first before your application is evaluated.
 */
 
 	//Define database name and table names
+	
+	set_time_limit(60);	//allow 1 minute for execution
 
 	$dbName = "SchedulerDatabase";
 		
