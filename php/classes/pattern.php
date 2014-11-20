@@ -16,24 +16,24 @@
 							$subjectID,
 							$courseNumber) {
 		
-		$this->programID = $programID;
-		$this->courseType = $courseType;
-		$this->yearRequired = $yearRequired;
-		$this->termRequired = $termRequired;
-		$this->subjectID = $subjectID;
-		$this->courseNumber = $courseNumber;
+		$this->programID = trim($programID);
+		$this->courseType = trim($courseType);
+		$this->yearRequired = trim($yearRequired);
+		$this->termRequired = trim($termRequired);
+		$this->subjectID = trim($subjectID);
+		$this->courseNumber = trim($courseNumber);
 		
 		}
 	
 		function exportXML() {
 		
 			return "<item>
-						<programID>".$this->programID."</programID>
-						<courseType>".$this->courseType."</courseType>
-						<yearRequired>".$this->yearRequired."</yearRequired>
-						<termRequired>".$this->termRequired."</termRequired>
-						<subjectID>".$this->subjectID."</subjectID>
-						<courseNumber>".$this->courseNumber."</courseNumber>
+						<programID>".trim($this->programID)."</programID>
+						<courseType>".trim($this->courseType)."</courseType>
+						<yearRequired>".trim($this->yearRequired)."</yearRequired>
+						<termRequired>".trim($this->termRequired)."</termRequired>
+						<subjectID>".trim($this->subjectID)."</subjectID>
+						<courseNumber>".trim($this->courseNumber)."</courseNumber>
 					</item>";
 		
 		}

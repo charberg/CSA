@@ -70,34 +70,33 @@
 		function exportXML() {
 		
 			return "<Section>
-						<subjectID>".$this->subjectID."</subjectID>
-						<courseNum>".$this->courseNum."</courseNum>
-						<year>".$this->year."</year>
-						<term>".$this->term."</term>
-						<title>".$this->title."</title>
-						<credits>".$this->credits."</credits>
-						<scheduleCode>".$this->scheduleCode."</scheduleCode>
-						<sectionCode>".$this->sectionCode."</sectionCode>
-						<time>".$this->time."</time>
-						<days>".$this->days."</days>
-						<capacity>".$this->capacity."</capacity>
-						<numberOfStudents>".$this->numberOfStudents."</numberOfStudents>
+						<subjectID>".trim($this->subjectID)."</subjectID>
+						<courseNum>".trim($this->courseNum)."</courseNum>
+						<year>".trim($this->year)."</year>
+						<term>".trim($this->term)."</term>
+						<title>".trim($this->title)."</title>
+						<credits>".trim($this->credits)."</credits>
+						<scheduleCode>".trim($this->scheduleCode)."</scheduleCode>
+						<sectionCode>".trim($this->sectionCode)."</sectionCode>
+						<time>".trim($this->time)."</time>
+						<days>".trim($this->days)."</days>
+						<capacity>".trim($this->capacity)."</capacity>
+						<numberOfStudents>".trim($this->numberOfStudents)."</numberOfStudents>
 					</Section>";
 		
 		}
 		
-		
-		//private $yearStatusID = strtoupper("-year status");
-		//private $concurrentID = strtoupper("concurrently");
-		//private $permissionID = strtoupper("permission");
-		//private $programID = strtoupper("in");
-		
 		function getPrereqFromString($prereqs) {
-		
+			
+			$yearStatusID = strtoupper("-year status");
+			$concurrentID = strtoupper("concurrently");
+			$permissionID = strtoupper("permission");
+			$programID = strtoupper("in");
+			
 			$prereqs = trim(strtoupper($prereqs));
 			
 			
-		
+			
 		}
 	
 	}

@@ -69,6 +69,12 @@
 		
 			exit;
 			
+		case "getComplementoryElectives":
+		
+			
+			
+			exit;
+			
 		case "GetEngineeringElectives":
 	
 			exit;
