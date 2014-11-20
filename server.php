@@ -16,9 +16,9 @@
 			
 			$pat = new Pattern();
 			
-			$getProgramPatter = "SELECT * FROM AcademicProgramToCourseMapping WHERE ProgramID = '$program';";
+			$getProgramPattern = "SELECT * FROM AcademicProgramToCourseMapping WHERE ProgramID = '$program';";
 			
-			$rows = $db->execute($getProgramPatter);
+			$rows = $db->execute($getProgramPattern);
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			
@@ -38,6 +38,30 @@
 			exit;
 		
 		case "RegisterCourses":
+		
+		
+			exit;
+			
+		case "getPrograms":
+	
+			$getPrograms = "SELECT * FROM AcademicPrograms;";
+			
+			$rows = $db->execute($getProgramPattern);
+			
+			$returnval = "<programs>";
+			
+			while ( ($row = $rows->fetch_object()) ) {
+			
+				$returnval .= "<ProgramID>".$row->ProgramID."</ProgramID>
+							   <ProgramCode>".$row->ProgramCode."</ProgramCode>";
+			
+			}
+			
+			$returnval .= "</programs>";
+			
+			echo $returnval;
+	
+			exit;
 	
 		default:
 			echo "Un-recognized request type";
