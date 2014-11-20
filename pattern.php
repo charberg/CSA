@@ -1,6 +1,6 @@
 <?php
 
-	class patternItem {
+	class PatternItem {
 		
 		public $programID;
 		public $courseType;
@@ -40,12 +40,16 @@
 	
 	}
 	
-	class pattern {
+	class Pattern {
 	
 		public $patternItems;
 	
+		function __construct() {
+			$this->patternItems = array();
+		}
+	
 		function __construct($items) {
-		$this->patternItems = $items;
+			$this->patternItems = $items;
 		}
 	
 		function exportXML() {
@@ -61,6 +65,10 @@
 			
 			return $returnval;
 		
+		}
+		
+		function addItem($item) {
+			array_push($this->patternItems,$item);
 		}
 	
 	}
