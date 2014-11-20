@@ -33,6 +33,7 @@
 			
 			}
 			
+			header("content-type: text/xml");
 			echo $pat->exportXML();
 			
 			exit;
@@ -59,11 +60,13 @@
 			
 			$returnval .= "</programs>";
 			
+			header("content-type: text/xml");
 			echo $returnval;
 	
 			exit;
 	
 		default:
+			header("content-type: text/plain");
 			echo "Un-recognized request type";
 			exit;
 	}	

@@ -48,10 +48,6 @@
 			$this->patternItems = array();
 		}
 	
-		function __construct($items) {
-			$this->patternItems = $items;
-		}
-	
 		function exportXML() {
 		
 			$returnval = "<pattern>";
