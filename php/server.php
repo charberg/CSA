@@ -11,19 +11,21 @@
 	switch ($requestType) {
 	
 		case "submitinfo":
-		
+			
 			$program = $_POST['programName'];
 			$year = $_POST['yearCompleted'];
 			$schedType = $_POST['sched'];
-		
-			setcookie("yearCompleted", $year, time() + 3600);
-			setcookie("programName", $program, time() + 3600);
+			
 			
 			if ($schedType = 'off') {
 				
+				setcookie("yearCompleted", $year, time() + 3600);
+				setcookie("programName", $program, time() + 3600);
 				header("location:../pages/Off_Schedule_Courses.html");	
 			} else {
-			
+				
+				setcookie("yearCompleted", $year, time() + 3600);
+				setcookie("programName", $program, time() + 3600);
 				header("location:../pages/my_schedule.html");
 			}
 			
