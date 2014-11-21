@@ -44,7 +44,7 @@
 			
 			exit;
 			
-		case "getPrograms":
+		case "GetPrograms":
 	
 			$getPrograms = "SELECT * FROM AcademicPrograms;";
 			
@@ -66,7 +66,7 @@
 	
 			exit;
 	
-		case "getScienceElectives":
+		case "GetScienceElectives":
 		
 			$program = $_POST['program'];
 			$term = $_POST['term'];
@@ -106,7 +106,7 @@
 			
 			exit;
 			
-		case "getComplementoryElectives":
+		case "GetComplementoryElectives":
 		
 			$program = $_POST['program'];
 			$term = $_POST['term'];
