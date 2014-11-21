@@ -10,7 +10,13 @@
 	
 	switch ($requestType) {
 	
-		case "calculateSchedule":
+		case "DisplaySchedule":
+
+			//Re-route to display schedule page
+		
+			exit;
+		
+		case "CalculateSchedule":
 		
 			$program = $_POST['programName'];
 			$schedType = $_POST['sched'];
@@ -28,7 +34,7 @@
 		
 			exit;
 	
-		case "submitinfo":
+		case "SubmitInfo":
 			
 			$program = $_POST['programName'];
 			$year = $_POST['yearCompleted'];
