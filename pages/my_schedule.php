@@ -1,8 +1,9 @@
+
 <?php
 	/* Saved Cookies */
 	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted'])){
 		echo "Missing information";
-		header("refresh:2;url=intro_page.php");
+		header("refresh:2;url=intro_page.html");
 		exit;
 	}
 	

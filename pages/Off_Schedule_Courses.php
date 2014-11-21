@@ -2,7 +2,7 @@
 	/* Saved Cookies */
 	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted'])){
 		echo "Missing information";
-		header("refresh:2;url=intro_page.php");
+		header("refresh:2;url=intro_page.html");
 		exit;
 	}
 	
@@ -20,7 +20,9 @@
 	<script>
 		/*Connects to server and gets the possible courses to take through XML */
 		function getClasses(){
-			var prog = "<?php echo $programName; ?>";
+			//var prog ="<?php echo $programName;?>";
+			var prog = "SE";
+			alert("<"+prog+">");
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
 			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
