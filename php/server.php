@@ -151,7 +151,7 @@
 			$program = $_POST['program'];
 			$term = $_POST['term'];
 			$year = $_POST['year'];
-			$elecType = $_POST['electype']
+			$elecType = $_POST['electype'];
 		
 			$getengElectives = "SELECT SubjectID, CourseNumber FROM Electives WHERE ProgramID = '$program' AND ElectiveType LIKE '%$elecType%';";
 		
