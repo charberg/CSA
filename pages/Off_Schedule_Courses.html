@@ -13,8 +13,6 @@
 ?>
 
 <html>
-	<!-- NOTES:
-	-->
 	<head>
 	<link type="text/css" rel="stylesheet" href="../css/off_schedule_course_select.css"/>
 	<!-- Link to .css file -->
@@ -22,7 +20,8 @@
 	
 	<script>
 		/*Connects to server and gets the possible courses to take through XML */
-		function getClasses(prog){
+		function getClasses(){
+			var prog = "<?php echo $programName; ?>";
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
 			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
@@ -135,9 +134,9 @@
 				}
 			}
 		}
-
+		var 
 	</script>
-	<body onload="getClasses('SE')">	<!-- the input to this should be dynamic, not hard coded -->
+	<body onload="getClasses()">
 		<center>
 		<h3>Please select the courses you have taken:</h3>
 		<form method="post" action="../server.php">
