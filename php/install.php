@@ -32,7 +32,7 @@ executed first before your application is evaluated.
 								 Title VARCHAR(200) NOT NULL,
 								 Credits DECIMAL(1,1) NOT NULL,
 								 ScheduleCode VARCHAR(10) NOT NULL,
-								 SectionCode CHAR(1) NOT NULL,
+								 SectionCode VARCHAR(10) NOT NULL,
 								 Time VARCHAR(200) NULL,
 								 Days CHAR(5) NULL,
 								 Capacity INT NULL,
