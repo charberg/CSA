@@ -7,6 +7,7 @@
 	</head>
 	
 	<script>
+		/*Connects to server and gets the possible courses to take through XML */
 		function getClasses(prog){
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
@@ -24,6 +25,7 @@
 			request.send("&requesttype=GetPattern&program="+prog);
 		}
 		
+		/* This function fills the table with the course selections from XML input*/
 		function fillTable(classList){
 			var pattern = classList.getElementsByTagName('pattern')[0];
 			var items = pattern.getElementsByTagName('item');

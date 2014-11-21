@@ -5,13 +5,6 @@
 	</head>
 	<script>
 			function fillProgNames(){
-				/*
-				var option1 = document.createElement('option');
-				option1.text = "SE";
-				option1.value = "SE";
-				document.getElementById('progdropdown').add(option1,0);
-				*/
-
 				var request = new XMLHttpRequest();
 				request.open("post","php/server.php",true);
 				request.setRequestHeader("content-type","application/x-www-form-urlencoded");
@@ -44,14 +37,8 @@
 		<br/>
 		<form method="post" action="server.php">
 			Stream:
-			<select id="progdropdown" name="programName">
-				<!-- Drop-down menu for years completed 
-				<option value="SE">Software Engineering</option>
-				
-				<option value="CSE">Computer Systems Engineering</option>
-				<option value="CE">Communications Engineering</option>
-				-->
-			</select>
+			<!-- Drop-down menu for program selection -->
+			<select id="progdropdown" name="programName"></select>
 			<br/><br/>
 			
 			Please select total amount of years completed to date:
