@@ -54,8 +54,8 @@
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				$returnval .= "<ProgramID>".$row->ProgramID."</ProgramID>
-							   <ProgramCode>".$row->ProgramCode."</ProgramCode>";
+				$returnval .= "<program><ProgramID>".$row->ProgramID."</ProgramID>
+							   <ProgramCode>".$row->ProgramCode."</ProgramCode></program>";
 			
 			}
 			
