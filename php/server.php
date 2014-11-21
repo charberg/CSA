@@ -10,6 +10,24 @@
 	
 	switch ($requestType) {
 	
+		case "calculateSchedule":
+		
+			$program = $_POST['programName'];
+			$schedType = $_POST['sched'];
+			$term = $_POST['term'];
+			
+			if ($schedType = 'off') {
+				
+				$CoursesCompleted =  $_POST['courses'];
+				
+			} else {
+				
+				$year = $_POST['yearCompleted'];
+				
+			}
+		
+			exit;
+	
 		case "submitinfo":
 			
 			$program = $_POST['programName'];
@@ -18,8 +36,8 @@
 			
 			if ($schedType = 'off') {
 				
-				setcookie("yearCompleted", $year, time() + 3600);
-				setcookie("programName", $program, time() + 3600);
+				setcookie("yearCompleted", $year, time() + 3600,"\\");
+				setcookie("programName", $program, time() + 3600,"\\");
 				header("location:../pages/Off_Schedule_Courses.php");	
 				exit;
 			} else {
@@ -40,7 +58,8 @@
 
 			$pat = new Pattern();
 			
-			$getProgramPattern = "SELECT * FROM Patterns WHERE ProgramID = '$program';";
+			$getProgramPattern = "SELECT * FROM Patterns 
+									WHERE ProgramID = '$program';";
 			
 			$rows = $db->execute($getProgramPattern);
 			
@@ -65,13 +84,24 @@
 		
 			$SubjectID = $_POST['SubjectID'];
 			$CourseNumber = $_POST['CourseNumber'];
+			$Section = $_POST['section'];
 			$Term = $_POST['term'];
 			$Year = $_POST['year'];
 			
 			$lockSectionTable = "LOCK TABLE Section WRITE;";
 			$unlockSectionTable = "UNLOCK TABLES;";
-			$incrementSection = "UPDATE Section SET NumberOfStudents = NumberOfStudents + 1 WHERE SubjectID = '$SubjectID' AND CourseNumber = '$CourseNumber' AND Year = '$Year' AND Term = '$Term';";
-			$getSection = "SELECT * FROM Section WHERE SubjectID = '$SubjectID' AND CourseNumber = '$CourseNumber' AND Year = '$Year' AND Term = '$Term';";
+			$incrementSection = "UPDATE Section 
+									SET NumberOfStudents = NumberOfStudents + 1 
+									WHERE SubjectID = '$SubjectID' AND 
+									CourseNumber = '$CourseNumber' AND 
+									Year = '$Year' AND 
+									Term = '$Term' AND 
+									SectionCode = '$Section';";
+			$getSection = "SELECT * FROM Section 
+							WHERE SubjectID = '$SubjectID' AND 
+							CourseNumber = '$CourseNumber' AND 
+							Year = '$Year' AND 
+							Term = '$Term';";
 			
 			$db->execute($lockSectionTable);	//lock DB
 			
@@ -89,7 +119,7 @@
 			
 				$result = $db->execute($incrementSection);
 			}
-				
+			
 			$db->execute($unlockSectionTable);	//unlock table
 			
 			if ($result->num_rows = 1) {
@@ -131,7 +161,9 @@
 			$term = $_POST['term'];
 			$year = $_POST['year'];
 		
-			$getScienceElectives = "SELECT SubjectID, CourseNumber FROM Electives WHERE ProgramID = '$program' AND ElectiveType LIKE '%science%';";
+			$getScienceElectives = "SELECT SubjectID, CourseNumber FROM Electives 
+									WHERE ProgramID = '$program' AND 
+									ElectiveType LIKE '%science%';";
 		
 			$rows = $db->execute($getScienceElectives);
 			
@@ -139,7 +171,12 @@
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				$getSection = "SELECT * FROM Section WHERE SubjectID = '$row->SubjectID.' AND CourseNumber = '$row->CourseNumber;';";
+				$getSection = "SELECT * FROM Section 
+								WHERE SubjectID = '$row->SubjectID' AND 
+								CourseNumber = '$row->CourseNumber' AND
+								Year = '$year' AND
+								Term = '$term' AND
+								ScheduleCode = 'LEC';";
 			
 				$sec = $db->execute($getSection);
 			
@@ -171,7 +208,9 @@
 			$term = $_POST['term'];
 			$year = $_POST['year'];
 		
-			$getcomplementaryElectives = "SELECT SubjectID, CourseNumber FROM Electives WHERE ProgramID = '$program' AND ElectiveType LIKE '%complementary%';";
+			$getcomplementaryElectives = "SELECT SubjectID, CourseNumber FROM Electives 
+											WHERE ProgramID = '$program' AND 
+											ElectiveType LIKE '%complementary%';";
 		
 			$rows = $db->execute($getcomplementaryElectives);
 			
@@ -179,7 +218,12 @@
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				$getSection = "SELECT * FROM Section WHERE SubjectID = '$row->SubjectID.' AND CourseNumber = '$row->CourseNumber;';";
+				$getSection = "SELECT * FROM Section 
+								WHERE SubjectID = '$row->SubjectID' AND 
+								CourseNumber = '$row->CourseNumber' AND
+								Year = '$year' AND
+								Term = '$term' AND
+								ScheduleCode = 'LEC';";
 			
 				$sec = $db->execute($getSection);
 			
@@ -212,7 +256,9 @@
 			$year = $_POST['year'];
 			$elecType = $_POST['electype'];
 		
-			$getengElectives = "SELECT SubjectID, CourseNumber FROM Electives WHERE ProgramID = '$program' AND ElectiveType LIKE '%$elecType%';";
+			$getengElectives = "SELECT SubjectID, CourseNumber FROM Electives 
+								WHERE ProgramID = '$program' AND 
+								ElectiveType LIKE '%$elecType%';";
 		
 			$rows = $db->execute($getengElectives);
 			
@@ -220,7 +266,12 @@
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				$getSection = "SELECT * FROM Section WHERE SubjectID = '$row->SubjectID.' AND CourseNumber = '$row->CourseNumber;';";
+				$getSection = "SELECT * FROM Section 
+								WHERE SubjectID = '$row->SubjectID' AND 
+								CourseNumber = '$row->CourseNumber' AND
+								Year = '$year' AND
+								Term = '$term' AND
+								ScheduleCode = 'LEC';";
 			
 				$sec = $db->execute($getSection);
 			
