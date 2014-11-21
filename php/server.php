@@ -36,15 +36,11 @@
 			
 			if ($schedType = "off") {
 				
-<<<<<<< HEAD
-				setcookie("yearCompleted", $year, time() + 3600,"\\");
-				setcookie("programName", $program, time() + 3600,"\\");
-=======
 				setcookie("yearCompleted", $year, time() + 3600, "../");
 				setcookie("programName", $program, time() + 3600, "../");
->>>>>>> origin/master
 				header("location:../pages/Off_Schedule_Courses.php");	
 				exit;
+				
 			} else {
 				
 				setcookie("yearCompleted", $year, time() + 3600, "../");
