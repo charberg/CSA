@@ -16,3 +16,26 @@ td{
 	text-align:center;
 	font-weight:bold;
 }
+
+/* Colored borders for courses */
+#SYSC{
+	border-color:#990099;
+}
+#MATH{
+	border-color:#339933;
+}
+#ECOR{
+	border-color:black;
+}
+#CCDP{
+	border-color:black;
+}
+#STAT{
+	border-color:black;
+}
+#ELEC{
+	border-color:#FF9900;
+}
+#PHYS{
+	border-color:#FFFF33;
+}
