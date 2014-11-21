@@ -1,71 +1,97 @@
 <html>
-<head>
-	<link type="text/css" rel="stylesheet" href="css/Front_Page_CSS.css"/>
-	<!-- Link to .css file -->
-</head>
+	<head>
+		<link type="text/css" rel="stylesheet" href="css/Front_Page_CSS.css"/>
+		<!-- Link to .css file -->
+	</head>
+	<script>
+			function fillProgNames(){
+				/*
+				var option1 = document.createElement('option');
+				option1.text = "SE";
+				option1.value = "SE";
+				document.getElementById('progdropdown').add(option1,0);
+				*/
 
-
-
-<script>
-		//no scripts yet
-</script>
-
-<body>
-	<center>
-	<h1>Welcome to the Briglio course selector!</h1><br/>
-	
-	<h3>Your Info:</h3>
-	<br/>
-	<form method="post" action="server.php">
-		Stream:
-		<select name="programName">
-			<!-- Drop-down menu for years completed -->
-			<option value="SE">Software Engineering</option>
-			<!--
-			<option value="CSE">Computer Systems Engineering</option>
-			<option value="CE">Communications Engineering</option>
-			-->
-		</select>
-		<br/><br/>
+				var request = new XMLHttpRequest();
+				request.open("post","php/server.php",true);
+				request.setRequestHeader("content-type","application/x-www-form-urlencoded");
+				request.onreadystatechange = function(){
+					if(request.readyState == 4 && request.status == 200){
+						var rxml = request.responseXML;
+						//alert(request.responseText);
+						//alert(request.responseXML);
+						if(rxml){
+							var pack = rxml.getElementsByTagName('programs')[0];
+							var programs = pack.getElementsByTagName('program');
+							var temp;
+							for(var i=0;i<programs.length;i++){
+								temp = document.createElement('option');
+								temp.text = programs[i].getElementsByTagName('ProgramCode')[0].textContent;
+								temp.value = programs[i].getElementsByTagName('ProgramID')[0].textContent;
+								document.getElementById('progdropdown').add(temp);
+							}
+						}
+					}
+				}
+				request.send("&requesttype=GetPrograms");
+			}
+	</script>
+	<body onload="fillProgNames()">
+		<center>
+		<h1>Welcome to the Briglio course selector!</h1><br/>
 		
-		Please select total amount of years completed to date:
-		<select name="yearCompleted">
-			<!-- Drop-down menu for years completed -->
-			<option value="1">1st</option>
-			<option value="2">2nd</option>
-			<option value="3">3rd</option>
-		</select>
-		<br/><br/>
+		<h3>Your Info:</h3>
+		<br/>
+		<form method="post" action="server.php">
+			Stream:
+			<select id="progdropdown" name="programName">
+				<!-- Drop-down menu for years completed 
+				<option value="SE">Software Engineering</option>
+				
+				<option value="CSE">Computer Systems Engineering</option>
+				<option value="CE">Communications Engineering</option>
+				-->
+			</select>
+			<br/><br/>
+			
+			Please select total amount of years completed to date:
+			<select name="yearCompleted">
+				<!-- Drop-down menu for years completed -->
+				<option value="1">1st</option>
+				<option value="2">2nd</option>
+				<option value="3">3rd</option>
+			</select>
+			<br/><br/>
+			
+			Are you on schedule?
+			<input type="radio" name="sched" value="yes" checked="true">YES</input>
+			<input type="radio" name="sched" value="no">NO</input>
+			<br/><br/>
+			<input type="hidden" value="submitinfo" name="requesttype"/>
+			<input type="submit" value="SUBMIT"/>
+			<!--<button type="button" id="submit" onclick="submitPage()">SUBMIT</button>-->
+		</form>
+		<p id="result"></p>
 		
-		Are you on schedule?
-		<input type="radio" name="sched" value="yes" checked="true">YES</input>
-		<input type="radio" name="sched" value="no">NO</input>
-		<br/><br/>
-		<input type="hidden" value="submitinfo" name="requesttype"/>
-		<input type="submit" value="SUBMIT"/>
-		<!--<button type="button" id="submit" onclick="submitPage()">SUBMIT</button>-->
-	</form>
-	<p id="result"></p>
-	
-	<!-- classes[] array can be used in php, as $_POST['classes']
-	<!-- Alternatively, could set value to classes[i], then variable in php is simply $classes -->
-	<!-- Need to check how results are stored, i.e. bools? -->
-	<!-- TO BE DONE
+		<!-- classes[] array can be used in php, as $_POST['classes']
+		<!-- Alternatively, could set value to classes[i], then variable in php is simply $classes -->
+		<!-- Need to check how results are stored, i.e. bools? -->
+		<!-- TO BE DONE
+			
+			Add verification that student number is the correct length, starts with 100
+			Add verification that either a year is selected, OR boxes are checked
+			Practice accessing database with php
+			Change input boxes into <form>, send to .php file if verification is passed
+			<form method="GET" action="info.php"> or something along those lines
+			Schedule generation
+			Schedule alternatives
+			Pre-req selection
+			Web page branch if you select all courses complete vs. year complete
+			
+		-->
 		
-		Add verification that student number is the correct length, starts with 100
-		Add verification that either a year is selected, OR boxes are checked
-		Practice accessing database with php
-		Change input boxes into <form>, send to .php file if verification is passed
-		<form method="GET" action="info.php"> or something along those lines
-		Schedule generation
-		Schedule alternatives
-		Pre-req selection
-		Web page branch if you select all courses complete vs. year complete
 		
-	-->
-	
-	
-	</center>
-</body>
+		</center>
+	</body>
 
 </html>
