@@ -14,6 +14,8 @@
 
 			$program = $_POST['program'];
 			
+			header("content-type: text/xml");
+			
 			$pat = new Pattern();
 			
 			$getProgramPattern = "SELECT * FROM Patterns WHERE ProgramID = '$program';";
@@ -38,7 +40,6 @@
 			
 			}
 			
-			header("content-type: text/xml");
 			echo $pat->exportXML();
 			
 			exit;
