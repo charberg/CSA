@@ -16,12 +16,12 @@
 							$subjectID,
 							$courseNumber) {
 		
-		$this->programID = trim($programID);
-		$this->courseType = trim($courseType);
-		$this->yearRequired = trim($yearRequired);
-		$this->termRequired = trim($termRequired);
-		$this->subjectID = trim($subjectID);
-		$this->courseNumber = trim($courseNumber);
+		$this->programID = $programID;
+		$this->courseType = $courseType;
+		$this->yearRequired = $yearRequired;
+		$this->termRequired = $termRequired;
+		$this->subjectID = $subjectID;
+		$this->courseNumber = $courseNumber;
 		
 		}
 	

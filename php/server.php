@@ -16,7 +16,7 @@
 			
 			$pat = new Pattern();
 			
-			$getProgramPattern = "SELECT * FROM AcademicProgramToCourseMapping WHERE ProgramID = '$program';";
+			$getProgramPattern = "SELECT * FROM Patterns WHERE ProgramID = '$program';";
 			
 			$rows = $db->execute($getProgramPattern);
 			

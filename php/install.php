@@ -15,8 +15,9 @@ executed first before your application is evaluated.
 		
 	$table_Section = "Section";
 	$table_Programs = "AcademicPrograms";
-	$table_ProgramToCourseMapping = "AcademicProgramToCourseMapping";
+	$table_Patterns = "Patterns";
 	$table_CourseToPrereqMapping = "CourseToPrerequisiteMapping";
+	$table_electives = "Electives";
 	
 	//Define queries to create database and its tables
 		
@@ -42,7 +43,7 @@ executed first before your application is evaluated.
 								(ProgramID VARCHAR(10) NOT NULL PRIMARY KEY,
 								 ProgramCode VARCHAR(200) NOT NULL);";
 								 
-	$CreatePTCMappingTable = "CREATE TABLE IF NOT EXISTS $table_ProgramToCourseMapping
+	$CreatePatternsTable = "CREATE TABLE IF NOT EXISTS $table_Patterns
 								(ProgramID VARCHAR(10) NOT NULL,
 								 CourseType VARCHAR(30) NOT NULL,
 								 YearRequired INT NOT NULL,
@@ -57,6 +58,14 @@ executed first before your application is evaluated.
 								 CourseNumber VARCHAR(200) NOT NULL,
 								 Prerequisites VARCHAR(250) NOT NULL,
 								 PRIMARY KEY(SubjectID, CourseNumber));";
+	
+	$CreateElectivesTable = "CREATE TABLE IF NOT EXISTS $table_electives
+								(ProgramID VARCHAR(10) NOT NULL,
+								 SubjectID VARCHAR(10) NOT NULL,
+								 CourseNumber VARCHAR(200) NOT NULL,
+								 ElectiveType VARCHAR(200) NOT NULL,
+								 PRIMARY KEY(ProgramID, SubjectID, CourseNumber, ElectiveType),
+								 FOREIGN KEY(ProgramID) REFERENCES $table_Programs(ProgramID));";
 	
 	//Create Database
 	
@@ -89,10 +98,10 @@ executed first before your application is evaluated.
 		exit;
 	}
 	
-	if ($db->execute($CreatePTCMappingTable)) {
-		//echo "Successfully Created Program to Course Mapping Table<br/>";
+	if ($db->execute($CreatePatternsTable)) {
+		//echo "Successfully Created Pattern Table<br/>";
 	} else {
-		echo "Error Creating Program to Course Mapping Table: ".$db->getError()."<br/>";
+		echo "Error Creating Pattern Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
@@ -100,6 +109,13 @@ executed first before your application is evaluated.
 		//echo "Successfully Created Course to Prerequisite Mapping Table<br/>";
 	} else {
 		echo "Error Creating Course to Prerequisite Mapping Table: ".$db->getError()."<br/>";
+		exit;
+	}
+	
+	if ($db->execute($CreateElectivesTable)) {
+		//echo "Successfully Created Electives Table<br/>";
+	} else {
+		echo "Error Creating Electives Table: ".$db->getError()."<br/>";
 		exit;
 	}
 	
@@ -291,8 +307,8 @@ executed first before your application is evaluated.
 
 	fclose($dataFile);
 	
-	//Map program to courses
-	$dataFile = fopen("../data/Program_Mappings/SEMapping.txt","r");	//open data file for reading
+	//Populate Pattern table
+	$dataFile = fopen("../data/Patterns/SE.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {
 		
@@ -305,16 +321,16 @@ executed first before your application is evaluated.
 		}
 		echo "<br/>";*/
 		
-		$PopulateP2CMapping = "INSERT IGNORE INTO $table_ProgramToCourseMapping VALUES('SE',
+		$PopulateP2CMapping = "INSERT IGNORE INTO $table_Patterns VALUES('SE',
 																					   '$values[0]',
 																					   $values[3],
 																					   '$values[4]',
 																					   '$values[1]',
 																					   '$values[2]');";
 		if ($db->execute($PopulateP2CMapping)) {
-			//echo "Successfully populated Program to Course Table<br/>";
+			//echo "Successfully populated Patterns Table<br/>";
 		} else {
-			echo "Error populating Program to Course Table: ".$db->getError()."<br/>";
+			echo "Error populating Patterns Table: ".$db->getError()."<br/>";
 			exit;
 		}
 	}
@@ -342,7 +358,88 @@ executed first before your application is evaluated.
 	}
 	
 	fclose($dataFile);
+	
+	//Populate Electives Table
+	$dataFile = fopen("../data/Electives/complementaryElectives.txt","r");	//open data file for reading
+	
+	while (($line = fgets($dataFile)) !== false) {
+
+		$values = explode(" ",$line);
 		
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
+																		 '$values[0]',
+																		 '$values[1]',
+																		 'complementary');";
+		if ($db->execute($PopulateElectives)) {
+			//echo "Successfully populated Electives Table<br/>";
+		} else {
+			echo "Error populating Electives Table: ".$db->getError()."<br/>";
+			exit;
+		}
+	}
+	
+	fclose($dataFile);
+	
+	$dataFile = fopen("../data/Electives/ScienceElectives.txt","r");	//open data file for reading
+	
+	while (($line = fgets($dataFile)) !== false) {
+
+		$values = explode(" ",$line);
+		
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
+																		 '$values[0]',
+																		 '$values[1]',
+																		 'science');";
+		if ($db->execute($PopulateElectives)) {
+			//echo "Successfully populated Electives Table<br/>";
+		} else {
+			echo "Error populating Electives Table: ".$db->getError()."<br/>";
+			exit;
+		}
+	}
+	
+	fclose($dataFile);
+	
+	$dataFile = fopen("../data/Electives/noteAElectives.txt","r");	//open data file for reading
+	
+	while (($line = fgets($dataFile)) !== false) {
+
+		$values = explode(" ",$line);
+		
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
+																		 '$values[0]',
+																		 '$values[1]',
+																		 'noteA');";
+		if ($db->execute($PopulateElectives)) {
+			//echo "Successfully populated Electives Table<br/>";
+		} else {
+			echo "Error populating Electives Table: ".$db->getError()."<br/>";
+			exit;
+		}
+	}
+	
+	fclose($dataFile);
+	
+	$dataFile = fopen("../data/Electives/noteBElectives.txt","r");	//open data file for reading
+	
+	while (($line = fgets($dataFile)) !== false) {
+
+		$values = explode(" ",$line);
+		
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
+																		 '$values[0]',
+																		 '$values[1]',
+																		 'noteB');";
+		if ($db->execute($PopulateElectives)) {
+			//echo "Successfully populated Electives Table<br/>";
+		} else {
+			echo "Error populating Electives Table: ".$db->getError()."<br/>";
+			exit;
+		}
+	}
+	
+	fclose($dataFile);
+	
 	echo "Successfull in creating database";
 		
 ?>
