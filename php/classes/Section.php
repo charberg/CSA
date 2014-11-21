@@ -15,8 +15,6 @@
 		public $days;
 		public $capacity;
 		public $numberOfStudents;
-		public $labsList;
-		public $prereq;
 	
 		function __construct($subjectID,
 							 $courseNum,
@@ -29,8 +27,7 @@
 							 $time,
 							 $days,
 							 $capacity,
-							 $numStudents,
-							 $lablist) {
+							 $numStudents) {
 		
 			$this->subjectID = $subjectID;
 			$this->courseNum = $courseNum;
@@ -44,27 +41,11 @@
 			$this->days = $days;
 			$this->capacity = $capacity;
 			$this->numberOfStudents = $numStudents;
-			$this->labsList = $lablist;
 		
 		}
 	
 		function isFull() {
 			return $this->numberOfStudents == $this->capacity;
-		}
-	
-		function freeLabs() {
-			
-			$freelablist = array();
-			
-			for ($i = 0;$i < count($this->labsList);$i = $i + 1) {
-			
-				if ($this->labsList[$i]->capacity > $this->labsList[$i]->numberOfStudents) {
-					array_push($freelablist,$this->labsList[$i]);
-				}
-			
-			}
-			
-			return $freelablist;
 		}
 		
 		function exportXML() {
@@ -95,10 +76,38 @@
 			
 			$prereqs = trim(strtoupper($prereqs));
 			
-			
-			
 		}
 	
+	}
+	
+	
+	class SectionList {
+	
+		public $SectionItems;
+		
+		function __construct() {
+			$SectionItems = array();
+		}
+	
+		function exportXML() {
+		
+			$returnval = "<courses>";
+			
+			for ($i = 0; $i < count($this->SectionItems);$i = $i + 1) {
+			
+				$returnval .= $this->SectionItems[$i]->exportXML();
+			}
+		
+			$returnval .= "</courses>";
+			
+			return $returnval;
+		
+		}
+		
+		function addItem($item) {
+			array_push($this->patternItems,$item);
+		}
+
 	}
 
 ?>

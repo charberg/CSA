@@ -48,8 +48,8 @@ executed first before your application is evaluated.
 								 CourseType VARCHAR(30) NOT NULL,
 								 YearRequired INT NOT NULL,
 								 TermRequired VARCHAR(30) NOT NULL,
-								 SubjectID VARCHAR(10) NOT NULL,
-								 CourseNumber VARCHAR(200) NOT NULL,
+								 SubjectID VARCHAR(10) NULL,
+								 CourseNumber VARCHAR(200) NULL,
 								 PRIMARY KEY(ProgramID, CourseType, YearRequired, TermRequired, SubjectID, CourseNumber),
 								 FOREIGN KEY(ProgramID) REFERENCES $table_Programs(ProgramID));";
 
@@ -322,11 +322,11 @@ executed first before your application is evaluated.
 		echo "<br/>";*/
 		
 		$PopulateP2CMapping = "INSERT IGNORE INTO $table_Patterns VALUES('SE',
-																					   '$values[0]',
-																					   $values[3],
-																					   '$values[4]',
-																					   '$values[1]',
-																					   '$values[2]');";
+																	   '$values[0]',
+																	   $values[3],
+																	   '$values[4]',
+																	   '$values[1]',
+																	   '$values[2]');";
 		if ($db->execute($PopulateP2CMapping)) {
 			//echo "Successfully populated Patterns Table<br/>";
 		} else {

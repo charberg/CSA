@@ -67,6 +67,42 @@
 	
 		case "getScienceElectives":
 		
+			$program = $_POST['program'];
+			$term = $_POST['term'];
+			$year = $_POST['year'];
+		
+			$getScienceElectives = "SELECT SubjectID, CourseNumber FROM Electives WHERE ProgramID = '$program' AND ElectiveType LIKE '%complementary%';";
+		
+			$rows = $db->execute($getScienceElectives);
+			
+			$courses = new SectionList();
+			
+			while ( ($row = $rows->fetch_object()) ) {
+			
+				$getSection = "SELECT * FROM Section WHERE SubjectID = '$row->SubjectID.' AND CourseNumber = '$row->CourseNumber;';";
+			
+				$sec = $db->execute($getSection);
+			
+				$newItem = new Section($sec->SubjectID,
+									   $sec->CourseNumber,
+									   $sec->Year,
+									   $sec->Term,
+									   $sec->Title,
+									   $sec->Credits,
+									   $sec->ScheduleCode,
+									   $sec->SectionCode,
+									   $sec->Time,
+									   $sec->Days,
+									   $sec->Capacity,
+									   $sec->NumberOfStudents);
+			
+				$courses->addItem($newItem);
+				
+			}
+			
+			header("content-type: text/xml");
+			echo $courses->exportXML();
+			
 			exit;
 			
 		case "getComplementoryElectives":
