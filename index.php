@@ -10,7 +10,7 @@
 	
 	$uri .= $_SERVER['HTTP_HOST'];
 	
-	header('Location: '.$uri.'/CSA/index.html');
+	header('Location: '.$uri.'/CSA/pages/intro_page.html');
 	
 	exit;
 	
