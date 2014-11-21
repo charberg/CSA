@@ -7,9 +7,6 @@
 	</head>
 	
 	<script>
-		function classInfo(course){
-			document.getElementById('classinfo').innerHTML = "TESTING 1";
-		}
 		function getClasses(prog){
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
@@ -123,10 +120,8 @@
 			}
 		}
 
-		getClasses("SE");
-
 	</script>
-	<body>
+	<body onload="getClasses('SE')">	<!-- the input to this should be dynamic, not hard coded -->
 		<center>
 		<h3>Please select the courses you have taken:</h3>
 		<form method="post" action="../server.php">
@@ -143,6 +138,7 @@
 					<td width="120px" style="border:0px">Year 4 WINTER</td>
 				</tr>
 				
+				<!-- Rows will be filled by javascript -->
 				<tr id="row1"></tr>
 				<tr id="row2"></tr>
 				<tr id="row3"></tr>
