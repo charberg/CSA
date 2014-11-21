@@ -1,8 +1,8 @@
 <?php
-
-	if (!isset($_COOKIE['login']) ) {
-		echo "Need to log in first";
-		//header("refresh:2;url=view1.php"); ???
+	/* Saved Cookies */
+	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted']) || !isset($_COOKIE['sched']){
+		echo "Missing information";
+		header("refresh:2;url=../index.php");
 		exit;
 	}
 	
