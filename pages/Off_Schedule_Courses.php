@@ -20,8 +20,8 @@
 	<script>
 		/*Connects to server and gets the possible courses to take through XML */
 		function getClasses(){
-			//var prog ="<?php echo $programName;?>";
-			var prog = "SE";
+			var prog ="<?php echo $programName;?>";
+			//var prog = "SE";
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
 			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
