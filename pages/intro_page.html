@@ -1,20 +1,19 @@
 <?php
 	/* Saved Cookies */
-	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted']) || !isset($_COOKIE['sched']){
+	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted'])){
 		echo "Missing information";
-		header("refresh:2;url=../index.php");
+		header("refresh:2;url=intro_page.php");
 		exit;
 	}
 	
 	$programName = $_COOKIE['programName'];
 	$yearCompleted = $_COOKIE['yearCompleted'];
-	$offSched = $_COOKIE['sched'];
 	
 ?>
 
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="css/Front_Page_CSS.css"/>
+		<link type="text/css" rel="stylesheet" href="../css/Front_Page_CSS.css"/>
 		<!-- Link to .css file -->
 	</head>
 	<script>
