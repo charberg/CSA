@@ -10,6 +10,25 @@
 	
 	switch ($requestType) {
 	
+		case "submitinfo":
+		
+			$program = $_POST['programName'];
+			$year = $_POST['yearCompleted'];
+			$schedType = $_POST['sched'];
+		
+			setcookie("yearCompleted", $year, time() + 3600);
+			setcookie("programName", $program, time() + 3600);
+			
+			if ($schedType = 'off') {
+				
+				header("location:../pages/Off_Schedule_Courses.html");	
+			} else {
+			
+				header("location:../pages/my_schedule.html");
+			}
+			
+			exit;
+	
 		case "GetPattern":
 
 			$program = $_POST['program'];
@@ -43,8 +62,41 @@
 		
 			$SubjectID = $_POST['SubjectID'];
 			$CourseNumber = $_POST['CourseNumber'];
-			$term = $_POST['term'];
-			$year = $_POST['year'];
+			$Term = $_POST['term'];
+			$Year = $_POST['year'];
+			
+			$lockSectionTable = "LOCK TABLE Section WRITE;";
+			$unlockSectionTable = "UNLOCK TABLES;";
+			$incrementSection = "UPDATE Section SET NumberOfStudents = NumberOfStudents + 1 WHERE SubjectID = '$SubjectID' AND CourseNumber = '$CourseNumber' AND Year = '$Year' AND Term = '$Term';";
+			$getSection = "SELECT * FROM Section WHERE SubjectID = '$SubjectID' AND CourseNumber = '$CourseNumber' AND Year = '$Year' AND Term = '$Term';";
+			
+			$db->execute($lockSectionTable);	//lock DB
+			
+			$row = $db->execute($getSection);	//get section to be updated
+			
+			if (!is_null($row->Capacity)) {	//check if course has capacity
+			
+				$result = ($row->Capacity == $row->NumberOfStudents);	//ensure its not full
+				
+			} else {
+				$result = false;	//if it doesn't it can be updated
+			}
+			
+			if ($result == false) {	//if the section can be updated, update it
+			
+				$result = $db->execute($incrementSection);
+			}
+				
+			$db->execute($unlockSectionTable);	//unlock table
+			
+			if ($result->num_rows = 1) {
+				$returnval = "Section was successfully updated";
+			} else { 
+				$returnval = "Course is full";
+			}
+			
+			header("content-type: text/plain");
+			echo $returnval;
 			
 			exit;
 			
