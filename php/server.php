@@ -4,6 +4,10 @@
 	require_once("classes/Section.php");
 	require_once("classes/pattern.php");
 
+	header("content-type: text/xml");
+	echo "<message>ITS WORKING HERE</message>";
+	exit;
+	
 	$requestType = $_POST['requesttype'];
 	
 	$db = new DataBase("SchedulerDatabase");
