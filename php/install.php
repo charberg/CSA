@@ -9,7 +9,7 @@ executed first before your application is evaluated.
 
 	//Define database name and table names
 	
-	set_time_limit(60);	//allow 1 minute for execution
+	set_time_limit(120);	//allow 2 minute for execution
 
 	$dbName = "SchedulerDatabase";
 		
@@ -27,17 +27,17 @@ executed first before your application is evaluated.
 	$CreateSectionTable = "CREATE TABLE IF NOT EXISTS $table_Section
 								(SubjectID VARCHAR(10) NOT NULL,
 								 CourseNumber VARCHAR(200) NOT NULL,
+								 SectionCode VARCHAR(10) NOT NULL,
 								 Year INT NOT NULL,
 								 Term VARCHAR(10) NOT NULL,
 								 Title VARCHAR(200) NOT NULL,
 								 Credits DECIMAL(1,1) NOT NULL,
 								 ScheduleCode VARCHAR(10) NOT NULL,
-								 SectionCode VARCHAR(10) NOT NULL,
 								 Time VARCHAR(200) NULL,
 								 Days CHAR(5) NULL,
 								 Capacity INT NULL,
 								 NumberOfStudents INT NOT NULL,
-								 PRIMARY KEY(SubjectID, CourseNumber, Year, Term));";		
+								 PRIMARY KEY(SubjectID, CourseNumber, SectionCode, Year, Term));";		
 	
 	$CreateProgramsTable = "CREATE TABLE IF NOT EXISTS $table_Programs
 								(ProgramID VARCHAR(10) NOT NULL PRIMARY KEY,
@@ -200,12 +200,12 @@ executed first before your application is evaluated.
 		//Insert into Section Table	
 		$insertSectionIntoDB = "INSERT IGNORE INTO $table_Section VALUES ('$SubjectID',
 																		   '$CourseNumber',
+																		   '$SectionCode',
 																		   $Year,
 																		   '$Term',
 																		   '$Title',
 																			$Credits,
 																		   '$ScheduleCode',
-																		   '$SectionCode',
 																		   '$Time',
 																		   '$Days',
 																		   $Capacity,
@@ -247,13 +247,13 @@ executed first before your application is evaluated.
 		//Course Table
 		$SubjectID = "$values[0]";
 		$CourseNumber = "$values[1]";
-		$Title = "$values[3]";
+		$Title = $values[3];
 		$Credits = 0.5;
 		
 		//Section Table
 		$CRN = $CRNCounter;
-		$ScheduleCode = "$values[4]";
-		$SectionCode = "$values[2]";
+		$ScheduleCode = $values[4];
+		$SectionCode = $values[2];
 		$Year = 2015;
 		$Term = "winter";
 		
@@ -283,12 +283,12 @@ executed first before your application is evaluated.
 		//Insert into Section Table	
 		$insertSectionIntoDB = "INSERT IGNORE INTO $table_Section VALUES ('$SubjectID',
 																		   '$CourseNumber',
+																		   '$SectionCode',
 																		   $Year,
 																		   '$Term',
 																		   '$Title',
 																			$Credits,
 																		   '$ScheduleCode',
-																		   '$SectionCode',
 																		   '$Time',
 																		   '$Days',
 																		   $Capacity,
