@@ -22,7 +22,6 @@
 		function getClasses(){
 			//var prog ="<?php echo $programName;?>";
 			var prog = "SE";
-			alert("<"+prog+">");
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
 			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
