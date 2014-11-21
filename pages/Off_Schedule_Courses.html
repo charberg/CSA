@@ -1,3 +1,17 @@
+<?php
+
+	if (!isset($_COOKIE['login']) ) {
+		echo "Need to log in first";
+		//header("refresh:2;url=view1.php"); ???
+		exit;
+	}
+	
+	$programName = $_COOKIE['programName'];
+	$yearCompleted = $_COOKIE['yearCompleted'];
+	$offSched = $_COOKIE['sched'];
+	
+?>
+
 <html>
 	<!-- NOTES:
 	-->
