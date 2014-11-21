@@ -21,12 +21,12 @@
 				
 				setcookie("yearCompleted", $year, time() + 3600);
 				setcookie("programName", $program, time() + 3600);
-				header("location:../pages/Off_Schedule_Courses.html");	
+				header("location:../pages/Off_Schedule_Courses.php");	
 			} else {
 				
 				setcookie("yearCompleted", $year, time() + 3600);
 				setcookie("programName", $program, time() + 3600);
-				header("location:../pages/my_schedule.html");
+				header("location:../pages/my_schedule.php");
 			}
 			
 			exit;
