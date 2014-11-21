@@ -24,17 +24,12 @@
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				
-			
 				$newItem = new PatternItem($row->ProgramID,
 										   $row->CourseType,
 										   $row->YearRequired,
 										   $row->TermRequired,
 										   $row->SubjectID,
 										   $row->CourseNumber);
-			
-				echo $newItem->exportXML();
-				exit;
 			
 				$pat->addItem($newItem);
 			
