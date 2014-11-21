@@ -19,14 +19,16 @@
 			
 			if ($schedType = 'off') {
 				
-				setcookie("yearCompleted", $year, time() + 3600);
-				setcookie("programName", $program, time() + 3600);
+				setcookie("yearCompleted", $year);
+				setcookie("programName", $program);
 				header("location:../pages/Off_Schedule_Courses.php");	
+				exit;
 			} else {
 				
-				setcookie("yearCompleted", $year, time() + 3600);
-				setcookie("programName", $program, time() + 3600);
+				setcookie("yearCompleted", $year);
+				setcookie("programName", $program);
 				header("location:../pages/my_schedule.php");
+				exit;
 			}
 			
 			exit;
