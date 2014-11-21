@@ -15,10 +15,7 @@
 			$program = $_POST['program'];
 			
 			header("content-type: text/xml");
-			
-			echo "<message>ITS WORKING HERE</message>";
-			exit;
-			
+
 			$pat = new Pattern();
 			
 			$getProgramPattern = "SELECT * FROM Patterns WHERE ProgramID = '$program';";
