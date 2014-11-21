@@ -39,8 +39,12 @@
 			
 			exit;
 		
-		case "RegisterCourses":
+		case "RegisterCourse":
 		
+			$SubjectID = $_POST['SubjectID'];
+			$CourseNumber = $_POST['CourseNumber'];
+			$term = $_POST['term'];
+			$year = $_POST['year'];
 			
 			exit;
 			
@@ -48,7 +52,7 @@
 	
 			$getPrograms = "SELECT * FROM AcademicPrograms;";
 			
-			$rows = $db->execute($getProgramPattern);
+			$rows = $db->execute($getPrograms);
 			
 			$returnval = "<programs>";
 			
