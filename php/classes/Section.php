@@ -105,7 +105,7 @@
 		}
 		
 		function addItem($item) {
-			array_push($this->patternItems,$item);
+			array_push($this->SectionItems,$item);
 		}
 
 	}
