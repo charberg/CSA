@@ -34,7 +34,7 @@
 			$year = $_POST['yearCompleted'];
 			$schedType = $_POST['sched'];
 			
-			if ($schedType = "off") {
+			if ($schedType == "off") {
 				
 				setcookie("yearCompleted", $year, time() + 3600, "../");
 				setcookie("programName", $program, time() + 3600, "../");
