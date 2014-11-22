@@ -150,15 +150,52 @@
 		
 		function calculateConflictFreeSchedules() {
 		
+			//break apart courses into lists per course
 			$class1 = new SectionList();
-			
 			$class1->addItem($this->courses[0]);
-			
 			unset($this->courses[0]);
 			
 			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
 			
-				if ($this->courses[$i]->
+				if ($this->courses[$i]->subjectID == $class1[0]->subjectID
+					&& $this->courses[$i]->courseNum == $class1[0]->courseNum) {
+					
+					$class1->addItem($this->courses[$i]);
+					unset($this->courses[$i]);
+					$i = $i - 1;
+				}
+			
+			}
+			
+			$class2 = new SectionList();
+			$class2->addItem($this->courses[0]);
+			unset($this->courses[0]);
+			
+			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
+			
+				if ($this->courses[$i]->subjectID == $class2[0]->subjectID
+					&& $this->courses[$i]->courseNum == $class2[0]->courseNum) {
+					
+					$class2->addItem($this->courses[$i]);
+					unset($this->courses[$i]);
+					$i = $i - 1;
+				}
+			
+			}
+			
+			$class3 = new SectionList();
+			$class3->addItem($this->courses[0]);
+			unset($this->courses[0]);
+			
+			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
+			
+				if ($this->courses[$i]->subjectID == $class3[0]->subjectID
+					&& $this->courses[$i]->courseNum == $class3[0]->courseNum) {
+					
+					$class3->addItem($this->courses[$i]);
+					unset($this->courses[$i]);
+					$i = $i - 1;
+				}
 			
 			}
 			
