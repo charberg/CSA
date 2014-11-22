@@ -18,10 +18,13 @@
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
 			
+			echo $coursesTaken;	//for testing
+			exit;
+			
 			setcookie("yearCompleted", $year, time() + 3600, "/");
 			setcookie("programName", $program, time() + 3600, "/");
 			setcookie("term", $term, time() + 3600, "/");
-			setcookie("courses", "Something", time() + 3600, "/");
+			setcookie("courses", "Something", time() + 3600, "/");	//replace with actual schedule
 			header("location:../pages/my_schedule.php");
 			exit;
 			
@@ -42,7 +45,7 @@
 				
 			} else {
 				//If on schedule, generate possible schedules and send those schedules to schedule selection page
-				setcookie("courses", "", time() + 3600, "/");
+				setcookie("courses", "", time() + 3600, "/");	//replace with actual schedule
 				header("location:../pages/my_schedule.php");
 				exit;
 			}

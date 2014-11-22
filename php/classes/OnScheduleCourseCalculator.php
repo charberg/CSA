@@ -152,6 +152,12 @@
 		
 		function addToSchedule(&$m, &$t, &$w, &$h, &$f, $C) {
 		
+			$monday = array_merge(array(), $m);	//Make copies of array to work with temporarily through function
+			$tuesday = array_merge(array(), $t);
+			$wednesday = array_merge(array(), $w);
+			$thursday = array_merge(array(), $h);
+			$friday = array_merge(array(), $f);
+			
 			$days = str_split($C->days);
 			
 			$times = explode("-",$C->time);
@@ -172,37 +178,198 @@
 				
 					case 'M':
 					
+						if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+							$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+						} else {
+							$nexthalfhour = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+						}
 						
+						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
+						while ($starttime != $endtime) {	//While haven't reached end of time
+							
+							if ($monday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+								return false;
+								
+							} else {	//Else book time and increment
+							
+								$monday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								
+								//Increment half hour start
+								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+								} else {
+									$starttime = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								//Increment half hour end
+								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
+								} else {
+									$nexthalfhour = (substr($nexthalfhour,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								
+							}//end if
+							
+						}//end while
 					
 					continue;
 					case 'T':
 					
+						if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+							$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+						} else {
+							$nexthalfhour = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+						}
 						
+						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
+						while ($starttime != $endtime) {	//While haven't reached end of time
+							
+							if ($tuesday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+								return false;
+								
+							} else {	//Else book time and increment
+							
+								$tuesday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								
+								//Increment half hour start
+								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+								} else {
+									$starttime = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								//Increment half hour end
+								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
+								} else {
+									$nexthalfhour = (substr($nexthalfhour,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								
+							}//end if
+							
+						}//end while
 					
 					continue;
 					case 'W':
 					
+						if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+							$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+						} else {
+							$nexthalfhour = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+						}
 						
+						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
+						while ($starttime != $endtime) {	//While haven't reached end of time
+							
+							if ($wednesday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+								return false;
+								
+							} else {	//Else book time and increment
+							
+								$wednesday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								
+								//Increment half hour start
+								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+								} else {
+									$starttime = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								//Increment half hour end
+								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
+								} else {
+									$nexthalfhour = (substr($nexthalfhour,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								
+							}//end if
+							
+						}//end while
 					
 					continue;
 					case 'R':
 					
+						if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+							$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+						} else {
+							$nexthalfhour = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+						}
 						
+						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
+						while ($starttime != $endtime) {	//While haven't reached end of time
+							
+							if ($thursday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+								return false;
+								
+							} else {	//Else book time and increment
+							
+								$thursday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								
+								//Increment half hour start
+								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+								} else {
+									$starttime = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								//Increment half hour end
+								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
+								} else {
+									$nexthalfhour = (substr($nexthalfhour,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								
+							}//end if
+							
+						}//end while
 					
 					continue;
 					case 'F':
 					
+						if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+							$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+						} else {
+							$nexthalfhour = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+						}
 						
+						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
+						while ($starttime != $endtime) {	//While haven't reached end of time
+							
+							if ($friday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+								return false;
+								
+							} else {	//Else book time and increment
+							
+								$friday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								
+								//Increment half hour start
+								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+								} else {
+									$starttime = (substr($starttime,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								//Increment half hour end
+								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
+									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
+								} else {
+									$nexthalfhour = (substr($nexthalfhour,0,3) + 1)."00";	//if at halfhour, set to beginning of next hour
+								}
+								
+							}//end if
+							
+						}//end while
 					
 					continue;
 					default:
-						
-						continue;
+						return false;
 				}
 			
-			}
+			}//end for (loop through days)
 			
-		
+			//If gotten to this point then course was successfully added to schedule, return true and make day arrays = copies
+			$m = array_merge(array(), $monday);	//make original arrays = new array schedules
+			$t = array_merge(array(), $tuesday);
+			$w = array_merge(array(), $wednesday);
+			$h = array_merge(array(), $thursday);
+			$f = array_merge(array(), $friday);
+			
+			return true;
 		}
 		
 		function calculateConflictFreeSchedules() {
@@ -478,17 +645,108 @@
 							"23:30-24:00" => 0);
 							
 			
-			for ($i = 0; $i < count($classlist1);$i = $i + 1) {
+			for ($c1 = 0; $c1 < count($classlist1);$c1 = $c1 + 1) {
 			
-				$class1 = $classlist1[$i];
+				$class1 = $classlist1[$c1];	//pick class1
+				
+				if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1) == false) {	//add class 1 to schedule
+					continue;	//go to next course possibility
+				}
 				
 				//get labs from class	
 				$class1Labs = $class1->getLabs();
 				
-				for ($j = 0; $j < count($class1Labs);$j = $j + 1) {
-				
+				for ($cl1 = 0; $cl1 < count($class1Labs);$cl1 = $cl1 + 1) {
 					
+					$class1lab = $class1Labs[$cl1];	//pick class 1 lab
+					
+					if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1lab) == false) {	//add class 1 lab to schedule
+						continue;	//go to next lab possibility
+					}
+					
+					for ($c2 = 0; $c2 < count($classlist2);$c2 = $c2 + 1) {
+						
+						$class2 = $classlist2[$c2];	//pick class2
 				
+						if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2) == false) {	//add class 2 to schedule
+							continue;	//go to next course possibility
+						}
+						
+						//get labs from class	
+						$class2Labs = $class2->getLabs();
+						
+						for ($cl2 = 0; $cl2 < count($class2Labs);$cl2 = $cl2 + 1) {
+							
+							$class2lab = $class2Labs[$cl2];	//pick class 2 lab
+							
+							if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2lab) == false) {	//add class 2 lab to schedule
+								continue;	//go to next lab possibility
+							}
+							
+							for ($c3 = 0; $c3 < count($classlist3);$c3 = $c3 + 1) {
+						
+								$class3 = $classlist3[$c3];	//pick class3
+						
+								if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3) == false) {	//add class 3 to schedule
+									continue;	//go to next course possibility
+								}
+								
+								//get labs from class	
+								$class3Labs = $class3->getLabs();
+								
+								for ($cl3 = 0; $cl3 < count($class3Labs);$cl3 = $cl3 + 1) {
+									
+									$class3lab = $class3Labs[$cl3];	//pick class 3 lab
+									
+									if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3lab) == false) {	//add class 3 lab to schedule
+										continue;	//go to next lab possibility
+									}
+									
+									for ($c4 = 0; $c4 < count($classlist4);$c4 = $c4 + 1) {
+						
+										$class4 = $classlist4[$c4];	//pick class4
+								
+										if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4) == false) {	//add class 4 to schedule
+											continue;	//go to next course possibility
+										}
+										
+										//get labs from class	
+										$class4Labs = $class4->getLabs();
+										
+										for ($cl4 = 0; $cl4 < count($class4Labs);$cl4 = $cl4 + 1) {
+											
+											$class4lab = $class4Labs[$cl4];	//pick class 4 lab
+											
+											if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4lab) == false) {	//add class 4 lab to schedule
+												continue;	//go to next lab possibility
+											}
+											
+											for ($c5 = 0; $c5 < count($classlist5);$c5 = $c5 + 1) {
+						
+												$class5 = $classlist5[$c5];	//pick class5
+										
+												if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5) == false) {	//add class 5 to schedule
+													continue;	//go to next course possibility
+												}
+												
+												//get labs from class	
+												$class5Labs = $class5->getLabs();
+												
+												for ($cl5 = 0; $cl5 < count($class5Labs);$cl5 = $cl5 + 1) {
+													
+													$class5lab = $class5Labs[$cl5];	//pick class 5 lab
+													
+													if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5lab) == false) {	//add class 4 lab to schedule
+														continue;	//go to next lab possibility
+													}
+												}//for class5labs
+											}//for class5
+										}//for class4labs
+									}//for class4
+								}//for class3labs
+							}//for class3
+						}//for class2labs
+					}//for class2
 				}//for class1labs
 			}//for class1
 			
