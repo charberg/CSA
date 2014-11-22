@@ -4,7 +4,7 @@
 	require_once("Section.php");
 	require_once("pattern.php");
 	
-	class OnSheduleCourseCalculator {
+	class OnScheduleCourseCalculator {
 	
 		private $year;
 		private $term;
@@ -199,6 +199,53 @@
 			
 			}
 			
+			$class4 = new SectionList();
+			$class4->addItem($this->courses[0]);
+			unset($this->courses[0]);
+			
+			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
+			
+				if ($this->courses[$i]->subjectID == $class4[0]->subjectID
+					&& $this->courses[$i]->courseNum == $class4[0]->courseNum) {
+					
+					$class4->addItem($this->courses[$i]);
+					unset($this->courses[$i]);
+					$i = $i - 1;
+				}
+			
+			}
+			
+			$class5 = new SectionList();
+			$class5->addItem($this->courses[0]);
+			unset($this->courses[0]);
+			
+			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
+			
+				if ($this->courses[$i]->subjectID == $class5[0]->subjectID
+					&& $this->courses[$i]->courseNum == $class5[0]->courseNum) {
+					
+					$class5->addItem($this->courses[$i]);
+					unset($this->courses[$i]);
+					$i = $i - 1;
+				}
+			
+			}
+			
+			$class6 = new SectionList();
+			$class6->addItem($this->courses[0]);
+			unset($this->courses[0]);
+			
+			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
+			
+				if ($this->courses[$i]->subjectID == $class6[0]->subjectID
+					&& $this->courses[$i]->courseNum == $class6[0]->courseNum) {
+					
+					$class6->addItem($this->courses[$i]);
+					unset($this->courses[$i]);
+					$i = $i - 1;
+				}
+			
+			}
 		
 		}
 		
