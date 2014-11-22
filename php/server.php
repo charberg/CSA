@@ -270,7 +270,7 @@
 			$program = $_POST['program'];
 			$term = $_POST['term'];
 			$year = $_POST['year'];
-			$elecType = $_POST['electype'];	//Need to specidy which type of engineering elctive
+			$elecType = $_POST['electtype'];	//Need to specidy which type of engineering elctive
 			
 			//Get Engineering Electives of given type for specific program
 			$getengElectives = "SELECT SubjectID, CourseNumber FROM Electives 
