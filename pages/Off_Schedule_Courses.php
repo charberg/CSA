@@ -40,9 +40,12 @@
 		}
 		
 		function sendClasses(){
-			
 			var list = document.getElementsByName('checks');
+			if(list.length == 0){
+				return;
+			}
 			var xmlStr = "<coursesTaken>";
+			//check for empty list
 			for(var i=0;i<list.length;i++){
 				if(list[i].checked == true){
 					xmlStr = xmlStr + "<course>" + list[i].value + "</course>";
@@ -55,14 +58,14 @@
 			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
-					var rxml = request.responseXML;
+					//var rxml = request.responseXML;
 					//alert(request.responseText);
 					//alert(request.responseXML);
-					if(rxml){
-						fillTable(rxml);
-					}
 				}
 			}
+			var prog = "<?php echo $programName; ?>";
+			var year = "<?php echo $yearCompleted; ?>";
+			var term = "<?php echo $term; ?>";
 			request.send("&requesttype=OffPatternSchedule&program="+prog+"&year="+year+"&term="+term);
 		
 		}
@@ -174,10 +177,8 @@
 	</script>
 	<body onload="getClasses()">
 		<center>
-		<h3>Please select the courses you have taken:</h3>
-		<form method="post" action="../server.php">
+			<h3>Please select the courses you have taken:</h3>
 			<table>
-				
 				<tr>
 					<td width="120px" style="border:0px">Year 1 FALL</td>
 					<td width="120px" style="border:0px">Year 1 WINTER</td>
@@ -199,13 +200,9 @@
 
 			</table>
 			<br/>
-			<input type="hidden" value="submitcompleted" name="requesttype"/>
-			<input type="submit" value="SUBMIT"/>
-			<input type="button" onclick="sendClasses()" value="FUCK"></input>
-			<br/>
-			<br/>
+			<input type="button" onclick="sendClasses()" value="SUBMIT"></input>
+			<br/><br/>
 			<h3><p id="classinfo"></p></h3>
-		</form>
 		</center>
 	</body>
 </html>
