@@ -243,18 +243,18 @@
 				$sec = $db->execute($getSection);
 			
 				//Add that section to list
-				$newItem = new Section($sec->SubjectID,
-									   $sec->CourseNumber,
-									   $sec->Year,
-									   $sec->Term,
-									   $sec->Title,
-									   $sec->Credits,
-									   $sec->ScheduleCode,
-									   $sec->SectionCode,
-									   $sec->Time,
-									   $sec->Days,
-									   $sec->Capacity,
-									   $sec->NumberOfStudents);
+				$newItem = new Section($sec[0]->SubjectID,
+									   $sec[0]->CourseNumber,
+									   $sec[0]->Year,
+									   $sec[0]->Term,
+									   $sec[0]->Title,
+									   $sec[0]->Credits,
+									   $sec[0]->ScheduleCode,
+									   $sec[0]->SectionCode,
+									   $sec[0]->Time,
+									   $sec[0]->Days,
+									   $sec[0]->Capacity,
+									   $sec[0]->NumberOfStudents);
 			
 				$courses->addItem($newItem);
 				
@@ -294,18 +294,18 @@
 				$sec = $db->execute($getSection);
 			
 				//Add that section to list
-				$newItem = new Section($sec->SubjectID,
-									   $sec->CourseNumber,
-									   $sec->Year,
-									   $sec->Term,
-									   $sec->Title,
-									   $sec->Credits,
-									   $sec->ScheduleCode,
-									   $sec->SectionCode,
-									   $sec->Time,
-									   $sec->Days,
-									   $sec->Capacity,
-									   $sec->NumberOfStudents);
+				$newItem = new Section($sec[0]->SubjectID,
+									   $sec[0]->CourseNumber,
+									   $sec[0]->Year,
+									   $sec[0]->Term,
+									   $sec[0]->Title,
+									   $sec[0]->Credits,
+									   $sec[0]->ScheduleCode,
+									   $sec[0]->SectionCode,
+									   $sec[0]->Time,
+									   $sec[0]->Days,
+									   $sec[0]->Capacity,
+									   $sec[0]->NumberOfStudents);
 			
 				$courses->addItem($newItem);
 				
