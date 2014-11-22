@@ -218,6 +218,7 @@
 			$program = $_POST['program'];
 			$term = $_POST['term'];
 			$year = $_POST['year'];
+			
 			//Retrieve all Electives to type Complementary from electives table for given program
 			$getcomplementaryElectives = "SELECT * FROM Electives 
 											WHERE ProgramID = '$program' AND 
@@ -225,26 +226,20 @@
 		
 			$rows = $db->execute($getcomplementaryElectives);
 			
-			$courses = new Pattern();
+			$returnval = "<Electives>";
 			
-			//For every course in the electives add to list
+			//For every course in the electives add to XML
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				//Add all courses found in query to list
-				$newItem = new PatternItem($row->ProgramID,
-										   $row->CourseType,
-										   $row->YearRequired,
-										   $row->TermRequired,
-										   $row->SubjectID,
-										   $row->CourseNumber);
-			
-				$courses->addItem($newItem);
-			
+				$returnval .= "<Elective><SubjectID>".$row->SubjectID."</SubjectID>
+								<CourseNumber>".$row->CourseNumber."</CourseNumber></Elective>";
 			}
+			
+			$returnval .= "</Electives>";
 			
 			header("content-type: text/xml");
 			//Return XML of pattern to client-side
-			echo $courses->exportXML();
+			echo $returnval;
 
 			exit;
 			
