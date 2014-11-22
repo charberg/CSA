@@ -51,7 +51,7 @@
 				<input type="hidden" name="year"/>
 				<input type="hidden" name="term"/>
 				<input type="submit" value="SUBMIT"/>
-				
+				<input type="button" value="FUCK" onclick="checkCourseSend()"/>
 			</form>
 			<br/><br/>
 			<h3><p id="classinfo"></p></h3>
@@ -246,7 +246,7 @@
 		function fillElectives(electName, year, term, electiveList){
 			var electives = electiveList.getElementsByTagName('Electives')[0].getElementsByTagName('Elective');
 			var inner = document.getElementById('electiveArea').innerHTML;
-			inner = inner + "<div id='selectLabel"+electName+year+term+"'><br/>" + electName + ", Year "+year+", "+capFirst(term)+" Term:    " + "<select id='select"+electName+year+term+"' name='electsChosen[]'>";
+			inner = inner + "<div id='selectLabel"+electName+year+term+"'><br/>" + electName + ", Year "+year+", "+capFirst(term)+" Term:    " + "<select id='select"+electName+year+term+"' name='coursesTaken[]'>";
 			var subjectID, courseNumber, year, term;
 			for(var i=0; i<electives.length;i++){
 				inner = inner + "<option value='"+electives[i].getElementsByTagName('SubjectID')[0].textContent+electives[i].getElementsByTagName('CourseNumber')[0].textContent+year+term+"'>"+electives[i].getElementsByTagName('SubjectID')[0].textContent+electives[i].getElementsByTagName('CourseNumber')[0].textContent+"</option>";
