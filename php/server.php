@@ -219,57 +219,33 @@
 			$term = $_POST['term'];
 			$year = $_POST['year'];
 			//Retrieve all Electives to type Complementary from electives table for given program
-			$getcomplementaryElectives = "SELECT SubjectID, CourseNumber FROM Electives 
+			$getcomplementaryElectives = "SELECT * FROM Electives 
 											WHERE ProgramID = '$program' AND 
 											ElectiveType LIKE '%complementary%';";
 		
 			$rows = $db->execute($getcomplementaryElectives);
 			
-			$courses = new SectionList();
+			$courses = new Pattern();
 			
-			//For every course in the electives, get proper Section of that course and add to list
+			//For every course in the electives add to list
 			while ( ($row = $rows->fetch_object()) ) {
-				
-				$subID = $row->SubjectID;
-				$CN = $row->CourseNumber;
 			
-				//Select LECTURE section of given pattern course
-				$getSection = "SELECT * FROM Section 
-								WHERE SubjectID = '$subID' AND 
-								CourseNumber = '$CN' AND
-								Term = '$term' AND
-								ScheduleCode = 'LEC';";
-			
-				$sections = $db->execute($getSection);
-			
-				if ($sections->num_rows != 1) {
-					echo "ERROR";
-					exit;
-				} else {
-					$sec = $sections->fetch_object();
-				}
-			
-				//Add that section to list
-				$newItem = new Section($sec->SubjectID,
-									   $sec->CourseNumber,
-									   $sec->Year,
-									   $sec->Term,
-									   $sec->Title,
-									   $sec->Credits,
-									   $sec->ScheduleCode,
-									   $sec->SectionCode,
-									   $sec->Time,
-									   $sec->Days,
-									   $sec->Capacity,
-									   $sec->NumberOfStudents);
+				//Add all courses found in query to list
+				$newItem = new PatternItem($row->ProgramID,
+										   $row->CourseType,
+										   $row->YearRequired,
+										   $row->TermRequired,
+										   $row->SubjectID,
+										   $row->CourseNumber);
 			
 				$courses->addItem($newItem);
-				
+			
 			}
 			
 			header("content-type: text/xml");
+			//Return XML of pattern to client-side
 			echo $courses->exportXML();
-			
+
 			exit;
 			
 		case "GetEngineeringElectives":
