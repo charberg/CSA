@@ -14,7 +14,7 @@
 		
 		private $Schedules;	//list of possible schedules
 	
-		function __construct($y, $p, $c, $t) {
+		function __construct($y, $p, $t) {
 		
 			$this->year = $y;
 			$this->program = $p;
@@ -736,9 +736,68 @@
 													
 													$class5lab = $class5Labs[$cl5];	//pick class 5 lab
 													
-													if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5lab) == false) {	//add class 4 lab to schedule
+													if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5lab) == false) {	//add class 5 lab to schedule
 														continue;	//go to next lab possibility
 													}
+													
+													if (count($classlist6) > 0) {	//If there is 6 classes...
+
+														for ($c6 = 0; $c6 < count($classlist6);$c6 = $c6 + 1) {
+						
+															$class6 = $classlist6[$c6];	//pick class6
+													
+															if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6) == false) {	//add class 6 to schedule
+																continue;	//go to next course possibility
+															}
+															
+															//get labs from class	
+															$class6Labs = $class6->getLabs();
+															
+															for ($cl6 = 0; $cl6 < count($class6Labs);$cl6 = $cl6 + 1) {
+																
+																$class6lab = $class6Labs[$cl6];	//pick class 6 lab
+																
+																if (addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6lab) == false) {	//add class 6 lab to schedule
+																	continue;	//go to next lab possibility
+																}
+																
+																//Now have conflict free schedule, add all classes to list
+																$sched = new SectionList();
+																$sched->addItem($class1);
+																$sched->addItem($class1lab);
+																$sched->addItem($class2);
+																$sched->addItem($class2lab);
+																$sched->addItem($class3);
+																$sched->addItem($class3lab);
+																$sched->addItem($class4);
+																$sched->addItem($class4lab);
+																$sched->addItem($class5);
+																$sched->addItem($class5lab);
+																$sched->addItem($class6);
+																$sched->addItem($class6lab);
+																
+																array_push($this->Schedules, $sched);
+																
+															}//for class6labs
+														}//for class6
+													} else {
+														
+														//Now have conflict free schedule, add all classes to list
+														$sched = new SectionList();
+														$sched->addItem($class1);
+														$sched->addItem($class1lab);
+														$sched->addItem($class2);
+														$sched->addItem($class2lab);
+														$sched->addItem($class3);
+														$sched->addItem($class3lab);
+														$sched->addItem($class4);
+														$sched->addItem($class4lab);
+														$sched->addItem($class5);
+														$sched->addItem($class5lab);
+														
+														array_push($this->Schedules, $sched);
+														
+													}//if class 6 exists
 												}//for class5labs
 											}//for class5
 										}//for class4labs
@@ -751,7 +810,6 @@
 			}//for class1
 			
 		}
-		
 		
 		//Export All schedules in XML format
 		function exportScedulesXML() {

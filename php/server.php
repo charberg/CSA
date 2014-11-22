@@ -17,12 +17,7 @@
 			$year = $_POST['year'];
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
-			
-			for ($i = 0; $i < count ($coursesTaken); $i++) {
-				echo $coursesTaken[$i]."<br/>";	//for testing
-			}
-			exit;
-			
+
 			setcookie("yearCompleted", $year, time() + 3600, "/");
 			setcookie("programName", $program, time() + 3600, "/");
 			setcookie("term", $term, time() + 3600, "/");
@@ -47,7 +42,9 @@
 				
 			} else {
 				//If on schedule, generate possible schedules and send those schedules to schedule selection page
-				setcookie("courses", "", time() + 3600, "/");	//replace with actual schedule
+				$scheduleGen = new OnScheduleCourseCalculator($year, $program, $term);
+				$ScheduleList = $scheduleGen->exportScedulesXML();
+				setcookie("courses", $ScheduleList, time() + 3600, "/");
 				header("location:../pages/my_schedule.php");
 				exit;
 			}
