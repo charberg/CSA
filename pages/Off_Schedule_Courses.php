@@ -44,6 +44,8 @@
 				</table>
 				<br/>
 				
+				<div id="electiveArea"></div>
+				
 				<input type="hidden" name="requesttype" value="OffPatternSchedule"/>
 				<input type="hidden" name="program"/>
 				<input type="hidden" name="year"/>
@@ -184,6 +186,33 @@
 			}
 		}
 
+		function getElective(elective,electtype){
+			var prog ="<?php echo $programName;?>";
+			var request = new XMLHttpRequest();
+			if(electtype){
+				electtype = "&electtype="+electtype;
+			}else{
+				electtype = "";
+			}
+			request.open("post","../php/server.php",true);
+			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
+			request.onreadystatechange = function(){
+				if(request.readyState == 4 && request.status == 200){
+					var rxml = request.responseXML;
+					alert(request.responseText);
+					//alert(request.responseXML);
+					if(rxml){
+						
+					}
+				}
+			}
+			request.send("&requesttype="+elective+"&program="+prog+electtype);
+		}
+		function fillElectives(electives){
+			
+			
+		}
+		
 		document.getElementsByName('program')[0].value = "<?php echo $programName; ?>";
 		document.getElementsByName('year')[0].value = "<?php echo $yearCompleted; ?>";
 		document.getElementsByName('term')[0].value = "<?php echo $term; ?>";
