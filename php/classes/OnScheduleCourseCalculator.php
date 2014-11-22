@@ -149,14 +149,14 @@
 		}	//end function
 		
 		function calculateConflictFreeSchedules() {
-		
+			
 			//break apart courses into lists per course
 			$class1 = new SectionList();
 			$class1->addItem($this->courses[0]);
 			unset($this->courses[0]);
 			
 			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
-			
+				
 				if ($this->courses[$i]->subjectID == $class1[0]->subjectID
 					&& $this->courses[$i]->courseNum == $class1[0]->courseNum) {
 					
@@ -164,7 +164,7 @@
 					unset($this->courses[$i]);
 					$i = $i - 1;
 				}
-			
+				
 			}
 			
 			$class2 = new SectionList();
@@ -248,7 +248,7 @@
 				}
 			}
 			
-			
+			//Now each posibility of 
 		
 		}
 		

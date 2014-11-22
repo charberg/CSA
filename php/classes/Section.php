@@ -3,7 +3,6 @@
 	require_once("database.php");
 
 	class Section {
-	
 		
 		public $subjectID;
 		public $courseNum;
