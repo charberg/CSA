@@ -47,7 +47,7 @@
 			var counter = 1;
 			while(counter < 9){
 				switch(counter){
-					case 1:	//Y1F
+					case 1:	//Y1F 
 						if(items[i].getElementsByTagName('yearRequired')[0].textContent == '1' && items[i].getElementsByTagName('termRequired')[0].textContent == "fall"){
 							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input type='checkbox' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
 							row++;
