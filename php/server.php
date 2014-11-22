@@ -18,7 +18,9 @@
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
 			
-			echo $coursesTaken;	//for testing
+			for ($i = 0; $i < count ($coursesTaken); $i++) {
+				echo $coursesTaken[$i]."<br/>";	//for testing
+			}
 			exit;
 			
 			setcookie("yearCompleted", $year, time() + 3600, "/");
