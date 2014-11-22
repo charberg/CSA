@@ -3,6 +3,7 @@
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	require_once("classes/pattern.php");
+	require_once("classes/OnSheduleCourseCalculator.php");
 
 	$requestType = $_POST['requesttype'];
 	
@@ -10,27 +11,12 @@
 	
 	switch ($requestType) {
 	
-		case "DisplaySchedule":
-
-			//Re-route to display schedule page
-		
-			exit;
-		
-		case "CalculateSchedule":
+		case "OffPatternSchedule":
 		
 			$program = $_POST['programName'];
-			$schedType = $_POST['sched'];
+			$year = $_POST['yearCompleted'];
 			$term = $_POST['term'];
-			
-			if ($schedType = 'off') {
-				
-				$CoursesCompleted =  $_POST['courses'];
-				
-			} else {
-				
-				$year = $_POST['yearCompleted'];
-				
-			}
+			$coursesTaken = $_POST['coursesTaken'];
 		
 			exit;
 	
@@ -38,19 +24,18 @@
 			
 			$program = $_POST['programName'];
 			$year = $_POST['yearCompleted'];
+			$term = $_POST['term'];
 			$schedType = $_POST['sched'];
 			
+			setcookie("yearCompleted", $year, time() + 3600, "/");
+			setcookie("programName", $program, time() + 3600, "/");
+			setcookie("term", $term, time() + 3600, "/");
+			
 			if ($schedType == "off") {
-				
-				setcookie("yearCompleted", $year, time() + 3600, "/");
-				setcookie("programName", $program, time() + 3600, "/");
 				header("location:../pages/Off_Schedule_Courses.php");	
 				exit;
 				
 			} else {
-				
-				setcookie("yearCompleted", $year, time() + 3600, "/");
-				setcookie("programName", $program, time() + 3600, "/");
 				header("location:../pages/my_schedule.php");
 				exit;
 			}

@@ -71,12 +71,21 @@
 		
 		function getPrereqFromString($prereqs) {
 			
-			$yearStatusID = strtoupper("-year status");
-			$concurrentID = strtoupper("concurrently");
-			$permissionID = strtoupper("permission");
-			$programID = strtoupper("in");
+			$programID = "P[";
+			$yearID = "S[";
+			$courseID = "C[";
+			$concourseID = "U[";
+			$permissonID = "R[]";
 			
 			$prereqs = trim(strtoupper($prereqs));
+			
+			$parsePrereq = str_split($prereqs);
+			
+			for ($i = 0; $i < count($parsePrereq);$i = $i + 1) {
+			
+				
+			
+			}
 			
 		}
 		
@@ -91,7 +100,8 @@
 								  AND CourseNumber = '$this->courseNum'
 								  AND Year = '$this->year'
 								  AND Term = '$this->term'
-								  AND SectionCode LIKE '$this->sectionCode_%';";
+								  AND SectionCode LIKE '%1%'
+								  AND NumberOfStudents < Capacity;";
 			
 			$rows = $db->execute($sqlquery);
 			
@@ -147,7 +157,7 @@
 		function addItem($item) {
 			array_push($this->SectionItems,$item);
 		}
-
+		
 	}
 
 ?>

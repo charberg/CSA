@@ -1,5 +1,7 @@
 <?php
 
+	require_once("database.php");
+
 	class PatternItem {
 		
 		public $programID;
@@ -65,6 +67,32 @@
 		
 		function addItem($item) {
 			array_push($this->patternItems,$item);
+		}
+		
+		static function getPatternByProgram($program) {
+		
+			$pattern = new Pattern();
+		
+			$db = new DataBase("SchedulerDatabase");
+		
+			$getProgramPattern = "SELECT * FROM Patterns 
+									WHERE ProgramID = '$program';";
+			
+			$rows = $db->execute($getProgramPattern);
+			
+			while ( ($row = $rows->fetch_object()) ) {
+			
+				$newItem = new PatternItem($row->ProgramID,
+										   $row->CourseType,
+										   $row->YearRequired,
+										   $row->TermRequired,
+										   $row->SubjectID,
+										   $row->CourseNumber);
+			
+				$pattern->addItem($newItem);
+			
+			}
+			return $pattern;
 		}
 	
 	}
