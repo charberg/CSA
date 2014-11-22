@@ -68,48 +68,47 @@
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
 					var rxml = request.responseXML;
-					//alert(request.responseText);
-					//alert(request.responseXML);
 					if(rxml){
-						fillTable(rxml);
+						fillTable(rxml);	//if valid response, fill the table with courses
 					}
 				}
 			}
 			request.send("&requesttype=GetPattern&program="+prog);
 		}
-
+		
+		/* Changes the name of the selected checkbox, so that it is added to the "coursesTaken" array that will be sent to the server */
 		function changeName(thisID){
 			document.getElementById(thisID).name = "coursesTaken[]";
 		}
 		
-		/* This function fills the table with the course selections from XML input*/
+		/* Fills the table with the course selections from XML input*/
 		function fillTable(classList){
-			var pattern = classList.getElementsByTagName('pattern')[0];
-			var items = pattern.getElementsByTagName('item');
-			var row = 1;
+			var items = classList.getElementsByTagName('pattern')[0].getElementsByTagName('item');
+			var row = 1;	//current row writing to
 			var i = 0;
-			var counter = 1;
+			var counter = 1;	//counts which term loop is looking at
 			while(counter < 9){		//this loop goes through all courses given by the server and inserts them into the table in the proper order
 									//because of the nature of inserting cells into tables, this method is a bit complicated/long
+				/* Helps with readability and dynamics */
 				var courseNumber = items[i].getElementsByTagName('courseNumber')[0].textContent;
 				var year = items[i].getElementsByTagName('yearRequired')[0].textContent;
 				var term = items[i].getElementsByTagName('termRequired')[0].textContent;
 				var subjectID = items[i].getElementsByTagName('subjectID')[0].textContent;
 				var extraLabel = "";
 				if(term == "both"){
-					extraLabel = "<br/>(" + capFirst(term) + " Terms)";
+					extraLabel = "<br/>(" + capFirst(term) + " Terms)";		//extra label for a cell that has a course for both terms
 				}else if(term == "either"){
-					extraLabel = "<br/>(" + capFirst(term) + " Term)";
+					extraLabel = "<br/>(" + capFirst(term) + " Term)";		//extra label for a cell that has a course for either term
 				}
 				var onclick;
-				if(courseNumber == ""){
-					onclick = "getElectives('"+subjectID+"','"+year+"','"+term+"')";	//if elective, make the onclick
+				if(courseNumber == ""){		//changes what happens when checkbox is clicked, based on if it is an elective or regular course
+					onclick = "getElectives('"+subjectID+"','"+year+"','"+term+"')";
 				}else{
 					onclick = "changeName('"+subjectID+courseNumber+year+term+"')";
 				}
 				switch(counter){
 					
-					case 1:	//Y1F 
+					case 1:	// Year 1 FALL/BOTH/EITHER
 						if(year == '1'){		//currently all FALL/WINTER/BOTH/EITHER options all do the same thing
 							if(term == "fall"){
 								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
@@ -123,14 +122,14 @@
 							}
 						}
 						break;
-					case 2:  //Y1W
+					case 2:  // Year 1 WINTER
 						if(year == '1' && term == "winter"){
 							//(ORIGINAL) document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input class='checks' type='checkbox' id='course' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
 							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
-					case 3:  //Y2F
+					case 3:  // Year 2 FALL/BOTH/EITHER
 						if(year == '2'){
 							if(term == "fall"){
 								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
@@ -144,13 +143,13 @@
 							}
 						}
 						break;
-					case 4:  //Y2W
+					case 4:  // Year 2 WINTER
 						if(year == '2' && term == "winter"){
 							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
-					case 5:  //Y3F
+					case 5:  // Year 3 FALL/BOTH/EITHER
 						if(items[i].getElementsByTagName('yearRequired')[0].textContent == '3'){
 							if(term == "fall"){
 								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
@@ -164,13 +163,13 @@
 							}
 						}
 						break;
-					case 6:  //Y3W
+					case 6:  // Year 3 WINTER
 						if(year == '3' && term == "winter"){
 							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
-					case 7:  //Y4F
+					case 7:  // Year 4 FALL/BOTH/EITHER
 						if(year == '4'){
 							if(term == "fall"){
 								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
@@ -184,7 +183,7 @@
 							}
 						}
 						break;
-					case 8:  //Y4W
+					case 8:  // Year 4 WINTER
 						if(year == '4' && term == "winter"){
 							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+" "+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
@@ -207,7 +206,6 @@
 
 		/* Sends the checked elective to the server, and returns a list of electives that correspond to that option */
 		function getElectives(elective,year,term){
-			//alert("Elective: "+elective+", Year: "+year+", Term: "+term);
 			if(document.getElementById(elective+year+term).checked == false){	//check to see if removing the elective or adding it
 				var elem = document.getElementById('selectLabel'+elective+year+term);  //if element is unchecked, remove the combination box + label
 				elem.remove();
@@ -215,7 +213,9 @@
 			}
 			
 			var req = "";
-			var electtype = "";
+			var electtype = "";		//electtype is set only if the elective is an engineering elective
+			
+			/*Sends the request corresponding to which kind of elective given */
 			if(elective == "COMPLEMENTARY"){
 				req = "GetComplementaryElectives";
 			}else if(elective == "SCIENCE"){
@@ -224,6 +224,7 @@
 				req = "GetEngineeringElectives";
 				electtype = "&electtype=" + elective;
 			}
+			
 			var prog ="<?php echo $programName;?>";
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
@@ -231,10 +232,8 @@
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
 					var rxml = request.responseXML;
-					//alert(request.responseText);
-					//alert(request.responseXML);
 					if(rxml){
-						fillElectives(elective, year, term, rxml);
+						fillElectives(elective, year, term, rxml);	//fills the elective combination boxes if valid response
 					}
 				}
 			}
@@ -247,9 +246,11 @@
 			var inner = document.getElementById('electiveArea').innerHTML;
 			inner = inner + "<div id='selectLabel"+electName+year+term+"'><br/>" +"Year "+year+", "+capFirst(term)+" Term, "+electName+":    " + "<select id='select"+electName+year+term+"' name='coursesTaken[]'>";
 			var subjectID, courseNumber, year, term;
+			
 			for(var i=0; i<electives.length;i++){
 				inner = inner + "<option value='"+electives[i].getElementsByTagName('SubjectID')[0].textContent+" "+electives[i].getElementsByTagName('CourseNumber')[0].textContent+"'>"+electives[i].getElementsByTagName('SubjectID')[0].textContent+electives[i].getElementsByTagName('CourseNumber')[0].textContent+"</option>";
 			}
+			
 			inner = inner + "</select><br/></div>";
 			document.getElementById('electiveArea').innerHTML = inner;
 		}
