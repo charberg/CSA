@@ -15,6 +15,7 @@ td{
 	border: 5px solid;
 	text-align:center;
 	font-weight:bold;
+	height:90px;
 }
 
 /* Colored borders for courses */
@@ -24,18 +25,15 @@ td{
 #MATH{
 	border-color:#339933;
 }
-#ECOR{
-	border-color:black;
-}
-#CCDP{
-	border-color:black;
-}
-#STAT{
+#ECOR, #CCDP, #STAT{
 	border-color:black;
 }
 #ELEC{
 	border-color:#FF9900;
 }
-#PHYS{
+#PHYS, #CHEM{
 	border-color:#FFFF33;
+}
+#COMPLEMENTARY, #NOTEA, #NOTEB, #SCIENCE{
+	border-color:#8A8A8A;
 }
