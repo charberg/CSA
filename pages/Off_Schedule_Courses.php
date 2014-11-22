@@ -45,7 +45,7 @@
 				<br/>
 				
 				<div id="electiveArea"></div>
-				
+				<br/><br/>
 				<input type="hidden" name="requesttype" value="OffPatternSchedule"/>
 				<input type="hidden" name="program"/>
 				<input type="hidden" name="year"/>
@@ -78,8 +78,8 @@
 			request.send("&requesttype=GetPattern&program="+prog);
 		}
 
-		function changeName(nom){
-			document.getElementById(nom).name = "coursesTaken[]";
+		function changeName(thisID){
+			document.getElementById(thisID).name = "coursesTaken[]";
 		}
 		
 		/* This function fills the table with the course selections from XML input*/
@@ -99,21 +99,21 @@
 				if(subjectID == ""){
 					onclick = "getElectives('"+courseNumber+"','"+year+"','"+term+"')";
 				}else{
-					onclick = "changeName('"+subjectID+courseNumber+"')";
+					onclick = "changeName('"+subjectID+courseNumber+year+term+"')";
 				}
 				switch(counter){
 					
 					case 1:	//Y1F 
 						if(year == '1'){
 							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "both"){
 								//document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td colspan='2' id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input type='checkbox' id='course' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}
 						}
@@ -121,70 +121,70 @@
 					case 2:  //Y1W
 						if(year == '1' && term == "winter"){
 							//(ORIGINAL) document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input class='checks' type='checkbox' id='course' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
-							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\"changeName('"+onclick+"')\"/></td>";
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
 					case 3:  //Y2F
 						if(year == '2'){
 							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "both"){
 								//document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td colspan='2' id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input type='checkbox' id='course' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}
 						}
 						break;
 					case 4:  //Y2W
 						if(year == '2' && term == "winter"){
-							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\"changeName('"+onclick+"')\"/></td>";
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
 					case 5:  //Y3F
 						if(items[i].getElementsByTagName('yearRequired')[0].textContent == '3'){
 							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "both"){
 								//document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td colspan='2' id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input type='checkbox' id='course' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}
 						}
 						break;
 					case 6:  //Y3W
 						if(year == '3' && term == "winter"){
-							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\"changeName('"+onclick+"')\"/></td>";
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
 					case 7:  //Y4F
 						if(year == '4'){
 							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "both"){
 								//document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td colspan='2' id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input type='checkbox' id='course' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 								row++;
 							}
 						}
 						break;
 					case 8:  //Y4W
 						if(year == '4' && term == "winter"){
-							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\"changeName('"+onclick+"')\"/></td>";
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
@@ -206,8 +206,15 @@
 			}
 		}
 
+		/* Sends the checked elective to the server, and returns a list of electives that correspond to that option */
 		function getElectives(elective,year,term){
-			alert("Elective: "+elective+", Year: "+year+", Term: "+term);
+			//alert("Elective: "+elective+", Year: "+year+", Term: "+term);
+			if(document.getElementById(elective+year+term).checked == false){	//check to see if removing the elective or adding it
+				var elem = document.getElementById('selectLabel'+elective+year+term);  //if element is unchecked, remove the combination box + label
+				elem.remove();
+				return;
+			}
+			
 			var req = "";
 			var electtype = "";
 			if(elective == "COMPLEMENTARY"){
@@ -225,18 +232,31 @@
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
 					var rxml = request.responseXML;
-					alert(request.responseText);
+					//alert(request.responseText);
 					//alert(request.responseXML);
 					if(rxml){
-						
+						fillElectives(elective, year, term, rxml);
 					}
 				}
 			}
 			request.send("&requesttype="+req+"&program="+prog+"&year="+year+"&term="+term+electtype);
 		}
-		function fillElectives(electives){
-			
-			
+		
+		/* Adds a combination box of possible electives that fill the description of the selected elective */
+		function fillElectives(electName, year, term, electiveList){
+			var electives = electiveList.getElementsByTagName('Electives')[0].getElementsByTagName('Elective');
+			var inner = document.getElementById('electiveArea').innerHTML;
+			inner = inner + "<div id='selectLabel"+electName+year+term+"'><br/>" + electName + ", Year "+year+", "+capFirst(term)+" Term:    " + "<select id='select"+electName+year+term+"' name='electsChosen[]'>";
+			var subjectID, courseNumber, year, term;
+			for(var i=0; i<electives.length;i++){
+				inner = inner + "<option value='"+electives[i].getElementsByTagName('SubjectID')[0].textContent+electives[i].getElementsByTagName('CourseNumber')[0].textContent+year+term+"'>"+electives[i].getElementsByTagName('SubjectID')[0].textContent+electives[i].getElementsByTagName('CourseNumber')[0].textContent+"</option>";
+			}
+			inner = inner + "</select><br/></div>";
+			document.getElementById('electiveArea').innerHTML = inner;
+		}
+		
+		function capFirst(string){
+			return string.charAt(0).toUpperCase() + string.slice(1);
 		}
 		
 		document.getElementsByName('program')[0].value = "<?php echo $programName; ?>";
