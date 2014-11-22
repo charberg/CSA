@@ -230,21 +230,22 @@
 				}
 			
 			}
-			
-			$class6 = new SectionList();
-			$class6->addItem($this->courses[0]);
-			unset($this->courses[0]);
-			
-			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
-			
-				if ($this->courses[$i]->subjectID == $class6[0]->subjectID
-					&& $this->courses[$i]->courseNum == $class6[0]->courseNum) {
-					
-					$class6->addItem($this->courses[$i]);
-					unset($this->courses[$i]);
-					$i = $i - 1;
+			if (count($this->courses) > 0) {
+				$class6 = new SectionList();
+				$class6->addItem($this->courses[0]);
+				unset($this->courses[0]);
+				
+				for ($i = 0; $i < count($this->courses);$i = $i + 1) {
+				
+					if ($this->courses[$i]->subjectID == $class6[0]->subjectID
+						&& $this->courses[$i]->courseNum == $class6[0]->courseNum) {
+						
+						$class6->addItem($this->courses[$i]);
+						unset($this->courses[$i]);
+						$i = $i - 1;
+					}
+				
 				}
-			
 			}
 		
 		}
