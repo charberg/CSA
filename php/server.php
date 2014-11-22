@@ -34,7 +34,7 @@
 		
 			exit;
 	
-		case "SubmitInfo":
+		case "SubmitInfo":	//WORKING
 			
 			$program = $_POST['programName'];
 			$year = $_POST['yearCompleted'];
@@ -57,7 +57,7 @@
 			
 			exit;
 	
-		case "GetPattern":
+		case "GetPattern":	//WORKING
 
 			$program = $_POST['program'];
 			
@@ -140,7 +140,7 @@
 			
 			exit;
 			
-		case "GetPrograms":
+		case "GetPrograms":	//WORKING
 	
 			$getPrograms = "SELECT * FROM AcademicPrograms;";
 			
@@ -304,7 +304,7 @@
 	
 			exit;
 	
-		default:
+		default:	//WORKING
 			header("content-type: text/plain");
 			echo "Un-recognized request type";
 			exit;

@@ -1,8 +1,0 @@
-1 - registration in program
-2 - taken a course previously
-3 - permission from department
-4 - nth year status
-5 - take course concurrently
-6 - permission from instructor
-
-

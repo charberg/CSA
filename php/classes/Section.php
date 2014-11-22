@@ -1,5 +1,7 @@
 <?php
 
+	require_once("database.php");
+
 	class Section {
 	
 		
@@ -75,6 +77,44 @@
 			$programID = strtoupper("in");
 			
 			$prereqs = trim(strtoupper($prereqs));
+			
+		}
+		
+		function getLabs() {
+		
+			$db = new DataBase("SchedulerDatabase");
+			
+			$labs = new SectionList();
+			
+			$sqlquery = "SELECT * FROM Section
+							WHERE SubjectID = '$this->subjectID'
+								  AND CourseNumber = '$this->courseNum'
+								  AND Year = '$this->year'
+								  AND Term = '$this->term'
+								  AND SectionCode LIKE '$this->sectionCode_%';";
+			
+			$rows = $db->execute($sqlquery);
+			
+			while ( ($row = $rows->fetch_object()) ) {
+			
+				$newItem = new Section($row->SubjectID,
+									   $row->CourseNumber,
+									   $row->Year,
+									   $row->Term,
+									   $row->Title,
+									   $row->Credits,
+									   $row->ScheduleCode,
+									   $row->SectionCode,
+									   $row->Time,
+									   $row->Days,
+									   $row->Capacity,
+									   $row->NumberOfStudents);
+			
+				$labs->addItem($newItem);
+			
+			}
+			
+			return $labs;
 			
 		}
 	
