@@ -1,7 +1,6 @@
-
 <?php
 	/* Saved Cookies */
-	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted'])){
+	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted']) || !isset($_COOKIE['term'])){
 		echo "Missing information";
 		header("refresh:2;url=intro_page.html");
 		exit;
@@ -9,6 +8,7 @@
 	
 	$programName = $_COOKIE['programName'];
 	$yearCompleted = $_COOKIE['yearCompleted'];
+	$term = $_COOKIE['term'];
 	
 ?>
 
