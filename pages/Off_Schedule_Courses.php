@@ -22,7 +22,6 @@
 		/*Connects to server and gets the possible courses to take through XML */
 		function getClasses(){
 			var prog ="<?php echo $programName;?>";
-			//var prog = "SE";
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
 			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
@@ -41,17 +40,17 @@
 		
 		function sendClasses(){
 			var list = document.getElementsByName('checks');
-			if(list.length == 0){
-				return;
-			}
-			var xmlStr = "<coursesTaken>";
+			var xmlStr = "";
 			//check for empty list
 			for(var i=0;i<list.length;i++){
 				if(list[i].checked == true){
 					xmlStr = xmlStr + "<course>" + list[i].value + "</course>";
 				}
 			}
-			xmlStr = xmlStr + "</coursesTaken>";
+			if(xmlStr.length == 0){
+				return;
+			}
+			xmlStr = "<coursesTaken>" + xmlStr + "</coursesTaken>";
 			alert(xmlStr);
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php",true);
@@ -61,12 +60,13 @@
 					//var rxml = request.responseXML;
 					//alert(request.responseText);
 					//alert(request.responseXML);
+					//do nothing, page should change
 				}
 			}
 			var prog = "<?php echo $programName; ?>";
 			var year = "<?php echo $yearCompleted; ?>";
 			var term = "<?php echo $term; ?>";
-			request.send("&requesttype=OffPatternSchedule&program="+prog+"&year="+year+"&term="+term);
+			request.send("&requesttype=OffPatternSchedule&program="+prog+"&year="+year+"&term="+term+"&coursesTaken="+xmlStr);
 		
 		}
 		
