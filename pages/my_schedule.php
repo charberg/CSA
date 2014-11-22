@@ -18,6 +18,7 @@
 	<head>
 		<link type="text/css" rel="stylesheet" href="../css/my_schedule.css"/>
 		<!-- Link to .css file -->
+		<xml ID="scheduleexample" SRC="../scheduleexample.xml"></xml>
 	</head>
 	<body>
 		<center>
@@ -159,6 +160,10 @@
 		</center>
 	</body>
 	<script>
+		//var myXML = document.all("scheduleexample").XMLDocument;
+		var exml = scheduleexample.getElementsByTagName('schedules')[0].getElementsByTagName('courses');
+		alert(exml.length);
+		
 		function switchPanel(term){
 			if(term == 'fall'){
 				document.getElementById('head').innerHTML = "FALL TERM";

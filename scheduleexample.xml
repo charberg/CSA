@@ -1,4 +1,6 @@
-<shedules>
+<?xml version="1.0" ?>
+
+<schedules>
 	<courses>
 		<Section>
 			<subjectID>MATH</subjectID>
@@ -283,4 +285,4 @@
 			<numberOfStudents>0</numberOfStudents>
 		</Section>	
 	</courses>
-</shedules>
+</schedules>
