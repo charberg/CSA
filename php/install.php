@@ -11,9 +11,9 @@ executed first before your application is evaluated.
 	
 	set_time_limit(120);	//allow 2 minute for execution
 
-	$dbName = "SchedulerDatabase";
+	$dbName = "SchedulerDatabase";	//Define DB name
 		
-	$table_Section = "Section";
+	$table_Section = "Section";		//Define table names
 	$table_Programs = "AcademicPrograms";
 	$table_Patterns = "Patterns";
 	$table_CourseToPrereqMapping = "CourseToPrerequisiteMapping";
@@ -119,7 +119,7 @@ executed first before your application is evaluated.
 		exit;
 	}
 	
-	/*-- Populate Tables --*/
+	/*-- Populate Tables (IGNORES ROWS THAT ARE ALREADY IN DB)--*/
 	
 	//Add Academic Programs
 	$dataFile = fopen("../data/AcademicPrograms.txt","r");	//open data file for reading
@@ -359,7 +359,7 @@ executed first before your application is evaluated.
 	
 	fclose($dataFile);
 	
-	//Populate Electives Table
+	//Populate Electives Table witch complementary electives
 	$dataFile = fopen("../data/Electives/complementaryElectives.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {
@@ -380,6 +380,7 @@ executed first before your application is evaluated.
 	
 	fclose($dataFile);
 	
+	//Populate Electives Table witch science electives
 	$dataFile = fopen("../data/Electives/ScienceElectives.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {
@@ -400,6 +401,7 @@ executed first before your application is evaluated.
 	
 	fclose($dataFile);
 	
+	//Populate Electives Table witch noteA Engineering electives
 	$dataFile = fopen("../data/Electives/noteAElectives.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {
@@ -420,6 +422,7 @@ executed first before your application is evaluated.
 	
 	fclose($dataFile);
 	
+	//Populate Electives Table witch noteB Engineering electives
 	$dataFile = fopen("../data/Electives/noteBElectives.txt","r");	//open data file for reading
 	
 	while (($line = fgets($dataFile)) !== false) {

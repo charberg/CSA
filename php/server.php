@@ -27,21 +27,21 @@
 			
 		case "SubmitInfo":	//WORKING
 			
-			$program = $_POST['programName'];
+			$program = $_POST['programName'];	//Retrieve info from client-side
 			$year = $_POST['yearCompleted'];
 			$term = $_POST['term'];
 			$schedType = $_POST['sched'];
 			
-			setcookie("yearCompleted", $year, time() + 3600, "/");
+			setcookie("yearCompleted", $year, time() + 3600, "/");	//Set cookies to send to client-side pages
 			setcookie("programName", $program, time() + 3600, "/");
 			setcookie("term", $term, time() + 3600, "/");
 			
 			if ($schedType == "off") {
-				header("location:../pages/Off_Schedule_Courses.php");	
+				header("location:../pages/Off_Schedule_Courses.php");	//If off schedule sendto off_schedule page so user can specify courses taken
 				exit;
 				
 			} else {
-			
+				//If on schedule, generate possible schedules and send those schedules to schedule selection page
 				setcookie("courses", "", time() + 3600, "/");
 				header("location:../pages/my_schedule.php");
 				exit;
@@ -57,13 +57,14 @@
 
 			$pat = new Pattern();
 			
+			//Select all courses within the pattern table whose program is equal to the one specified by user
 			$getProgramPattern = "SELECT * FROM Patterns 
 									WHERE ProgramID = '$program';";
 			
 			$rows = $db->execute($getProgramPattern);
 			
 			while ( ($row = $rows->fetch_object()) ) {
-			
+				//Add all courses found in query to list
 				$newItem = new PatternItem($row->ProgramID,
 										   $row->CourseType,
 										   $row->YearRequired,
@@ -75,6 +76,7 @@
 			
 			}
 			
+			//Return XML of pattern to client-side
 			echo $pat->exportXML();
 			
 			exit;
@@ -87,19 +89,24 @@
 			$Term = $_POST['term'];
 			$Year = $_POST['year'];
 			
+			//Query to lock table during transaction
 			$lockSectionTable = "LOCK TABLE Section WRITE;";
+			
+			//Query to unlock table once completed transaction
 			$unlockSectionTable = "UNLOCK TABLES;";
+			
+			//Query to increment given course
 			$incrementSection = "UPDATE Section 
 									SET NumberOfStudents = NumberOfStudents + 1 
 									WHERE SubjectID = '$SubjectID' AND 
 									CourseNumber = '$CourseNumber' AND 
-									Year = '$Year' AND 
 									Term = '$Term' AND 
 									SectionCode = '$Section';";
+			
+			//Query to retrieve given course, used to check that course is not already full
 			$getSection = "SELECT * FROM Section 
 							WHERE SubjectID = '$SubjectID' AND 
 							CourseNumber = '$CourseNumber' AND 
-							Year = '$Year' AND 
 							Term = '$Term';";
 			
 			$db->execute($lockSectionTable);	//lock DB
@@ -134,6 +141,8 @@
 			
 		case "GetPrograms":	//WORKING
 	
+			//Retrieves all academic programs in database and returns them to client-side
+	
 			$getPrograms = "SELECT * FROM AcademicPrograms;";
 			
 			$rows = $db->execute($getPrograms);
@@ -151,15 +160,16 @@
 			
 			header("content-type: text/xml");
 			echo $returnval;
-	
+			
 			exit;
-	
+			
 		case "GetScienceElectives":
-		
+			
 			$program = $_POST['program'];
 			$term = $_POST['term'];
 			$year = $_POST['year'];
 		
+			//Retrieve all Electives to type Science from electives table for given program
 			$getScienceElectives = "SELECT SubjectID, CourseNumber FROM Electives 
 									WHERE ProgramID = '$program' AND 
 									ElectiveType LIKE '%science%';";
@@ -168,17 +178,19 @@
 			
 			$courses = new SectionList();
 			
+			//For every course in the electives, get proper Section of that course and add to list
 			while ( ($row = $rows->fetch_object()) ) {
 			
+				//Select LECTURE section of given pattern course
 				$getSection = "SELECT * FROM Section 
 								WHERE SubjectID = '$row->SubjectID' AND 
 								CourseNumber = '$row->CourseNumber' AND
-								Year = '$year' AND
 								Term = '$term' AND
 								ScheduleCode = 'LEC';";
 			
 				$sec = $db->execute($getSection);
 			
+				//Add that section to list
 				$newItem = new Section($sec->SubjectID,
 									   $sec->CourseNumber,
 									   $sec->Year,
@@ -201,12 +213,12 @@
 			
 			exit;
 			
-		case "GetComplementoryElectives":
+		case "GetComplementaryElectives":
 		
 			$program = $_POST['program'];
 			$term = $_POST['term'];
 			$year = $_POST['year'];
-		
+			//Retrieve all Electives to type Complementary from electives table for given program
 			$getcomplementaryElectives = "SELECT SubjectID, CourseNumber FROM Electives 
 											WHERE ProgramID = '$program' AND 
 											ElectiveType LIKE '%complementary%';";
@@ -215,17 +227,19 @@
 			
 			$courses = new SectionList();
 			
+			//For every course in the electives, get proper Section of that course and add to list
 			while ( ($row = $rows->fetch_object()) ) {
 			
+				//Select LECTURE section of given pattern course
 				$getSection = "SELECT * FROM Section 
 								WHERE SubjectID = '$row->SubjectID' AND 
 								CourseNumber = '$row->CourseNumber' AND
-								Year = '$year' AND
 								Term = '$term' AND
 								ScheduleCode = 'LEC';";
 			
 				$sec = $db->execute($getSection);
 			
+				//Add that section to list
 				$newItem = new Section($sec->SubjectID,
 									   $sec->CourseNumber,
 									   $sec->Year,
@@ -253,8 +267,9 @@
 			$program = $_POST['program'];
 			$term = $_POST['term'];
 			$year = $_POST['year'];
-			$elecType = $_POST['electype'];
-		
+			$elecType = $_POST['electype'];	//Need to specidy which type of engineering elctive
+			
+			//Get Engineering Electives of given type for specific program
 			$getengElectives = "SELECT SubjectID, CourseNumber FROM Electives 
 								WHERE ProgramID = '$program' AND 
 								ElectiveType LIKE '%$elecType%';";
@@ -263,17 +278,19 @@
 			
 			$courses = new SectionList();
 			
+			//For every course in the electives, get proper Section of that course and add to list
 			while ( ($row = $rows->fetch_object()) ) {
 			
+				//Select LECTURE section of given pattern course
 				$getSection = "SELECT * FROM Section 
 								WHERE SubjectID = '$row->SubjectID' AND 
 								CourseNumber = '$row->CourseNumber' AND
-								Year = '$year' AND
 								Term = '$term' AND
 								ScheduleCode = 'LEC';";
 			
 				$sec = $db->execute($getSection);
 			
+				//Add that section to list
 				$newItem = new Section($sec->SubjectID,
 									   $sec->CourseNumber,
 									   $sec->Year,
@@ -297,9 +314,11 @@
 			exit;
 	
 		default:	//WORKING
+		
+			//If client-side gave an invalid request type...
 			header("content-type: text/plain");
 			echo "Un-recognized request type";
 			exit;
-	}	
+	}
 
 ?>

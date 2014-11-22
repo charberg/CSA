@@ -6,13 +6,13 @@
 	
 	class OnScheduleCourseCalculator {
 	
-		private $year;
-		private $term;
-		private $program;
-		private $pattern;
-		private $courses;
+		private $year;	//Year completed
+		private $term;	//Term that will be generated
+		private $program;	//program to generate schedule for
+		private $pattern;	//pattern of above program
+		private $courses;	//courses that will be included in schedule
 		
-		private $Schedules;
+		private $Schedules;	//list of possible schedules
 	
 		function __construct($y, $p, $c, $t) {
 		
@@ -109,11 +109,12 @@
 			
 			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {	//parse through all courses in pattern
 			
-				if ($this->pattern->patternItems[$i]->yearRequired == $this->year
+				//Get all pattern items that are one year more than the number of years the student has completed, and for the proper terms
+				if ($this->pattern->patternItems[$i]->yearRequired == ($this->year + 1) 
 					&& $this->pattern->patternItems[$i]->termRequired == $this->term) {
 				
+					//Select all non-full LECTURE sections in proper term, with matching SubjectID and CourseNumber
 					$getCourseQuery = "SELECT * FROM Section
-										WHERE Year = '$this->year'
 										AND Term = '$this->term'
 										AND SubjectID = '$this->pattern->patternItems[$i]->subjectID'
 										AND CourseNumber = '$this->pattern->patternItems[$i]->courseNumber'
@@ -122,6 +123,7 @@
 										
 					$rows = $db->execute($getCourseQuery);
 				
+					//Go through all sections and add to course list
 					while ( ($row = $rows->fetch_object()) ) {
 					
 						$newItem = new Section($row->SubjectID,
@@ -152,17 +154,18 @@
 			
 			//break apart courses into lists per course
 			$classlist1 = new SectionList();
-			$classlist1->addItem($this->courses[0]);
-			unset($this->courses[0]);
+			$classlist1->addItem($this->courses[0]);	//Add first course to list (this will be what will be matched in loop)
+			unset($this->courses[0]);	//Delete that item from original list
 			
-			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
+			for ($i = 0; $i < count($this->courses);$i = $i + 1) {	//go through rest of list
 				
+				//If course is of same type as on in classlist then add it
 				if ($this->courses[$i]->subjectID == $classlist1[0]->subjectID
 					&& $this->courses[$i]->courseNum == $classlist1[0]->courseNum) {
 					
-					$classlist1->addItem($this->courses[$i]);
-					unset($this->courses[$i]);
-					$i = $i - 1;
+					$classlist1->addItem($this->courses[$i]);//add to class list
+					unset($this->courses[$i]);	//remove from original list
+					$i = $i - 1;	//set i back 1 to accomidate deleted item
 				}
 				
 			}
@@ -434,7 +437,7 @@
 		}
 		
 		
-		
+		//Export All schedules in XML format
 		function exportScedulesXML() {
 		
 			$returnval = "<shedules>";

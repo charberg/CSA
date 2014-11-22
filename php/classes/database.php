@@ -12,7 +12,7 @@ through a call of a method implemented in that php file.
 
 	class DataBase{
 
-		private $host = "localhost";
+		private $host = "localhost";	//Specify information required to access server/database
 		private $user = "root";
 		private $password = "";
 		private $dbName = "SchedulerDatabase";
@@ -33,6 +33,7 @@ through a call of a method implemented in that php file.
 			return mysqli_error($this->connection);
 		}
 		
+		//Exports given table to given output file in CVS format
 		function exportTableToCVS($outFile, $tableName) {
 		
 			$output = fopen($outFile, "w");	// open file to write to

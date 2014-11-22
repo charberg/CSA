@@ -4,7 +4,7 @@
 
 	class Section {
 		
-		public $subjectID;
+		public $subjectID;	//Variables to reflect columns in Section table
 		public $courseNum;
 		public $year;
 		public $term;
@@ -45,6 +45,7 @@
 		
 		}
 	
+		//Returns wether or not the Section is full
 		function isFull() {
 			return $this->numberOfStudents == $this->capacity;
 		}
@@ -88,6 +89,7 @@
 			
 		}
 		
+		//Returns all labs that are not full
 		function getLabs() {
 		
 			$db = new DataBase("SchedulerDatabase");
