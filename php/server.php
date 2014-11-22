@@ -1,16 +1,5 @@
 <?php
 
-	$time = "1005-1225";
-
-	$times = explode("-",$time);
-			
-	echo $times[0]."</br>";
-	
-	$starttime = substr($times[0],0,2).":".(substr($times[0],2,2)-5);	//Always subtracrt 5 as either 05 or 35
-
-	
-	echo $starttime;
-	
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	require_once("classes/pattern.php");
