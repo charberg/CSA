@@ -104,21 +104,27 @@
 		}*/
 	
 		function calculateCourses() {
-		
 			$db = new Database("SchedulerDatabase");
 			
 			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {	//parse through all courses in pattern
-			
+				
+				echo $this->pattern->patternItems[$i]->yearRequired." ".($this->year + 1)." ";
+				echo $this->pattern->patternItems[$i]->termRequired." ".$this->term."<br/>";
+				
 				//Get all pattern items that are one year more than the number of years the student has completed, and for the proper terms
 				if ($this->pattern->patternItems[$i]->yearRequired == ($this->year + 1) 
-					&& $this->pattern->patternItems[$i]->termRequired == $this->term) {
-				
+					&& trim($this->pattern->patternItems[$i]->termRequired) == trim($this->term)) {
+					
+					$subID = $this->pattern->patternItems[$i]->subjectID;
+					$CN = $this->pattern->patternItems[$i]->courseNumber;
+					echo "SubID ".$subID." CN ".$CN." term ".$this->term."<br/>";
+					
 					//Select all non-full LECTURE sections in proper term, with matching SubjectID and CourseNumber
-					$getCourseQuery = "SELECT * FROM Section
-										AND Term = '$this->term'
-										AND SubjectID = '$this->pattern->patternItems[$i]->subjectID'
-										AND CourseNumber = '$this->pattern->patternItems[$i]->courseNumber'
-										AND ScheduleCode = 'LEC'
+					$getCourseQuery = "SELECT * FROM Section WHERE
+										AND Term LIKE '%$this->term%'
+										AND SubjectID LIKE '%$subID%'
+										AND CourseNumber LIKE '%$CN%'
+										AND ScheduleCode LIKE '%LEC%'
 										AND NumberOfStudents < Capacity;";
 										
 					$rows = $db->execute($getCourseQuery);
@@ -140,7 +146,7 @@
 											   $row->NumberOfStudents);
 			
 						$this->courses->addItem($newItem);
-				
+						echo $newItem->exportXML()."<br/>";
 					}	//end while
 				}	//end if
 			}	//end for
@@ -376,6 +382,8 @@
 			
 			//break apart courses into lists per course
 			$classlist1 = new SectionList();
+			echo "Something ".count($this->courses->SectionItems)."<br/>";
+			exit;
 			$classlist1->addItem($this->courses->itemAt(0));	//Add first course to list (this will be what will be matched in loop)
 			unset($this->courses[0]);	//Delete that item from original list
 			
@@ -814,14 +822,14 @@
 		//Export All schedules in XML format
 		function exportScedulesXML() {
 		
-			$returnval = "<shedules>";
+			$returnval = "<schedules>";
 			
 			for ($i = 0; $i < count($this->patternItems);$i = $i + 1) {
 			
 				$returnval .= $this->Schedules[$i]->exportXML();
 			}
 		
-			$returnval .= "</shedules>";
+			$returnval .= "</schedules>";
 			
 			return $returnval;
 		}
