@@ -178,38 +178,20 @@
 			
 			$courses = new SectionList();
 			
-			//For every course in the electives, get proper Section of that course and add to list
+			$returnval = "<Electives>";
+			
+			//For every course in the electives add to XML
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				//Select LECTURE section of given pattern course
-				$getSection = "SELECT * FROM Section 
-								WHERE SubjectID = '$row->SubjectID' AND 
-								CourseNumber = '$row->CourseNumber' AND
-								Term = '$term' AND
-								ScheduleCode = 'LEC';";
-			
-				$sec = $db->execute($getSection);
-			
-				//Add that section to list
-				$newItem = new Section($sec->SubjectID,
-									   $sec->CourseNumber,
-									   $sec->Year,
-									   $sec->Term,
-									   $sec->Title,
-									   $sec->Credits,
-									   $sec->ScheduleCode,
-									   $sec->SectionCode,
-									   $sec->Time,
-									   $sec->Days,
-									   $sec->Capacity,
-									   $sec->NumberOfStudents);
-			
-				$courses->addItem($newItem);
-				
+				$returnval .= "<Elective><SubjectID>".$row->SubjectID."</SubjectID>
+								<CourseNumber>".$row->CourseNumber."</CourseNumber></Elective>";
 			}
 			
+			$returnval .= "</Electives>";
+			
 			header("content-type: text/xml");
-			echo $courses->exportXML();
+			//Return XML of pattern to client-side
+			echo $returnval;
 			
 			exit;
 			
@@ -257,40 +239,20 @@
 		
 			$rows = $db->execute($getengElectives);
 			
-			$courses = new SectionList();
+			$returnval = "<Electives>";
 			
-			//For every course in the electives, get proper Section of that course and add to list
+			//For every course in the electives add to XML
 			while ( ($row = $rows->fetch_object()) ) {
 			
-				//Select LECTURE section of given pattern course
-				$getSection = "SELECT * FROM Section 
-								WHERE SubjectID = '$row->SubjectID' AND 
-								CourseNumber = '$row->CourseNumber' AND
-								Term = '$term' AND
-								ScheduleCode = 'LEC';";
-			
-				$sec = $db->execute($getSection);
-			
-				//Add that section to list
-				$newItem = new Section($sec[0]->SubjectID,
-									   $sec[0]->CourseNumber,
-									   $sec[0]->Year,
-									   $sec[0]->Term,
-									   $sec[0]->Title,
-									   $sec[0]->Credits,
-									   $sec[0]->ScheduleCode,
-									   $sec[0]->SectionCode,
-									   $sec[0]->Time,
-									   $sec[0]->Days,
-									   $sec[0]->Capacity,
-									   $sec[0]->NumberOfStudents);
-			
-				$courses->addItem($newItem);
-				
+				$returnval .= "<Elective><SubjectID>".$row->SubjectID."</SubjectID>
+								<CourseNumber>".$row->CourseNumber."</CourseNumber></Elective>";
 			}
 			
+			$returnval .= "</Electives>";
+			
 			header("content-type: text/xml");
-			echo $courses->exportXML();
+			//Return XML of pattern to client-side
+			echo $returnval;
 	
 			exit;
 	
