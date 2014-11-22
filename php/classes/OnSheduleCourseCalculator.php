@@ -158,7 +158,7 @@
 			
 			for ($i = 0; $i < count($this->courses);$i = $i + 1) {
 			
-				
+				if ($this->courses[$i]->
 			
 			}
 			

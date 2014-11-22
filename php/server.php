@@ -18,6 +18,12 @@
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
 		
+			setcookie("yearCompleted", $year, time() + 3600, "/");
+			setcookie("programName", $program, time() + 3600, "/");
+			setcookie("term", $term, time() + 3600, "/");
+			setcookie("courses", "", time() + 3600, "/");
+		
+			header("location:../pages/my_schedule.php");
 			exit;
 	
 		case "SubmitInfo":	//WORKING
@@ -36,6 +42,8 @@
 				exit;
 				
 			} else {
+			
+				setcookie("courses", "", time() + 3600, "/");
 				header("location:../pages/my_schedule.php");
 				exit;
 			}
