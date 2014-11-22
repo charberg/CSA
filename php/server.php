@@ -12,20 +12,20 @@
 	switch ($requestType) {
 	
 		case "OffPatternSchedule":
-		
+			
 			$program = $_POST['programName'];
 			$year = $_POST['yearCompleted'];
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
-		
+			
 			setcookie("yearCompleted", $year, time() + 3600, "/");
 			setcookie("programName", $program, time() + 3600, "/");
 			setcookie("term", $term, time() + 3600, "/");
 			setcookie("courses", "", time() + 3600, "/");
-		
+			echo("FACK");
 			header("location:../pages/my_schedule.php");
 			exit;
-	
+			
 		case "SubmitInfo":	//WORKING
 			
 			$program = $_POST['programName'];
