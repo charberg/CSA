@@ -242,7 +242,7 @@
 			
 				$sections = $db->execute($getSection);
 			
-				if ($rows->num_rows != 1) {
+				if ($sections->num_rows != 1) {
 					echo "ERROR";
 					exit;
 				} else {
