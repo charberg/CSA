@@ -159,6 +159,10 @@
 			array_push($this->SectionItems,$item);
 		}
 		
+		function itemAt($i) {
+			return $this->SectionItems[$i];
+		}
+		
 	}
 
 ?>

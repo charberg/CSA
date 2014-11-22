@@ -376,7 +376,7 @@
 			
 			//break apart courses into lists per course
 			$classlist1 = new SectionList();
-			$classlist1->addItem($this->courses[0]);	//Add first course to list (this will be what will be matched in loop)
+			$classlist1->addItem($this->courses->itemAt(0));	//Add first course to list (this will be what will be matched in loop)
 			unset($this->courses[0]);	//Delete that item from original list
 			
 			for ($i = 0; $i < count($this->courses);$i = $i + 1) {	//go through rest of list
