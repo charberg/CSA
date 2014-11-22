@@ -13,8 +13,8 @@
 	
 		case "OffPatternSchedule":
 			
-			$program = $_POST['programName'];
-			$year = $_POST['yearCompleted'];
+			$program = $_POST['program'];
+			$year = $_POST['year'];
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
 			

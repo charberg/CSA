@@ -230,7 +230,7 @@
 				}
 			
 			}
-			if (count($this->courses) > 0) {
+			if (count($this->courses) > 0) {	///May not have 6th course, only create final list if 6th course exists
 				$class6 = new SectionList();
 				$class6->addItem($this->courses[0]);
 				unset($this->courses[0]);
@@ -247,6 +247,8 @@
 				
 				}
 			}
+			
+			
 		
 		}
 		
