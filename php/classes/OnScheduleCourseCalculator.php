@@ -150,6 +150,61 @@
 			
 		}	//end function
 		
+		function addToSchedule(&$m, &$t, &$w, &$h, &$f, $C) {
+		
+			$days = str_split($C->days);
+			
+			$times = explode("-",$C->time);
+			
+			$starttime = substr($times[0],0,2).":".(substr($times[0],2,2)-5);//Always subtracrt 5 as either 05 or 35
+			
+			if (substr($times[1],2,2) == "25") {	//if end at 25, add 5 to make 30
+				$endtime = substr($times[1],0,2).":".(substr($times[1],2,2)+5);
+			} else {
+				//If not (55) then make beginning of next hour
+				$endtime = (substr($times[1],0,2)+1).":00";
+			}
+			
+			//For every day the course is scheduled
+			for ($i = 0; $i < count($days);$i = $i + 1) {
+			
+				switch ($days[$i]) {
+				
+					case 'M':
+					
+						
+					
+					continue;
+					case 'T':
+					
+						
+					
+					continue;
+					case 'W':
+					
+						
+					
+					continue;
+					case 'R':
+					
+						
+					
+					continue;
+					case 'F':
+					
+						
+					
+					continue;
+					default:
+						
+						continue;
+				}
+			
+			}
+			
+		
+		}
+		
 		function calculateConflictFreeSchedules() {
 			
 			//break apart courses into lists per course
@@ -427,12 +482,15 @@
 			
 				$class1 = $classlist1[$i];
 				
-				//get labs from first class
+				//get labs from class	
+				$class1Labs = $class1->getLabs();
 				
+				for ($j = 0; $j < count($class1Labs);$j = $j + 1) {
 				
+					
 				
-			
-			}
+				}//for class1labs
+			}//for class1
 			
 		}
 		

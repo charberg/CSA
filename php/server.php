@@ -1,5 +1,16 @@
 <?php
 
+	$time = "1005-1225";
+
+	$times = explode("-",$time);
+			
+	echo $times[0]."</br>";
+	
+	$starttime = substr($times[0],0,2).":".(substr($times[0],2,2)-5);	//Always subtracrt 5 as either 05 or 35
+
+	
+	echo $starttime;
+	
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	require_once("classes/pattern.php");
@@ -229,11 +240,14 @@
 			
 			//For every course in the electives, get proper Section of that course and add to list
 			while ( ($row = $rows->fetch_object()) ) {
+				
+				$subID = $row->SubjectID;
+				$CN = $row->CourseNumber;
 			
 				//Select LECTURE section of given pattern course
 				$getSection = "SELECT * FROM Section 
-								WHERE SubjectID = '$row->SubjectID' AND 
-								CourseNumber = '$row->CourseNumber' AND
+								WHERE SubjectID = '$subID' AND 
+								CourseNumber = '$CN' AND
 								Term = '$term' AND
 								ScheduleCode = 'LEC';";
 			
