@@ -420,7 +420,16 @@
 							"23:30-24:00" => 0);
 							
 			
-			$class1 = $classlist1[0];
+			for ($i = 0; $i < count($classlist1);$i = $i + 1) {
+			
+				$class1 = $classlist1[$i];
+				
+				//get labs from first class
+				
+				
+				
+			
+			}
 			
 		}
 		
