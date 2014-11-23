@@ -25,84 +25,7 @@
 			$this->calculateCourses();
 			$this->calculateConflictFreeSchedules();
 		}
-		
-		/*private function getCoursesCompleted() {
-		
-			$db = new Database("SchedulerDatabase");
-			
-			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {	//parse through all courses in pattern
-			
-				if ($this->pattern->patternItems[$i]->yearRequired < $this->year) {	//if that courses year requirement is less than or equal to the year the user is at, then add that course to the ones completed
-				
-					$getCourseQuery = "SELECT * FROM Section
-										WHERE Year = '$this->pattern->patternItems[$i]->yearRequired'
-										AND Term = '$this->term'
-										AND SubjectID = '$this->pattern->patternItems[$i]->subjectID'
-										AND CourseNumber = '$this->pattern->patternItems[$i]->courseNumber'
-										AND ScheduleCode = 'LEC';";
-										
-					$rows = $db->execute($getCourseQuery);
-				
-					while ( ($row = $rows->fetch_object()) ) {
-					
-						$newItem = new Section($row->SubjectID,
-											   $row->CourseNumber,
-											   $row->Year,
-											   $row->Term,
-											   $row->Title,
-											   $row->Credits,
-											   $row->ScheduleCode,
-											   $row->SectionCode,
-											   $row->Time,
-											   $row->Days,
-											   $row->Capacity,
-											   $row->NumberOfStudents);
-			
-						$this->courses->addItem($newItem);
-					
-					}
-				
-				}	//end if patternItem <= year completed
-			
-				//if pattern item is of given year  + 1, and calculating courses for winter, all fall courses of this year add to list
-				if ($this->pattern->patternItems[$i]->yearRequired == $this->year
-					&& $this->pattern->patternItems[$i]->termRequired == 'fall'
-					&& $this->term == 'winter') {
-					
-					$getCourseQuery = "SELECT * FROM Section
-										WHERE Year = '$this->year'
-										AND SubjectID = '$this->pattern->patternItems[$i]->subjectID'
-										AND CourseNumber = '$this->pattern->patternItems[$i]->courseNumber'
-										AND ScheduleCode = 'LEC'
-										AND Term = 'fall';";
-										
-					$rows = $db->execute($getCourseQuery);
-				
-					while ( ($row = $rows->fetch_object()) ) {
-					
-						$newItem = new Section($row->SubjectID,
-											   $row->CourseNumber,
-											   $row->Year,
-											   $row->Term,
-											   $row->Title,
-											   $row->Credits,
-											   $row->ScheduleCode,
-											   $row->SectionCode,
-											   $row->Time,
-											   $row->Days,
-											   $row->Capacity,
-											   $row->NumberOfStudents);
-			
-						$this->courses->addItem($newItem);
-					
-					}
-					
-				}
-			
-			}	//end for each pattern item
-		
-		}*/
-	
+
 		function calculateCourses() {
 			$db = new Database("SchedulerDatabase");
 			
@@ -1158,8 +1081,7 @@
 			
 			//Now have a list of all possible schedules for given courses
 		}
-		
-		
+				
 		function generateSchedules($classlist, $cursched, $otherclasses) {
 		
 			for ($i = 0; $i < count($classlist->SectionItems);$i = $i + 1) {	//for every class
@@ -1178,7 +1100,7 @@
 				
 				if (count($classLabs->SectionItems) == 0) {	//if no labs
 					
-					if (!is_null(otherclasses)) {	//if no more classes to add
+					if (!is_null($otherclasses)) {	//if no more classes to add
 					
 						array_push($this->Schedules,$cursched);
 					
@@ -1204,7 +1126,7 @@
 							$cursched->addItem($lab);
 						}
 						
-						if (!is_null(otherclasses)) {	//if no more classes to add
+						if (!is_null($otherclasses)) {	//if no more classes to add
 					
 							array_push($this->Schedules,$cursched);
 						
@@ -1217,13 +1139,13 @@
 							
 						}//end if classes to add
 						
-						array_pop($cursched);
+						$cursched->removeItem(count($cursched->SectionItems)-1);
 						
 					}//for each lab
 					
 				}//if has labs
 				
-				array_pop($cursched);
+				$cursched->removeItem(count($cursched->SectionItems)-1);
 				
 			}//for loop classes
 		}
