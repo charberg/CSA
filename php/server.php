@@ -11,6 +11,22 @@
 	
 	switch ($requestType) {
 	
+		case "GetCourseFile":
+		
+			$filename = $_POST['fileName'];	//get unique filename from client
+			
+			$handle = fopen($filename,"r");	//open file for reading
+			$returnval = "";				//initialize return value
+			while (!feof($handle)) {		
+				$returnval .= fgets($handle);	//read from file intil EOF
+			}
+			fclose($handle);	//close file
+			unlink($filename);	//delete file
+			
+			header("content-type: text/xml");
+			echo $returnval;
+			exit;
+		
 		case "OffPatternSchedule":
 			
 			$program = $_POST['program'];
@@ -44,7 +60,13 @@
 				//If on schedule, generate possible schedules and send those schedules to schedule selection page
 				$scheduleGen = new OnScheduleCourseCalculator($year, $program, $term);
 				$ScheduleList = $scheduleGen->exportScedulesXML();
-				setcookie("courses", $ScheduleList, time() + 3600, "/");
+				
+				$filename =  "../tempSchedules/".uniqid().".txt";	//create unique file in temp folder
+				$handle = fopen($filename,"w");						//open file for writing
+				fwrite($handle,$ScheduleList);						//output schedules to fileatime
+				fclose($handle);									//close file
+				
+				setcookie("courses", $filename, time() + 3600, "/");
 				header("location:../pages/my_schedule.php");
 				exit;
 			}

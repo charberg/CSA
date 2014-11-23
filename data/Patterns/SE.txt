@@ -14,7 +14,7 @@ required;ELEC;2501;2;fall
 required;SYSC;2001;2;fall
 required;SYSC;2004;2;fall
 required;CCDP;2100;2;fall
-required;MATH;1805;2;winter
+required;COMP;1805;2;winter
 required;ELEC;2607;2;winter
 required;SYSC;2003;2;winter
 required;SYSC;2100;2;winter

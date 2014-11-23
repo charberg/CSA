@@ -96,15 +96,19 @@
 			
 			$labs = new SectionList();
 			
+			$subID = $this->subjectID;
+			$CN = $this->courseNum;
+			$term = $this->term;
+						
 			$sqlquery = "SELECT * FROM Section
-							WHERE SubjectID = '$this->subjectID'
-								  AND CourseNumber = '$this->courseNum'
-								  AND Year = '$this->year'
-								  AND Term = '$this->term'
+							WHERE SubjectID LIKE '%$subID%'
+								  AND CourseNumber LIKE '%$CN%'
+								  AND Term LIKE '%$term%'
 								  AND SectionCode LIKE '%1%'
-								  AND NumberOfStudents < Capacity;";
+								  AND (NumberOfStudents < Capacity);";
 			
 			$rows = $db->execute($sqlquery);
+			
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			
@@ -124,7 +128,6 @@
 				$labs->addItem($newItem);
 			
 			}
-			
 			return $labs;
 			
 		}
@@ -137,7 +140,7 @@
 		public $SectionItems;
 		
 		function __construct() {
-			$SectionItems = array();
+			$this->SectionItems = array();
 		}
 	
 		function exportXML() {
@@ -161,6 +164,11 @@
 		
 		function itemAt($i) {
 			return $this->SectionItems[$i];
+		}
+		
+		function removeItem($i) {
+			unset($this->SectionItems[$i]);
+			$this->SectionItems = array_values($this->SectionItems);
 		}
 		
 	}
