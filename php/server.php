@@ -1,5 +1,8 @@
 <?php
 
+	
+	set_time_limit(60);	//allow 1 minute for execution
+
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	require_once("classes/pattern.php");
