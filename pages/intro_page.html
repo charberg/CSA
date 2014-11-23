@@ -31,59 +31,40 @@
 	</script>
 	<body onload="fillProgNames()">
 		<center>
-		<h1>Welcome to the Briglio course selector!</h1><br/>
-		
-		<h3>Your Info:</h3>
-		<br/>
-		<form method="post" action="../php/server.php">
-			Stream:
-			<!-- Drop-down menu for program selection -->
-			<select id="progdropdown" name="programName"></select>
-			<br/><br/>
+			<h1>Welcome to the Briglio course selector!</h1><br/>
 			
-			Please select total amount of years completed to date:
-			<select name="yearCompleted">
-				<!-- Drop-down menu for years completed -->
-				<option value="0">None</option>
-				<option value="1">1st</option>
-				<option value="2">2nd</option>
-				<option value="3">3rd</option>
-			</select>
-			<br/><br/>
-			
-			Are you on schedule?
-			<input type="radio" name="sched" value="on" checked>YES</input>
-			<input type="radio" name="sched" value="off">NO</input>
-			<br/><br/>
-			
-			What term are you planning?
-			<input type="radio" name="term" value="fall" checked>Fall</input>
-			<input type="radio" name="term" value="winter">Winter</input>
-			<br/><br/>
-			
-			<input type="hidden" value="SubmitInfo" name="requesttype"/>
-			<input type="submit" value="SUBMIT"/>
-		</form>
-		<p id="result"></p>
-		
-		<!-- classes[] array can be used in php, as $_POST['classes']
-		<!-- Alternatively, could set value to classes[i], then variable in php is simply $classes -->
-		<!-- Need to check how results are stored, i.e. bools? -->
-		<!-- TO BE DONE
-			
-			Add verification that student number is the correct length, starts with 100
-			Add verification that either a year is selected, OR boxes are checked
-			Practice accessing database with php
-			Change input boxes into <form>, send to .php file if verification is passed
-			<form method="GET" action="info.php"> or something along those lines
-			Schedule generation
-			Schedule alternatives
-			Pre-req selection
-			Web page branch if you select all courses complete vs. year complete
-			
-		-->
-		
-		
+			<h3>Your Info:</h3>
+			<br/>
+			<form method="post" action="../php/server.php">
+				Stream:
+				<!-- Drop-down menu for program selection -->
+				<select id="progdropdown" name="programName"></select>
+				<br/><br/>
+				
+				Please select your most recent year completed to date:
+				<select name="yearCompleted">
+					<!-- Drop-down menu for years completed -->
+					<option value="0">None</option>
+					<option value="1">1st</option>
+					<option value="2">2nd</option>
+					<option value="3">3rd</option>
+				</select>
+				<br/><br/>
+				
+				Are you on schedule?
+				<input type="radio" name="sched" value="on" checked>YES</input>
+				<input type="radio" name="sched" value="off">NO</input>
+				<br/><br/>
+				
+				What term are you planning?
+				<input type="radio" name="term" value="fall" checked>Fall</input>
+				<input type="radio" name="term" value="winter">Winter</input>
+				<br/><br/>
+				
+				<input type="hidden" value="SubmitInfo" name="requesttype"/>
+				<input type="submit" value="SUBMIT"/>
+			</form>
+			<p id="result"></p>		
 		</center>
 	</body>
 

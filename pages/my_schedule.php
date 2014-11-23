@@ -1,6 +1,6 @@
 <?php
 	/* Saved Cookies */
-	/*
+	
 	if (!isset($_COOKIE['programName']) || !isset($_COOKIE['yearCompleted']) || !isset($_COOKIE['term']) || !isset($_COOKIE['courses'])){
 		echo "Missing information";
 		header("refresh:2;url=intro_page.html");
@@ -11,7 +11,7 @@
 	$yearCompleted = $_COOKIE['yearCompleted'];
 	$term = $_COOKIE['term'];
 	$courseList = $_COOKIE['courses'];
-	*/
+	
 ?>
 
 <html>
@@ -20,8 +20,38 @@
 		<link type="text/css" rel="stylesheet" href="../css/my_schedule.css"/>
 		<!-- Link to .css file -->
 		<xml ID="scheduleexample" SRC="../scheduleexample.xml"></xml>
+		<script>
+			GlobalSched = "";  //Global variable containing all schedules given by the server
+			GlobalCurrentSched = 0;
+			
+			/* Calls the server to give the stored schedules, puts the first on the table, and sets the buttons to be able to switch between them */
+			function getSchedules(){
+				var courseList = "<?php echo $courses; ?>";
+				var request = new XMLHttpRequest();
+				request.open("post","../php/server.php",true);
+				//request.open("post","../tempServer.php",true);
+				request.setRequestHeader("content-type","application/x-www-form-urlencoded");
+				request.onreadystatechange = function(){
+					if(request.readyState == 4 && request.status == 200){
+						var rxml = request.responseXML;
+						if(rxml){
+							GlobalSched = rxml.getElementsByTagName('schedules')[0].getElementsByTagName('courses');
+							for(var i=0;i<GlobalSched.length;i++){
+								document.getElementById('buttonArea').innerHTML = document.getElementById('buttonArea').innerHTML + "<input type='button' value='Schedule "+(i+1)+"' onclick='fillTable("+i+")'/>";
+							}
+							GlobalCurrentSched = 0;
+							fillTable(0);
+						}else{
+							alert("Did not receive usable XML: "+rxml);
+							alert("Response string: "+request.responseText);
+						}
+					}
+				}
+				request.send("&requesttype=GetCourseFile&fileName="+courseList);
+			}
+		</script>
 	</head>
-	<body>
+	<body onload="getSchedules()">
 		<center>
 		<h1>My Schedule</h1>
 		
@@ -398,34 +428,6 @@
 		</center>
 	</body>
 	<script>
-		//var myXML = document.all("scheduleexample").XMLDocument;
-		//var exml = scheduleexample.getElementsByTagName('schedules')[0].getElementsByTagName('courses');
-		//alert(exml.length);
-		
-		GlobalSched = "";  //Global variable containing all schedules given by the server
-		GlobalCurrentSched = 0;
-		
-		/* Calls the server to give the stored schedules, puts the first on the table, and sets the buttons to be able to switch between them */
-		function getSchedules(){
-			var courseList = "<?php echo $courses; ?>";
-			request.open("post","../php/server.php",true);
-			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
-			request.onreadystatechange = function(){
-				if(request.readyState == 4 && request.status == 200){
-					var rxml = request.responseXML;
-					if(rxml){
-						GlobalSched = rxml.getElementsByTagName('schedules')[0].getElementsByTagName('courses');
-						for(var i=0;i<GlobalSched.length;i++){
-							document.getElementById('buttonArea').innerHTML = document.getElementById('buttonArea').innerHTML + "<input type='button' value='Schedule "+(i+1)+"' onclick='fillTable("+i+")'/>";
-						}
-						GlobalCurrentSched = 0;
-						fillTable(0);
-					}
-				}
-			}
-			request.send("&requesttype=GetCourseFile&fileName="+courseList);
-		}
-		
 		/* Fills the table displayed with the schedule index input */
 		function fillTable(index){
 			var termSched = GlobalSched[index].getElementsByTagName('Section');
@@ -439,7 +441,16 @@
 					case 1:	//Sunday
  						break;
 					case 2: //Monday
-						if(
+						if(termShed[i].getElementsByTagName('days')[0].textContent.indexOf("M") != -1){
+							var times = termSched[i].getElementsByTagName('time')[0].textContent.split("-");
+							var startTime = normTime(times[0]);
+							var endTime = normTime(times[1]);
+							
+							document.getElementById('mon'+startTime).innerHTML = termSched[i].getElementsByTagName('subjectID')[0].textContent + termSched[i].getElementsByTagName('courseNumber')[0].textContent;
+							
+							//loop through until end time and add in those as well
+							
+						}
 						break;
 					case 3: //Tuesday
 						break;
@@ -463,6 +474,7 @@
 		
 		/* Sends the current schedule selected to the course server */
 		function submitSchedule(){
+			var request = new XMLHttpRequest();
 			request.open("post","../php/courseServer.php",true);
 			request.setRequestHeader("content-type","text/xml");
 			request.onreadystatechange = function(){
@@ -474,6 +486,24 @@
 			request.send(GlobalSched[GlobalCurrentSched]);
 		}
 		
+		/* Take time that has 5 min offset and normalize it */
+		function normTime(time){
+			var digit1 = '';
+			var newTime = "";
+			if(time.length == 3){
+				newTime = '0' + time;
+			}
+			if(newTime.charAt(3) == '2'){
+				newTime = newTime.charAt(0) + newTime.charAt(1) + "30";
+			}else if(newTime.charAt(3) == '5'){
+				if(newTime.charAt(0) == '0'){
+					newTime = (parseInt(newTime.charAt(1))+1).toString() + "00";
+				}else{
+					newTime = (parseInt(newTime.charAt(0) + newTime.charAt(1)) + 1).toString() + "00";
+				}
+			}
+			return newTime;
+		}
 		
 	</script>
 </html>
