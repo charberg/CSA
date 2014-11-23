@@ -162,6 +162,10 @@
 			array_push($this->SectionItems,$item);
 		}
 		
+		function popItem() {
+			return array_pop($this->SectionItems);
+		}
+		
 		function itemAt($i) {
 			return $this->SectionItems[$i];
 		}

@@ -60,7 +60,6 @@
 				//If on schedule, generate possible schedules and send those schedules to schedule selection page
 				$scheduleGen = new OnScheduleCourseCalculator($year, $program, $term);
 				$ScheduleList = $scheduleGen->exportScedulesXML();
-				
 				$filename =  "../tempSchedules/".uniqid().".txt";	//create unique file in temp folder
 				$handle = fopen($filename,"w");						//open file for writing
 				fwrite($handle,$ScheduleList);						//output schedules to fileatime

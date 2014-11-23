@@ -13,14 +13,17 @@
 		private $courses;	//courses list that schedules will be made from
 		private $Schedules;	//list of possible schedules
 		private $monday, $tuesday, $wednesday, $thursday, $friday;
-	
+		private $cursched;
+		
 		function __construct($y, $p, $t) {
 		
 			$this->year = $y;
 			$this->program = $p;
 			$this->courses = new SectionList();
 			$this->term = $t;
+			$this->cursched = new SectionList();
 			$this->Schedules = array();	//Array of SectionLists
+			
 			$this->pattern = Pattern::getPatternByProgram($this->program);
 			$this->calculateCourses();
 			$this->calculateConflictFreeSchedules();
@@ -1076,18 +1079,18 @@
 				if (!is_null($classlist6)) {
 					array_push($nextclassesarray, $classlist6);
 				}
-				$this->generateSchedules($classlist1,new SectionList(),$nextclassesarray);
+				$this->generateSchedules($classlist1,new SectionList(), $nextclassesarray);
 			}
-			
 			//Now have a list of all possible schedules for given courses
 		}
-				
+		
+		
 		function generateSchedules($classlist, $cursched, $otherclasses) {
 		
 			for ($i = 0; $i < count($classlist->SectionItems);$i = $i + 1) {	//for every class
 			
-				$class = $classlist->itemAt($i);	//pick class
-			
+				$class = clone $classlist->itemAt($i);	//pick class
+				
 				if ($this->addToSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class) == false) {	//add class to schedule
 					$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class);
 					continue;	//go to next course possibility
@@ -1100,25 +1103,21 @@
 				
 				if (count($classLabs->SectionItems) == 0) {	//if no labs
 					
-					if (!is_null($otherclasses)) {	//if no more classes to add
-					
-						array_push($this->Schedules,$cursched);
-					
+					if (count($otherclasses) == 0) {	//if no more classes to add
+						array_push($this->Schedules, clone $cursched);	//add schedule to list
 					} else {	//if there are classes to add
 						
-						$nextclasslist = $otherclasses[0];
-						unset($otherclasses[0]);
-						$otherclasses = array_values($otherclasses);
-						$this->generateSchedules($nextclasslist,$cursched,$otherclasses);
-						
+						$nextclasslist = array_pop($otherclasses);
+						$this->generateSchedules($nextclasslist, $cursched, $otherclasses);
+						array_push($otherclasses,$nextclasslist);
 					}//end if classes to add
 					
 				} else {	//if class has labs
 					
 					for ($j = 0; $j < count($classLabs->SectionItems);$j = $j + 1) {
 					
-						$lab = $classLabs->itemAt($j);
-					
+						$lab = clone $classLabs->itemAt($j);
+
 						if ($this->addToSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab) == false) {	//add lab to schedule
 							$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab);
 							continue;	//go to next course possibility
@@ -1126,42 +1125,36 @@
 							$cursched->addItem($lab);
 						}
 						
-						if (!is_null($otherclasses)) {	//if no more classes to add
-					
-							array_push($this->Schedules,$cursched);
-						
+						if (count($otherclasses) == 0) {	//if no more classes to add
+							array_push($this->Schedules, clone $cursched);	//add schedule to list
 						} else {	//if there are classes to add
 							
-							$nextclasslist = $otherclasses[0];
-							unset($otherclasses[0]);
-							$otherclasses = array_values($otherclasses);
-							$this->generateSchedules($nextclasslist,$cursched,$otherclasses);
-							
+							$nextclasslist = array_pop($otherclasses);
+							$this->generateSchedules($nextclasslist, $cursched, $otherclasses);
+							array_push($otherclasses,$nextclasslist);
 						}//end if classes to add
 						
-						$cursched->removeItem(count($cursched->SectionItems)-1);
-						
+						$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab);
+						$cursched->popItem();
 					}//for each lab
 					
 				}//if has labs
-				
-				$cursched->removeItem(count($cursched->SectionItems)-1);
-				
+
+				$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class);
+				$cursched->popItem();
+
 			}//for loop classes
+			
 		}
 		
 		//Export All schedules in XML format
-		function exportScedulesXML() {
-		
-			$returnval = "<schedules>";
-			
+		function exportScedulesXML() {		
+	
+			$returnval = "<schedules>";	
 			for ($i = 0; $i < count($this->Schedules);$i = $i + 1) {
-			
 				$returnval .= $this->Schedules[$i]->exportXML();
-			}
-		
-			$returnval .= "</schedules>";
-			
+			}	
+			$returnval .= "</schedules>";		
 			return $returnval;
 		}
 		
