@@ -1,10 +1,17 @@
 <?php
 	
-	require_once("classes/database.php");
-	require_once("classes/Section.php");
-	require_once("classes/pattern.php");
-	require_once("classes/OnScheduleCourseCalculator.php");
+	$filename = $_POST['fileName'];	//get unique filename from client
+			
+	$handle = fopen($filename,"r");	//open file for reading
+	$returnval = "";				//initialize return value
+	while (!feof($handle)) {		
+		$returnval .= fgets($handle);	//read from file intil EOF
+	}
+	fclose($handle);	//close file
+	unlink($filename);	//delete file
 	
-	
+	header("content-type: text/xml");
+	echo $returnval;
+	exit;
 	
 ?>

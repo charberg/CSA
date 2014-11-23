@@ -12,6 +12,7 @@
 		private $pattern;	//pattern of above program
 		private $courses;	//courses list that schedules will be made from
 		private $Schedules;	//list of possible schedules
+		private $monday, $tuesday, $wednesday, $thursday, $friday;
 	
 		function __construct($y, $p, $t) {
 		
@@ -840,11 +841,15 @@
 		function calculateConflictFreeSchedules() {
 			
 			//break apart courses into lists per course
-			$classlist1 = new SectionList();
-			$classlist1->addItem($this->courses->itemAt(0));	//Add first course to list (this will be what will be matched in loop)
-			$this->courses->removeItem(0);	//Delete that item from original list
 			
-			for ($i = 0; $i < count($this->courses->SectionItems);$i = $i + 1) {	//go through rest of list
+			$classlist1 = null;
+			
+			if (count($this->courses->SectionItems) > 0) {
+				$classlist1 = new SectionList();
+				$classlist1->addItem($this->courses->itemAt(0));	//Add first course to list (this will be what will be matched in loop)
+				$this->courses->removeItem(0);	//Delete that item from original list
+				
+				for ($i = 0; $i < count($this->courses->SectionItems);$i = $i + 1) {	//go through rest of list
 				
 				//If course is of same type as on in classlist then add it
 				if ($this->courses->itemAt($i)->subjectID == $classlist1->itemAt(0)->subjectID
@@ -856,12 +861,16 @@
 				}
 				
 			}
+			}
 			
-			$classlist2 = new SectionList();
-			$classlist2->addItem($this->courses->itemAt(0));
-			$this->courses->removeItem(0);
+			$classlist2 = null;
 			
-			for ($i = 0; $i < count($this->courses->SectionItems);$i = $i + 1) {
+			if (count($this->courses->SectionItems) > 0) {
+				$classlist2 = new SectionList();
+				$classlist2->addItem($this->courses->itemAt(0));
+				$this->courses->removeItem(0);
+				
+				for ($i = 0; $i < count($this->courses->SectionItems);$i = $i + 1) {
 			
 				if ($this->courses->itemAt($i)->subjectID == $classlist2->itemAt(0)->subjectID
 					&& $this->courses->itemAt($i)->courseNum == $classlist2->itemAt(0)->courseNum) {
@@ -871,6 +880,7 @@
 					$i = $i - 1;
 				}
 			
+			}
 			}
 			
 			$classlist3 = null;
@@ -957,8 +967,8 @@
 			//Now go through each list, pick one and generate schedule
 			//Run through all possibilities
 			
-			//Create arrays to keep track of what times are booked
-			$monday = array("8:00-8:30" => 0,
+			{	//Create arrays to keep track of what times are booked
+			$this->monday = array("8:00-8:30" => 0,
 							"8:30-9:00" => 0,
 							"9:00-9:30" => 0,
 							"9:30-10:00" => 0,
@@ -991,7 +1001,7 @@
 							"23:00-23:30" => 0,
 							"23:30-24:00" => 0);
 			
-			$tuesday = array("8:00-8:30" => 0,
+			$this->tuesday = array("8:00-8:30" => 0,
 							"8:30-9:00" => 0,
 							"9:00-9:30" => 0,
 							"9:30-10:00" => 0,
@@ -1024,7 +1034,7 @@
 							"23:00-23:30" => 0,
 							"23:30-24:00" => 0);
 			
-			$wednesday = array("8:00-8:30" => 0,
+			$this->wednesday = array("8:00-8:30" => 0,
 							"8:30-9:00" => 0,
 							"9:00-9:30" => 0,
 							"9:30-10:00" => 0,
@@ -1057,7 +1067,7 @@
 							"23:00-23:30" => 0,
 							"23:30-24:00" => 0);
 							
-			$thursday = array("8:00-8:30" => 0,
+			$this->thursday = array("8:00-8:30" => 0,
 							"8:30-9:00" => 0,
 							"9:00-9:30" => 0,
 							"9:30-10:00" => 0,
@@ -1090,7 +1100,7 @@
 							"23:00-23:30" => 0,
 							"23:30-24:00" => 0);
 							
-			$friday = array("8:00-8:30" => 0,
+			$this->friday = array("8:00-8:30" => 0,
 							"8:30-9:00" => 0,
 							"9:00-9:30" => 0,
 							"9:30-10:00" => 0,
@@ -1122,237 +1132,100 @@
 							"22:30-23:00" => 0,
 							"23:00-23:30" => 0,
 							"23:30-24:00" => 0);
+			}
 			
 			//Now create possible schedules
+
+			if (!is_null($classlist1)) {
+				$nextclassesarray = array();
+				if (!is_null($classlist2)) {
+					array_push($nextclassesarray, $classlist2);
+				}
+				if (!is_null($classlist3)) {
+					array_push($nextclassesarray, $classlist3);
+				}
+				if (!is_null($classlist4)) {
+					array_push($nextclassesarray, $classlist4);
+				}
+				if (!is_null($classlist5)) {
+					array_push($nextclassesarray, $classlist5);
+				}
+				if (!is_null($classlist6)) {
+					array_push($nextclassesarray, $classlist6);
+				}
+				$this->generateSchedules($classlist1,new SectionList(),$nextclassesarray);
+			}
 			
-			//echo "Creating Shcedules<br/>";
+			//Now have a list of all possible schedules for given courses
+		}
+		
+		
+		function generateSchedules($classlist, $cursched, $otherclasses) {
+		
+			for ($i = 0; $i < count($classlist->SectionItems);$i = $i + 1) {	//for every class
 			
-			for ($c1 = 0; $c1 < count($classlist1->SectionItems);$c1 = $c1 + 1) {
+				$class = $classlist->itemAt($i);	//pick class
 			
-				$class1 = $classlist1->itemAt($c1);	//pick class1
-				
-				if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1) == false) {	//add class 1 to schedule
-					$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1);
+				if ($this->addToSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class) == false) {	//add class to schedule
+					$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class);
 					continue;	//go to next course possibility
+				} else {
+					$cursched->addItem($class);
 				}
 				
 				//get labs from class	
-				$class1Labs = $class1->getLabs();
-				//echo "labs ".$class1Labs->exportXML();
+				$classLabs = $class->getLabs();
 				
-				for ($cl1 = 0; $cl1 < count($class1Labs->SectionItems);$cl1 = $cl1 + 1) {
+				if (count($classLabs->SectionItems) == 0) {	//if no labs
 					
-					$class1lab = $class1Labs->itemAt($cl1);	//pick class 1 lab
+					if (!is_null(otherclasses)) {	//if no more classes to add
 					
-					if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1lab) == false) {	//add class 1 lab to schedule
-						$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1lab);
-						continue;	//go to next lab possibility
-					}
+						array_push($this->Schedules,$cursched);
 					
-					for ($c2 = 0; $c2 < count($classlist2->SectionItems);$c2 = $c2 + 1) {
+					} else {	//if there are classes to add
 						
-						$class2 = $classlist2->itemAt($c2);	//pick class2
-				
-						if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2) == false) {	//add class 2 to schedule
-							$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2);
+						$nextclasslist = $otherclasses[0];
+						unset($otherclasses[0]);
+						$otherclasses = array_values($otherclasses);
+						$this->generateSchedules($nextclasslist,$cursched,$otherclasses);
+						
+					}//end if classes to add
+					
+				} else {	//if class has labs
+					
+					for ($j = 0; $j < count($classLabs->SectionItems);$j = $j + 1) {
+					
+						$lab = $classLabs->itemAt($j);
+					
+						if ($this->addToSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab) == false) {	//add lab to schedule
+							$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab);
 							continue;	//go to next course possibility
+						} else {
+							$cursched->addItem($lab);
 						}
 						
-						//get labs from class	
-						$class2Labs = $class2->getLabs();
+						if (!is_null(otherclasses)) {	//if no more classes to add
+					
+							array_push($this->Schedules,$cursched);
 						
-						for ($cl2 = 0; $cl2 < count($class2Labs->SectionItems);$cl2 = $cl2 + 1) {
+						} else {	//if there are classes to add
 							
-							$class2lab = $class2Labs->itemAt($cl2);	//pick class 2 lab
+							$nextclasslist = $otherclasses[0];
+							unset($otherclasses[0]);
+							$otherclasses = array_values($otherclasses);
+							$this->generateSchedules($nextclasslist,$cursched,$otherclasses);
 							
-							if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2lab) == false) {	//add class 2 lab to schedule
-								$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2lab);
-								continue;	//go to next lab possibility
-							}
-							
-							for ($c3 = 0; $c3 < count($classlist3->SectionItems);$c3 = $c3 + 1) {
+						}//end if classes to add
 						
-								$class3 = $classlist3->itemAt($c3);	//pick class3
+						array_pop($cursched);
 						
-								if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3) == false) {	//add class 3 to schedule
-									$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3);
-									continue;	//go to next course possibility
-								}
-								
-								//get labs from class	
-								$class3Labs = $class3->getLabs();
-								
-								for ($cl3 = 0; $cl3 < count($class3Labs->SectionItems);$cl3 = $cl3 + 1) {
-									
-									$class3lab = $class3Labs->itemAt($cl3);	//pick class 3 lab
-									
-									if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3lab) == false) {	//add class 3 lab to schedule
-										$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3lab);
-										continue;	//go to next lab possibility
-									}
-									
-									for ($c4 = 0; $c4 < count($classlist4->SectionItems);$c4 = $c4 + 1) {
-						
-										$class4 = $classlist4->itemAt($c4);	//pick class4
-								
-										if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4) == false) {	//add class 4 to schedule
-											$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4);
-											continue;	//go to next course possibility
-										}
-										
-										//get labs from class	
-										$class4Labs = $class4->getLabs();
-										
-										for ($cl4 = 0; $cl4 < count($class4Labs->SectionItems);$cl4 = $cl4 + 1) {
-											
-											$class4lab = $class4Labs->itemAt($cl4);	//pick class 4 lab
-											
-											if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4lab) == false) {	//add class 4 lab to schedule
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4lab);
-												continue;	//go to next lab possibility
-											}
-											
-											if (!is_null($classlist5)) {
-												
-												for ($c5 = 0; $c5 < count($classlist5->SectionItems);$c5 = $c5 + 1) {
-							
-													$class5 = $classlist5->itemAt($c5);	//pick class5
-											
-													if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5) == false) {	//add class 5 to schedule
-														$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5);
-														continue;	//go to next course possibility
-													}
-													
-													//get labs from class	
-													$class5Labs = $class5->getLabs();
-													
-													for ($cl5 = 0; $cl5 < count($class5Labs->SectionItems);$cl5 = $cl5 + 1) {
-														
-														$class5lab = $class5Labs->itemAt($cl5);	//pick class 5 lab
-														
-														if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5lab) == false) {	//add class 5 lab to schedule
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5lab);
-															continue;	//go to next lab possibility
-														}
-														
-														if (!is_null($classlist6)) {	//If there is 6 classes...
-
-															for ($c6 = 0; $c6 < count($classlist6->SectionItems);$c6 = $c6 + 1) {
-							
-																$class6 = $classlist6->itemAt($c6);	//pick class6
-														
-																if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6) == false) {	//add class 6 to schedule
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6);
-																	continue;	//go to next course possibility
-																}
-																
-																//get labs from class	
-																$class6Labs = $class6->getLabs();
-																
-																for ($cl6 = 0; $cl6 < count($class6Labs->SectionItems);$cl6 = $cl6 + 1) {
-																	
-																	$class6lab = $class6Labs->itemAt($cl6);	//pick class 6 lab
-																	
-																	if ($this->addToSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6lab) == false) {	//add class 6 lab to schedule
-																		$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6lab);
-																		continue;	//go to next lab possibility
-																	}
-																	//echo "schedule<br/>";
-																	//Now have conflict free schedule, add all classes to list
-																	$sched = new SectionList();
-																	$sched->addItem($class1);
-																	$sched->addItem($class1lab);
-																	$sched->addItem($class2);
-																	$sched->addItem($class2lab);
-																	$sched->addItem($class3);
-																	$sched->addItem($class3lab);
-																	$sched->addItem($class4);
-																	$sched->addItem($class4lab);
-																	$sched->addItem($class5);
-																	$sched->addItem($class5lab);
-																	$sched->addItem($class6);
-																	$sched->addItem($class6lab);
-																	array_push($this->Schedules, $sched);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1lab);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2lab);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3lab);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4lab);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5lab);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6);
-																	$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class6lab);
-																	
-																}//for class6labs
-															}//for class6
-														} else {
-															
-															//echo "schedule<br/>";
-															//Now have conflict free schedule, add all classes to list
-															$sched = new SectionList();
-															$sched->addItem($class1);
-															$sched->addItem($class1lab);
-															$sched->addItem($class2);
-															$sched->addItem($class2lab);
-															$sched->addItem($class3);
-															$sched->addItem($class3lab);
-															$sched->addItem($class4);
-															$sched->addItem($class4lab);
-															$sched->addItem($class5);
-															$sched->addItem($class5lab);
-															array_push($this->Schedules, $sched);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1lab);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2lab);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3lab);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4lab);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5);
-															$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class5lab);
-															
-														}//if class 6 exists
-													}//for class5labs
-												}//for class5
-											} else {
-												//echo "schedule<br/>";
-												//Now have conflict free schedule, add all classes to list
-												$sched = new SectionList();
-												$sched->addItem($class1);
-												$sched->addItem($class1lab);
-												$sched->addItem($class2);
-												$sched->addItem($class2lab);
-												$sched->addItem($class3);
-												$sched->addItem($class3lab);
-												$sched->addItem($class4);
-												$sched->addItem($class4lab);
-												array_push($this->Schedules, $sched);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class1lab);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class2lab);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class3lab);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4);
-												$this->removeFromSchedule($monday, $tuesday, $wednesday, $thursday, $friday, $class4lab);
-											}//if class5list exist
-										}//for class4labs
-									}//for class4
-								}//for class3labs
-							}//for class3
-						}//for class2labs
-					}//for class2
-				}//for class1labs
-			
+					}//for each lab
+					
+				}//if has labs
 				
-			}//for class1
-			
-			//Now have a list of all possible schedules for given courses
-			
+				array_pop($cursched);
+				
+			}//for loop classes
 		}
 		
 		//Export All schedules in XML format
