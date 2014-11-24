@@ -4,9 +4,11 @@
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	
+	header("content-type: text/xml");
+	
 	$db = new DataBase("SchedulerDatabase");
 	
-	$courseList = file_get_contents("php://input");
+	$courseList = $_POST['xml'];
 	
 	$coursesObject = simplexml_load_string($courseList);
 	
