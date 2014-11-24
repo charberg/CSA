@@ -314,14 +314,29 @@ executed first before your application is evaluated.
 		
 		$values = explode(";", $line);
 		
-		/*for ($i = 0; $i < 4;$i++) {
-			if (!is_null($values[$i])) {
-				echo "|".$values[$i]."|";
-			}
-		}
-		echo "<br/>";*/
-		
 		$PopulateP2CMapping = "INSERT IGNORE INTO $table_Patterns VALUES('SE',
+																	   '$values[0]',
+																	   $values[3],
+																	   '$values[4]',
+																	   '$values[1]',
+																	   '$values[2]');";
+		if ($db->execute($PopulateP2CMapping)) {
+			//echo "Successfully populated Patterns Table<br/>";
+		} else {
+			echo "Error populating Patterns Table: ".$db->getError()."<br/>";
+			exit;
+		}
+	}
+	
+	fclose($dataFile);
+	
+	$dataFile = fopen("../data/Patterns/CSE.txt","r");	//open data file for reading
+	
+	while (($line = fgets($dataFile)) !== false) {
+		
+		$values = explode(";", $line);
+		
+		$PopulateP2CMapping = "INSERT IGNORE INTO $table_Patterns VALUES('CSE',
 																	   '$values[0]',
 																	   $values[3],
 																	   '$values[4]',

@@ -76,10 +76,24 @@
 					$endtime = (substr($times[1],0,1)+1).":00";
 				}
 			}
-
+			
 			//For every day the course is scheduled
 			for ($i = 0; $i < count($days);$i = $i + 1) {
-			
+	
+				if (strlen($times[0]) == 4) {	//if time is >= 1000
+					if (substr($times[0],2,2) == "05") {
+						$starttime = substr($times[0],0,2).":00"; //Make 00 if 05
+					} else {
+						$starttime = substr($times[0],0,2).":".(substr($times[0],2,2)-5); //Subtract 5 from 35 to make 30
+					}
+				} else {	//Else if time < 1000 (ex. 900, 800...)
+					if (substr($times[0],1,2) == "05") {
+						$starttime = substr($times[0],0,1).":00"; //Make 00 if 05
+					} else {
+						$starttime = substr($times[0],0,1).":".(substr($times[0],1,2)-5); //Subtract 5 from 35 to make 30
+					}
+				}
+				
 				switch ($days[$i]) {
 				
 					case 'M':
@@ -277,10 +291,10 @@
 								$nexthalfhour = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
 							}
 						}
-
+						
 						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
 						while ($starttime != $endtime) {	//While haven't reached end of time
-							
+
 							if ($r[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
 								return false;
 								
@@ -821,7 +835,9 @@
 			//Now create possible schedules
 
 			if (!is_null($classlist1)) {
+			
 				$nextclassesarray = array();
+				
 				if (!is_null($classlist2)) {
 					array_push($nextclassesarray, $classlist2);
 				}
