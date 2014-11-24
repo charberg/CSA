@@ -8,9 +8,12 @@
 	
 	$db = new DataBase("SchedulerDatabase");
 	
-	$courseList = $_POST['xml'];
+	$courseList = fopen("php://input","i");
 	
-	$coursesObject = simplexml_load_string($courseList);
+	echo fgets($courseList);
+	exit;
+	
+	$coursesObject = simplexml_load_file("php://input");
 	
 	$Sections = new SectionList();
 	
