@@ -4,21 +4,20 @@
 	require_once("Section.php");
 	require_once("pattern.php");
 	
-	class OnScheduleCourseCalculator {
-	
+	abstract class ScheduleCourseCalculator {
+		
 		const NUMSCHED = 10;
 	
-		private $counter;	//keeps track of number of schedules
+		protected $counter;	//keeps track of number of schedules
 	
-		private $year;	//Year completed
-		private $term;	//Term that will be generated
-		private $program;	//program to generate schedule for
-		private $pattern;	//pattern of above program
-		private $courses;	//courses list that schedules will be made from
-		private $Schedules;	//list of possible schedules
-		private $monday, $tuesday, $wednesday, $thursday, $friday;
-		private $cursched;
-		
+		protected $year;	//Year completed
+		protected $term;	//Term that will be generated
+		protected $program;	//program to generate schedule for
+		protected $pattern;	//pattern of above program
+		protected $courses;	//courses list that schedules will be made from
+		protected $Schedules;	//list of possible schedules
+		protected $monday, $tuesday, $wednesday, $thursday, $friday;
+
 		function __construct($y, $p, $t) {
 		
 			$this->counter = 0;
@@ -34,54 +33,7 @@
 			$this->calculateConflictFreeSchedules();
 		}
 
-		function calculateCourses() {
-			$db = new Database("SchedulerDatabase");
-			
-			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {	//parse through all courses in pattern
-				
-				//Get all pattern items that are one year more than the number of years the student has completed, and for the proper terms
-				if ($this->pattern->patternItems[$i]->yearRequired == ($this->year + 1) 
-					&& trim($this->pattern->patternItems[$i]->termRequired) == trim($this->term)) {
-					
-					$subID = $this->pattern->patternItems[$i]->subjectID;
-					$CN = $this->pattern->patternItems[$i]->courseNumber;
-					$term = $this->term;
-
-					//Select all non-full LECTURE sections in proper term, with matching SubjectID and CourseNumber
-					$getCourseQuery = "SELECT * FROM Section WHERE
-										Term LIKE '%$term%'
-										AND SubjectID LIKE '%$subID%'
-										AND CourseNumber LIKE '%$CN%'
-										AND ScheduleCode LIKE '%LEC%'
-										AND NumberOfStudents < Capacity;";
-										
-					$rows = $db->execute($getCourseQuery);
-
-					//Go through all sections and add to course list
-					while ( ($row = $rows->fetch_object()) ) {
-					
-						$newItem = new Section($row->SubjectID,
-											   $row->CourseNumber,
-											   $row->Year,
-											   $row->Term,
-											   $row->Title,
-											   $row->Credits,
-											   $row->ScheduleCode,
-											   $row->SectionCode,
-											   $row->Time,
-											   $row->Days,
-											   $row->Capacity,
-											   $row->NumberOfStudents);
-			
-						$this->courses->addItem($newItem);
-					}	//end while
-				}	//end if
-			}	//end for
-			
-			//Should now have all possible lectures that still have room
-			//Now need to make conflict free schedules using courses found
-			
-		}	//end function
+		abstract function calculateCourses();
 		
 		function addToSchedule(&$m, &$t, &$w, &$h, &$f, $C) {
 		
@@ -1089,7 +1041,6 @@
 			//Now have a list of all possible schedules for given courses
 		}
 		
-		
 		function generateSchedules($classlist, $cursched, $otherclasses) {
 		
 			for ($i = 0; $i < count($classlist->SectionItems);$i = $i + 1) {	//for every class
@@ -1172,6 +1123,74 @@
 			$returnval .= "</schedules>";		
 			return $returnval;
 		}
+		
+	}
+	
+	class OnScheduleCourseCalculator extends ScheduleCourseCalculator{
+
+		function calculateCourses() {
+			$db = new Database("SchedulerDatabase");
+			
+			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {	//parse through all courses in pattern
+				
+				//Get all pattern items that are one year more than the number of years the student has completed, and for the proper terms
+				if ($this->pattern->patternItems[$i]->yearRequired == ($this->year + 1) 
+					&& trim($this->pattern->patternItems[$i]->termRequired) == trim($this->term)) {
+					
+					$subID = $this->pattern->patternItems[$i]->subjectID;
+					$CN = $this->pattern->patternItems[$i]->courseNumber;
+					$term = $this->term;
+
+					//Select all non-full LECTURE sections in proper term, with matching SubjectID and CourseNumber
+					$getCourseQuery = "SELECT * FROM Section WHERE
+										Term LIKE '%$term%'
+										AND SubjectID LIKE '%$subID%'
+										AND CourseNumber LIKE '%$CN%'
+										AND ScheduleCode LIKE '%LEC%'
+										AND NumberOfStudents < Capacity;";
+										
+					$rows = $db->execute($getCourseQuery);
+
+					//Go through all sections and add to course list
+					while ( ($row = $rows->fetch_object()) ) {
+					
+						$newItem = new Section($row->SubjectID,
+											   $row->CourseNumber,
+											   $row->Year,
+											   $row->Term,
+											   $row->Title,
+											   $row->Credits,
+											   $row->ScheduleCode,
+											   $row->SectionCode,
+											   $row->Time,
+											   $row->Days,
+											   $row->Capacity,
+											   $row->NumberOfStudents);
+			
+						$this->courses->addItem($newItem);
+					}	//end while
+				}	//end if
+			}	//end for
+			
+			//Should now have all possible lectures that still have room
+			//Now need to make conflict free schedules using courses found
+			
+		}	//end function
+		
+	}
+	
+	class OffScheduleCourseCalculator extends ScheduleCourseCalculator{
+
+		private $coursesTaken;
+		
+		function __construct($y, $p, $t, $coursestaken) {
+			parent::__construct($y, $p, $t);
+			$this->coursesTaken = $coursesTaken;
+		}
+	
+		function calculateCourses() {
+			
+		}	//end function
 		
 	}
 

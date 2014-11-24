@@ -1,12 +1,9 @@
 <?php
 
-	
-	set_time_limit(60);	//allow 1 minute for execution
-
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	require_once("classes/pattern.php");
-	require_once("classes/OnScheduleCourseCalculator.php");
+	require_once("classes/ScheduleCourseCalculator.php");
 
 	$requestType = $_POST['requesttype'];
 	
@@ -14,7 +11,7 @@
 	
 	switch ($requestType) {
 	
-		case "GetCourseFile":
+		case "GetCourseFile":	//WORKING
 		
 			$filename = $_POST['fileName'];	//get unique filename from client
 			
@@ -66,8 +63,7 @@
 				$filename =  "../tempSchedules/".uniqid().".txt";	//create unique file in temp folder
 				$handle = fopen($filename,"w");						//open file for writing
 				fwrite($handle,$ScheduleList);						//output schedules to fileatime
-				fclose($handle);									//close file
-				
+				fclose($handle);									//close file		
 				setcookie("courses", $filename, time() + 3600, "/");
 				header("location:../pages/my_schedule.php");
 				exit;
@@ -107,64 +103,6 @@
 			
 			exit;
 		
-		case "RegisterCourse":
-		
-			$SubjectID = $_POST['SubjectID'];
-			$CourseNumber = $_POST['CourseNumber'];
-			$Section = $_POST['section'];
-			$Term = $_POST['term'];
-			$Year = $_POST['year'];
-			
-			//Query to lock table during transaction
-			$lockSectionTable = "LOCK TABLE Section WRITE;";
-			
-			//Query to unlock table once completed transaction
-			$unlockSectionTable = "UNLOCK TABLES;";
-			
-			//Query to increment given course
-			$incrementSection = "UPDATE Section 
-									SET NumberOfStudents = NumberOfStudents + 1 
-									WHERE SubjectID = '$SubjectID' AND 
-									CourseNumber = '$CourseNumber' AND 
-									Term = '$Term' AND 
-									SectionCode = '$Section';";
-			
-			//Query to retrieve given course, used to check that course is not already full
-			$getSection = "SELECT * FROM Section 
-							WHERE SubjectID = '$SubjectID' AND 
-							CourseNumber = '$CourseNumber' AND 
-							Term = '$Term';";
-			
-			$db->execute($lockSectionTable);	//lock DB
-			
-			$row = $db->execute($getSection);	//get section to be updated
-			
-			if (!is_null($row->Capacity)) {	//check if course has capacity
-			
-				$result = ($row->Capacity == $row->NumberOfStudents);	//ensure its not full
-				
-			} else {
-				$result = false;	//if it doesn't it can be updated
-			}
-			
-			if ($result == false) {	//if the section can be updated, update it
-			
-				$result = $db->execute($incrementSection);
-			}
-			
-			$db->execute($unlockSectionTable);	//unlock table
-			
-			if ($result->num_rows = 1) {
-				$returnval = "Section was successfully updated";
-			} else { 
-				$returnval = "Course is full";
-			}
-			
-			header("content-type: text/plain");
-			echo $returnval;
-			
-			exit;
-			
 		case "GetPrograms":	//WORKING
 	
 			//Retrieves all academic programs in database and returns them to client-side
@@ -189,7 +127,7 @@
 			
 			exit;
 			
-		case "GetScienceElectives":
+		case "GetScienceElectives":	//WORKING
 			
 			$program = $_POST['program'];
 			$term = $_POST['term'];
@@ -221,7 +159,7 @@
 			
 			exit;
 			
-		case "GetComplementaryElectives":
+		case "GetComplementaryElectives":	//WORKING
 		
 			$program = $_POST['program'];
 			$term = $_POST['term'];
@@ -251,7 +189,7 @@
 
 			exit;
 			
-		case "GetEngineeringElectives":
+		case "GetEngineeringElectives":	//WORKING
 	
 			$program = $_POST['program'];
 			$term = $_POST['term'];

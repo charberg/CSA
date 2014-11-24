@@ -69,7 +69,8 @@
 		
 		}
 		
-		function getPrereqFromString($prereqs) {
+		//Returns true if course can be taken based on parameter list & year
+		function testPrereq($prevCourses, $year) {
 			
 			$programID = "P[";
 			$yearID = "S[";
@@ -77,15 +78,25 @@
 			$concourseID = "U[";
 			$permissonID = "R[]";
 			
-			$prereqs = trim(strtoupper($prereqs));
+			$db = new DataBase("SchedulerDatabase");
 			
-			$parsePrereq = str_split($prereqs);
+			$subID = $this->subjectID;
+			$CN = $this->courseNum;
 			
-			for ($i = 0; $i < count($parsePrereq);$i = $i + 1) {
+			$getPrereq = "SELECT Prerequisites FROM CourseToPrerequisiteMapping
+							WHERE SubjectID LIKE '$subID' AND
+							CourseNumber LIKE '$CN';";
 			
-				
+			$result = $db->execute($getPrereq);
 			
+			if ($result->num_rows != 1) {
+				return false;	//ERROR
 			}
+			
+			$prereq = $result->fetch_object();
+			
+			
+			
 			
 		}
 		
