@@ -442,272 +442,72 @@
 
 			//For every day the course is scheduled
 			for ($i = 0; $i < count($days);$i = $i + 1) {
-			
-				switch ($days[$i]) {
-				
-					case 'M':
-					
-						if (strlen($starttime) == 5) {	//if time >= 10:00
-							if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						} else {
-							if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						}
 
-						while ($starttime != $endtime) {	//While haven't reached end of time
-							
-							$m[$starttime."-".$nexthalfhour] = 0;	//un-Book time
-							
-							//Increment half hour start
-							if (strlen($starttime) == 5) {	//if time >= 10:00
-								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-							//Increment half hour end
-							if (strlen($nexthalfhour) == 5) {	//if time >= 10:00
-								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($nexthalfhour,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,2).(substr($nexthalfhour,2,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-
-						}//end while
-					
-					continue;
-					case 'T':
-					
-						if (strlen($starttime) == 5) {	//if time >= 10:00
-							if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						} else {
-							if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						}
-
-						while ($starttime != $endtime) {	//While haven't reached end of time
-							
-							$t[$starttime."-".$nexthalfhour] = 0;	//un-Book time
-							
-							//Increment half hour start
-							if (strlen($starttime) == 5) {	//if time >= 10:00
-								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-							//Increment half hour end
-							if (strlen($nexthalfhour) == 5) {	//if time >= 10:00
-								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($nexthalfhour,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,2).(substr($nexthalfhour,2,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-								
-						}//end while
-					
-					continue;
-					case 'W':
-					
-						if (strlen($starttime) == 5) {	//if time >= 10:00
-							if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						} else {
-							if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						}
-
-						while ($starttime != $endtime) {	//While haven't reached end of time
-							
-							$w[$starttime."-".$nexthalfhour] = 0;	//un-Book time
-							
-							//Increment half hour start
-							if (strlen($starttime) == 5) {	//if time >= 10:00
-								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-							//Increment half hour end
-							if (strlen($nexthalfhour) == 5) {	//if time >= 10:00
-								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($nexthalfhour,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,2).(substr($nexthalfhour,2,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-							
-						}//end while
-					
-					continue;
-					case 'R':
-					
-						if (strlen($starttime) == 5) {	//if time >= 10:00
-							if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						} else {
-							if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						}
-
-						while ($starttime != $endtime) {	//While haven't reached end of time
-							
-							$r[$starttime."-".$nexthalfhour] = 0;	//un-Book time
-							
-							//Increment half hour start
-							if (strlen($starttime) == 5) {	//if time >= 10:00
-								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-							//Increment half hour end
-							if (strlen($nexthalfhour) == 5) {	//if time >= 10:00
-								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($nexthalfhour,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,2).(substr($nexthalfhour,2,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-
-						}//end while
-					
-					continue;
-					case 'F':
-					
-						if (strlen($starttime) == 5) {	//if time >= 10:00
-							if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						} else {
-							if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-								$nexthalfhour = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-							} else {
-								$nexthalfhour = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-							}
-						}
-						
-						while ($starttime != $endtime) {	//While haven't reached end of time
-							
-							$f[$starttime."-".$nexthalfhour] = 0;	//un-Book time
-							
-							//Increment half hour start
-							if (strlen($starttime) == 5) {	//if time >= 10:00
-								if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$starttime = substr($starttime,0,2).(substr($starttime,2,2) + 30);
-								} else {
-									$starttime = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-							//Increment half hour end
-							if (strlen($nexthalfhour) == 5) {	//if time >= 10:00
-								if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							} else {
-								if (substr($nexthalfhour,2,2) == "00") {	//if on the hour, increment minutes by 30
-									$nexthalfhour = substr($nexthalfhour,0,2).(substr($nexthalfhour,2,2) + 30);
-								} else {
-									$nexthalfhour = (substr($nexthalfhour,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
-								}
-							}
-
-						}//end while
-					
-					continue;
-					default:
-						return false;
+				if (strlen($starttime) == 5) {	//if time >= 10:00
+					if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+						$nexthalfhour = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+					} else {
+						$nexthalfhour = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
+					}
+				} else {
+					if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
+						$nexthalfhour = substr($starttime,0,2).(substr($starttime,2,2) + 30);
+					} else {
+						$nexthalfhour = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
+					}
 				}
+
+				while ($starttime != $endtime) {	//While haven't reached end of time
+					
+					switch ($days[$i]) {
+						case "M":
+							$m[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							break;
+						case "T":
+							$t[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							break;
+						case "W":
+							$w[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							break;
+						case "R":
+							$r[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							break;
+						case "F":
+							$f[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							break;
+						default:
+							return false;
+					}
+					//Increment half hour start
+					if (strlen($starttime) == 5) {	//if time >= 10:00
+						if (substr($starttime,3,2) == "00") {	//if on the hour, increment minutes by 30
+							$starttime = substr($starttime,0,3).(substr($starttime,3,2) + 30);
+						} else {
+							$starttime = (substr($starttime,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
+						}
+					} else {
+						if (substr($starttime,2,2) == "00") {	//if on the hour, increment minutes by 30
+							$starttime = substr($starttime,0,2).(substr($starttime,2,2) + 30);
+						} else {
+							$starttime = (substr($starttime,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
+						}
+					}
+					//Increment half hour end
+					if (strlen($nexthalfhour) == 5) {	//if time >= 10:00
+						if (substr($nexthalfhour,3,2) == "00") {	//if on the hour, increment minutes by 30
+							$nexthalfhour = substr($nexthalfhour,0,3).(substr($nexthalfhour,3,2) + 30);
+						} else {
+							$nexthalfhour = (substr($nexthalfhour,0,3) + 1).":00";	//if at halfhour, set to beginning of next hour
+						}
+					} else {
+						if (substr($nexthalfhour,2,2) == "00") {	//if on the hour, increment minutes by 30
+							$nexthalfhour = substr($nexthalfhour,0,2).(substr($nexthalfhour,2,2) + 30);
+						} else {
+							$nexthalfhour = (substr($nexthalfhour,0,2) + 1).":00";	//if at halfhour, set to beginning of next hour
+						}
+					}
+
+				}//end while
 			
 			}//end for (loop through days)
 			

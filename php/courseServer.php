@@ -127,7 +127,7 @@
 		echo "FAIL";
 	} else {
 		echo "PASS";
-	]
+	}
 	exit;
 	
 ?>
