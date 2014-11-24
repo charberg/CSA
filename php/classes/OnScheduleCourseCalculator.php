@@ -1094,7 +1094,7 @@
 		
 			for ($i = 0; $i < count($classlist->SectionItems);$i = $i + 1) {	//for every class
 			
-				if ($this->counter == NUMSCHED) {
+				if ($this->counter == self::NUMSCHED) {
 					return;
 				}
 			
@@ -1126,7 +1126,7 @@
 					
 					for ($j = 0; $j < count($classLabs->SectionItems);$j = $j + 1) {
 					
-						if ($this->counter == NUMSCHED) {
+						if ($this->counter == self::NUMSCHED) {
 							return;
 						}
 					
