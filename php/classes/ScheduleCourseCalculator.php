@@ -957,7 +957,7 @@
 					$subID = $this->pattern->patternItems[$i]->subjectID;
 					$CN = $this->pattern->patternItems[$i]->courseNumber;
 					$term = $this->term;
-
+					//TODO: NEED TO ADD SPECIAL CASES
 					//Select all non-full LECTURE sections in proper term, with matching SubjectID and CourseNumber
 					$getCourseQuery = "SELECT * FROM Section WHERE
 										Term LIKE '%$term%'

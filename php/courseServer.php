@@ -6,7 +6,7 @@
 	
 	$db = new DataBase("SchedulerDatabase");
 	
-	$courseList = $_POST['courses'];
+	$courseList = file_get_contents("php://input");
 	
 	$coursesObject = simplexml_load_string($courseList);
 	
