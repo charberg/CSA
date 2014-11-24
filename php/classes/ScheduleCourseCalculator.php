@@ -141,7 +141,7 @@
 							
 						}//end while
 					
-					continue;
+						break;
 					case 'T':
 					
 						if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -201,7 +201,7 @@
 							
 						}//end while
 					
-					continue;
+						break;
 					case 'W':
 					
 						if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -261,7 +261,7 @@
 							
 						}//end while
 					
-					continue;
+						break;
 					case 'R':
 					
 						if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -321,7 +321,7 @@
 							
 						}//end while
 					
-					continue;
+						break;
 					case 'F':
 					
 						if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -381,9 +381,10 @@
 							
 						}//end while
 					
-					continue;
+						break;
 					default:
 						return false;
+						break;
 				}
 			
 			}//end for (loop through days)
