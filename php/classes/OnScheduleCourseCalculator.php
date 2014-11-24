@@ -6,6 +6,10 @@
 	
 	class OnScheduleCourseCalculator {
 	
+		const NUMSCHED = 10;
+	
+		private $counter;	//keeps track of number of schedules
+	
 		private $year;	//Year completed
 		private $term;	//Term that will be generated
 		private $program;	//program to generate schedule for
@@ -17,6 +21,7 @@
 		
 		function __construct($y, $p, $t) {
 		
+			$this->counter = 0;
 			$this->year = $y;
 			$this->program = $p;
 			$this->courses = new SectionList();
@@ -1089,6 +1094,10 @@
 		
 			for ($i = 0; $i < count($classlist->SectionItems);$i = $i + 1) {	//for every class
 			
+				if ($this->counter == NUMSCHED) {
+					return;
+				}
+			
 				$class = clone $classlist->itemAt($i);	//pick class
 				
 				if ($this->addToSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class) == false) {	//add class to schedule
@@ -1105,6 +1114,7 @@
 					
 					if (count($otherclasses) == 0) {	//if no more classes to add
 						array_push($this->Schedules, clone $cursched);	//add schedule to list
+						$this->counter = $this->counter + 1;
 					} else {	//if there are classes to add
 						
 						$nextclasslist = array_pop($otherclasses);
@@ -1115,6 +1125,10 @@
 				} else {	//if class has labs
 					
 					for ($j = 0; $j < count($classLabs->SectionItems);$j = $j + 1) {
+					
+						if ($this->counter == NUMSCHED) {
+							return;
+						}
 					
 						$lab = clone $classLabs->itemAt($j);
 
@@ -1127,6 +1141,7 @@
 						
 						if (count($otherclasses) == 0) {	//if no more classes to add
 							array_push($this->Schedules, clone $cursched);	//add schedule to list
+							$this->counter = $this->counter + 1;
 						} else {	//if there are classes to add
 							
 							$nextclasslist = array_pop($otherclasses);
