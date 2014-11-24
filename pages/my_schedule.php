@@ -40,7 +40,7 @@
 							GlobalSched = rxml.getElementsByTagName('schedules')[0].getElementsByTagName('courses');
 							for(var i=0;i<GlobalSched.length;i++){
 								if(GlobalSched[i].textContent != ""){	//prevent options from being added when a schedule is empty / invalid
-									document.getElementById('schedSelect').innerHTML = document.getElementById('schedSelect').innerHTML + "<option value='"+i+"'>"+i+"</option>";
+									document.getElementById('schedSelect').innerHTML = document.getElementById('schedSelect').innerHTML + "<option value='"+i+"'>"+(i+1)+"</option>";
 								}
 							}
 							GlobalCurrentSched = 0;
@@ -437,8 +437,10 @@
 		/* Fills the table displayed with the schedule index input */
 		function fillTable(){
 			var index = parseInt(document.getElementById('schedSelect').value);
+			alert("Index: "+index);
 			if(index == "") return;		//prevent using empty index
 			var termSched = GlobalSched[index].getElementsByTagName('Section');
+			alert("termSched: "+termSched);
 			if(!termSched) return;	//Index did not return a proper schedule
 			GlobalCurrentSched = index;
 			alert("Got a schedule for displaying");
@@ -455,6 +457,8 @@
 							var startTime = normTime(times[0]);
 							var endTime = normTime(times[1]);
 							var tempTime = startTime;
+							alert("Start time: <"+startTime+">");
+							alert("End time: <"+endTime+">");
 							//loop through until end time and add in those as well
 							while(tempTime != endTime){
 								document.getElementById('mon'+tempTime).innerHTML = termSched[i].getElementsByTagName('subjectID')[0].textContent + termSched[i].getElementsByTagName('courseNumber')[0].textContent;
