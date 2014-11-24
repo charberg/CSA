@@ -444,24 +444,33 @@
 			clearTable();	//make sure the table is clean before putting a schedule on it
 			var day = "";
 			for(var i=0;i < termSched.length;i++){
-				var days = termSched[i].getElementsByTagName('days')[0].textContent.split("");	//Gets the days the class is held
+				var days = termSched[i].getElementsByTagName('days')[0].textContent;	//Gets the days the class is held
 				for(var j=0;j<days.length;j++){		//for every day the class is held, set that cell on the table
-					if(days[j] == 'M'){
-						day = "mon";
-					}else if(days[j] = 'T'){
-						day = "tues";
-					}else if(days[j] = 'W'){
-						day = "wed";
-					}else if(days[j] = 'R'){
-						day = "thurs";
-					}else if(days[j] = 'F'){
-						day = "fri";
-					}else if(days[j] = 'S'){
-						day = "sat";
-					}else if(days[j] = 'U'){
-						day = "sun";
-					}else{
-						alert("Unknown day: "+days[j]);
+					switch(days.charAt(j)){
+						case 'M':
+							day = "mon";
+							break;
+						case 'T':
+							day = "tues";
+							break;
+						case 'W':
+							day = "wed";
+							break;
+						case 'R':
+							day = "thurs";
+							break;
+						case "F":
+							day = "fri";
+							break;
+						case 'S':
+							day = "sat";
+							break;
+						case 'U':
+							day = "sun";
+							break;
+						default:
+							alert("Unknown day: <"+days.charAt(j)+">");
+							break;
 					}
 					var times = termSched[i].getElementsByTagName('time')[0].textContent.split("-");
 					var orgStart = times[0];
@@ -478,6 +487,7 @@
 						var courseNum = termSched[i].getElementsByTagName('courseNum')[0].textContent;
 						var section = termSched[i].getElementsByTagName('sectionCode')[0].textContent;
 						var classType = termSched[i].getElementsByTagName('scheduleCode')[0].textContent;
+						
 						document.getElementById(day+tempTime).innerHTML = subject + courseNum + section + " " + classType + "<br/>"+orgStart.slice(0,2)+ ":"+orgStart.slice(2)+" - "+orgEnd.slice(0,2)+":"+orgEnd.slice(2);
 						tempTime = incTime(tempTime);
 					}
