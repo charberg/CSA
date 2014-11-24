@@ -35,13 +35,13 @@
 
 		abstract function calculateCourses();
 		
-		function addToSchedule(&$m, &$t, &$w, &$h, &$f, $C) {
+		function addToSchedule($C) {
 		
-			$monday = array_merge(array(), $m);	//Make copies of array to work with temporarily through function
-			$tuesday = array_merge(array(), $t);
-			$wednesday = array_merge(array(), $w);
-			$thursday = array_merge(array(), $h);
-			$friday = array_merge(array(), $f);
+			$m = array_merge(array(), $this->monday);	//Make copies of array to work with temporarily through function
+			$t = array_merge(array(), $this->tuesday);
+			$w = array_merge(array(), $this->wednesday);
+			$r = array_merge(array(), $this->thursday);
+			$f = array_merge(array(), $this->friday);
 			
 			$days = str_split($C->days);
 			
@@ -101,12 +101,12 @@
 						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							if ($monday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+							if ($m[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
 								return false;
 								
 							} else {	//Else book time and increment
 							
-								$monday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								$m[$starttime."-".$nexthalfhour] = 1;	//Book time
 								
 								//Increment half hour start
 								if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -161,12 +161,12 @@
 						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							if ($tuesday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+							if ($t[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
 								return false;
 								
 							} else {	//Else book time and increment
 							
-								$tuesday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								$t[$starttime."-".$nexthalfhour] = 1;	//Book time
 								
 								//Increment half hour start
 								if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -221,12 +221,12 @@
 						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							if ($wednesday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+							if ($w[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
 								return false;
 								
 							} else {	//Else book time and increment
 							
-								$wednesday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								$w[$starttime."-".$nexthalfhour] = 1;	//Book time
 								
 								//Increment half hour start
 								if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -281,12 +281,12 @@
 						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							if ($thursday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+							if ($r[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
 								return false;
 								
 							} else {	//Else book time and increment
 							
-								$thursday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								$r[$starttime."-".$nexthalfhour] = 1;	//Book time
 								
 								//Increment half hour start
 								if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -341,12 +341,12 @@
 						//Go through time of course and check if already booked, if it is return false, if it isnt then book it
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							if ($friday[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
+							if ($f[$starttime."-".$nexthalfhour] == 1) {	//if already booked, fail
 								return false;
 								
 							} else {	//Else book time and increment
 							
-								$friday[$starttime."-".$nexthalfhour] = 1;	//Book time
+								$f[$starttime."-".$nexthalfhour] = 1;	//Book time
 								
 								//Increment half hour start
 								if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -389,22 +389,22 @@
 			}//end for (loop through days)
 			
 			//If gotten to this point then course was successfully added to schedule, return true and make day arrays = copies
-			$m = array_merge(array(), $monday);	//make original arrays = new array schedules
-			$t = array_merge(array(), $tuesday);
-			$w = array_merge(array(), $wednesday);
-			$h = array_merge(array(), $thursday);
-			$f = array_merge(array(), $friday);
+			$this->monday = array_merge(array(), $m);
+			$this->tuesday = array_merge(array(), $t);
+			$this->wednesday = array_merge(array(), $w);
+			$this->thursday = array_merge(array(), $r);
+			$this->friday = array_merge(array(), $f);
 			
 			return true;
 		}
 		
-		function removeFromSchedule(&$m, &$t, &$w, &$h, &$f, $C) {
+		function removeFromSchedule($C) {
 		
-			$monday = array_merge(array(), $m);	//Make copies of array to work with temporarily through function
-			$tuesday = array_merge(array(), $t);
-			$wednesday = array_merge(array(), $w);
-			$thursday = array_merge(array(), $h);
-			$friday = array_merge(array(), $f);
+			$m = array_merge(array(), $this->monday);	//Make copies of array to work with temporarily through function
+			$t = array_merge(array(), $this->tuesday);
+			$w = array_merge(array(), $this->wednesday);
+			$r = array_merge(array(), $this->thursday);
+			$f = array_merge(array(), $this->friday);
 			
 			$days = str_split($C->days);
 			
@@ -463,7 +463,7 @@
 
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							$monday[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							$m[$starttime."-".$nexthalfhour] = 0;	//un-Book time
 							
 							//Increment half hour start
 							if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -515,7 +515,7 @@
 
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							$tuesday[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							$t[$starttime."-".$nexthalfhour] = 0;	//un-Book time
 							
 							//Increment half hour start
 							if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -567,7 +567,7 @@
 
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							$wednesday[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							$w[$starttime."-".$nexthalfhour] = 0;	//un-Book time
 							
 							//Increment half hour start
 							if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -619,7 +619,7 @@
 
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							$thursday[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							$r[$starttime."-".$nexthalfhour] = 0;	//un-Book time
 							
 							//Increment half hour start
 							if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -671,7 +671,7 @@
 						
 						while ($starttime != $endtime) {	//While haven't reached end of time
 							
-							$friday[$starttime."-".$nexthalfhour] = 0;	//un-Book time
+							$f[$starttime."-".$nexthalfhour] = 0;	//un-Book time
 							
 							//Increment half hour start
 							if (strlen($starttime) == 5) {	//if time >= 10:00
@@ -712,11 +712,11 @@
 			}//end for (loop through days)
 			
 			//If gotten to this point then course was successfully removed to schedule, return true and make day arrays = copies
-			$m = array_merge(array(), $monday);	//make original arrays = new array schedules
-			$t = array_merge(array(), $tuesday);
-			$w = array_merge(array(), $wednesday);
-			$h = array_merge(array(), $thursday);
-			$f = array_merge(array(), $friday);
+			$this->monday = array_merge(array(), $m);	
+			$this->tuesday = array_merge(array(), $t);
+			$this->wednesday = array_merge(array(), $w);
+			$this->thursday = array_merge(array(), $r);
+			$this->friday = array_merge(array(), $f);
 			
 			return true;
 		}
@@ -1051,8 +1051,8 @@
 			
 				$class = clone $classlist->itemAt($i);	//pick class
 				
-				if ($this->addToSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class) == false) {	//add class to schedule
-					$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class);
+				if ($this->addToSchedule($class) == false) {	//add class to schedule
+					$this->removeFromSchedule($class);
 					continue;	//go to next course possibility
 				} else {
 					$cursched->addItem($class);
@@ -1083,8 +1083,8 @@
 					
 						$lab = clone $classLabs->itemAt($j);
 
-						if ($this->addToSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab) == false) {	//add lab to schedule
-							$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab);
+						if ($this->addToSchedule($lab) == false) {	//add lab to schedule
+							$this->removeFromSchedule($lab);
 							continue;	//go to next course possibility
 						} else {
 							$cursched->addItem($lab);
