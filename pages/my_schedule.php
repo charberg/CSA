@@ -26,7 +26,8 @@
 			
 			/* Calls the server to give the stored schedules, puts the first on the table, and sets the buttons to be able to switch between them */
 			function getSchedules(){
-				var courseList = "<?php echo $courses; ?>";
+				var courseList = "<?php echo $courseList; ?>";
+				//alert(courseList);
 				var request = new XMLHttpRequest();
 				request.open("post","../php/server.php",true);
 				//request.open("post","../tempServer.php",true);
@@ -35,9 +36,12 @@
 					if(request.readyState == 4 && request.status == 200){
 						var rxml = request.responseXML;
 						if(rxml){
+							alert(request.responseText);
 							GlobalSched = rxml.getElementsByTagName('schedules')[0].getElementsByTagName('courses');
 							for(var i=0;i<GlobalSched.length;i++){
-								document.getElementById('buttonArea').innerHTML = document.getElementById('buttonArea').innerHTML + "<input type='button' value='Schedule "+(i+1)+"' onclick='fillTable("+i+")'/>";
+								if(GlobalSched[i].textContent != ""){	//prevent options from being added when a schedule is empty / invalid
+									document.getElementById('schedSelect').innerHTML = document.getElementById('schedSelect').innerHTML + "<option value='"+i+"'>"+i+"</option>";
+								}
 							}
 							GlobalCurrentSched = 0;
 							fillTable(0);
@@ -47,6 +51,7 @@
 						}
 					}
 				}
+				//request.send();
 				request.send("&requesttype=GetCourseFile&fileName="+courseList);
 			}
 		</script>
@@ -54,8 +59,9 @@
 	<body onload="getSchedules()">
 		<center>
 		<h1>My Schedule</h1>
-		
-		<div id="buttonArea"></div>
+		Your schedule options: 
+		<select id="schedSelect"></select>
+		<input type="button" value="SELECT" onclick="fillTable()"/>
 		<br/><br/>
 		<table>	<!-- timetable -->
 			<tr>
@@ -429,11 +435,13 @@
 	</body>
 	<script>
 		/* Fills the table displayed with the schedule index input */
-		function fillTable(index){
+		function fillTable(){
+			var index = parseInt(document.getElementById('schedSelect').value);
+			if(index == "") return;		//prevent using empty index
 			var termSched = GlobalSched[index].getElementsByTagName('Section');
 			if(!termSched) return;	//Index did not return a proper schedule
 			GlobalCurrentSched = index;
-			
+			alert("Got a schedule for displaying");
 			var i=0;
 			var day = 1;
 			while(day < 8){
@@ -441,15 +449,17 @@
 					case 1:	//Sunday
  						break;
 					case 2: //Monday
-						if(termShed[i].getElementsByTagName('days')[0].textContent.indexOf("M") != -1){
+						if(termSched[i].getElementsByTagName('days')[0].textContent.indexOf("M") != -1){
+							alert("Monday Class");
 							var times = termSched[i].getElementsByTagName('time')[0].textContent.split("-");
 							var startTime = normTime(times[0]);
 							var endTime = normTime(times[1]);
-							
-							document.getElementById('mon'+startTime).innerHTML = termSched[i].getElementsByTagName('subjectID')[0].textContent + termSched[i].getElementsByTagName('courseNumber')[0].textContent;
-							
+							var tempTime = startTime;
 							//loop through until end time and add in those as well
-							
+							while(tempTime != endTime){
+								document.getElementById('mon'+tempTime).innerHTML = termSched[i].getElementsByTagName('subjectID')[0].textContent + termSched[i].getElementsByTagName('courseNumber')[0].textContent;
+								tempTime = incTime(tempTime);
+							}
 						}
 						break;
 					case 3: //Tuesday
@@ -503,6 +513,20 @@
 				}
 			}
 			return newTime;
+		}
+		
+		/* Function to increment time by the half hour */
+		function incTime(time){
+			var thisTime = time;
+			if(thisTime.length != 4){
+				thisTime = '0' + thisTime;
+			}
+			if(thisTime.slice(2,2) == "00"){
+				thisTime = thisTime.slice(0,2) + "30";
+			}else{
+				thisTime = (parseInt(thisTime.slice(0,2)) + 1).toString() + "00";
+			}
+			return thisTime;
 		}
 		
 	</script>
