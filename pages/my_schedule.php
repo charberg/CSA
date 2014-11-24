@@ -436,12 +436,15 @@
 	<script>
 		/* Fills the table displayed with the schedule index input */
 		function fillTable(){
+			
 			var index = parseInt(document.getElementById('schedSelect').value);
 			if(index < 0) return;	//prevent using empty index
 			var termSched = GlobalSched[index].getElementsByTagName('Section');
 			if(!termSched) return;	//Index did not return a proper schedule
 			GlobalCurrentSched = index;
+			
 			clearTable();	//make sure the table is clean before putting a schedule on it
+			
 			var day = "";
 			for(var i=0;i < termSched.length;i++){
 				var days = termSched[i].getElementsByTagName('days')[0].textContent;	//Gets the days the class is held
@@ -472,14 +475,17 @@
 							alert("Unknown day: <"+days.charAt(j)+">");
 							break;
 					}
+					
 					var times = termSched[i].getElementsByTagName('time')[0].textContent.split("-");
-					var orgStart = times[0];
-					if(times[0].length == 3) orgStart = '0' + times[0];
+					var orgStart = times[0];				//ensure the "original numbers" is zero padded
+					if(times[0].length == 3) orgStart = '0' + times[0];		
 					var orgEnd = times[1];
 					if(times[1].length == 3) orgEnd = '0' + times[1];
+					
 					var startTime = normTime(times[0]);
 					var endTime = normTime(times[1]);
-					var tempTime = startTime;
+					var tempTime = startTime;		//this variable keeps track of the current time ( what info will be played next )
+					
 					//loop through until end time and add in those as well
 					while(tempTime != endTime){
 						/* Get the variables to go into the HTML ( for readability ) */
