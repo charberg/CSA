@@ -1100,13 +1100,13 @@
 							array_push($otherclasses,$nextclasslist);
 						}//end if classes to add
 						
-						$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $lab);
+						$this->removeFromSchedule($lab);
 						$cursched->popItem();
 					}//for each lab
 					
 				}//if has labs
 
-				$this->removeFromSchedule($this->monday, $this->tuesday, $this->wednesday, $this->thursday, $this->friday, $class);
+				$this->removeFromSchedule($class);
 				$cursched->popItem();
 
 			}//for loop classes
