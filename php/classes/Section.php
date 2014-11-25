@@ -110,16 +110,16 @@
 			$subID = $this->subjectID;
 			$CN = $this->courseNum;
 			$term = $this->term;
-						
+			$sectionLetter = trim($this->sectionCode);
+			
 			$sqlquery = "SELECT * FROM Section
 							WHERE SubjectID LIKE '%$subID%'
 								  AND CourseNumber LIKE '%$CN%'
 								  AND Term LIKE '%$term%'
-								  AND SectionCode LIKE '%1%'
+								  AND (SectionCode LIKE '%".$sectionLetter."_%' OR SectionCode LIKE '%L_%')
 								  AND (NumberOfStudents < Capacity);";
 			
 			$rows = $db->execute($sqlquery);
-			
 			
 			while ( ($row = $rows->fetch_object()) ) {
 			

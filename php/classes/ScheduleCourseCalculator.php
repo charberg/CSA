@@ -867,7 +867,7 @@
 				}
 			
 				$class = clone $classlist->itemAt($i);	//pick class
-				
+
 				if ($this->addToSchedule($class) == false) {	//add class to schedule
 					$this->removeFromSchedule($class);
 					continue;	//go to next course possibility
@@ -906,7 +906,7 @@
 						} else {
 							$cursched->addItem($lab);
 						}
-						
+							
 						if (count($otherclasses) == 0) {	//if no more classes to add
 							array_push($this->Schedules, clone $cursched);	//add schedule to list
 							$this->counter = $this->counter + 1;
