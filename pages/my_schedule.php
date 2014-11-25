@@ -505,7 +505,7 @@
 		function submitSchedule(){
 			var request = new XMLHttpRequest();
 			request.open("post","../php/courseServer.php",true);
-			request.setRequestHeader("content-type","text/xml");
+			request.setRequestHeader("content-type","application/xml");
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
 					var response = request.responseText;
