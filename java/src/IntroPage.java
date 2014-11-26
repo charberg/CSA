@@ -6,25 +6,20 @@ import java.io.*;
 import javax.swing.*;
 
 
-public class IntroPage extends JFrame implements ActionListener{
+public class IntroPage extends JPanel implements ActionListener{
 	
-	private JPanel panel;
 	private JComboBox program, yearComplete;
 	private JRadioButton onsched, offsched;
 	private ButtonGroup schedButtons;
+	private MainFrame main;
 	
-	public IntroPage(){
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1200,800);
-		setTitle("Briglio Course Selector");
-		panel = new JPanel();
-		
+	public IntroPage(MainFrame m){
+		main = m;
 		JLabel welcome = new JLabel("Welcome to the Briglio course selector!");
 		welcome.setFont(new Font("Calibri",1,40));
-		JPanel mainPanel = new JPanel();
-		mainPanel.setLayout(new BorderLayout());
-		mainPanel.add(welcome,BorderLayout.NORTH);
-		add(mainPanel);
+		JPanel panel = new JPanel();
+		setLayout(new BorderLayout());
+		add(welcome,BorderLayout.NORTH);
 		
 		panel.setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
@@ -78,7 +73,7 @@ public class IntroPage extends JFrame implements ActionListener{
 			gc.gridy = 0;
 			panel.add(new JLabel("Error encountered while connecting to the server."),gc);
 		}
-		mainPanel.add(panel,BorderLayout.CENTER);
+		add(panel,BorderLayout.CENTER);
 		setVisible(true);
 	}
 
@@ -113,7 +108,4 @@ public class IntroPage extends JFrame implements ActionListener{
 		return false;
 	}
 	
-	public static void main(String [ ] args) {
-		IntroPage main = new IntroPage();
-	}
 }
