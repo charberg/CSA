@@ -34,7 +34,12 @@
 					if(request.readyState == 4 && request.status == 200){
 						var rxml = request.responseXML;
 						if(rxml){
-							GlobalSched = rxml.getElementsByTagName('schedules')[0].getElementsByTagName('courses');
+							var xmlSchedule = rxml.getElementsByTagName('schedules')[0];
+							if(xmlSchedule.textContent == ""){
+								alert("There were no compatible schedules found.");
+								return;
+							}
+							GlobalSched = xmlSchedule.getElementsByTagName('courses');
 							for(var i=0;i<GlobalSched.length;i++){
 								if(GlobalSched[i].textContent != ""){	//prevent options from being added when a schedule is empty / invalid
 									document.getElementById('schedSelect').innerHTML = document.getElementById('schedSelect').innerHTML + "<option value='"+i+"'>"+(i+1)+"</option>";
@@ -50,16 +55,58 @@
 				}
 				request.send("&requesttype=GetCourseFile&fileName="+courseList);
 			}
+			
+			/* Creates the table to put schedule times into */
+			function createTable(){
+				var extra = "";
+				var inStr = "";
+				for(var i=8;i<24;i++){
+					if(i < 10){
+						extra = "0";
+					}else{
+						extra = "";
+					}
+					inStr += "<tr id='"+extra+i+"00'>";
+					inStr += "<td>"+extra+i+":00</td>";
+					inStr += "<td id='sun"+extra+i+"00'></td>";
+					inStr += "<td id='mon"+extra+i+"00'></td>";
+					inStr += "<td id='tues"+extra+i+"00'></td>";
+					inStr += "<td id='wed"+extra+i+"00'></td>";
+					inStr += "<td id='thurs"+extra+i+"00'></td>";
+					inStr += "<td id='fri"+extra+i+"00'></td>";
+					inStr += "<td id='sat"+extra+i+"00'></td>";
+					inStr += "</tr>";
+					
+					inStr += "<tr id='"+extra+i+"30'>";
+					inStr += "<td>"+extra+i+":30</td>";
+					inStr += "<td id='sun"+extra+i+"30'></td>";
+					inStr += "<td id='mon"+extra+i+"30'></td>";
+					inStr += "<td id='tues"+extra+i+"30'></td>";
+					inStr += "<td id='wed"+extra+i+"30'></td>";
+					inStr += "<td id='thurs"+extra+i+"30'></td>";
+					inStr += "<td id='fri"+extra+i+"30'></td>";
+					inStr += "<td id='sat"+extra+i+"30'></td>";
+					inStr += "</tr>";
+				}
+				
+				document.getElementById("scheduleTable").innerHTML += inStr;
+			}
+			
+			function setupFunc(){
+				createTable();
+				getSchedules();
+			}
+			
 		</script>
 	</head>
-	<body onload="getSchedules()">
+	<body onload="setupFunc()">
 		<center>
 		<h1>My Schedule</h1>
 		Your schedule options: 
 		<select id="schedSelect"></select>
 		<input type="button" value="SELECT" onclick="fillTable()"/>
 		<br/><br/>
-		<table>	<!-- timetable -->
+		<table id="scheduleTable">	<!-- timetable -->
 			<tr>
 				<!-- headers -->
 				<td>TIME</td>
@@ -72,8 +119,7 @@
 				<td>Saturday</td>
 			</tr>
 			
-			<!-- All cells in the table (mapped by time and day) -->
-			
+			<!--
 			<tr id='0800'>
 				<td>08:00</td>
 				<td id='sun0800'></td>
@@ -425,7 +471,7 @@
 				<td id='fri2330'></td>
 				<td id='sat2330'></td>
 			</tr>
-			
+			-->
 		</table>
 		<br/><br/>
 		<input type="button" value="Pick This Schedule" onclick="submitSchedule()"/>
