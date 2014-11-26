@@ -76,8 +76,8 @@
 			$db = new DataBase("SchedulerDatabase");
 		
 			$getProgramPattern = "SELECT * FROM Patterns 
-									WHERE ProgramID = '$program';
-									ORDER BY YearRequired, TermRequired, SubjectID";
+									WHERE ProgramID = '$program'
+									ORDER BY YearRequired, TermRequired, SubjectID;";
 			
 			$rows = $db->execute($getProgramPattern);
 			

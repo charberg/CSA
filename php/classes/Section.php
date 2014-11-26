@@ -69,37 +69,6 @@
 		
 		}
 		
-		//Returns true if course can be taken based on parameter list & year
-		function testPrereq($prevCourses, $year) {
-			
-			$programID = "P[";
-			$yearID = "S[";
-			$courseID = "C[";
-			$concourseID = "U[";
-			$permissonID = "R[]";
-			
-			$db = new DataBase("SchedulerDatabase");
-			
-			$subID = $this->subjectID;
-			$CN = $this->courseNum;
-			
-			$getPrereq = "SELECT Prerequisites FROM CourseToPrerequisiteMapping
-							WHERE SubjectID LIKE '$subID' AND
-							CourseNumber LIKE '$CN';";
-			
-			$result = $db->execute($getPrereq);
-			
-			if ($result->num_rows != 1) {
-				return false;	//ERROR
-			}
-			
-			$prereq = $result->fetch_object();
-			
-			
-			
-			
-		}
-		
 		//Returns all labs that are not full
 		function getLabs() {
 		

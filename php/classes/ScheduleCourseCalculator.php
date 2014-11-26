@@ -999,16 +999,18 @@
 	class OffScheduleCourseCalculator extends ScheduleCourseCalculator{
 
 		private $coursesTaken;	//Array of courses taken
+		private $numCourses = 0;	//counter to keep track of number of courses added to course list
 		
 		function __construct($y, $p, $t, $coursestaken) {
-			parent::__construct($y, $p, $t);
 			$this->coursesTaken = $coursestaken;
+			parent::__construct($y, $p, $t);
 		}
 	
 		function haveTaken($course) {
 			for ($i = 0; $i < count ($this->coursesTaken);$i++) {
-				if ($this->coursesTaken[$i] == $course)
+				if ($this->coursesTaken[$i] == $course) {
 					return true;
+				}
 			}
 			return false;
 		}
@@ -1016,10 +1018,11 @@
 		function completedYear($year) {
 		
 			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {
-			
 				if ($this->pattern->patternItems[$i]->yearRequired == $year) {
-					if (!haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
-						return false;
+					if ($this->pattern->patternItems[$i]->courseNumber != "") {
+						if (!$this->haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
+							return false;
+						}
 					}
 				}
 			}
@@ -1033,8 +1036,9 @@
 		
 			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {
 			
-				if ($this->pattern->patternItems[$i]->yearRequired == $year) {
-					if (!haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
+				if ($this->pattern->patternItems[$i]->yearRequired == $year &&
+					$this->pattern->patternItems[$i]->courseNumber != "") {
+					if (!$this->haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
 						array_push($returnval,$this->pattern->patternItems[$i]);
 					}
 				}
@@ -1043,27 +1047,121 @@
 		
 		}
 	
-		function calculateCourses() {
-		
-			//Arrays to keep track of courses not taken year 1-4
-			$coursesNotTaken1 = coursesNotTaken(1);	
-			$coursesNotTaken2 = coursesNotTaken(2);
-			$coursesNotTaken3 = coursesNotTaken(3);
-			$coursesNotTaken4 = coursesNotTaken(4);
+		//Returns true if course can be taken
+		function hasPrereq($year,$subID,$CN) {
 			
-			$yearsCompleted = 0;	
+			$programID = "P[";
+			$yearID = "S[";
+			$courseID = "C[";
+			$concourseID = "U[";
+			$permissonID = "R[]";
+			
+			$db = new DataBase("SchedulerDatabase");
+			
+			$getPrereq = "SELECT Prerequisites FROM CourseToPrerequisiteMapping
+							WHERE SubjectID LIKE '$subID' AND
+							CourseNumber LIKE '$CN';";
+			
+			$result = $db->execute($getPrereq);
+
+			if ($result->num_rows < 1) {
+				return true;	//NO Prereqs
+			}
+			
+			echo "blah";
+			
+			$prereq = $result->fetch_object();
+			
+			return true;
+				
+		}
+	
+		function calculateCourses() {
+			
+			$db = new DataBase("SchedulerDatabase");
+			
+			//Arrays to keep track of courses not taken year 1-4
+			$coursesNotTaken1 = $this->coursesNotTaken(1);	
+			$coursesNotTaken2 = $this->coursesNotTaken(2);
+			$coursesNotTaken3 = $this->coursesNotTaken(3);
+			$coursesNotTaken4 = $this->coursesNotTaken(4);
+			
+			$yearsCompleted = 0;
 			for ($i = 1; $i < 5;$i++) {
-				if (completedYear($i)) {
+				if ($this->completedYear($i)) {
 					$yearsCompleted++;
+				} else {
+					$i = 5;	//if does not complete previous year, break out of loop because impossible to complete years after
 				}
 			}
 			
+			for ($i = 0;$i < count($coursesNotTaken1);$i++) {
+				echo $coursesNotTaken1[$i]->exportXML()."<br/>";
+			}
+			
+			echo "years completed = ".$yearsCompleted." -- ".count($coursesNotTaken1)."<br/>";
+			//exit;
 			
 			if (count($coursesNotTaken1) > 0) {	//If the student hasn't completed year 1
-				for ($i = 0;$i < count($coursesNotTaken1);$i++) {
+			
+				for ($i = 0;$i < count($coursesNotTaken1);$i++) {	//For every course not yet taken in that year
+				
+					if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
+						return;
+					}
+				
+					//If you have the prerequistes and the course if for the proper term then add it to list
+					if ($this->hasPrereq($yearsCompleted,
+										 $coursesNotTaken1[$i]->subjectID,
+										 $coursesNotTaken1[$i]->courseNumber) &&
+						trim($coursesNotTaken1[$i]->termRequired) == trim($this->term)) {
+						
+						echo "@@@@";
+						
+						$this->numCourses++;	//increment number of courses added
+						
+						$subID = $coursesNotTaken1[$i]->subjectID;
+						$CN = $coursesNotTaken1[$i]->courseNumber;
+						$term = $coursesNotTaken1[$i]->termRequired;
+						
+						$getSections = "SELECT * FROM Sections WHERE
+										SubjectID LIKE '%$subID%' AND
+										CourseNumber LIKE '%$CN%' AND
+										Term LIKE '%$term%' AND
+										ScheduleCode LIKE '%LEC%' AND
+										NumberOfStudents < Capacity;";
+										
+						$rows = $db->execute($getSections);
+						
+						echo $rows->num_rows."<br/>";
+						
+						while ( ($row = $rows->fetch_object()) ) {
 					
-				}
+							$newItem = new Section($row->SubjectID,
+												   $row->CourseNumber,
+												   $row->Year,
+												   $row->Term,
+												   $row->Title,
+												   $row->Credits,
+												   $row->ScheduleCode,
+												   $row->SectionCode,
+												   $row->Time,
+												   $row->Days,
+												   $row->Capacity,
+												   $row->NumberOfStudents);
+				
+							$this->courses->addItem($newItem);
+						}	//end while
+					}//end if
+				}//end for
+			}//end if
+			
+			if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
+				return;
 			}
+			
+			echo "Courses ".$this->courses->exportXML();
+			exit;
 			
 			
 		}	//end function
