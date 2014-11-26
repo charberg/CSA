@@ -865,9 +865,9 @@
 				if ($this->counter == self::NUMSCHED) {
 					return;
 				}
-			
+				
 				$class = clone $classlist->itemAt($i);	//pick class
-
+				
 				if ($this->addToSchedule($class) == false) {	//add class to schedule
 					$this->removeFromSchedule($class);
 					continue;	//go to next course possibility
@@ -957,7 +957,7 @@
 					$subID = $this->pattern->patternItems[$i]->subjectID;
 					$CN = $this->pattern->patternItems[$i]->courseNumber;
 					$term = $this->term;
-					//TODO: NEED TO ADD SPECIAL CASES
+					
 					//Select all non-full LECTURE sections in proper term, with matching SubjectID and CourseNumber
 					$getCourseQuery = "SELECT * FROM Section WHERE
 										Term LIKE '%$term%'
@@ -1067,9 +1067,7 @@
 			if ($result->num_rows < 1) {
 				return true;	//NO Prereqs
 			}
-			
-			echo "blah";
-			
+
 			$prereq = $result->fetch_object();
 			
 			return true;
@@ -1095,13 +1093,6 @@
 				}
 			}
 			
-			for ($i = 0;$i < count($coursesNotTaken1);$i++) {
-				echo $coursesNotTaken1[$i]->exportXML()."<br/>";
-			}
-			
-			echo "years completed = ".$yearsCompleted." -- ".count($coursesNotTaken1)."<br/>";
-			//exit;
-			
 			if (count($coursesNotTaken1) > 0) {	//If the student hasn't completed year 1
 			
 				for ($i = 0;$i < count($coursesNotTaken1);$i++) {	//For every course not yet taken in that year
@@ -1113,28 +1104,23 @@
 					//If you have the prerequistes and the course if for the proper term then add it to list
 					if ($this->hasPrereq($yearsCompleted,
 										 $coursesNotTaken1[$i]->subjectID,
-										 $coursesNotTaken1[$i]->courseNumber) &&
-						trim($coursesNotTaken1[$i]->termRequired) == trim($this->term)) {
-						
-						echo "@@@@";
-						
+										 $coursesNotTaken1[$i]->courseNumber)) {
+
 						$this->numCourses++;	//increment number of courses added
 						
 						$subID = $coursesNotTaken1[$i]->subjectID;
 						$CN = $coursesNotTaken1[$i]->courseNumber;
-						$term = $coursesNotTaken1[$i]->termRequired;
-						
-						$getSections = "SELECT * FROM Sections WHERE
-										SubjectID LIKE '%$subID%' AND
-										CourseNumber LIKE '%$CN%' AND
-										Term LIKE '%$term%' AND
-										ScheduleCode LIKE '%LEC%' AND
-										NumberOfStudents < Capacity;";
+						$term = $this->term;
+
+						$getSections = "SELECT * FROM Section WHERE
+										Term LIKE '%$term%'
+										AND SubjectID LIKE '%$subID%'
+										AND CourseNumber LIKE '%$CN%'
+										AND ScheduleCode LIKE '%LEC%'
+										AND NumberOfStudents < Capacity;";
 										
 						$rows = $db->execute($getSections);
-						
-						echo $rows->num_rows."<br/>";
-						
+
 						while ( ($row = $rows->fetch_object()) ) {
 					
 							$newItem = new Section($row->SubjectID,
@@ -1160,10 +1146,164 @@
 				return;
 			}
 			
-			echo "Courses ".$this->courses->exportXML();
-			exit;
+			if (count($coursesNotTaken2) > 0) {	//If the student hasn't completed year 2
 			
+				for ($i = 0;$i < count($coursesNotTaken2);$i++) {	//For every course not yet taken in that year
+				
+					if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
+						return;
+					}
+				
+					//If you have the prerequistes and the course if for the proper term then add it to list
+					if ($this->hasPrereq($yearsCompleted,
+										 $coursesNotTaken2[$i]->subjectID,
+										 $coursesNotTaken2[$i]->courseNumber)) {
+
+						$this->numCourses++;	//increment number of courses added
+						
+						$subID = $coursesNotTaken2[$i]->subjectID;
+						$CN = $coursesNotTaken2[$i]->courseNumber;
+						$term = $this->term;
+
+						$getSections = "SELECT * FROM Section WHERE
+										Term LIKE '%$term%'
+										AND SubjectID LIKE '%$subID%'
+										AND CourseNumber LIKE '%$CN%'
+										AND ScheduleCode LIKE '%LEC%'
+										AND NumberOfStudents < Capacity;";
+										
+						$rows = $db->execute($getSections);
+
+						while ( ($row = $rows->fetch_object()) ) {
+					
+							$newItem = new Section($row->SubjectID,
+												   $row->CourseNumber,
+												   $row->Year,
+												   $row->Term,
+												   $row->Title,
+												   $row->Credits,
+												   $row->ScheduleCode,
+												   $row->SectionCode,
+												   $row->Time,
+												   $row->Days,
+												   $row->Capacity,
+												   $row->NumberOfStudents);
+				
+							$this->courses->addItem($newItem);
+						}	//end while
+					}//end if
+				}//end for
+			}//end if
 			
+			if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
+				return;
+			}
+			
+			if (count($coursesNotTaken3) > 0) {	//If the student hasn't completed year 3
+			
+				for ($i = 0;$i < count($coursesNotTaken3);$i++) {	//For every course not yet taken in that year
+				
+					if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
+						return;
+					}
+				
+					//If you have the prerequistes and the course if for the proper term then add it to list
+					if ($this->hasPrereq($yearsCompleted,
+										 $coursesNotTaken3[$i]->subjectID,
+										 $coursesNotTaken3[$i]->courseNumber)) {
+
+						$this->numCourses++;	//increment number of courses added
+						
+						$subID = $coursesNotTaken3[$i]->subjectID;
+						$CN = $coursesNotTaken3[$i]->courseNumber;
+						$term = $this->term;
+
+						$getSections = "SELECT * FROM Section WHERE
+										Term LIKE '%$term%'
+										AND SubjectID LIKE '%$subID%'
+										AND CourseNumber LIKE '%$CN%'
+										AND ScheduleCode LIKE '%LEC%'
+										AND NumberOfStudents < Capacity;";
+										
+						$rows = $db->execute($getSections);
+
+						while ( ($row = $rows->fetch_object()) ) {
+					
+							$newItem = new Section($row->SubjectID,
+												   $row->CourseNumber,
+												   $row->Year,
+												   $row->Term,
+												   $row->Title,
+												   $row->Credits,
+												   $row->ScheduleCode,
+												   $row->SectionCode,
+												   $row->Time,
+												   $row->Days,
+												   $row->Capacity,
+												   $row->NumberOfStudents);
+				
+							$this->courses->addItem($newItem);
+						}	//end while
+					}//end if
+				}//end for
+			}//end if
+			
+			if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
+				return;
+			}
+			
+			if (count($coursesNotTaken4) > 0) {	//If the student hasn't completed year 4
+			
+				for ($i = 0;$i < count($coursesNotTaken4);$i++) {	//For every course not yet taken in that year
+				
+					if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
+						return;
+					}
+				
+					//If you have the prerequistes and the course if for the proper term then add it to list
+					if ($this->hasPrereq($yearsCompleted,
+										 $coursesNotTaken4[$i]->subjectID,
+										 $coursesNotTaken4[$i]->courseNumber)) {
+
+						$subID = $coursesNotTaken4[$i]->subjectID;
+						$CN = $coursesNotTaken4[$i]->courseNumber;
+						$term = $this->term;
+
+						$getSections = "SELECT * FROM Section WHERE
+										Term LIKE '%$term%'
+										AND SubjectID LIKE '%$subID%'
+										AND CourseNumber LIKE '%$CN%'
+										AND ScheduleCode LIKE '%LEC%'
+										AND NumberOfStudents < Capacity;";
+										
+						$rows = $db->execute($getSections);
+						
+						if (!is_null($rows)) {
+						
+							$this->numCourses++;	//increment number of courses added
+							
+							while ( ($row = $rows->fetch_object()) ) {
+						
+								$newItem = new Section($row->SubjectID,
+													   $row->CourseNumber,
+													   $row->Year,
+													   $row->Term,
+													   $row->Title,
+													   $row->Credits,
+													   $row->ScheduleCode,
+													   $row->SectionCode,
+													   $row->Time,
+													   $row->Days,
+													   $row->Capacity,
+													   $row->NumberOfStudents);
+					
+								$this->courses->addItem($newItem);
+							}	//end while
+						}//end if
+					}//end if
+				}//end for
+			}//end if
+
 		}	//end function
 		
 	}
