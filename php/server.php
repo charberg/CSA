@@ -27,7 +27,7 @@
 			echo $returnval;
 			exit;
 		
-		case "OffPatternSchedule":
+		case "OffPatternSchedule":	//WORKING
 			
 			$program = $_POST['program'];
 			$year = $_POST['year'];

@@ -129,8 +129,7 @@
 	}
 	
 	$db->execute($unlockSectionTable);	//unlock table
-	
-	header("content-type: text/plain");
+
 	if ($revert) {
 		echo "FAIL";
 	} else {

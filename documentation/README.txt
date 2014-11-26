@@ -18,8 +18,8 @@ Member Contributions:
 
 The program was divided into 2 sections which were completed by the 2 members.
 Christopher was in charge of designing and implement all the back end of the program which would include the database, 
-the files needed to create the database, and all php scripts.
-David was in charge of all the front end which included all html, javascript, and java code.
+the files needed to create the database, and all php scripts. (All files in php folder & data folder)
+David was in charge of all the front end which included all html, javascript, and java code. (all files in java folder, css folder, and pages folder)
 
 
 5.
@@ -56,17 +56,19 @@ This folder contains all client-side pages writen in HTMl and Javascript.
 
 The tasks of the project and mapping of the files used within the project between html-php are as follows:
 Upon entering the program (localhost/CSA/), the index.php script will run which will re-direct the user to intro_page.html contained
-within the pages folder. At this point the user will be asked to specify his/her program, the year the've completed, wehter or not they are
+within the pages folder. At this point the user will be asked to specify his/her program, the year they've completed, whether or not they are
 on or off pattern, and what term they which to generate a schedule for. From here the page sends all this information to the server.php
 file located within the php folder. The server will take this information and do one of 2 things:
 1. If the User specified on-patter, then it will generate a list of schedules for the specified term using a OnScheduleCourseCalculator
-oject, and send this list of schedules along with the other information specified to the my_schedule.php page located in the pages folder.
+object, and send this list of schedules along with the other information specified to the my_schedule.php page located in the pages folder.
 
-2. If the User specified off-pattern, then it will generate a list of schedules that best corresponds to the courses previously taken by the user
+2. If the User specified off-pattern, the server will re-direct the user to the Off_Schedule_Courses.php page inside th pages folder.
+From here the user will specify which courses were previously completed and send this information back to the server.php. 
+Then server.php will generate a list of schedules that best corresponds to the courses previously taken by the user
 using a OffScheduleCourseCalculator object and send this list along with all other information to the my_schedule.php page located in the pages folder.
 
-At this point the my_schedule.php will take that list of schedules and allow the user to schoose which one to display. Once the user has choosen
-a schedule, he/she hits the submit button, sending the choosen schedule to server.php. The server then takes this list of courses and increases
+At this point the my_schedule.php will take that list of schedules and allow the user to choose which one to display. Once the user has choosen
+a schedule, he/she hits the submit button, sending the choosen schedule to courseServer.php. The server then takes this list of courses and increases
 the number of students for each, returning to my_schedule.php wheter or not all the courses were successfully registered in.
 
 
@@ -76,5 +78,9 @@ From there, the user may just navigate through the local host to the Main progra
 From here the index.php file will redirect the user to the first view page of the program.
 
 In order to add more information to the database, the files within the data folder must be updated.
-To add more academic program, simply add them to the AcademicPrograms.txt file while ensure that they follow the format.
+To add more academic program, simply add them to the AcademicPrograms.txt file while ensure that they follow the proper format.
+
+
+7.
+
 

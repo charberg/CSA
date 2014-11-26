@@ -1070,6 +1070,8 @@
 
 			$prereq = $result->fetch_object();
 			
+			//parse through prereqs and ensure that user meets them
+			
 			return true;
 				
 		}
