@@ -4,16 +4,19 @@
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	
-	header("content-type: text/xml");
-	
+	header("content-type: text/plain");
+
 	$db = new DataBase("SchedulerDatabase");
 	
 	$courseList = fopen("php://input","i");
 	
-	echo fgets($courseList);
+	echo $courseList;
 	exit;
 	
 	$coursesObject = simplexml_load_file("php://input");
+
+	echo $coursesObject;
+	exit;
 	
 	$Sections = new SectionList();
 	

@@ -33,11 +33,19 @@
 			$year = $_POST['year'];
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
+			
+			//generate possible schedules and send those schedules to schedule selection page
+			$scheduleGen = new OffScheduleCourseCalculator($year, $program, $term, $coursesTaken);
+			$ScheduleList = $scheduleGen->exportScedulesXML();
+			$filename =  "../tempSchedules/".uniqid().".txt";	//create unique file in temp folder
+			$handle = fopen($filename,"w");						//open file for writing
+			fwrite($handle,$ScheduleList);						//output schedules to fileatime
+			fclose($handle);									//close file		
 
 			setcookie("yearCompleted", $year, time() + 3600, "/");
 			setcookie("programName", $program, time() + 3600, "/");
 			setcookie("term", $term, time() + 3600, "/");
-			setcookie("courses", "Something", time() + 3600, "/");	//replace with actual schedule
+			setcookie("courses", $filename, time() + 3600, "/");
 			header("location:../pages/my_schedule.php");
 			exit;
 			

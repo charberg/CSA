@@ -998,14 +998,73 @@
 	
 	class OffScheduleCourseCalculator extends ScheduleCourseCalculator{
 
-		private $coursesTaken;
+		private $coursesTaken;	//Array of courses taken
 		
 		function __construct($y, $p, $t, $coursestaken) {
 			parent::__construct($y, $p, $t);
-			$this->coursesTaken = $coursesTaken;
+			$this->coursesTaken = $coursestaken;
+		}
+	
+		function haveTaken($course) {
+			for ($i = 0; $i < count ($this->coursesTaken);$i++) {
+				if ($this->coursesTaken[$i] == $course)
+					return true;
+			}
+			return false;
+		}
+		
+		function completedYear($year) {
+		
+			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {
+			
+				if ($this->pattern->patternItems[$i]->yearRequired == $year) {
+					if (!haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
+						return false;
+					}
+				}
+			}
+			return true;
+		
+		}
+		
+		function coursesNotTaken($year) {
+		
+			$returnval = array();
+		
+			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {
+			
+				if ($this->pattern->patternItems[$i]->yearRequired == $year) {
+					if (!haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
+						array_push($returnval,$this->pattern->patternItems[$i]);
+					}
+				}
+			}
+			return $returnval;
+		
 		}
 	
 		function calculateCourses() {
+		
+			//Arrays to keep track of courses not taken year 1-4
+			$coursesNotTaken1 = coursesNotTaken(1);	
+			$coursesNotTaken2 = coursesNotTaken(2);
+			$coursesNotTaken3 = coursesNotTaken(3);
+			$coursesNotTaken4 = coursesNotTaken(4);
+			
+			$yearsCompleted = 0;	
+			for ($i = 1; $i < 5;$i++) {
+				if (completedYear($i)) {
+					$yearsCompleted++;
+				}
+			}
+			
+			
+			if (count($coursesNotTaken1) > 0) {	//If the student hasn't completed year 1
+				for ($i = 0;$i < count($coursesNotTaken1);$i++) {
+					
+				}
+			}
+			
 			
 		}	//end function
 		
