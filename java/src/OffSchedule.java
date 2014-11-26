@@ -22,7 +22,7 @@ public class OffSchedule extends JPanel{
 		coursePanel.setLayout(new GridLayout(8,10));
 		
 		courses = new ArrayList<CourseBox>();
-		courses.add(new CourseBox("SYSC1005", "fall", 1));
+		courses.add(new CourseBox("SYSC1005","fall", 1));
 		courses.add(new CourseBox("SYSC2004", "winter", 1));
 		
 		coursePanel.add(courses.get(0));

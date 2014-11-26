@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class MainFrame extends JFrame implements ActionListener{
 	
-	private JPanel introPage, offPagep,mySchedule; 
+	private JPanel introPage, offPage, mySchedule; 
 	
 	public MainFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
