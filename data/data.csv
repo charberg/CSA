@@ -6,13 +6,13 @@ AERO;3700;A1;Aerospace Materials;TUT;M;1635;1725;94
 AERO;4003;A;Aerospace Systems Design;LEC;MW;1135;1255;96
 AERO;4003;A1;Aerospace Systems Design;LAB;M;1435;1725;50
 AERO;4003;A2;Aerospace Systems Design;LAB;W;835;1125;50
-AERO;4009;A;Aviation Managemt & Certific.;LEC;R;1805;2055;36
-AERO;4302;A;Aerodynamics & Heat Transfer;LEC;TR;1605;1725;96
+AERO;4009;A;Aviation Managemt and Certific.;LEC;R;1805;2055;36
+AERO;4302;A;Aerodynamics and Heat Transfer;LEC;TR;1605;1725;96
 AERO;4304;A;Computational Fluid Dynamics;LEC;;;;
 AERO;4306;A;Aerospace Vehicle Performance;LEC;TR;1305;1425;66
 AERO;4402;A;Aerospace Propulsion;LEC;TR;1005;1125;40
 AERO;4446;A;Heat Transfer for Aerosp Appli;LEC;MW;1305;1425;40
-AERO;4540;A;Spacecraft Dynamics & Control;LEC;WF;1605;1725;36
+AERO;4540;A;Spacecraft Dynamics and Control;LEC;WF;1605;1725;36
 AERO;4608;A;Composite Materials;LEC;TR;1435;1555;57
 AERO;4842;A;Space Mission Design;LEC;TR;1135;1255;27
 AERO;4842;A1;Space Mission Design;TUT;W;1035;1125;36
@@ -36,16 +36,16 @@ ALDS;1001;A;Lang Matters: Intro. to ALDS;LEC;MW;1435;1555;96
 ALDS;1001;PA1;Lang Matters: Intro. to ALDS;PAS;MWF;1635;1725;21
 ALDS;1001;W;Lang Matters: Intro. to ALDS;LEC;;;;
 ALDS;2201;A;Analysis of Oral Language Use;LEC;TR;1135;1255;57
-ALDS;2203;A;Linguis Theor&Secon Lang Learn;LEC;MW;1135;1255;57
+ALDS;2203;A;Linguis TheorandSecon Lang Learn;LEC;MW;1135;1255;57
 ALDS;2705;A;Language Ideology and Power;LEC;MW;835;955;58
 ALDS;3706;A;Discourse Analysis;LEC;W;1805;2055;32
-ALDS;3803;A;Method&Practic Langua Pedagogy;PRC;MW;1435;1555;25
+ALDS;3803;A;MethodandPractic Langua Pedagogy;PRC;MW;1435;1555;25
 ALDS;3900;A;Independent Study;IND;;;;
 ALDS;3901;A;Independent Study;IND;;;;
-ALDS;3903;A;Topic in Applied Ling&Discours;LEC;MW;1305;1425;29
+ALDS;3903;A;Topic in Applied LingandDiscours;LEC;MW;1305;1425;29
 ALDS;4205;A;Teach Engl Secnd Lang:Methodol;LEC;TR;935;1125;40
 ALDS;4206;A;Practicum in Teaching ESL;PRC;M;835;1025;42
-ALDS;4403;A;Writ&Knowledge Making Discipl;LEC;TR;1135;1255;42
+ALDS;4403;A;WritandKnowledge Making Discipl;LEC;TR;1135;1255;42
 ALDS;4709;A;Systemic-Functional Linguistic;LEC;WF;1005;1125;36
 ALDS;4801;A;Major Structures of English;LEC;TR;1435;1555;39
 ANTH;1001;A;Introduction to Anthropology;LEC;F;1035;1225;444
@@ -74,9 +74,9 @@ ANTH;2630;A;Studies in Asian Societies;LEC;;;;
 ANTH;2670;A;Ethnography of Brazil;LEC;M;1435;1725;58
 ANTH;2915;A;Course-Related Tut. in Anthro.;TUT;;;;
 ANTH;3005;A;Ethnographic Research Methods;LEC;M;1135;1425;47
-ANTH;3020;A;Studies in Race & Ethnicity;LEC;W;1435;1725;79
-ANTH;3027;A;Stud in Globalization & Human;LEC;M;835;1125;61
-ANTH;3045;A;Stud. in Children & Childhood;LEC;M;1805;2055;91
+ANTH;3020;A;Studies in Race and Ethnicity;LEC;W;1435;1725;79
+ANTH;3027;A;Stud in Globalization and Human;LEC;M;835;1125;61
+ANTH;3045;A;Stud. in Children and Childhood;LEC;M;1805;2055;91
 ANTH;3225;A;Sel. Topics in Anthropology;LEC;T;835;1125;31
 ANTH;3510;A;Ritual;LEC;W;835;1125;51
 ANTH;3915;A;Course-Related Tut. in Anthro.;TUT;;;;
@@ -93,11 +93,11 @@ ARCC;4500;A;Design Economics;LEC;F;835;1125;115
 ARCC;4808;A;Independent Study;IND;;;;
 ARCC;4900;A;Sec. A Directed Reading;REP;T;1435;1725;320
 ARCH;1000;A;Introduction to Architecture;LEC;F;835;1125;236
-ARCH;2006;A;Hist. & Theory Industrial Desi;LEC;R;835;1125;154
+ARCH;2006;A;Hist. and Theory Industrial Desi;LEC;R;835;1125;154
 ARCH;2300;C;Intro to Modern Architecture;LEC;M;835;1125;204
-ARCH;4200;A;Architect Conserv Philos&Ethic;LEC;F;1135;1425;75
-ARCH;4206;A;Recycling Arch in Canada & Abr;LEC;M;835;1125;75
-ARCH;4801;B;Sel Top: Theory & History;SEM;;;;
+ARCH;4200;A;Architect Conserv PhilosandEthic;LEC;F;1135;1425;75
+ARCH;4206;A;Recycling Arch in Canada and Abr;LEC;M;835;1125;75
+ARCH;4801;B;Sel Top: Theory and History;SEM;;;;
 ARCH;4808;A;Independent Study;IND;;;;
 ARCN;2106;A;Introduction to Multimedia;LEC;T;835;1125;75
 ARCN;3206;B;Workshop: Computer Application;WKS;;;;
@@ -126,7 +126,7 @@ ARCS;4106;B;Studio 7;STU;;;;
 ARCU;3501;A;Fundamentals of Urbanism;LEC;;;;
 ARCU;3902;A;Sel Top: Wksp in Urban Studies;WKS;TR;1805;2055;30
 ARCU;4300;A;History of Theories - Urbanism;LEC;M;1435;1725;20
-ARCU;4400;B;City Organization & Planning;OTH;T;1805;2055;24
+ARCU;4400;B;City Organization and Planning;OTH;T;1805;2055;24
 ARCU;4801;A;Selected Topics in Urbanism;LEC;W;835;1125;20
 ARCU;4808;A;Independent Study;IND;;;;
 ARTH;1100;A;Art and Society:Prehist to Ren;LEC;M;1135;1325;387
@@ -142,34 +142,34 @@ ARTH;1100;A09;Art and Society:Prehist to Ren;TUT;T;1905;1955;27
 ARTH;1100;A10;Art and Society:Prehist to Ren;TUT;M;1905;1955;32
 ARTH;1100;A11;Art and Society:Prehist to Ren;TUT;M;1905;1955;31
 ARTH;1100;A12;Art and Society:Prehist to Ren;TUT;W;935;1025;27
-ARTH;1200;A;Hist & Theory of Arch 1;LEC;T;1435;1625;204
-ARTH;1200;A01;Hist & Theory of Arch 1;TUT;W;1435;1525;27
-ARTH;1200;A02;Hist & Theory of Arch 1;TUT;W;1435;1525;32
-ARTH;1200;A03;Hist & Theory of Arch 1;TUT;W;1035;1125;27
-ARTH;1200;A04;Hist & Theory of Arch 1;TUT;T;1805;1855;27
-ARTH;1200;A05;Hist & Theory of Arch 1;TUT;T;1805;1855;32
-ARTH;1200;A06;Hist & Theory of Arch 1;TUT;T;1805;1855;23
-ARTH;1200;A07;Hist & Theory of Arch 1;TUT;W;1035;1125;58
-ARTH;1200;A08;Hist & Theory of Arch 1;TUT;W;1035;1125;23
+ARTH;1200;A;Hist and Theory of Arch 1;LEC;T;1435;1625;204
+ARTH;1200;A01;Hist and Theory of Arch 1;TUT;W;1435;1525;27
+ARTH;1200;A02;Hist and Theory of Arch 1;TUT;W;1435;1525;32
+ARTH;1200;A03;Hist and Theory of Arch 1;TUT;W;1035;1125;27
+ARTH;1200;A04;Hist and Theory of Arch 1;TUT;T;1805;1855;27
+ARTH;1200;A05;Hist and Theory of Arch 1;TUT;T;1805;1855;32
+ARTH;1200;A06;Hist and Theory of Arch 1;TUT;T;1805;1855;23
+ARTH;1200;A07;Hist and Theory of Arch 1;TUT;W;1035;1125;58
+ARTH;1200;A08;Hist and Theory of Arch 1;TUT;W;1035;1125;23
 ARTH;2006;A;Arts of the First Peoples;LEC;F;1435;1725;75
 ARTH;2007;A;Asian Art;LEC;;;;
 ARTH;2007;A1;Asian Art;GRP;;;;
 ARTH;2007;A2;Asian Art;GRP;;;;
 ARTH;2102;A;Greek Art and Archaeology;LEC;TR;1605;1725;98
-ARTH;2510;A;Arch of the 18th & 19th Cent;LEC;MW;1305;1425;52
-ARTH;2601;A;Hist. & Theory of Photography;LEC;TR;1305;1425;75
+ARTH;2510;A;Arch of the 18th and 19th Cent;LEC;MW;1305;1425;52
+ARTH;2601;A;Hist. and Theory of Photography;LEC;TR;1305;1425;75
 ARTH;2610;A;Twentieth-Century Architecture;LEC;MW;1135;1255;52
 ARTH;3005;A;American Architecture;LEC;W;1135;1425;27
 ARTH;3105;A;Studies in Roman Art;LEC;F;835;1125;63
 ARTH;3106;A;History of Methods of Art Hist;SEM;T;835;1125;32
-ARTH;3107;A;Hist&Method of Architect Hist;SEM;R;1135;1425;40
+ARTH;3107;A;HistandMethod of Architect Hist;SEM;R;1135;1425;40
 ARTH;3400;A;History of Printmaking;LEC;T;1435;1725;40
-ARTH;3809;A;Closer Look@Art&Visual Culture;LEC;M;835;1125;32
+ARTH;3809;A;Closer Look@ArtandVisual Culture;LEC;M;835;1125;32
 ARTH;3900;A;Practicum in Art History;PRC;;;;
 ARTH;4000;A;Topics in Canadian Art;SEM;M;835;1125;27
 ARTH;4008;A;Transnational Theory;SEM;W;1135;1425;27
 ARTH;4610;A;Topics in Modern Arch or Desgn;SEM;R;1135;1425;32
-ARTH;4809;A;Topic in Art History&Criticism;SEM;F;1135;1425;27
+ARTH;4809;A;Topic in Art HistoryandCriticism;SEM;F;1135;1425;27
 ARTH;4900;A;Directed Readings and Research;IND;;;;
 ASLA;1010;A;First Yr American Sign Langu I;LEC;TR;935;1125;69
 ASLA;1010;B;First Yr American Sign Langu I;LEC;TR;1435;1625;58
@@ -211,7 +211,7 @@ BIOC;3006;A03;Practical Biochemistry;LAB;W;1335;1725;32
 BIOC;3006;A04;Practical Biochemistry;LAB;R;1335;1725;32
 BIOC;3006;A05;Practical Biochemistry;LAB;F;1335;1725;32
 BIOC;3101;A;General Biochemistry I;LEC;TR;1135;1255;78
-BIOC;3202;A;Biophysical Tech & Application;LEC;M;1805;2055;78
+BIOC;3202;A;Biophysical Tech and Application;LEC;M;1805;2055;78
 BIOC;3400;A;Independent Research II;OTH;;;;
 BIOC;3999;A;Co-op Work Term;WRK;;;;
 BIOC;4007;A;Membrane Biochemistry;LEC;R;1435;1625;40
@@ -305,12 +305,12 @@ BIOL;3303;A;Experimental Microbiology;LEC;M;1135;1255;148
 BIOL;3303;A02;Experimental Microbiology;LAB;T;1335;1725;50
 BIOL;3303;A03;Experimental Microbiology;LAB;W;1335;1725;50
 BIOL;3303;A04;Experimental Microbiology;LAB;R;1335;1725;50
-BIOL;3305;A;Human & Comparative Physiology;LEC;MW;835;955;96
-BIOL;3305;A01;Human & Comparative Physiology;LAB;M;1335;1725;20
-BIOL;3305;A02;Human & Comparative Physiology;LAB;T;1335;1725;20
-BIOL;3305;A03;Human & Comparative Physiology;LAB;W;1335;1725;20
-BIOL;3305;A04;Human & Comparative Physiology;LAB;R;1335;1725;20
-BIOL;3305;A05;Human & Comparative Physiology;LAB;F;1335;1725;20
+BIOL;3305;A;Human and Comparative Physiology;LEC;MW;835;955;96
+BIOL;3305;A01;Human and Comparative Physiology;LAB;M;1335;1725;20
+BIOL;3305;A02;Human and Comparative Physiology;LAB;T;1335;1725;20
+BIOL;3305;A03;Human and Comparative Physiology;LAB;W;1335;1725;20
+BIOL;3305;A04;Human and Comparative Physiology;LAB;R;1335;1725;20
+BIOL;3305;A05;Human and Comparative Physiology;LAB;F;1335;1725;20
 BIOL;3306;A;Human Anatomy and Physiology;LEC;TR;1005;1125;120
 BIOL;3602;A;Conservation Biology;LEC;R;1435;1725;35
 BIOL;3602;A01;Conservation Biology;WKS;F;835;1125;30
@@ -321,8 +321,8 @@ BIOL;3608;A01;Principles of Biogeography;LAB;W;1135;1325;33
 BIOL;3608;A02;Principles of Biogeography;LAB;T;1435;1625;33
 BIOL;3608;A03;Principles of Biogeography;LAB;F;1135;1325;33
 BIOL;3609;A;Evolutionary Concepts;LEC;WF;1135;1255;54
-BIOL;3612;A;Comp. Meth. in Ecology & Evol.;LEC;T;1135;1325;23
-BIOL;3612;A01;Comp. Meth. in Ecology & Evol.;WKS;R;835;1125;30
+BIOL;3612;A;Comp. Meth. in Ecology and Evol.;LEC;T;1135;1325;23
+BIOL;3612;A01;Comp. Meth. in Ecology and Evol.;WKS;R;835;1125;30
 BIOL;3801;A;Plants and Herbivores;LEC;WF;1305;1425;58
 BIOL;3802;A;Animal Behaviour;LEC;TR;835;955;58
 BIOL;3802;A01;Animal Behaviour;WKS;T;1435;1725;56
@@ -335,8 +335,8 @@ BIOL;4203;A;Evolution of Sex;LEC;MW;1305;1425;42
 BIOL;4206;A;Human Genetics;LEC;TR;835;955;30
 BIOL;4301;A;Biotechnology;LEC;MW;1435;1555;58
 BIOL;4500;A;Ornithology I;LEC;T;1435;1725;51
-BIOL;4503;A;Fish Ecology Convervation &;LEC;W;835;1025;39
-BIOL;4503;A01;Fish Ecology Convervation &;WKS;W;1035;1225;39
+BIOL;4503;A;Fish Ecology Convervation and;LEC;W;835;1025;39
+BIOL;4503;A01;Fish Ecology Convervation and;WKS;W;1035;1225;39
 BIOL;4802;A;Advanced Animal Behaviour;LEC;R;1435;1725;36
 BIOL;4900;A;Directed Studies and Seminar;DIR;;;;
 BIOL;4901;A;Directed Studies;DIR;;;;
@@ -357,9 +357,9 @@ BIT;1201;A;Mathematics II for PLT;LEC;;;;
 BIT;1201;A1;Mathematics II for PLT;TUT;;;;
 BIT;1203;A;Physics for Photonics I;LEC;MW;835;955;285
 BIT;1203;A1;Physics for Photonics I;LAB;F;835;1125;70
-BIT;1400;A;Intro to Progrming & Prob Solv;LEC;MW;1305;1425;77
-BIT;1400;A1;Intro to Progrming & Prob Solv;LAB;F;1435;1725;38
-BIT;1400;A2;Intro to Progrming & Prob Solv;LAB;M;835;1125;77
+BIT;1400;A;Intro to Progrming and Prob Solv;LEC;MW;1305;1425;77
+BIT;1400;A1;Intro to Progrming and Prob Solv;LAB;F;1435;1725;38
+BIT;1400;A2;Intro to Progrming and Prob Solv;LAB;M;835;1125;77
 BIT;2000;A;Intro to Statistics for NET;LEC;TR;1135;1255;236
 BIT;2000;A1;Intro to Statistics for NET;LAB;T;1335;1425;25
 BIT;2000;A2;Intro to Statistics for NET;LAB;R;1335;1425;25
@@ -449,23 +449,23 @@ BUSI;1005;A06;Managerial Acctng for Busi. St;TUT;M;1535;1625;15
 BUSI;1005;A07;Managerial Acctng for Busi. St;TUT;R;1535;1625;15
 BUSI;1005;A08;Managerial Acctng for Busi. St;TUT;W;1335;1425;15
 BUSI;1005;PA1;Managerial Acctng for Busi. St;PAS;T;1235;1325;
-BUSI;1402;A;Intr Business Info & Comm Tech;LEC;M;1805;2055;98
-BUSI;1402;B;Intr Business Info & Comm Tech;LEC;R;835;1125;84
-BUSI;1402;C;Intr Business Info & Comm Tech;LEC;M;835;1125;98
-BUSI;1402;D;Intr Business Info & Comm Tech;LEC;W;1435;1725;331
-BUSI;1402;DOD;Intr Business Info & Comm Tech;VOD;;;;
-BUSI;1402;F01;Intr Business Info & Comm Tech;TUT;T;1035;1125;31
-BUSI;1402;F02;Intr Business Info & Comm Tech;TUT;T;935;1025;31
-BUSI;1402;F03;Intr Business Info & Comm Tech;TUT;W;935;1025;31
-BUSI;1402;F04;Intr Business Info & Comm Tech;TUT;W;835;925;31
-BUSI;1402;F05;Intr Business Info & Comm Tech;TUT;T;1635;1725;31
-BUSI;1402;F06;Intr Business Info & Comm Tech;TUT;T;1535;1625;31
-BUSI;1402;F07;Intr Business Info & Comm Tech;TUT;W;1135;1225;31
-BUSI;1402;F08;Intr Business Info & Comm Tech;TUT;W;1335;1425;31
-BUSI;1402;F09;Intr Business Info & Comm Tech;TUT;;;;
-BUSI;1402;F10;Intr Business Info & Comm Tech;TUT;T;1435;1525;31
-BUSI;1402;T;Intr Business Info & Comm Tech;LEC;;;;
-BUSI;1402;TOD;Intr Business Info & Comm Tech;VOD;;;;
+BUSI;1402;A;Intr Business Info and Comm Tech;LEC;M;1805;2055;98
+BUSI;1402;B;Intr Business Info and Comm Tech;LEC;R;835;1125;84
+BUSI;1402;C;Intr Business Info and Comm Tech;LEC;M;835;1125;98
+BUSI;1402;D;Intr Business Info and Comm Tech;LEC;W;1435;1725;331
+BUSI;1402;DOD;Intr Business Info and Comm Tech;VOD;;;;
+BUSI;1402;F01;Intr Business Info and Comm Tech;TUT;T;1035;1125;31
+BUSI;1402;F02;Intr Business Info and Comm Tech;TUT;T;935;1025;31
+BUSI;1402;F03;Intr Business Info and Comm Tech;TUT;W;935;1025;31
+BUSI;1402;F04;Intr Business Info and Comm Tech;TUT;W;835;925;31
+BUSI;1402;F05;Intr Business Info and Comm Tech;TUT;T;1635;1725;31
+BUSI;1402;F06;Intr Business Info and Comm Tech;TUT;T;1535;1625;31
+BUSI;1402;F07;Intr Business Info and Comm Tech;TUT;W;1135;1225;31
+BUSI;1402;F08;Intr Business Info and Comm Tech;TUT;W;1335;1425;31
+BUSI;1402;F09;Intr Business Info and Comm Tech;TUT;;;;
+BUSI;1402;F10;Intr Business Info and Comm Tech;TUT;T;1435;1525;31
+BUSI;1402;T;Intr Business Info and Comm Tech;LEC;;;;
+BUSI;1402;TOD;Intr Business Info and Comm Tech;VOD;;;;
 BUSI;1701;A;Intro. International Business;LEC;MW;1135;1225;56
 BUSI;1701;A1;Intro. International Business;TUT;M;1335;1425;115
 BUSI;1701;C;Intro. International Business;LEC;TR;1335;1425;58
@@ -564,21 +564,21 @@ BUSI;3400;A;Data and Info Management;LEC;T;1805;2055;67
 BUSI;3400;A1;Data and Info Management;TUT;M;835;925;22
 BUSI;3400;A2;Data and Info Management;TUT;M;935;1025;22
 BUSI;3400;A3;Data and Info Management;TUT;M;1035;1125;22
-BUSI;3402;A;Systems Analysis & Design;LEC;;;;
-BUSI;3402;A1;Systems Analysis & Design;TUT;;;;
-BUSI;3402;A2;Systems Analysis & Design;TUT;;;;
+BUSI;3402;A;Systems Analysis and Design;LEC;;;;
+BUSI;3402;A1;Systems Analysis and Design;TUT;;;;
+BUSI;3402;A2;Systems Analysis and Design;TUT;;;;
 BUSI;3405;A;Enterprise Architecture;LEC;W;1135;1425;98
 BUSI;3500;A;Applied Corporate Finance;LEC;T;835;1125;58
 BUSI;3500;B;Applied Corporate Finance;LEC;T;1135;1425;58
 BUSI;3502;A;Principles of Investments;LEC;M;835;1125;59
 BUSI;3502;B;Principles of Investments;LEC;M;1135;1425;79
-BUSI;3505;A;Gbl Finance& Mltintnl Enterpr;LEC;T;835;1125;31
+BUSI;3505;A;Gbl Financeand Mltintnl Enterpr;LEC;T;835;1125;31
 BUSI;3512;A;Derivatives;LEC;T;835;1125;58
 BUSI;3512;B;Derivatives;LEC;F;1135;1425;63
 BUSI;3600;A;Small Business Management;LEC;R;1805;2055;32
 BUSI;3602;A;Organizational Systems Design;LEC;;;;
 BUSI;3700;A;Cross-Cultural Communication;OTH;;;;
-BUSI;3703;A;Intl & Comparative Management;LEC;R;1435;1725;58
+BUSI;3703;A;Intl and Comparative Management;LEC;R;1435;1725;58
 BUSI;3704;A;Intl Business Environment;LEC;R;835;1125;61
 BUSI;3705;A;International Buyer Behaviour;LEC;M;835;1125;56
 BUSI;3800;A;Business Case Analysis;WKS;M;1435;1725;51
@@ -590,7 +590,7 @@ BUSI;3999;A;Co-op Work Term;WRK;;;;
 BUSI;4000;A;Accounting Theory;LEC;T;1435;1725;69
 BUSI;4002;A;Advanced Accounting Problems;LEC;WF;1005;1125;42
 BUSI;4005;A;Taxation II;LEC;W;1805;2055;78
-BUSI;4008;A;Adv Mgment Accountng & Control;LEC;R;835;1125;59
+BUSI;4008;A;Adv Mgment Accountng and Control;LEC;R;835;1125;59
 BUSI;4009;A;Auditing II;LEC;M;1805;2055;79
 BUSI;4105;A;Managing Change;LEC;W;1805;2055;58
 BUSI;4111;A;Training and Development;LEC;R;1135;1425;40
@@ -599,18 +599,18 @@ BUSI;4203;A;Marketing: Not-for-Profit Orgs;LEC;F;1135;1425;78
 BUSI;4205;A;International Marketing;LEC;T;835;1125;58
 BUSI;4206;A;Consumer  Behaviour;LEC;T;1435;1725;51
 BUSI;4208;A;Marketing Management;LEC;R;835;1125;47
-BUSI;4400;A;IS Strategy Mgmt & Acqstn;LEC;T;1135;1425;61
-BUSI;4431;A;E-Supply Chain Technol&Managme;LEC;M;1135;1425;21
+BUSI;4400;A;IS Strategy Mgmt and Acqstn;LEC;T;1135;1425;61
+BUSI;4431;A;E-Supply Chain TechnolandManagme;LEC;M;1135;1425;21
 BUSI;4503;A;Applied Portfolio Management;WKS;;;;6
 BUSI;4510;A;Mergers and Acquisitions;LEC;R;1135;1425;47
 BUSI;4515;A;Micro Finance;LEC;W;1135;1425;39
 BUSI;4601;A;Business Ethics;LEC;M;835;1125;58
 BUSI;4601;B;Business Ethics;LEC;F;835;1125;56
-BUSI;4607;A;Mgnt Technology & Innovation;LEC;R;835;1125;42
+BUSI;4607;A;Mgnt Technology and Innovation;LEC;R;835;1125;42
 BUSI;4609;A;Strategic Management;LEC;W;835;1125;55
 BUSI;4609;B;Strategic Management;LEC;M;835;1125;55
-BUSI;4705;A;Ethics&Cross-cultural Interact;LEC;T;1805;2055;58
-BUSI;4708;A;Intl Expansion & Operations;LEC;R;1805;2055;61
+BUSI;4705;A;EthicsandCross-cultural Interact;LEC;T;1805;2055;58
+BUSI;4708;A;Intl Expansion and Operations;LEC;R;1805;2055;61
 BUSI;4709;A;Strategic Mgnt Intl Business;LEC;M;1135;1225;51
 BUSI;4709;A1;Strategic Mgnt Intl Business;TUT;M;1435;1725;51
 BUSI;4717;A;Managing Glob in Emerging Econ;LEC;W;1135;1425;63
@@ -667,7 +667,7 @@ CDNS;2300;A3;Critical Nationalism;GRP;T;935;1025;40
 CDNS;2300;A4;Critical Nationalism;GRP;T;935;1025;36
 CDNS;2510;R;Intro to Quebec Society (E);LEC;;;;
 CDNS;2511;R;Intro soc. cult. québécoises;LEC;;;;
-CDNS;3000;A;Interdisc & CDNS Thry & Meth;SEM;M;1135;1425;29
+CDNS;3000;A;Interdisc and CDNS Thry and Meth;SEM;M;1135;1425;29
 CDNS;3610;A;Cdn Political Econom Tradition;SEM;T;1805;2055;42
 CDNS;3700;A;Cultural Traditions in Canada;SEM;M;1805;2055;39
 CDNS;4300;A;Communities in Canada;SEM;W;835;1125;29
@@ -682,9 +682,9 @@ CGSC;2001;A;Introduction to Cognitive Sci;LEC;TR;1005;1125;96
 CGSC;2001;B;Introduction to Cognitive Sci;LEC;WF;1605;1725;94
 CGSC;2001;PA1;Introduction to Cognitive Sci;PAS;;;;
 CGSC;2001;PA2;Introduction to Cognitive Sci;PAS;;;;
-CGSC;2002;A;Theories & Meth in Cog Sci;SEM;MW;1135;1255;47
-CGSC;2002;A1;Theories & Meth in Cog Sci;TUT;F;1135;1425;11
-CGSC;2002;A2;Theories & Meth in Cog Sci;TUT;T;1135;1425;11
+CGSC;2002;A;Theories and Meth in Cog Sci;SEM;MW;1135;1255;47
+CGSC;2002;A1;Theories and Meth in Cog Sci;TUT;F;1135;1425;11
+CGSC;2002;A2;Theories and Meth in Cog Sci;TUT;T;1135;1425;11
 CGSC;3301;A;Language and Cognitive Science;SEM;MW;1135;1255;29
 CGSC;3908;A;Honrs Seminar:CognitiveScience;SEM;T;835;1125;23
 CGSC;3908;A1;Honrs Seminar:CognitiveScience;TUT;R;835;1125;23
@@ -773,7 +773,7 @@ CHEM;3507;ATU;General Inorganic Chemistry I;TUT;M;1335;1425;59
 CHEM;3800;A;Environmental Pollutants;LEC;MW;1605;1725;78
 CHEM;3999;A;Co-op Work Term;WRK;;;;
 CHEM;4102;A;Adv Topics Physical Chem II;LEC;R;835;1125;25
-CHEM;4103;A;Surface Chem & Nanostructures;LEC;TR;1135;1255;22
+CHEM;4103;A;Surface Chem and Nanostructures;LEC;TR;1135;1255;22
 CHEM;4201;A;Macromolecular nanotechnology;LEC;W;1435;1725;30
 CHEM;4502;A;Radiochemistry;LEC;WF;835;955;22
 CHIN;1010;A;First-Year Mandarin Chinese I;SEM;TR;1905;2055;36
@@ -786,7 +786,7 @@ CHIN;2010;A;Second-Year Mandarin Chinese I;LEC;MW;935;1125;36
 CHIN;3010;A;Third Yr Mandarin Chinese I;LEC;TR;1605;1725;29
 CHIN;3015;A;Mandarin Chinese Heritg Speakr;LEC;MW;1305;1425;39
 CHIN;4010;A;Fourth Yr Mandarin Chinese I;LEC;M;1135;1425;42
-CHIN;4380;A;Topic: Chinese Culture&Society;LEC;MW;1805;1925;36
+CHIN;4380;A;Topic: Chinese CultureandSociety;LEC;MW;1805;1925;36
 CHST;1000;A;Childhood in Global Context;LEC;R;1435;1625;134
 CHST;1000;A01;Childhood in Global Context;GRP;R;1635;1725;31
 CHST;1000;A02;Childhood in Global Context;GRP;R;1905;1955;23
@@ -797,11 +797,11 @@ CHST;1002;B1;Childhood in Canadian Context;GRP;M;1335;1425;29
 CHST;1002;B2;Childhood in Canadian Context;GRP;M;1335;1425;35
 CHST;1002;B3;Childhood in Canadian Context;GRP;M;2005;2055;30
 CHST;1002;B4;Childhood in Canadian Context;GRP;M;2005;2055;35
-CHST;2000;A;Design&Analysis Rsrch Children;LEC;TR;1135;1255;75
+CHST;2000;A;DesignandAnalysis Rsrch Children;LEC;TR;1135;1255;75
 CHST;2503;A;Issues in Child Studies I;LEC;M;1535;1725;91
 CHST;2503;A1;Issues in Child Studies I;GRP;M;935;1025;48
 CHST;2503;A2;Issues in Child Studies I;GRP;M;1035;1125;48
-CHST;3000;A;Tweens & Teens in Contp Societ;LEC;W;835;1125;78
+CHST;3000;A;Tweens and Teens in Contp Societ;LEC;W;835;1125;78
 CHST;3003;A;Theoretical Adv in Devlp Sci;LEC;W;1135;1425;78
 CHST;3101;A;Research Seminar;SEM;M;1135;1425;23
 CIVE;2004;A;GIS Surveying and Graphics;LEC;M;1435;1725;285
@@ -961,17 +961,17 @@ COMM;2100;A12;Theor Traditions in Comm St.;GRP;F;1635;1725;31
 COMM;2100;A13;Theor Traditions in Comm St.;GRP;F;1635;1725;31
 COMM;2100;A14;Theor Traditions in Comm St.;GRP;F;1635;1725;32
 COMM;2100;PA1;Theor Traditions in Comm St.;PAS;WF;1435;1555;8
-COMM;2301;PA1;Persuasion & Public Life;PAS;;;;
+COMM;2301;PA1;Persuasion and Public Life;PAS;;;;
 COMM;2601;A;Media Depictions of Society;LEC;F;835;1125;148
 COMM;3001;A;Quantitative Research Methods;LEC;M;1135;1425;102
 COMM;3106;A;Image Politics and Persuasion;LEC;F;1135;1425;236
-COMM;3108;A;Media Industries & Institution;LEC;T;1135;1425;96
-COMM;3301;A;Communication & Soc. Mktg.;LEC;T;1805;2055;115
+COMM;3108;A;Media Industries and Institution;LEC;T;1135;1425;96
+COMM;3301;A;Communication and Soc. Mktg.;LEC;T;1805;2055;115
 COMM;3303;A;Rhetoric;LEC;W;1435;1725;69
 COMM;3308;A;Advertising: Crit. Perspective;LEC;R;1135;1425;120
 COMM;3309;A;Topic: Image Pol. Persuasion;LEC;T;835;1125;55
 COMM;3401;A;Communication Reg. in Canada;LEC;W;835;1125;54
-COMM;3403;A;Communcation Tech & Culture;LEC;R;835;1125;55
+COMM;3403;A;Communcation Tech and Culture;LEC;R;835;1125;55
 COMM;3409;B;Media Indstries Institutions;LEC;M;1805;2055;58
 COMM;3602;A;Media and Race;LEC;W;1435;1725;55
 COMM;3999;A;Co-op Work Term;WRK;;;;
@@ -983,18 +983,18 @@ COMM;4025;B;Selected Topic in Comm Studies;SEM;W;1805;2055;31
 COMM;4035;A;Selected Topic in Comm Studies;SEM;W;1135;1425;40
 COMM;4304;A;Critic Perspec Public Relation;LEC;F;835;1125;39
 COMM;4306;A;Media and Conflict;LEC;;;;
-COMM;4309;A;Selct Tpcs:ImgePltcs&Persuasn;LEC;M;1135;1425;42
-COMM;4310;A;Communication & Community;LEC;T;1805;2055;27
+COMM;4309;A;Selct Tpcs:ImgePltcsandPersuasn;LEC;M;1135;1425;42
+COMM;4310;A;Communication and Community;LEC;T;1805;2055;27
 COMM;4402;A;Media and Entertainment;LEC;F;835;1125;42
 COMM;4403;A;Political Economy of Media;LEC;M;1435;1725;30
 COMM;4404;A;Broadcast and Digital Media;LEC;M;1135;1425;31
-COMM;4409;A;Selct Tpcs MediaIndust&Instit;LEC;R;1805;2055;31
-COMM;4429;A;Selct Tpcs MediaIndust&Instit;LEC;T;1805;2055;27
-COMM;4439;A;Selct Tpcs Mediandust&Instit;LEC;R;1135;1425;27
+COMM;4409;A;Selct Tpcs MediaIndustandInstit;LEC;R;1805;2055;31
+COMM;4429;A;Selct Tpcs MediaIndustandInstit;LEC;T;1805;2055;27
+COMM;4439;A;Selct Tpcs MediandustandInstit;LEC;R;1135;1425;27
 COMM;4601;A;Nation and Nationalism;LEC;R;1805;2055;27
 COMM;4602;A;Children Youth and Media;LEC;F;835;1125;40
 COMM;4603;A;Diaspora and Communication;LEC;R;835;1125;28
-COMM;4609;B;Selct Tpcs: Comm & Identity;LEC;R;1135;1425;40
+COMM;4609;B;Selct Tpcs: Comm and Identity;LEC;R;1135;1425;40
 COMP;1001;A;Intro to Computers for Arts;LEC;TR;1305;1425;285
 COMP;1005;A;Introduc to Computer Science I;LEC;TR;1305;1425;444
 COMP;1005;A1;Introduc to Computer Science I;TUT;M;1005;1125;78
@@ -1043,7 +1043,7 @@ COMP;3007;A;Programming Paradigms;LEC;WF;1305;1425;98
 COMP;3203;A;Principles of Computer Network;LEC;MW;1005;1125;78
 COMP;3501;A;Foundations of Game Program;LEC;TR;1305;1425;42
 COMP;3601;A;Social Networking;LAB;TR;1535;1725;50
-COMP;3804;A;Design & Analy of Algorithms I;LEC;MW;1135;1255;78
+COMP;3804;A;Design and Analy of Algorithms I;LEC;MW;1135;1255;78
 COMP;3806;A;Numerical Analysis;LEC;TR;1135;1255;63
 COMP;3806;A1;Numerical Analysis;LAB;T;1035;1125;20
 COMP;3806;A2;Numerical Analysis;LAB;F;1035;1125;20
@@ -1052,8 +1052,8 @@ COMP;4001;A;Distributed Computing;LEC;R;1435;1725;55
 COMP;4002;A;Real-Time 3D Game Engines;LEC;WF;835;955;47
 COMP;4004;A;Software Quality Assurance;LEC;MW;1005;1125;52
 COMP;4009;A;Paralel Prog Cluster Core Proc;LEC;MW;1435;1555;40
-COMP;4104;A;Princip&Pract Distrib Programm;LEC;;;;
-COMP;4107;A;Evol Comp & Artif Life;LEC;WF;1305;1425;50
+COMP;4104;A;PrincipandPract Distrib Programm;LEC;;;;
+COMP;4107;A;Evol Comp and Artif Life;LEC;WF;1305;1425;50
 COMP;4109;A;Applied Cryptography;LEC;MW;1135;1255;54
 COMP;4900;A;Adv Topics in Computer Science;LEC;TR;1305;1425;35
 COMP;4900;B;Adv Topics in Computer Science;LEC;TR;1005;1125;54
@@ -1064,9 +1064,9 @@ COOP;1000;C;Co-op;OTH;;;;
 COOP;1000;D;Co-op;OTH;;;;
 COOP;1000;E;Co-op;OTH;;;;
 COOP;1000;F;Co-op;OTH;;;;
-CRCJ;1000;A;Intro Criminol&Criminal Justic;LEC;F;835;1125;285
-CRCJ;1000;C;Intro Criminol&Criminal Justic;LEC;M;835;1125;391
-CRCJ;1000;PA1;Intro Criminol&Criminal Justic;PAS;MWF;1235;1325;16
+CRCJ;1000;A;Intro CriminolandCriminal Justic;LEC;F;835;1125;285
+CRCJ;1000;C;Intro CriminolandCriminal Justic;LEC;M;835;1125;391
+CRCJ;1000;PA1;Intro CriminolandCriminal Justic;PAS;MWF;1235;1325;16
 CRCJ;3001;A;Quantitative Methods in Crimin;SEM;R;1135;1425;69
 CRCJ;3002;A;Qualitive Methods in Crim.;SEM;F;1435;1725;69
 CRCJ;3003;A;Legal Research Methods;SEM;M;1435;1725;78
@@ -1141,16 +1141,16 @@ ECON;2009;B;Managerial Economics;LEC;T;1805;2055;98
 ECON;2009;B01;Managerial Economics;TUT;T;1605;1725;96
 ECON;2009;C;Managerial Economics;LEC;R;1805;2055;94
 ECON;2009;C01;Managerial Economics;TUT;R;1605;1725;94
-ECON;2020;A;Interm Micrecon I:Prod&Market;LEC;MW;1305;1425;91
-ECON;2020;A01;Interm Micrecon I:Prod&Market;TUT;W;1435;1555;91
-ECON;2020;B;Interm Micrecon I:Prod&Market;LEC;M;1805;2055;98
-ECON;2020;B01;Interm Micrecon I:Prod&Market;TUT;M;1605;1725;96
-ECON;2020;C;Interm Micrecon I:Prod&Market;LEC;TR;1605;1725;42
-ECON;2020;C01;Interm Micrecon I:Prod&Market;TUT;R;1435;1555;94
-ECON;2020;D;Interm Micrecon I:Prod&Market;LEC;TR;1435;1555;55
-ECON;2020;D01;Interm Micrecon I:Prod&Market;TUT;R;1605;1725;56
-ECON;2030;E;Interm MicreconII:Consum&Equil;LEC;M;835;1125;91
-ECON;2030;E01;Interm MicreconII:Consum&Equil;TUT;W;835;955;98
+ECON;2020;A;Interm Micrecon I:ProdandMarket;LEC;MW;1305;1425;91
+ECON;2020;A01;Interm Micrecon I:ProdandMarket;TUT;W;1435;1555;91
+ECON;2020;B;Interm Micrecon I:ProdandMarket;LEC;M;1805;2055;98
+ECON;2020;B01;Interm Micrecon I:ProdandMarket;TUT;M;1605;1725;96
+ECON;2020;C;Interm Micrecon I:ProdandMarket;LEC;TR;1605;1725;42
+ECON;2020;C01;Interm Micrecon I:ProdandMarket;TUT;R;1435;1555;94
+ECON;2020;D;Interm Micrecon I:ProdandMarket;LEC;TR;1435;1555;55
+ECON;2020;D01;Interm Micrecon I:ProdandMarket;TUT;R;1605;1725;56
+ECON;2030;E;Interm MicreconII:ConsumandEquil;LEC;M;835;1125;91
+ECON;2030;E01;Interm MicreconII:ConsumandEquil;TUT;W;835;955;98
 ECON;2101;A;Interme Macroecon Non-Math Maj;LEC;M;1135;1425;58
 ECON;2102;A;Intermediate Macroeconomics I;LEC;TR;835;955;96
 ECON;2102;A01;Intermediate Macroeconomics I;TUT;R;1005;1125;79
@@ -1160,14 +1160,14 @@ ECON;2102;C;Intermediate Macroeconomics I;LEC;W;1805;2055;91
 ECON;2102;C01;Intermediate Macroeconomics I;TUT;W;1605;1725;91
 ECON;2103;E;Intermediate Macroeconomics II;LEC;MW;1605;1725;78
 ECON;2103;E01;Intermediate Macroeconomics II;TUT;M;1435;1555;69
-ECON;2201;A;Stat Methods in Econ & Busi I;LEC;TR;1605;1725;91
-ECON;2201;A01;Stat Methods in Econ & Busi I;GRP;R;1435;1555;91
-ECON;2201;B;Stat Methods in Econ & Busi I;LEC;TR;1005;1125;91
-ECON;2201;B01;Stat Methods in Econ & Busi I;GRP;T;1135;1255;84
-ECON;2201;C;Stat Methods in Econ & Busi I;LEC;T;1805;2055;98
-ECON;2201;C01;Stat Methods in Econ & Busi I;GRP;T;1635;1755;115
-ECON;2202;E;Stat Methods in Econ & Busi II;LEC;TR;1305;1425;96
-ECON;2202;E01;Stat Methods in Econ & Busi II;GRP;T;1435;1555;91
+ECON;2201;A;Stat Methods in Econ and Busi I;LEC;TR;1605;1725;91
+ECON;2201;A01;Stat Methods in Econ and Busi I;GRP;R;1435;1555;91
+ECON;2201;B;Stat Methods in Econ and Busi I;LEC;TR;1005;1125;91
+ECON;2201;B01;Stat Methods in Econ and Busi I;GRP;T;1135;1255;84
+ECON;2201;C;Stat Methods in Econ and Busi I;LEC;T;1805;2055;98
+ECON;2201;C01;Stat Methods in Econ and Busi I;GRP;T;1635;1755;115
+ECON;2202;E;Stat Methods in Econ and Busi II;LEC;TR;1305;1425;96
+ECON;2202;E01;Stat Methods in Econ and Busi II;GRP;T;1435;1555;91
 ECON;2400;C;Mathematical Methods of Econ;LEC;WF;1005;1125;98
 ECON;2400;C01;Mathematical Methods of Econ;GRP;F;1135;1255;98
 ECON;2400;D;Mathematical Methods of Econ;LEC;W;1805;2055;94
@@ -1177,7 +1177,7 @@ ECON;3300;A;Public Policy Toward Business;LEC;T;1805;2055;71
 ECON;3405;A;Intro Public Economic:Taxation;LEC;M;1135;1425;58
 ECON;3508;A;Intro to Economic Development;LEC;F;1135;1425;78
 ECON;3601;A;Introduction to Intl Trade;LEC;F;835;1125;96
-ECON;3607;A;Monetary & Finl Institutions;LEC;R;1805;2055;78
+ECON;3607;A;Monetary and Finl Institutions;LEC;R;1805;2055;78
 ECON;3804;A;Environmental Economics;LEC;R;835;1125;71
 ECON;3807;A;European Econ Integration;LEC;T;1135;1425;66
 ECON;3820;A;Topics in Cdn Economic Policy;LEC;W;1805;2055;78
@@ -1189,10 +1189,10 @@ ECON;4020;A;Advanced Microeconomic Theory;LEC;R;1135;1425;71
 ECON;4020;A01;Advanced Microeconomic Theory;TUT;T;1135;1255;71
 ECON;4021;A;Advanced Macroeconomic Theory;LEC;MW;835;955;71
 ECON;4021;A01;Advanced Macroeconomic Theory;TUT;M;1005;1125;71
-ECON;4301;A;Market Structure & Firm Behav.;LEC;T;1435;1725;35
+ECON;4301;A;Market Structure and Firm Behav.;LEC;T;1435;1725;35
 ECON;4360;A;Labour Economics;LEC;W;1435;1725;61
 ECON;4460;A;Health Economics;LEC;M;1805;2055;61
-ECON;4602;A;Intl Monetary Theory & Policy;LEC;T;835;1125;61
+ECON;4602;A;Intl Monetary Theory and Policy;LEC;T;835;1125;61
 ECON;4706;A;Econometrics I;LEC;F;1135;1425;71
 ECON;4706;A01;Econometrics I;TUT;R;835;955;66
 ECON;4706;B;Econometrics I;LEC;R;1435;1725;71
@@ -1325,9 +1325,9 @@ ELEC;3909;L1O;Electromagnetic Waves;LAB;W;1735;2025;51
 ELEC;3999;A;Co-op Work Term;WRK;;;;
 ELEC;4502;A;Microwave Circuits;LEC;MW;1605;1725;40
 ELEC;4502;A1O;Microwave Circuits;LAB;F;1135;1425;30
-ELEC;4503;A;Radio Frequency Line & Antenna;LEC;TR;1435;1555;40
-ELEC;4503;A1E;Radio Frequency Line & Antenna;LAB;T;835;1125;30
-ELEC;4503;A2O;Radio Frequency Line & Antenna;LAB;T;835;1125;30
+ELEC;4503;A;Radio Frequency Line and Antenna;LEC;TR;1435;1555;40
+ELEC;4503;A1E;Radio Frequency Line and Antenna;LAB;T;835;1125;30
+ELEC;4503;A2O;Radio Frequency Line and Antenna;LAB;T;835;1125;30
 ELEC;4505;A;Telecommunication Circuits;LEC;T;1135;1425;58
 ELEC;4505;A1O;Telecommunication Circuits;LAB;M;835;1125;28
 ELEC;4505;A2O;Telecommunication Circuits;LAB;R;835;1125;28
@@ -1343,9 +1343,9 @@ ELEC;4601;A4E;Microprocessor Systems;LAB;M;835;1125;28
 ELEC;4601;A5E;Microprocessor Systems;LAB;M;1435;1725;28
 ELEC;4602;A;Electrical Power Engineering;LEC;MW;1435;1555;102
 ELEC;4602;A1;Electrical Power Engineering;LAB;M;1135;1325;71
-ELEC;4704;A;Nanoscale Technology & Devices;LEC;MW;1135;1255;36
-ELEC;4704;A1;Nanoscale Technology & Devices;PAN;W;1305;1425;30
-ELEC;4705;A;Elec Mat Dev & Trans Media;LEC;MW;1305;1425;78
+ELEC;4704;A;Nanoscale Technology and Devices;LEC;MW;1135;1255;36
+ELEC;4704;A1;Nanoscale Technology and Devices;PAN;W;1305;1425;30
+ELEC;4705;A;Elec Mat Dev and Trans Media;LEC;MW;1305;1425;78
 ELEC;4708;A;Adv Digital Integr Circuit;LEC;WF;1605;1725;29
 ELEC;4708;A1O;Adv Digital Integr Circuit;LAB;M;1135;1425;30
 ELEC;4708;A2O;Adv Digital Integr Circuit;LAB;R;835;1125;30
@@ -1379,7 +1379,7 @@ ENGL;2300;A;British Literatures I;LEC;TR;1005;1125;78
 ENGL;2300;B;British Literatures I;LEC;R;1805;2055;78
 ENGL;2300;C;British Literatures I;LEC;MW;1135;1255;55
 ENGL;2300;D;British Literatures I;LEC;TR;1135;1255;55
-ENGL;2605;A;Greek & Roman Drama;LEC;TR;1005;1125;98
+ENGL;2605;A;Greek and Roman Drama;LEC;TR;1005;1125;98
 ENGL;2607;A;World Drama;LEC;MW;835;955;55
 ENGL;2608;A;History of World Cinema;FLM;M;1135;1425;75
 ENGL;2608;A01;History of World Cinema;GRP;W;935;1025;27
@@ -1405,12 +1405,12 @@ ENGL;3553;A;The 19th-Century Novel;LEC;TR;1305;1425;55
 ENGL;3603;A;20th-Century Fiction;LEC;T;1805;2055;55
 ENGL;3605;A;Modern/Contemp Literary Theory;LEC;TR;1305;1425;47
 ENGL;3607;A;Drama Before 1900;LEC;;;;
-ENGL;3804;A;Literature & Culture in Europe;LEC;M;1135;1425;36
+ENGL;3804;A;Literature and Culture in Europe;LEC;M;1135;1425;36
 ENGL;3915;A;Special Topics in Writing;WKS;F;1135;1425;25
 ENGL;3960;A;Studies in Indigenous Lit.;LEC;M;1805;2055;78
 ENGL;3972;A;Studies in Postcolonial Lit;LEC;;;;
 ENGL;3999;A;Co-operative Work Term;WRK;;;;
-ENGL;4115;A;Culture & the Text I;SEM;T;1435;1725;23
+ENGL;4115;A;Culture and the Text I;SEM;T;1435;1725;23
 ENGL;4135;A;Studies in Publishing;SEM;M;1805;2055;19
 ENGL;4301;A;Studies in Renaissance Lit;SEM;F;835;1125;42
 ENGL;4304;A;Renaissance Drama;LEC;W;835;1125;56
@@ -1420,8 +1420,8 @@ ENGL;4709;A;Studies in American Lit II;LEC;M;835;1125;35
 ENGL;4806;A;Studies in Canadian Lit. I;SEM;R;1805;2055;21
 ENSC;1500;A;Environmental Science Seminar;LEC;TR;835;1025;57
 ENSC;2000;A;Environ Science Field Camp;FIE;;;;
-ENSC;2001;A;Earth Rsrcs&Natur Haz.Env Impc;LEC;M;1435;1725;96
-ENSC;3000;A;EnviroSci&Mngmnt:Theory&Practi;FIE;F;835;1625;58
+ENSC;2001;A;Earth RsrcsandNatur Haz.Env Impc;LEC;M;1435;1725;96
+ENSC;3000;A;EnviroSciandMngmnt:TheoryandPracti;FIE;F;835;1625;58
 ENSC;3509;A;Group Research Project;LEC;R;1435;1725;29
 ENSC;3509;A1;Group Research Project;WKS;M;1435;1525;25
 ENSC;3999;A;Co-op Work Term;WRK;;;;
@@ -1432,16 +1432,16 @@ ENST;1001;A01;Intro. Environmental Studies;TUT;F;935;1125;25
 ENST;1001;A02;Intro. Environmental Studies;TUT;W;835;1025;25
 ENST;1001;A03;Intro. Environmental Studies;TUT;W;1535;1725;55
 ENST;1001;A04;Intro. Environmental Studies;TUT;W;1435;1625;31
-ENST;1020;A;People Places & Environments;LEC;F;1135;1325;285
-ENST;1020;A01;People Places & Environments;TUT;M;935;1025;33
-ENST;1020;A02;People Places & Environments;TUT;F;1335;1425;33
-ENST;1020;A03;People Places & Environments;TUT;F;1535;1625;33
-ENST;1020;A04;People Places & Environments;TUT;M;1805;1855;33
-ENST;1020;A05;People Places & Environments;TUT;M;1905;1955;33
-ENST;1020;A06;People Places & Environments;TUT;F;1435;1525;33
-ENST;1020;A07;People Places & Environments;TUT;M;1335;1425;33
-ENST;1020;A08;People Places & Environments;TUT;M;1035;1125;33
-ENST;1020;A09;People Places & Environments;TUT;F;1635;1725;33
+ENST;1020;A;People Places and Environments;LEC;F;1135;1325;285
+ENST;1020;A01;People Places and Environments;TUT;M;935;1025;33
+ENST;1020;A02;People Places and Environments;TUT;F;1335;1425;33
+ENST;1020;A03;People Places and Environments;TUT;F;1535;1625;33
+ENST;1020;A04;People Places and Environments;TUT;M;1805;1855;33
+ENST;1020;A05;People Places and Environments;TUT;M;1905;1955;33
+ENST;1020;A06;People Places and Environments;TUT;F;1435;1525;33
+ENST;1020;A07;People Places and Environments;TUT;M;1335;1425;33
+ENST;1020;A08;People Places and Environments;TUT;M;1035;1125;33
+ENST;1020;A09;People Places and Environments;TUT;F;1635;1725;33
 ENST;2000;A;Nature/Environment/Society;LEC;MW;835;955;78
 ENST;2005;A;Intro Qualitative Research;LEC;F;1135;1325;94
 ENST;2005;A1;Intro Qualitative Research;WKS;M;1135;1325;33
@@ -1452,7 +1452,7 @@ ENST;2005;A3;Intro Qualitative Research;WKS;T;1135;1325;33
 ENST;2005;A3A;Intro Qualitative Research;WKS;T;1135;1325;26
 ENST;2005;A4;Intro Qualitative Research;WKS;T;835;1025;33
 ENST;2005;A4A;Intro Qualitative Research;WKS;T;835;1025;26
-ENST;3022;A;Environmental & Nat. Resources;LEC;T;1435;1725;79
+ENST;3022;A;Environmental and Nat. Resources;LEC;T;1435;1725;79
 ENST;3900;A;Intensive Field Course;FIE;M;1435;1725;29
 ENST;3900;A1A;Intensive Field Course;FIE;W;1135;1425;32
 ENST;4000;A;Seminar;SEM;M;835;1125;29
@@ -1469,19 +1469,19 @@ ENVE;3002;ATU;Systems Modelling;TUT;T;1335;1425;71
 ENVE;3003;A;Water Resource Engineering;LEC;M;1805;2055;67
 ENVE;3003;A1;Water Resource Engineering;TUT;F;1335;1425;154
 ENVE;3999;A;Co-op Work Term;WRK;;;;
-ENVE;4003;A;Air Pollut & Emissions Control;LEC;TR;1135;1255;98
-ENVE;4003;B;Air Pollut & Emissions Control;LEC;TR;1135;1255;98
-ENVE;4003;L1O;Air Pollut & Emissions Control;LAB;M;1435;1725;61
-ENVE;4003;L2E;Air Pollut & Emissions Control;LAB;M;1435;1725;61
-ENVE;4003;L3O;Air Pollut & Emissions Control;LAB;W;1135;1425;71
-ENVE;4003;L4E;Air Pollut & Emissions Control;LAB;W;1135;1425;71
-ENVE;4003;LTU;Air Pollut & Emissions Control;TUT;M;1335;1425;120
+ENVE;4003;A;Air Pollut and Emissions Control;LEC;TR;1135;1255;98
+ENVE;4003;B;Air Pollut and Emissions Control;LEC;TR;1135;1255;98
+ENVE;4003;L1O;Air Pollut and Emissions Control;LAB;M;1435;1725;61
+ENVE;4003;L2E;Air Pollut and Emissions Control;LAB;M;1435;1725;61
+ENVE;4003;L3O;Air Pollut and Emissions Control;LAB;W;1135;1425;71
+ENVE;4003;L4E;Air Pollut and Emissions Control;LAB;W;1135;1425;71
+ENVE;4003;LTU;Air Pollut and Emissions Control;TUT;M;1335;1425;120
 ENVE;4005;A;Unit Processes;LEC;WF;1605;1725;51
 ENVE;4005;A1O;Unit Processes;LAB;T;1435;1725;20
 ENVE;4005;A2E;Unit Processes;LAB;T;1435;1725;20
 ENVE;4005;ATU;Unit Processes;TUT;M;1135;1225;54
-ENVE;4006;A;Hydrogeol & Groundwater Flow;LEC;R;1435;1725;54
-ENVE;4006;A1O;Hydrogeol & Groundwater Flow;LAB;W;835;1125;58
+ENVE;4006;A;Hydrogeol and Groundwater Flow;LEC;R;1435;1725;54
+ENVE;4006;A1O;Hydrogeol and Groundwater Flow;LAB;W;835;1125;58
 ENVE;4101;A;Waste Management;LEC;TR;1305;1425;43
 ENVE;4101;A1;Waste Management;TUT;R;1035;1125;57
 ENVE;4106;A;Indoor Environmental Quality;LEC;T;835;1125;42
@@ -1518,16 +1518,16 @@ ERTH;2415;A;Natural Disasters;LEC;;;;
 ERTH;2415;AOD;Natural Disasters;VOD;;;;
 ERTH;2415;T;Natural Disasters;LEC;;;;
 ERTH;2415;TOD;Natural Disasters;VOD;;;;
-ERTH;3003;A;Geochemistry & Geochronology;LEC;M;1535;1725;48
-ERTH;3003;A01;Geochemistry & Geochronology;LAB;F;1435;1725;48
-ERTH;3111;A;Mammalian Paleo. & Evolution;LEC;;;;
-ERTH;3111;A01;Mammalian Paleo. & Evolution;LAB;;;;
+ERTH;3003;A;Geochemistry and Geochronology;LEC;M;1535;1725;48
+ERTH;3003;A01;Geochemistry and Geochronology;LAB;F;1435;1725;48
+ERTH;3111;A;Mammalian Paleo. and Evolution;LEC;;;;
+ERTH;3111;A01;Mammalian Paleo. and Evolution;LAB;;;;
 ERTH;3203;A;Applied Sedimentology;FIE;;;;
-ERTH;3206;A;Oceanography:Modern&Geol Recor;LEC;MW;835;955;48
-ERTH;3206;A01;Oceanography:Modern&Geol Recor;LAB;R;1435;1725;48
-ERTH;3207;A;Metamorphic Petrology&Proces;LEC;T;1135;1325;48
-ERTH;3207;A01;Metamorphic Petrology&Proces;LAB;T;1435;1725;24
-ERTH;3207;A02;Metamorphic Petrology&Proces;LAB;T;835;1125;24
+ERTH;3206;A;Oceanography:ModernandGeol Recor;LEC;MW;835;955;48
+ERTH;3206;A01;Oceanography:ModernandGeol Recor;LAB;R;1435;1725;48
+ERTH;3207;A;Metamorphic PetrologyandProces;LEC;T;1135;1325;48
+ERTH;3207;A01;Metamorphic PetrologyandProces;LAB;T;1435;1725;24
+ERTH;3207;A02;Metamorphic PetrologyandProces;LAB;T;835;1125;24
 ERTH;3405;A;Geophysical Methods;LEC;W;1135;1325;48
 ERTH;3405;A01;Geophysical Methods;LAB;F;835;1125;25
 ERTH;3405;A02;Geophysical Methods;LAB;W;1435;1725;26
@@ -1593,13 +1593,13 @@ ESPW;1000;W;ESP Workshop;WKS;W;1805;2055;35
 ESPW;1000;X;ESP Workshop;WKS;F;1135;1425;35
 ESPW;1000;Y;ESP Workshop;WKS;W;1135;1425;51
 ESPW;1000;ZZ;ESP Workshop;WKS;M;835;1125;42
-EURR;2001;A;Curr Issue Euro Politic&Societ;LEC;R;1335;1425;61
-EURR;2001;A;Curr Issue Euro Politic&Societ;LEC;W;1635;1825;61
-EURR;3001;A;Literature & Culture in Europe;LEC;M;1135;1425;36
+EURR;2001;A;Curr Issue Euro PoliticandSociet;LEC;R;1335;1425;61
+EURR;2001;A;Curr Issue Euro PoliticandSociet;LEC;W;1635;1825;61
+EURR;3001;A;Literature and Culture in Europe;LEC;M;1135;1425;36
 EURR;3999;A;Co-operative Work Term;WRK;;;;
 EURR;4101;A;Balkans Transition 1918 to19;SEM;M;1805;2055;15
 EURR;4106;A;Sel Top Euro Integration Stud;SEM;;;;
-EURR;4202;A;Spec Top in Russian & Eurasian;SEM;;;;
+EURR;4202;A;Spec Top in Russian and Eurasian;SEM;;;;
 EURR;4203;A;Imperial and Soviet Russia;SEM;R;835;1125;57
 FILM;1000;A;Introduction to Film Studies;FLM;R;1805;2055;387
 FILM;1000;A01;Introduction to Film Studies;GRP;M;1805;1855;35
@@ -1628,8 +1628,8 @@ FILM;1000;B10;Introduction to Film Studies;GRP;R;1905;1955;52
 FILM;1000;B11;Introduction to Film Studies;GRP;W;1335;1425;32
 FILM;1000;B12;Introduction to Film Studies;GRP;R;1335;1425;27
 FILM;1000;PA1;Introduction to Film Studies;PAS;;;;
-FILM;2000;A;Intro Film Theory & Analysis;SEM;R;1435;1525;75
-FILM;2000;AF;Intro Film Theory & Analysis;FLM;W;1135;1425;75
+FILM;2000;A;Intro Film Theory and Analysis;SEM;R;1435;1525;75
+FILM;2000;AF;Intro Film Theory and Analysis;FLM;W;1135;1425;75
 FILM;2106;A;The Documentary;LEC;W;1535;1625;75
 FILM;2106;AF;The Documentary;FLM;M;1435;1725;75
 FILM;2201;A;National Cinema;LEC;F;835;925;52
@@ -1645,16 +1645,16 @@ FILM;2608;A01;History of World Cinema;GRP;W;935;1025;27
 FILM;2608;A02;History of World Cinema;GRP;T;935;1025;27
 FILM;2608;A03;History of World Cinema;GRP;T;1035;1125;52
 FILM;2608;A04;History of World Cinema;GRP;T;835;925;27
-FILM;3505;A;Asp of Film History & Theory;FLM;W;1435;1725;52
-FILM;3505;A1;Asp of Film History & Theory;GRP;R;1435;1525;40
+FILM;3505;A;Asp of Film History and Theory;FLM;W;1435;1725;52
+FILM;3505;A1;Asp of Film History and Theory;GRP;R;1435;1525;40
 FILM;3608;A;Topics in Film History;LEC;T;1435;1525;27
 FILM;3608;AF;Topics in Film History;FLM;M;1435;1725;40
 FILM;3701;A;Animation/Experimental;LEC;W;1035;1125;40
 FILM;3701;AF;Animation/Experimental;FLM;T;1135;1425;40
 FILM;3808;A;Cinema and Technology;FLM;M;835;1125;52
 FILM;3808;AF;Cinema and Technology;LEC;;;;
-FILM;4001;A;Research&Critical Methodologie;LEC;F;1135;1325;52
-FILM;4001;AF;Research&Critical Methodologie;FLM;R;1135;1425;27
+FILM;4001;A;ResearchandCritical Methodologie;LEC;F;1135;1325;52
+FILM;4001;AF;ResearchandCritical Methodologie;FLM;R;1135;1425;27
 FILM;4501;A;Topics in Film Theory;SEM;W;1535;1725;32
 FILM;4501;AF;Topics in Film Theory;FLM;M;1435;1725;32
 FILM;4805;A;Practicum in Film Studies;PRC;;;;
@@ -1744,11 +1744,11 @@ FYSM;1004;E;Literature Genre Context;SEM;MW;1005;1125;47
 FYSM;1100;A;Sustainable Environments;SEM;R;835;1125;35
 FYSM;1100;B;Sustainable Environments;SEM;W;1135;1425;40
 FYSM;1101;A;Location is Everything;SEM;WF;1005;1125;42
-FYSM;1104;A;Human Rights: Iss & Invest;SEM;WF;835;955;42
+FYSM;1104;A;Human Rights: Iss and Invest;SEM;WF;835;955;42
 FYSM;1106;A;Issues in Classics;SEM;TR;835;955;29
 FYSM;1106;B;Issues in Classics;SEM;T;1805;2055;29
 FYSM;1208;A;Looking at Philosophy;SEM;TR;1605;1725;31
-FYSM;1209;A;Cont Moral Soc & Rel Issues;SEM;TR;1305;1425;57
+FYSM;1209;A;Cont Moral Soc and Rel Issues;SEM;TR;1305;1425;57
 FYSM;1217;A;Selected Topics in Comm Studie;SEM;F;835;1125;40
 FYSM;1306;A;Diversity in Psych World Views;SEM;TR;1305;1425;36
 FYSM;1306;B;Diversity in Psych World Views;SEM;TR;1605;1725;36
@@ -1758,7 +1758,7 @@ FYSM;1310;C;Sel. Topics in Psychology;SEM;TR;1805;1925;29
 FYSM;1310;D;Sel. Topics in Psychology;SEM;WF;1135;1255;40
 FYSM;1310;E;Sel. Topics in Psychology;SEM;MW;1435;1555;35
 FYSM;1400;A;Cognition;SEM;MW;1005;1125;96
-FYSM;1402;A;Issues in Women&Gend Studies;SEM;TR;1305;1425;35
+FYSM;1402;A;Issues in WomenandGend Studies;SEM;TR;1305;1425;35
 FYSM;1405;A;Turning Points in History;SEM;TR;1005;1125;40
 FYSM;1405;B;Turning Points in History;SEM;WF;835;955;42
 FYSM;1405;C;Turning Points in History;SEM;TR;1605;1725;47
@@ -1769,11 +1769,11 @@ FYSM;1409;A;Social Change in Canada;SEM;MW;1605;1725;29
 FYSM;1502;B;Topics in Legal Studies;SEM;TR;1005;1125;42
 FYSM;1502;D;Topics in Legal Studies;SEM;TR;1435;1555;40
 FYSM;1506;B;Top. in the Study of Societies;SEM;R;1135;1425;47
-FYSM;1508;A;Stress Coping & Well-Being;SEM;MW;835;955;42
-FYSM;1508;B;Stress Coping & Well-Being;SEM;WF;1005;1125;29
+FYSM;1508;A;Stress Coping and Well-Being;SEM;MW;835;955;42
+FYSM;1508;B;Stress Coping and Well-Being;SEM;WF;1005;1125;29
 FYSM;1509;A;Spec Studies in Art Hist Film;SEM;W;1435;1725;40
 FYSM;1600;A;Contemp Controver in Cdn Soc;SEM;;;;
-FYSM;1601;A;Lit & Pol Change in Europe;SEM;;;;
+FYSM;1601;A;Lit and Pol Change in Europe;SEM;;;;
 FYSM;1607;A;Thinking and Knowing;SEM;WF;835;955;36
 FYSM;1607;B;Thinking and Knowing;SEM;MW;1605;1725;48
 FYSM;1607;C;Thinking and Knowing;SEM;MW;1005;1125;35
@@ -1802,17 +1802,17 @@ GEOG;1010;A07;Global Environmental Systems;LAB;M;1135;1325;25
 GEOG;1010;A08;Global Environmental Systems;LAB;R;1435;1625;25
 GEOG;1010;A09;Global Environmental Systems;LAB;R;1135;1325;25
 GEOG;1010;PA1;Global Environmental Systems;PAS;TR;1305;1425;9
-GEOG;1020;A;People Places & Environments;LEC;F;1135;1325;285
-GEOG;1020;A01;People Places & Environments;TUT;M;935;1025;33
-GEOG;1020;A02;People Places & Environments;TUT;F;1335;1425;33
-GEOG;1020;A03;People Places & Environments;TUT;F;1535;1625;33
-GEOG;1020;A04;People Places & Environments;TUT;M;1805;1855;33
-GEOG;1020;A05;People Places & Environments;TUT;M;1905;1955;33
-GEOG;1020;A06;People Places & Environments;TUT;F;1435;1525;33
-GEOG;1020;A07;People Places & Environments;TUT;M;1335;1425;33
-GEOG;1020;A08;People Places & Environments;TUT;M;1035;1125;33
-GEOG;1020;A09;People Places & Environments;TUT;F;1635;1725;33
-GEOG;1020;PA1;People Places & Environments;PAS;;;;
+GEOG;1020;A;People Places and Environments;LEC;F;1135;1325;285
+GEOG;1020;A01;People Places and Environments;TUT;M;935;1025;33
+GEOG;1020;A02;People Places and Environments;TUT;F;1335;1425;33
+GEOG;1020;A03;People Places and Environments;TUT;F;1535;1625;33
+GEOG;1020;A04;People Places and Environments;TUT;M;1805;1855;33
+GEOG;1020;A05;People Places and Environments;TUT;M;1905;1955;33
+GEOG;1020;A06;People Places and Environments;TUT;F;1435;1525;33
+GEOG;1020;A07;People Places and Environments;TUT;M;1335;1425;33
+GEOG;1020;A08;People Places and Environments;TUT;M;1035;1125;33
+GEOG;1020;A09;People Places and Environments;TUT;F;1635;1725;33
+GEOG;1020;PA1;People Places and Environments;PAS;;;;
 GEOG;2005;A;Geographic Inquiry;LEC;F;1135;1325;94
 GEOG;2005;A1;Geographic Inquiry;LAB;M;1135;1325;33
 GEOG;2005;A1A;Geographic Inquiry;LAB;M;1135;1325;26
@@ -1845,7 +1845,7 @@ GEOG;3000;A1A;Honours Field Course;FIE;W;1135;1425;32
 GEOG;3001;A;Doing Qualitative Research;LEC;M;1135;1425;29
 GEOG;3003;A;Quantitative Geography;LEC;;;;
 GEOG;3003;A1;Quantitative Geography;LAB;;;;
-GEOG;3022;A;Environmental & Natural Resour;LEC;T;1435;1725;79
+GEOG;3022;A;Environmental and Natural Resour;LEC;T;1435;1725;79
 GEOG;3023;A;Cities in a Global World;LEC;M;1805;2055;43
 GEOG;3104;A;Principles of Biogeography;LEC;TR;1135;1255;66
 GEOG;3104;A01;Principles of Biogeography;LAB;W;1135;1325;33
@@ -1860,28 +1860,28 @@ GEOG;3209;A;Sustainability in the South;LEC;R;1805;2055;47
 GEOG;3404;A;Geographies of Econ Dvlp;LEC;M;835;1125;51
 GEOG;4000;A;Field Studies;IND;;;;
 GEOG;4005;A;Directed Studies in Geography;IND;;;;
-GEOG;4021;A;Seminar in Culture Ident & Pl;SEM;W;835;1125;29
-GEOG;4022;A;People Resources & Environmen;SEM;T;1805;2055;29
+GEOG;4021;A;Seminar in Culture Ident and Pl;SEM;W;835;1125;29
+GEOG;4022;A;People Resources and Environmen;SEM;T;1805;2055;29
 GEOG;4101;A;Quaternary Geography;SEM;MW;1635;1755;19
 GEOG;4103;A;Water Resources Engineering;LEC;M;1805;2055;67
 GEOG;4103;A1;Water Resources Engineering;TUT;F;1335;1425;154
 GEOG;4108;A;Permafrost;LEC;M;1135;1425;29
 GEOG;4303;A;Urban Planning;LEC;TR;1135;1255;78
 GEOG;4303;A1O;Urban Planning;LAB;W;1135;1425;78
-GEOG;4304;A;Transport. Engin. & Planning;LEC;TR;1435;1555;285
-GEOG;4304;A1E;Transport. Engin. & Planning;LAB;R;835;1125;96
+GEOG;4304;A;Transport. Engin. and Planning;LEC;TR;1435;1555;285
+GEOG;4304;A1E;Transport. Engin. and Planning;LAB;R;835;1125;96
 GEOG;4406;A;Practicum I;TUT;;;;
 GEOG;4408;A;Practicum II;TUT;;;;
-GEOM;1004;A;Maps Satllits& Geospatial Rev;LEC;M;1135;1325;115
-GEOM;1004;A1;Maps Satllits& Geospatial Rev;LAB;F;935;1125;32
-GEOM;1004;A2;Maps Satllits& Geospatial Rev;LAB;W;935;1125;32
-GEOM;1004;A3;Maps Satllits& Geospatial Rev;LAB;M;1535;1725;32
+GEOM;1004;A;Maps Satllitsand Geospatial Rev;LEC;M;1135;1325;115
+GEOM;1004;A1;Maps Satllitsand Geospatial Rev;LAB;F;935;1125;32
+GEOM;1004;A2;Maps Satllitsand Geospatial Rev;LAB;W;935;1125;32
+GEOM;1004;A3;Maps Satllitsand Geospatial Rev;LAB;M;1535;1725;32
 GEOM;2007;A;Geographic Information Systems;LEC;T;835;1125;32
-GEOM;3002;A;Air Photo Interpret. & Remote;LEC;F;935;1125;55
-GEOM;3002;A1;Air Photo Interpret. & Remote;LAB;F;1135;1325;22
-GEOM;3002;A1A;Air Photo Interpret. & Remote;LAB;F;1135;1325;30
-GEOM;3002;A2;Air Photo Interpret. & Remote;LAB;F;1335;1525;22
-GEOM;3002;A2A;Air Photo Interpret. & Remote;LAB;F;1335;1525;30
+GEOM;3002;A;Air Photo Interpret. and Remote;LEC;F;935;1125;55
+GEOM;3002;A1;Air Photo Interpret. and Remote;LAB;F;1135;1325;22
+GEOM;3002;A1A;Air Photo Interpret. and Remote;LAB;F;1135;1325;30
+GEOM;3002;A2;Air Photo Interpret. and Remote;LAB;F;1335;1525;22
+GEOM;3002;A2A;Air Photo Interpret. and Remote;LAB;F;1335;1525;30
 GEOM;3005;A;Geospatial Analysis;WKS;R;835;1125;32
 GEOM;4005;A;Directed Studies in Geomatics;DIR;;;;
 GEOM;4008;A;Adv Top Geographic Info. Syst.;LEC;T;935;1125;22
@@ -1897,7 +1897,7 @@ GERM;2010;A;Second-Year German I;LEC;TR;1135;1325;58
 GERM;3110;A;Intensive Third-Year German;LEC;MWF;1435;1625;32
 GERM;4901;A;Independent Study;IND;;;;
 GPOL;1000;A;Global Politics;SEM;W;1135;1425;35
-GPOL;3000;A;Global & Comparative Politics;SEM;W;1135;1425;51
+GPOL;3000;A;Global and Comparative Politics;SEM;W;1135;1425;51
 GPOL;3100;A;Internship in Global Politics;OTH;;;;
 GREK;1005;A;Introduction to Greek I;LEC;WF;935;1125;57
 GREK;1005;B;Introduction to Greek I;LEC;TR;935;1125;32
@@ -1972,7 +1972,7 @@ HIST;1707;B08;World History;GRP;T;1335;1425;40
 HIST;1707;PA1;World History;PAS;MWF;1335;1425;32
 HIST;2001;A;Early Medieval Europe;LEC;M;1805;2055;195
 HIST;2005;A;England During the Middle Ages;LEC;;;;
-HIST;2103;A;Mdrn Thght & Cultr: 20th Cent;LEC;TR;1135;1255;78
+HIST;2103;A;Mdrn Thght and Cultr: 20th Cent;LEC;TR;1135;1255;78
 HIST;2303;A;Canadian Political History;LEC;R;1805;2055;96
 HIST;2308;A;Colonial Latin America;LEC;M;1135;1325;58
 HIST;2308;A01;Colonial Latin America;GRP;T;935;1025;28
@@ -1991,16 +1991,16 @@ HIST;2511;A02;20th Century Germany;GRP;W;935;1025;35
 HIST;2511;A03;20th Century Germany;GRP;W;1235;1325;40
 HIST;2511;A04;20th Century Germany;GRP;W;1035;1125;54
 HIST;2600;A;History of Russia;LEC;WF;1005;1125;98
-HIST;2706;A;Ancient & Pre-Colonial Africa;LEC;TR;1435;1555;78
-HIST;2706;A01;Ancient & Pre-Colonial Africa;GRP;;;;
-HIST;2706;A02;Ancient & Pre-Colonial Africa;GRP;;;;
-HIST;2706;A03;Ancient & Pre-Colonial Africa;GRP;;;;
-HIST;2706;A04;Ancient & Pre-Colonial Africa;GRP;;;;
-HIST;2802;A;War&Soc Mdrn Eurp 1789-1914;LEC;MW;1335;1425;96
-HIST;2802;A01;War&Soc Mdrn Eurp 1789-1914;GRP;R;1035;1125;35
-HIST;2802;A02;War&Soc Mdrn Eurp 1789-1914;GRP;R;835;925;39
-HIST;2802;A03;War&Soc Mdrn Eurp 1789-1914;GRP;;;;
-HIST;2802;A04;War&Soc Mdrn Eurp 1789-1914;GRP;;;;
+HIST;2706;A;Ancient and Pre-Colonial Africa;LEC;TR;1435;1555;78
+HIST;2706;A01;Ancient and Pre-Colonial Africa;GRP;;;;
+HIST;2706;A02;Ancient and Pre-Colonial Africa;GRP;;;;
+HIST;2706;A03;Ancient and Pre-Colonial Africa;GRP;;;;
+HIST;2706;A04;Ancient and Pre-Colonial Africa;GRP;;;;
+HIST;2802;A;WarandSoc Mdrn Eurp 1789-1914;LEC;MW;1335;1425;96
+HIST;2802;A01;WarandSoc Mdrn Eurp 1789-1914;GRP;R;1035;1125;35
+HIST;2802;A02;WarandSoc Mdrn Eurp 1789-1914;GRP;R;835;925;39
+HIST;2802;A03;WarandSoc Mdrn Eurp 1789-1914;GRP;;;;
+HIST;2802;A04;WarandSoc Mdrn Eurp 1789-1914;GRP;;;;
 HIST;2806;A;History of Japan;LEC;T;1805;2055;102
 HIST;2809;A;The Historians Craft;LEC;R;1435;1625;98
 HIST;2809;A01;The Historians Craft;GRP;F;1335;1425;28
@@ -2020,7 +2020,7 @@ HIST;2910;C01;Special Subject in History;GRP;R;1535;1625;47
 HIST;2910;C02;Special Subject in History;GRP;T;1535;1625;28
 HIST;2910;C03;Special Subject in History;GRP;;;;
 HIST;2910;C04;Special Subject in History;GRP;;;;
-HIST;3101;A;Roman History & Institutions;LEC;F;835;1125;58
+HIST;3101;A;Roman History and Institutions;LEC;F;835;1125;58
 HIST;3105;A;Renaissance Europe;LEC;MW;1605;1725;63
 HIST;3213;A;The Enlightenment;LEC;MW;1005;1125;66
 HIST;3216;A;The Scientific Revolution;LEC;MW;835;955;66
@@ -2050,13 +2050,13 @@ HIST;4006;A;Seminar in Medieval History;SEM;M;835;1125;28
 HIST;4100;A;Sem. in Early Modern European;SEM;;;;
 HIST;4200;A;Seminar in European History;SEM;M;1435;1725;15
 HIST;4210;A;Topics in Ancient History;SEM;W;835;1125;23
-HIST;4302;A;Canada: Ideas & Culture;SEM;R;835;1125;31
-HIST;4302;B;Canada: Ideas & Culture;SEM;R;1435;1725;21
-HIST;4304;A;Canada: Politics & Society;SEM;R;1805;2055;25
+HIST;4302;A;Canada: Ideas and Culture;SEM;R;835;1125;31
+HIST;4302;B;Canada: Ideas and Culture;SEM;R;1435;1725;21
+HIST;4304;A;Canada: Politics and Society;SEM;R;1805;2055;25
 HIST;4400;A;Seminar in U.S. History;SEM;W;1135;1425;16
 HIST;4500;A;Seminar in British History;SEM;W;1435;1725;28
 HIST;4505;A;Sem: Womens and Gender Hist;SEM;W;835;1125;16
-HIST;4603;A;Imperial & Soviet Russia;SEM;R;835;1125;57
+HIST;4603;A;Imperial and Soviet Russia;SEM;R;835;1125;57
 HIST;4605;A;Balkans in Transn 1918 -1989;LEC;M;1805;2055;15
 HIST;4700;A;Seminar in World History;SEM;;;;
 HIST;4802;A;Sem. in International History;SEM;F;835;1125;27
@@ -2098,28 +2098,28 @@ HUMR;1001;B8;Introduction to Human Rights;GRP;M;1235;1325;40
 HUMR;1001;B9;Introduction to Human Rights;GRP;M;1235;1325;40
 HUMR;1001;PA1;Introduction to Human Rights;PAS;MW;1605;1725;27
 HUMR;1001;PB1;Introduction to Human Rights;PAS;WF;1435;1555;9
-HUMR;2001;A;Human Rights: Theory & Foundat;LEC;F;1135;1325;154
-HUMR;2001;A01;Human Rights: Theory & Foundat;GRP;F;1335;1425;42
-HUMR;2001;A02;Human Rights: Theory & Foundat;GRP;F;1335;1425;48
-HUMR;2001;A03;Human Rights: Theory & Foundat;GRP;F;1435;1525;42
-HUMR;2001;A04;Human Rights: Theory & Foundat;GRP;F;1435;1525;48
+HUMR;2001;A;Human Rights: Theory and Foundat;LEC;F;1135;1325;154
+HUMR;2001;A01;Human Rights: Theory and Foundat;GRP;F;1335;1425;42
+HUMR;2001;A02;Human Rights: Theory and Foundat;GRP;F;1335;1425;48
+HUMR;2001;A03;Human Rights: Theory and Foundat;GRP;F;1435;1525;42
+HUMR;2001;A04;Human Rights: Theory and Foundat;GRP;F;1435;1525;48
 HUMR;2401;A;Political Repression;LEC;R;1805;1955;134
 HUMR;2401;A1;Political Repression;GRP;T;1905;1955;35
 HUMR;2401;A2;Political Repression;GRP;T;1805;1855;35
 HUMR;2401;A3;Political Repression;GRP;W;1805;1855;55
 HUMR;2401;A4;Political Repression;GRP;T;2005;2055;27
 HUMR;3001;A;Special Topics in Human Rights;LEC;F;1435;1725;39
-HUMR;3301;A;Racialism Racism & Human Righ;LEC;F;835;1125;29
-HUMR;3302;A;Culture Reli & Womens HR;LEC;;;;
-HUMR;3501;A;Social Econ & Cultural Rights;LEC;M;1435;1725;36
+HUMR;3301;A;Racialism Racism and Human Righ;LEC;F;835;1125;29
+HUMR;3302;A;Culture Reli and Womens HR;LEC;;;;
+HUMR;3501;A;Social Econ and Cultural Rights;LEC;M;1435;1725;36
 HUMR;4303;A;Disability Rights;SEM;M;835;1125;27
-HUMR;4502;A;Glbl Indig Know & Movements;SEM;W;1435;1725;27
+HUMR;4502;A;Glbl Indig Know and Movements;SEM;W;1435;1725;27
 HUMS;1000;A;Myth and Symbol;LEC;TR;1435;1555;93
 HUMS;1000;A1;Myth and Symbol;TUT;M;1605;1725;19
 HUMS;1000;A2;Myth and Symbol;TUT;W;1435;1555;19
 HUMS;1000;A3;Myth and Symbol;TUT;R;1305;1425;19
 HUMS;1000;A4;Myth and Symbol;TUT;;;;
-HUMS;1200;A;Humanities&Class Civilisations;LEC;TR;1605;1725;93
+HUMS;1200;A;HumanitiesandClass Civilisations;LEC;TR;1605;1725;93
 HUMS;2000;A;Reason and Revelation;LEC;WF;1005;1125;93
 HUMS;2000;A1;Reason and Revelation;TUT;R;1005;1125;19
 HUMS;2000;A2;Reason and Revelation;TUT;R;835;955;19
@@ -2131,13 +2131,13 @@ HUMS;3000;A2;Culture and Imagination;TUT;T;1435;1555;19
 HUMS;3000;A3;Culture and Imagination;TUT;T;1005;1125;19
 HUMS;3102;A;Western Music 1000-1850;LEC;MW;835;955;93
 HUMS;3200;A;European Literature;LEC;TR;1605;1725;48
-HUMS;4000;A;Pol Modernity & Common Good;LEC;TR;1005;1125;93
-HUMS;4000;A1;Pol Modernity & Common Good;TUT;M;1435;1555;19
-HUMS;4000;A2;Pol Modernity & Common Good;TUT;W;1005;1125;19
+HUMS;4000;A;Pol Modernity and Common Good;LEC;TR;1005;1125;93
+HUMS;4000;A1;Pol Modernity and Common Good;TUT;M;1435;1555;19
+HUMS;4000;A2;Pol Modernity and Common Good;TUT;W;1005;1125;19
 HUMS;4001;A;Directed Studies in Humanities;IND;;;;
 HUMS;4103;A;Science in the Modern World;LEC;T;1805;2055;93
 HUMS;4902;A;Res Sem: Renaissance to Enligh;SEM;F;835;1125;42
-IDES;1000;A;Theory & Hist of Design;LEC;R;835;1125;154
+IDES;1000;A;Theory and Hist of Design;LEC;R;835;1125;154
 IDES;1300;A;Projects IA;STU;M;935;1125;50
 IDES;1300;A;Projects IA;STU;M;1235;1625;50
 IDES;1300;B;Projects IA;STU;T;935;1125;50
@@ -2149,7 +2149,7 @@ IDES;2300;A;Projects IIA;STU;T;935;1125;50
 IDES;2300;A;Projects IIA;STU;T;1235;1625;50
 IDES;2300;B;Projects IIA;STU;T;935;1125;50
 IDES;2300;B;Projects IIA;STU;T;1235;1625;50
-IDES;3105;A;Visual Comm & Package Design;LEC;W;1435;1725;51
+IDES;3105;A;Visual Comm and Package Design;LEC;W;1435;1725;51
 IDES;3106;A;Computer Application Design II;LEC;M;1805;1925;78
 IDES;3106;A1;Computer Application Design II;TUT;M;1935;2055;78
 IDES;3300;A;Projects IIIA;STU;RF;935;1125;50
@@ -2182,7 +2182,7 @@ IMD;2003;A;Audio and Video;WKS;M;805;1155;76
 IMD;2003;B;Audio and Video;WKS;M;1305;1655;76
 IMD;3003;A;Communication Skills for IMD;LEC;;;;
 IMD;3003;B;Communication Skills for IMD;LEC;W;835;1125;31
-IMD;3004;A;Human Comp Interaction &Design;LEC;MW;1305;1425;60
+IMD;3004;A;Human Comp Interaction andDesign;LEC;MW;1305;1425;60
 IMD;3900;A;Design Studio 2;STU;F;805;1155;76
 IMD;3900;A;Design Studio 2;STU;T;1305;1655;76
 IMD;3900;B;Design Studio 2;STU;F;1305;1655;76
@@ -2258,13 +2258,13 @@ JOUR;2201;B;Fundamentals of Reporting;LAB;M;1135;1725;25
 JOUR;2201;C;Fundamentals of Reporting;LAB;M;1135;1725;25
 JOUR;2201;D;Fundamentals of Reporting;LAB;R;1135;1725;25
 JOUR;2201;E;Fundamentals of Reporting;LAB;R;1135;1725;25
-JOUR;2205;A;Journalism & Public Instit;LEC;F;835;1125;154
+JOUR;2205;A;Journalism and Public Instit;LEC;F;835;1125;154
 JOUR;3207;A;Intro to Radio Journalism;LEC;M;1135;1725;26
 JOUR;3207;C;Intro to Radio Journalism;LEC;R;1135;1725;26
 JOUR;3208;B;Intro to Television Journalism;LEC;M;1135;1725;27
 JOUR;3208;D;Intro to Television Journalism;LEC;R;1135;1725;27
-JOUR;3215;A;Professional Pract & Ethics;LEC;W;835;1125;25
-JOUR;3215;B;Professional Pract & Ethics;LEC;W;1435;1725;25
+JOUR;3215;A;Professional Pract and Ethics;LEC;W;835;1125;25
+JOUR;3215;B;Professional Pract and Ethics;LEC;W;1435;1725;25
 JOUR;3225;A;Reporting in Depth;LEC;M;1435;1725;42
 JOUR;3225;B;Reporting in Depth;LEC;R;1805;2055;26
 JOUR;3235;A;New Media Reporting;LEC;W;835;1125;25
@@ -2285,7 +2285,7 @@ JOUR;4206;A;Newsroom: Adv Radio Wksp;WKS;W;835;1625;26
 JOUR;4207;A;Newsroom: Adv Television Wksp;WKS;W;835;1625;27
 JOUR;4208;C;Prof Prac: Specialized Media;LAB;W;1435;1725;31
 JOUR;4208;H;Prof Prac: Specialized Media;LAB;W;1835;2025;27
-LACS;1001;A;Intr Latin Americ&Carribbean I;LEC;MW;1435;1555;78
+LACS;1001;A;Intr Latin AmericandCarribbean I;LEC;MW;1435;1555;78
 LANG;1010;A;Introduction to a Language I;LEC;MW;935;1125;29
 LANG;1010;C;Introduction to a Language I;LEC;;;;
 LATN;1005;A;Introduction to Latin I;LEC;WF;1435;1625;36
@@ -2349,8 +2349,8 @@ LAWS;1000;PD4;Introduction to Legal Studies;PAS;;;;
 LAWS;1000;V;Introduction to Legal Studies;LEC;;;;
 LAWS;1000;V1;Introduction to Legal Studies;GRP;;;;
 LAWS;1000;VOD;Introduction to Legal Studies;VOD;;;;
-LAWS;2105;A;Social Justice & Human Rights;LEC;W;1135;1425;96
-LAWS;2105;B;Social Justice & Human Rights;LEC;R;1135;1425;96
+LAWS;2105;A;Social Justice and Human Rights;LEC;W;1135;1425;96
+LAWS;2105;B;Social Justice and Human Rights;LEC;R;1135;1425;96
 LAWS;2201;A;Persons and Property;LEC;T;835;1125;98
 LAWS;2201;AOD;Persons and Property;VOD;;;;
 LAWS;2201;B;Persons and Property;LEC;T;835;1125;94
@@ -2395,7 +2395,7 @@ LAWS;3305;B;Crime and State in History;LEC;W;1805;2055;98
 LAWS;3305;BOD;Crime and State in History;VOD;;;;
 LAWS;3305;T;Crime and State in History;LEC;;;;
 LAWS;3305;TOD;Crime and State in History;VOD;;;;
-LAWS;3306;B;Crime Law Process & Politics;LEC;R;1805;2055;78
+LAWS;3306;B;Crime Law Process and Politics;LEC;R;1805;2055;78
 LAWS;3307;A;Youth and Criminal Law;LEC;M;1135;1425;84
 LAWS;3307;B;Youth and Criminal Law;LEC;T;1805;2055;148
 LAWS;3307;BOD;Youth and Criminal Law;VOD;;;;
@@ -2404,7 +2404,7 @@ LAWS;3307;TOD;Youth and Criminal Law;VOD;;;;
 LAWS;3308;A;Punishment and The Law;LEC;M;1135;1425;63
 LAWS;3401;A;Employment Law;LEC;F;1135;1425;67
 LAWS;3405;A;Labour Law;LEC;T;835;1125;78
-LAWS;3503;A;Equality & Discrimination;LEC;F;1135;1425;69
+LAWS;3503;A;Equality and Discrimination;LEC;F;1135;1425;69
 LAWS;3504;A;Law and Aboriginal Peoples;LEC;;;;
 LAWS;3509;A;The Charter of Rights Topics;LEC;T;1805;2055;78
 LAWS;3602;A;International Human Rights;LEC;M;835;1125;58
@@ -2426,12 +2426,12 @@ LAWS;4209;A;Topics in Business Law;SEM;T;835;1125;47
 LAWS;4302;A;Regulation of Corporate Crime;SEM;W;835;1125;40
 LAWS;4303;A;Drugs The User and The State;SEM;T;1135;1425;36
 LAWS;4303;B;Drugs The User and The State;SEM;T;1805;2055;47
-LAWS;4304;A;Policing & Social Surveillance;SEM;M;1135;1425;51
+LAWS;4304;A;Policing and Social Surveillance;SEM;M;1135;1425;51
 LAWS;4306;A;Criminal Law Issues;SEM;W;1805;2055;43
 LAWS;4307;A;Medical Criminal Law Issues;SEM;M;1805;2055;47
 LAWS;4308;A;Sentencing;SEM;R;1805;2055;39
-LAWS;4510;A;Topic in LawPolicy&Government;SEM;;;;
-LAWS;4601;A;Transnational Law&Human Rights;SEM;M;1135;1425;36
+LAWS;4510;A;Topic in LawPolicyandGovernment;SEM;;;;
+LAWS;4601;A;Transnational LawandHuman Rights;SEM;M;1135;1425;36
 LAWS;4603;A;Transitional Justice;SEM;R;1135;1425;40
 LAWS;4606;A;Intl Law and Armed Conflict;SEM;F;835;1125;39
 LAWS;4801;A;Risk and the Legal Process;SEM;R;1135;1425;42
@@ -2445,7 +2445,7 @@ LING;2604;A;Communication Disorders I;LEC;R;1435;1725;96
 LING;3004;A;Syntax I;LEC;MW;1435;1555;63
 LING;3007;A;Phonology I;LEC;W;1805;2055;67
 LING;3101;A;Historical Linguistics I;LEC;M;1805;2055;63
-LING;3601;A;Languag Processing&the Brain I;LEC;F;835;1125;78
+LING;3601;A;Languag Processingandthe Brain I;LEC;F;835;1125;78
 LING;3603;A;Child Language;LEC;T;1135;1425;78
 LING;3900;A;Independent Study;IND;;;;
 LING;3900;B;Independent Study;IND;;;;
@@ -2479,20 +2479,20 @@ MAAE;2300;L3;Fluid Mechanics I;LAB;R;1435;1725;78
 MAAE;2300;PA1;Fluid Mechanics I;PAS;TR;1735;1855;57
 MAAE;2300;PA2;Fluid Mechanics I;PAS;;;;
 MAAE;2300;PA3;Fluid Mechanics I;PAS;;;;
-MAAE;2400;A;Thermodynamics & Heat Transfer;LEC;TR;1305;1425;134
-MAAE;2400;D;Thermodynamics & Heat Transfer;LEC;WF;1305;1425;115
-MAAE;2400;E;Thermodynamics & Heat Transfer;LEC;WF;1605;1725;133
-MAAE;2400;L1;Thermodynamics & Heat Transfer;LAB;F;1135;1425;54
-MAAE;2400;L2;Thermodynamics & Heat Transfer;LAB;R;1435;1725;40
-MAAE;2400;L3;Thermodynamics & Heat Transfer;LAB;T;1435;1725;51
-MAAE;2400;L4;Thermodynamics & Heat Transfer;LAB;M;1435;1725;52
-MAAE;2400;L5;Thermodynamics & Heat Transfer;LAB;F;835;1125;51
-MAAE;2400;L6;Thermodynamics & Heat Transfer;LAB;M;835;1125;51
-MAAE;2400;L7;Thermodynamics & Heat Transfer;LAB;F;1435;1725;51
-MAAE;2400;L8;Thermodynamics & Heat Transfer;LAB;W;835;1125;51
-MAAE;2400;PA1;Thermodynamics & Heat Transfer;PAS;;;;
-MAAE;2400;PD1;Thermodynamics & Heat Transfer;PAS;MW;1805;1925;54
-MAAE;2400;PE1;Thermodynamics & Heat Transfer;PAS;MW;1735;1855;51
+MAAE;2400;A;Thermodynamics and Heat Transfer;LEC;TR;1305;1425;134
+MAAE;2400;D;Thermodynamics and Heat Transfer;LEC;WF;1305;1425;115
+MAAE;2400;E;Thermodynamics and Heat Transfer;LEC;WF;1605;1725;133
+MAAE;2400;L1;Thermodynamics and Heat Transfer;LAB;F;1135;1425;54
+MAAE;2400;L2;Thermodynamics and Heat Transfer;LAB;R;1435;1725;40
+MAAE;2400;L3;Thermodynamics and Heat Transfer;LAB;T;1435;1725;51
+MAAE;2400;L4;Thermodynamics and Heat Transfer;LAB;M;1435;1725;52
+MAAE;2400;L5;Thermodynamics and Heat Transfer;LAB;F;835;1125;51
+MAAE;2400;L6;Thermodynamics and Heat Transfer;LAB;M;835;1125;51
+MAAE;2400;L7;Thermodynamics and Heat Transfer;LAB;F;1435;1725;51
+MAAE;2400;L8;Thermodynamics and Heat Transfer;LAB;W;835;1125;51
+MAAE;2400;PA1;Thermodynamics and Heat Transfer;PAS;;;;
+MAAE;2400;PD1;Thermodynamics and Heat Transfer;PAS;MW;1805;1925;54
+MAAE;2400;PE1;Thermodynamics and Heat Transfer;PAS;MW;1735;1855;51
 MAAE;2700;A;Engineering Materials;LEC;TR;1435;1555;133
 MAAE;2700;C;Engineering Materials;LEC;WF;1435;1555;115
 MAAE;2700;L1;Engineering Materials;LAB;R;835;1125;54
@@ -2527,14 +2527,14 @@ MAAE;3300;L2;Fluid Mechanics II;LAB;W;1135;1425;52
 MAAE;3300;L3;Fluid Mechanics II;LAB;F;835;1125;54
 MAAE;3300;L4;Fluid Mechanics II;LAB;M;1435;1725;51
 MAAE;3300;L5;Fluid Mechanics II;LAB;R;835;1125;51
-MAAE;3901;A;Mech & Aero Engineering Lab;LAB;TR;835;1125;30
+MAAE;3901;A;Mech and Aero Engineering Lab;LAB;TR;835;1125;30
 MAAE;3999;A;Co-op Work Term;WRK;;;;
-MAAE;4102;A;Materials: Strength & Fracture;LEC;TR;1605;1725;154
+MAAE;4102;A;Materials: Strength and Fracture;LEC;TR;1605;1725;154
 MAAE;4500;A;Feedback Control Systems;LEC;WF;1605;1725;151
 MAAE;4500;B;Feedback Control Systems;LEC;TR;1435;1555;236
-MATH;5;A;Precalculus: Functions & Graph;LEC;TR;1305;1425;78
-MATH;5;A1;Precalculus: Functions & Graph;TUT;R;1635;1725;66
-MATH;5;A2;Precalculus: Functions & Graph;TUT;R;1635;1725;28
+MATH;5;A;Precalculus: Functions and Graph;LEC;TR;1305;1425;78
+MATH;5;A1;Precalculus: Functions and Graph;TUT;R;1635;1725;66
+MATH;5;A2;Precalculus: Functions and Graph;TUT;R;1635;1725;28
 MATH;6;A;Precal:Trigon Func Cmplx Nmbr;LEC;TR;1305;1425;59
 MATH;6;A1;Precal:Trigon Func Cmplx Nmbr;TUT;R;1535;1625;40
 MATH;999;A;Math Matters;NTC;;;;
@@ -2580,10 +2580,10 @@ MATH;1004;F1;Calculus for Engin. or Physics;TUT;W;1935;2025;55
 MATH;1004;F2;Calculus for Engin. or Physics;TUT;W;1935;2025;55
 MATH;1004;F3;Calculus for Engin. or Physics;TUT;W;1935;2025;54
 MATH;1004;F4;Calculus for Engin. or Physics;TUT;W;1935;2025;55
-MATH;1005;H;Diff. Eqs. & Series Eng. & Phy;LEC;WF;1005;1125;151
-MATH;1005;H1;Diff. Eqs. & Series Eng. & Phy;TUT;F;1435;1525;67
-MATH;1005;H2;Diff. Eqs. & Series Eng. & Phy;TUT;W;1335;1425;59
-MATH;1005;H3;Diff. Eqs. & Series Eng. & Phy;TUT;W;1335;1425;54
+MATH;1005;H;Diff. Eqs. and Series Eng. and Phy;LEC;WF;1005;1125;151
+MATH;1005;H1;Diff. Eqs. and Series Eng. and Phy;TUT;F;1435;1525;67
+MATH;1005;H2;Diff. Eqs. and Series Eng. and Phy;TUT;W;1335;1425;59
+MATH;1005;H3;Diff. Eqs. and Series Eng. and Phy;TUT;W;1335;1425;54
 MATH;1007;A;Elementary Calculus I;LEC;MW;1005;1125;236
 MATH;1007;A1;Elementary Calculus I;TUT;M;1435;1525;54
 MATH;1007;A2;Elementary Calculus I;TUT;M;1435;1525;58
@@ -2707,8 +2707,8 @@ MATH;1800;A;Intro Mathematical Reasoning;LEC;TR;835;955;96
 MATH;1800;A1;Intro Mathematical Reasoning;TUT;M;835;925;96
 MATH;1800;A2;Intro Mathematical Reasoning;TUT;M;835;925;47
 MATH;1800;A3;Intro Mathematical Reasoning;TUT;M;835;955;47
-MATH;2000;A;Calculus& Intro Analys II Hons;LEC;WF;1135;1255;48
-MATH;2000;A1;Calculus& Intro Analys II Hons;TUT;R;1135;1225;48
+MATH;2000;A;Calculusand Intro Analys II Hons;LEC;WF;1135;1255;48
+MATH;2000;A1;Calculusand Intro Analys II Hons;TUT;R;1135;1225;48
 MATH;2004;A;Multivariable Cal. Eng or Phys;LEC;TR;835;955;236
 MATH;2004;A1;Multivariable Cal. Eng or Phys;TUT;R;1435;1525;59
 MATH;2004;A2;Multivariable Cal. Eng or Phys;TUT;R;1435;1525;47
@@ -2763,7 +2763,7 @@ MATH;3106;A;Introduction to Group Theory;LEC;TR;1605;1725;23
 MATH;3106;A1;Introduction to Group Theory;TUT;R;1335;1425;27
 MATH;3801;A;Linear Programming;LEC;WF;835;955;78
 MATH;3801;A1;Linear Programming;TUT;F;1135;1225;40
-MATH;3804;A;Algorithm Design & Analysis I;LEC;MW;1135;1255;78
+MATH;3804;A;Algorithm Design and Analysis I;LEC;MW;1135;1255;78
 MATH;3806;A;Numerical Analysis (Honours);LEC;TR;1135;1255;63
 MATH;3806;A1;Numerical Analysis (Honours);LAB;T;1035;1125;20
 MATH;3806;A2;Numerical Analysis (Honours);LAB;F;1035;1125;20
@@ -2832,8 +2832,8 @@ MUSI;3200;A;Special Topics;SEM;T;1435;1725;22
 MUSI;3406;A;Instrument Music for Orchestra;LEC;R;1435;1725;22
 MUSI;3605;A;Instrumental Conducting;SEM;T;1005;1125;75
 MUSI;3605;A;Instrumental Conducting;SEM;R;1005;1125;75
-MUSI;3700;A;Theory:Seminar Theory&Analysis;SEM;F;835;1125;22
-MUSI;3702;A;Intr Phys&Psychoacoust Musi;LEC;TR;1135;1255;35
+MUSI;3700;A;Theory:Seminar TheoryandAnalysis;SEM;F;835;1125;22
+MUSI;3702;A;Intr PhysandPsychoacoust Musi;LEC;TR;1135;1255;35
 MUSI;3900;A;Performance V;OTH;F;1435;1725;444
 MUSI;3901;A;Performance VI;OTH;F;1435;1725;444
 MUSI;3912;A;Choral Ensemble V;OTH;W;1135;1425;75
@@ -2852,7 +2852,7 @@ MUSI;4201;A;Special Topics;SEM;W;1435;1725;22
 MUSI;4205;A;Specialized Studies;OTH;;;;
 MUSI;4206;A;Specialized Studies;OTH;;;;
 MUSI;4701;A;Theory: Advanced Jazz Theory;SEM;W;835;1125;22
-MUSI;4705;A;Post-Tonal Theory& Analysis;SEM;TR;1435;1555;75
+MUSI;4705;A;Post-Tonal Theoryand Analysis;SEM;TR;1435;1555;75
 MUSI;4800;A;Practicum in Music;PRC;;;;
 MUSI;4801;B;Practicum in Music;PRC;;;;
 MUSI;4900;A;Performance VII;TUT;F;1435;1725;444
@@ -2875,9 +2875,9 @@ NET;2002;A;Desktop Operating Environments;LEC;W;1405;1555;96
 NET;2002;A1;Desktop Operating Environments;LAB;M;1505;1655;25
 NET;2002;A2;Desktop Operating Environments;LAB;M;1105;1255;25
 NET;2002;A3;Desktop Operating Environments;LAB;W;1205;1355;25
-NET;3000;A;Database Concepts & SQL;LEC;W;1705;1855;48
-NET;3000;A1;Database Concepts & SQL;LAB;F;1005;1155;25
-NET;3000;A2;Database Concepts & SQL;LAB;F;805;955;25
+NET;3000;A;Database Concepts and SQL;LEC;W;1705;1855;48
+NET;3000;A1;Database Concepts and SQL;LAB;F;1005;1155;25
+NET;3000;A2;Database Concepts and SQL;LAB;F;805;955;25
 NET;3001;A;Real-time Systems;LEC;R;905;1155;38
 NET;3001;A1;Real-time Systems;LAB;R;1235;1425;38
 NET;3007;A;Network Security;LEC;M;1505;1655;48
@@ -2900,8 +2900,8 @@ NET;4009;A;Troubleshooting IP Networks;LEC;F;1035;1155;60
 NET;4009;A;Troubleshooting IP Networks;LEC;F;1305;1425;60
 NET;4009;A1;Troubleshooting IP Networks;LAB;F;1505;1755;30
 NET;4901;A;Network Technology Project;TUT;TR;1435;1725;77
-NEUR;1201;A;Intro: Mental Health & Disease;LEC;MW;835;955;151
-NEUR;1201;B;Intro: Mental Health & Disease;LEC;MW;835;955;96
+NEUR;1201;A;Intro: Mental Health and Disease;LEC;MW;835;955;151
+NEUR;1201;B;Intro: Mental Health and Disease;LEC;MW;835;955;96
 NEUR;2001;A;Intro Rsrch Methods in Psyc;LEC;WF;1435;1555;134
 NEUR;2001;AOD;Intro Rsrch Methods in Psyc;VOD;;;;
 NEUR;2001;B;Intro Rsrch Methods in Psyc;LEC;W;1805;2055;96
@@ -2962,12 +2962,12 @@ PAPM;4000;F;Capstone Seminar;SEM;T;1135;1425;24
 PAPM;4100;A;Special Topics in Public Aff.;SEM;T;1805;2055;21
 PHIL;1000;A;Introductory Philosophy;LEC;MW;1435;1555;133
 PHIL;1200;A;The Meaning of Life;LEC;TR;1805;1925;120
-PHIL;1301;A;Mind World & Knowledge;LEC;TR;835;955;444
-PHIL;1550;A;Intro Ethics & Social Issues;LEC;TR;1135;1255;444
+PHIL;1301;A;Mind World and Knowledge;LEC;TR;835;955;444
+PHIL;1550;A;Intro Ethics and Social Issues;LEC;TR;1135;1255;444
 PHIL;1600;A;History of Philosophy;LEC;;;;
 PHIL;2001;A;Introduction to Symbolic Logic;LEC;MW;1305;1425;236
 PHIL;2003;A;Critical Thinking;LEC;WF;1605;1725;285
-PHIL;2005;A;Greek Philos&Western Tradition;LEC;TR;1305;1425;55
+PHIL;2005;A;Greek PhilosandWestern Tradition;LEC;TR;1305;1425;55
 PHIL;2010;A;Issues in Theoretical Phil;LEC;WF;1135;1255;48
 PHIL;2103;A;Philosophy of Human Rights;LEC;TR;1605;1725;285
 PHIL;2380;A;Intro to Environmental Ethics;LEC;TR;1435;1555;236
@@ -2979,7 +2979,7 @@ PHIL;2900;A;Truth and Propaganda;LEC;WF;1005;1125;133
 PHIL;3002;A;17th Century Philosophy;LEC;MW;1435;1555;47
 PHIL;3009;A;Topics in European Philosophy;LEC;MW;1005;1125;51
 PHIL;3306;A;Symbolic Logic;LEC;TR;1605;1725;58
-PHIL;3350;A;Phil Ethics & Public Affairs;LEC;M;1805;2055;48
+PHIL;3350;A;Phil Ethics and Public Affairs;LEC;M;1805;2055;48
 PHIL;3901;A;Independent Study;IND;;;;
 PHIL;3903;A;Independent Study;IND;;;;
 PHIL;4003;A;Sem in Phil Before Mod Period;SEM;;;;
@@ -3227,22 +3227,22 @@ PSCI;3101;A;Politics of War in Africa;LEC;WF;1005;1125;59
 PSCI;3102;A;Politics of Dev of China;LEC;T;1135;1425;58
 PSCI;3105;A;Imperialism;LEC;R;1135;1425;79
 PSCI;3107;A;The Causes of War;LEC;M;835;1125;79
-PSCI;3109;A;The Politics of Law & Morality;LEC;W;1135;1425;57
-PSCI;3203;A;Govt & Politics in Mid East;LEC;M;835;1125;79
+PSCI;3109;A;The Politics of Law and Morality;LEC;W;1135;1425;57
+PSCI;3203;A;Govt and Politics in Mid East;LEC;M;835;1125;79
 PSCI;3208;A;Reform/Pol Change in Russ Fed;LEC;M;835;1125;39
 PSCI;3303;A;Feminist Political Theory;LEC;R;835;1125;58
 PSCI;3307;A;Politics of Human Rights;LEC;T;835;1125;78
 PSCI;3308;A;Modern Political Thought;LEC;R;835;1125;48
 PSCI;3401;A;Canadian Public Administration;LEC;T;1805;2055;79
 PSCI;3405;A;Comp Public Policy Analysis;LEC;T;1135;1425;58
-PSCI;3406;A;Public Aff & Media Strategies;LEC;;;;
+PSCI;3406;A;Public Aff and Media Strategies;LEC;;;;
 PSCI;3600;A;International Institutions;LEC;T;1435;1725;84
 PSCI;3601;A;Theories of Intl Politics;LEC;;;;
-PSCI;3603;A;Strategic Thght & Intl Sec;LEC;M;1805;2055;96
-PSCI;3700;A;Gov & Politics of South Asia;LEC;R;1135;1425;58
-PSCI;3709;A;Anc & Med Pol Thought;LEC;MW;1135;1255;59
+PSCI;3603;A;Strategic Thght and Intl Sec;LEC;M;1805;2055;96
+PSCI;3700;A;Gov and Politics of South Asia;LEC;R;1135;1425;58
+PSCI;3709;A;Anc and Med Pol Thought;LEC;MW;1135;1255;59
 PSCI;3801;A;Environmental Politics;LEC;;;;
-PSCI;3802;A;Globalization & Human Rights;LEC;M;835;1125;61
+PSCI;3802;A;Globalization and Human Rights;LEC;M;835;1125;61
 PSCI;3809;B;Sel Topics in Political Sci;LEC;R;835;1125;66
 PSCI;3900;A;Etudes dirigees;DIR;;;;
 PSCI;3905;A;Washington Center Internship;OTH;;;;
@@ -3250,13 +3250,13 @@ PSCI;3906;A;Full-Year Politi Sci Internshi;OTH;;;;
 PSCI;3907;A;One-Term Politic Sci Internshi;OTH;;;;
 PSCI;3999;A;Co-op Work Term;WRK;;;;
 PSCI;4003;A;Politics and the Media;SEM;W;1135;1425;25
-PSCI;4006;A;Legislatures & Represent. Cda;SEM;T;1135;1425;48
-PSCI;4008;A;Natl Security & Intelligence;SEM;R;835;1125;25
+PSCI;4006;A;Legislatures and Represent. Cda;SEM;T;1135;1425;48
+PSCI;4008;A;Natl Security and Intelligence;SEM;R;835;1125;25
 PSCI;4009;A;Quebec Politics;SEM;M;835;1125;43
-PSCI;4104;A;Theory& Prac: Devl in Glob Sth;SEM;R;1135;1425;51
+PSCI;4104;A;Theoryand Prac: Devl in Glob Sth;SEM;R;1135;1425;51
 PSCI;4105;A;Slctd Prob:Devlp Global Sth;SEM;W;1435;1725;51
 PSCI;4109;A;Politics of Cdn Charter Rights;SEM;M;1135;1425;51
-PSCI;4207;A;Global Adj & Democ in Africa;SEM;T;1135;1425;51
+PSCI;4207;A;Global Adj and Democ in Africa;SEM;T;1135;1425;51
 PSCI;4305;A;Contemporary Political Theory;SEM;T;1435;1725;29
 PSCI;4308;A;History of Political Enquiry;SEM;R;1435;1725;20
 PSCI;4403;A;Reproductive Rights Pol in N.A;SEM;T;1435;1725;39
@@ -3335,13 +3335,13 @@ PSYC;2700;AOD;Cognitive Psychology;VOD;;;;
 PSYC;2700;D;Cognitive Psychology;LEC;WF;835;955;331
 PSYC;2700;T;Cognitive Psychology;LEC;;;;
 PSYC;2700;TOD;Cognitive Psychology;VOD;;;;
-PSYC;3000;A;Advanced Design & Analysis;LEC;F;1435;1725;78
-PSYC;3000;B;Advanced Design & Analysis;LEC;R;835;1125;78
-PSYC;3000;C;Advanced Design & Analysis;LEC;MW;835;955;134
-PSYC;3000;D;Advanced Design & Analysis;LEC;MW;1135;1255;91
-PSYC;3000;PA1;Advanced Design & Analysis;PAS;;;;
-PSYC;3000;PA2;Advanced Design & Analysis;PAS;TRF;1335;1425;7
-PSYC;3000;PB2;Advanced Design & Analysis;PAS;;;;
+PSYC;3000;A;Advanced Design and Analysis;LEC;F;1435;1725;78
+PSYC;3000;B;Advanced Design and Analysis;LEC;R;835;1125;78
+PSYC;3000;C;Advanced Design and Analysis;LEC;MW;835;955;134
+PSYC;3000;D;Advanced Design and Analysis;LEC;MW;1135;1255;91
+PSYC;3000;PA1;Advanced Design and Analysis;PAS;;;;
+PSYC;3000;PA2;Advanced Design and Analysis;PAS;TRF;1335;1425;7
+PSYC;3000;PB2;Advanced Design and Analysis;PAS;;;;
 PSYC;3100;A;Social Psychology Seminar;SEM;M;1435;1725;23
 PSYC;3100;A1;Social Psychology Seminar;LAB;T;1435;1725;25
 PSYC;3103;A;Group Processes;SEM;M;1805;2055;94
@@ -3349,7 +3349,7 @@ PSYC;3300;A;Health and Illness (Hon Sem);SEM;W;1435;1725;23
 PSYC;3300;A1;Health and Illness (Hon Sem);LAB;F;835;1125;31
 PSYC;3300;B;Health and Illness (Hon Sem);SEM;M;835;1125;35
 PSYC;3300;B1;Health and Illness (Hon Sem);LAB;F;1135;1425;31
-PSYC;3301;A;Sport & Performance Psychology;LEC;M;1135;1425;78
+PSYC;3301;A;Sport and Performance Psychology;LEC;M;1135;1425;78
 PSYC;3302;A;Positive Psychology;LEC;MW;1005;1125;96
 PSYC;3400;A;Forensic Psychology ( Hon Sem);SEM;M;835;1125;42
 PSYC;3400;A1;Forensic Psychology ( Hon Sem);LAB;W;1435;1725;23
@@ -3368,7 +3368,7 @@ PSYC;3505;T;Exceptional Children;LEC;;;;
 PSYC;3505;TOD;Exceptional Children;VOD;;;;
 PSYC;3507;A;Social Development;LEC;F;835;1125;78
 PSYC;3508;A;Child Language;LEC;T;1135;1425;78
-PSYC;3509;A;Adolesce&Emerging Adulthood;LEC;M;1805;2055;77
+PSYC;3509;A;AdolesceandEmerging Adulthood;LEC;M;1805;2055;77
 PSYC;3600;A;Personality Seminar;SEM;T;1435;1725;21
 PSYC;3600;A1;Personality Seminar;LAB;W;1135;1425;27
 PSYC;3603;A;Psychology of Women;LEC;R;1135;1425;154
@@ -3376,7 +3376,7 @@ PSYC;3604;A;Abnormal Psychology;LEC;T;1805;2055;195
 PSYC;3700;A;Cognition Seminar;SEM;M;1435;1725;21
 PSYC;3700;A1;Cognition Seminar;LAB;T;1435;1725;23
 PSYC;3702;A;Perception;LEC;WF;1605;1725;96
-PSYC;3709;A;Language Proc. & the Brain;LEC;F;835;1125;78
+PSYC;3709;A;Language Proc. and the Brain;LEC;F;835;1125;78
 PSYC;3901;A;Community Psychology Practicum;PRC;T;835;1125;39
 PSYC;4001;A;Special Topics in Psychology;SEM;M;1135;1425;40
 PSYC;4001;C;Special Topics in Psychology;SEM;T;1135;1425;39
@@ -3394,7 +3394,7 @@ RELI;2210;A;Christianity;LEC;TR;1305;1425;98
 RELI;2220;A;Early Christianity;LEC;TR;1435;1555;58
 RELI;2330;A;The Qur’an;LEC;TR;1135;1255;58
 RELI;2410;A;Buddhism;LEC;TR;1605;1725;78
-RELI;2515;A;Religion & Aesthetics in India;LEC;W;1435;1725;42
+RELI;2515;A;Religion and Aesthetics in India;LEC;W;1435;1725;42
 RELI;2535;A;Women and Religion;LEC;MW;1135;1255;61
 RELI;2710;A;Maccabees to Muhammad;LEC;WF;1435;1555;93
 RELI;2735;A;Greek Religion;LEC;WF;1605;1725;387
@@ -3458,19 +3458,19 @@ SOCI;2160;A;War and Society;LEC;M;1435;1725;96
 SOCI;2445;A;Sociology of Deviance;LEC;R;1805;2055;285
 SOCI;2450;A;Criminology;LEC;W;1805;2055;236
 SOCI;2910;A;Course-Related Tut. in Sociol.;TUT;;;;
-SOCI;3003;A;Studies in Res. Design & Data;LEC;R;1135;1425;84
-SOCI;3003;A1;Studies in Res. Design & Data;LAB;R;1435;1525;23
-SOCI;3003;A2;Studies in Res. Design & Data;LAB;R;1435;1525;26
-SOCI;3003;A3;Studies in Res. Design & Data;LAB;R;1435;1525;31
+SOCI;3003;A;Studies in Res. Design and Data;LEC;R;1135;1425;84
+SOCI;3003;A1;Studies in Res. Design and Data;LAB;R;1435;1525;23
+SOCI;3003;A2;Studies in Res. Design and Data;LAB;R;1435;1525;26
+SOCI;3003;A3;Studies in Res. Design and Data;LAB;R;1435;1525;31
 SOCI;3005;A;Contempora Sociological Theory;LEC;M;1135;1425;66
 SOCI;3020;A;Studies in Race and Ethnicity;LEC;W;1435;1725;79
-SOCI;3027;A;Globalization & Human Rights;LEC;M;835;1125;61
-SOCI;3030;A;Stud. in Work Industry & Occu;LEC;W;835;1125;48
-SOCI;3045;A;Stud. in Children & Childhood;LEC;M;1805;2055;91
+SOCI;3027;A;Globalization and Human Rights;LEC;M;835;1125;61
+SOCI;3030;A;Stud. in Work Industry and Occu;LEC;W;835;1125;48
+SOCI;3045;A;Stud. in Children and Childhood;LEC;M;1805;2055;91
 SOCI;3050;A;Stud. in the Socio. of Health;LEC;F;835;1125;84
 SOCI;3056;A;Women and Health;SEM;T;1135;1425;29
 SOCI;3410;A;Stud. in Criminal Justice;LEC;F;1135;1425;96
-SOCI;3430;A;Stud in Collective Action & So;LEC;T;1135;1425;57
+SOCI;3430;A;Stud in Collective Action and So;LEC;T;1135;1425;57
 SOCI;3910;A;Course-Related Tut. in Soc.;TUT;;;;
 SOCI;3999;A;Co-op Work Term;WRK;;;;
 SOCI;4002;A;Adv. Stud. in Sociolo. Theory;SEM;T;1135;1425;8
@@ -3551,8 +3551,8 @@ SPAN;4215;A;Spanish for Specific Purposes;LEC;TR;1305;1425;31
 SPAN;4900;A;Independent Study;IND;;;;
 SPAN;4900;B;Independent Study;IND;;;;
 SPAN;4901;A;Independent Study;IND;;;;
-SREE;3001;A;Sustainable & Renewable Energy;LEC;TR;1305;1425;51
-SREE;3001;A1;Sustainable & Renewable Energy;LAB;T;1035;1125;51
+SREE;3001;A;Sustainable and Renewable Energy;LEC;TR;1305;1425;51
+SREE;3001;A1;Sustainable and Renewable Energy;LAB;T;1035;1125;51
 SREE;4001;A;Efficient Energy Conversion;LEC;TR;835;955;40
 SREE;4001;A01;Efficient Energy Conversion;LAB;W;1435;1725;40
 STAT;2507;A;Intro to Stat Modelling I;LEC;TR;1135;1255;236
@@ -3638,15 +3638,15 @@ STAT;4500;A;Parametric Estimation;LEC;TR;1435;1555;31
 STAT;4501;A;Probability Theory;LEC;TR;1305;1425;27
 STAT;4502;A;Survey Sampling;LEC;TR;835;955;78
 STAT;4503;A;Applied Multivariate Analysis;LEC;TR;1605;1725;66
-STAT;4603;A;Time Series & Forecasting;LEC;TR;1005;1125;48
-STAT;4603;A1;Time Series & Forecasting;LAB;R;1135;1225;25
+STAT;4603;A;Time Series and Forecasting;LEC;TR;1005;1125;48
+STAT;4603;A1;Time Series and Forecasting;LAB;R;1135;1225;25
 SXST;2101;A;Sexuality Studie:Critical Intr;LEC;M;1435;1625;134
 SXST;2101;A01;Sexuality Studie:Critical Intr;GRP;M;1335;1425;40
 SXST;2101;A02;Sexuality Studie:Critical Intr;GRP;M;1235;1325;56
 SXST;2101;A03;Sexuality Studie:Critical Intr;GRP;T;835;925;36
 SXST;2101;A04;Sexuality Studie:Critical Intr;GRP;M;1635;1725;48
 SXST;3104;A;Transnational Sexualities;LEC;R;1135;1425;35
-SXST;4104;A;Sexuality & Political Economy;SEM;M;835;1125;27
+SXST;4104;A;Sexuality and Political Economy;SEM;M;835;1125;27
 SYSC;1005;A;Intro to Software Development;LEC;TR;1135;1255;204
 SYSC;1005;L1;Intro to Software Development;LAB;R;835;1125;50
 SYSC;1005;L2;Intro to Software Development;LAB;M;1435;1725;50
@@ -3697,17 +3697,17 @@ SYSC;3600;L3;Systems and Simulation;LAB;R;1435;1725;50
 SYSC;3600;L4;Systems and Simulation;LAB;T;1135;1425;50
 SYSC;3600;L5;Systems and Simulation;LAB;W;835;1125;50
 SYSC;3600;L6;Systems and Simulation;LAB;T;1435;1725;50
-SYSC;3610;A;Biomedical Systems Modl&Cntrl;LEC;WF;1435;1555;96
-SYSC;3610;A1;Biomedical Systems Modl&Cntrl;LAB;M;835;1125;50
-SYSC;3610;A2;Biomedical Systems Modl&Cntrl;LAB;M;1135;1425;50
+SYSC;3610;A;Biomedical Systems ModlandCntrl;LEC;WF;1435;1555;96
+SYSC;3610;A1;Biomedical Systems ModlandCntrl;LAB;M;835;1125;50
+SYSC;3610;A2;Biomedical Systems ModlandCntrl;LAB;M;1135;1425;50
 SYSC;3999;A;Co-op Work Term;WRK;;;;
 SYSC;4001;A;Operating Systems;LEC;TR;1005;1125;58
 SYSC;4001;L1;Operating Systems;LAB;T;1635;1825;50
 SYSC;4101;A;Software Validation;LEC;TR;1135;1255;51
 SYSC;4101;A1E;Software Validation;LAB;M;835;1125;25
 SYSC;4101;A2;Software Validation;LAB;;;;
-SYSC;4120;A;Software Architecture & Design;LEC;TR;1435;1555;66
-SYSC;4120;A1O;Software Architecture & Design;LAB;M;835;1125;25
+SYSC;4120;A;Software Architecture and Design;LEC;TR;1435;1555;66
+SYSC;4120;A1O;Software Architecture and Design;LAB;M;835;1125;25
 SYSC;4203;A;Bioinstrumentation and Signals;LEC;WF;1435;1555;36
 SYSC;4203;A1E;Bioinstrumentation and Signals;LAB;R;835;1125;24
 SYSC;4203;A2E;Bioinstrumentation and Signals;LAB;T;835;1125;24
@@ -3737,33 +3737,33 @@ TSES;3001;A;Technology-Society Interaction;LEC;TR;1605;1725;98
 TSES;3001;AOD;Technology-Society Interaction;VOD;;;;
 TSES;3001;T;Technology-Society Interaction;LEC;;;;
 TSES;3001;TOD;Technology-Society Interaction;VOD;;;;
-TSES;4001;A;Technology & Society Risk;LEC;T;1735;2025;56
-TSES;4006;A;Technology & Society Work;LEC;;;;
+TSES;4001;A;Technology and Society Risk;LEC;T;1735;2025;56
+TSES;4006;A;Technology and Society Work;LEC;;;;
 TSES;4007;A;Product Life Cycle Analysis;LEC;TR;1735;1855;59
 TSES;4007;AOD;Product Life Cycle Analysis;VOD;;;;
 TSES;4007;T;Product Life Cycle Analysis;LEC;;;;
 TSES;4007;TOD;Product Life Cycle Analysis;VOD;;;;
 TSES;4009;A;Special Topics;SEM;;;;
 TSES;4014;A;Technology-Society:Time;LEC;MW;1735;1855;58
-WGST;1808;A;Intro Womens & Gender Studies;LEC;T;1435;1625;444
-WGST;1808;A01;Intro Womens & Gender Studies;GRP;R;1535;1625;30
-WGST;1808;A02;Intro Womens & Gender Studies;GRP;R;1635;1725;30
-WGST;1808;A03;Intro Womens & Gender Studies;GRP;R;1535;1625;40
-WGST;1808;A04;Intro Womens & Gender Studies;GRP;R;1635;1725;40
-WGST;1808;A05;Intro Womens & Gender Studies;GRP;W;835;925;47
-WGST;1808;A06;Intro Womens & Gender Studies;GRP;W;935;1025;47
-WGST;1808;A07;Intro Womens & Gender Studies;GRP;W;835;925;29
-WGST;1808;A08;Intro Womens & Gender Studies;GRP;W;1035;1125;48
-WGST;1808;A09;Intro Womens & Gender Studies;GRP;R;1535;1625;43
-WGST;1808;A10;Intro Womens & Gender Studies;GRP;R;1635;1725;43
-WGST;1808;A11;Intro Womens & Gender Studies;GRP;R;1535;1625;39
-WGST;1808;B;Intro Womens & Gender Studies;LEC;R;1805;1955;98
-WGST;1808;B01;Intro Womens & Gender Studies;GRP;R;2005;2055;35
-WGST;1808;B02;Intro Womens & Gender Studies;GRP;R;2105;2155;29
-WGST;1808;B03;Intro Womens & Gender Studies;GRP;R;2005;2055;31
-WGST;1808;B04;Intro Womens & Gender Studies;GRP;R;2105;2155;31
-WGST;1808;B05;Intro Womens & Gender Studies;GRP;R;2005;2055;31
-WGST;1808;B06;Intro Womens & Gender Studies;GRP;R;2105;2155;
+WGST;1808;A;Intro Womens and Gender Studies;LEC;T;1435;1625;444
+WGST;1808;A01;Intro Womens and Gender Studies;GRP;R;1535;1625;30
+WGST;1808;A02;Intro Womens and Gender Studies;GRP;R;1635;1725;30
+WGST;1808;A03;Intro Womens and Gender Studies;GRP;R;1535;1625;40
+WGST;1808;A04;Intro Womens and Gender Studies;GRP;R;1635;1725;40
+WGST;1808;A05;Intro Womens and Gender Studies;GRP;W;835;925;47
+WGST;1808;A06;Intro Womens and Gender Studies;GRP;W;935;1025;47
+WGST;1808;A07;Intro Womens and Gender Studies;GRP;W;835;925;29
+WGST;1808;A08;Intro Womens and Gender Studies;GRP;W;1035;1125;48
+WGST;1808;A09;Intro Womens and Gender Studies;GRP;R;1535;1625;43
+WGST;1808;A10;Intro Womens and Gender Studies;GRP;R;1635;1725;43
+WGST;1808;A11;Intro Womens and Gender Studies;GRP;R;1535;1625;39
+WGST;1808;B;Intro Womens and Gender Studies;LEC;R;1805;1955;98
+WGST;1808;B01;Intro Womens and Gender Studies;GRP;R;2005;2055;35
+WGST;1808;B02;Intro Womens and Gender Studies;GRP;R;2105;2155;29
+WGST;1808;B03;Intro Womens and Gender Studies;GRP;R;2005;2055;31
+WGST;1808;B04;Intro Womens and Gender Studies;GRP;R;2105;2155;31
+WGST;1808;B05;Intro Womens and Gender Studies;GRP;R;2005;2055;31
+WGST;1808;B06;Intro Womens and Gender Studies;GRP;R;2105;2155;
 WGST;2800;A;Intersectional Identities;LEC;M;935;1125;96
 WGST;2800;A01;Intersectional Identities;GRP;M;1135;1225;40
 WGST;2800;A02;Intersectional Identities;GRP;M;1235;1325;25
@@ -3777,11 +3777,11 @@ WGST;2803;A02;Body Matter:Politics of Bodies;GRP;F;1335;1425;32
 WGST;2803;A03;Body Matter:Politics of Bodies;GRP;W;1535;1625;43
 WGST;2803;A04;Body Matter:Politics of Bodies;GRP;F;1335;1425;32
 WGST;2803;A05;Body Matter:Politics of Bodies;GRP;;;;
-WGST;2807;A;The Politic of Gender & Health;LEC;F;935;1125;98
-WGST;2807;A01;The Politic of Gender & Health;GRP;R;1535;1625;25
-WGST;2807;A02;The Politic of Gender & Health;GRP;R;1635;1725;25
-WGST;2807;A03;The Politic of Gender & Health;GRP;T;1535;1625;25
-WGST;2807;A04;The Politic of Gender & Health;GRP;T;1635;1725;25
+WGST;2807;A;The Politic of Gender and Health;LEC;F;935;1125;98
+WGST;2807;A01;The Politic of Gender and Health;GRP;R;1535;1625;25
+WGST;2807;A02;The Politic of Gender and Health;GRP;R;1635;1725;25
+WGST;2807;A03;The Politic of Gender and Health;GRP;T;1535;1625;25
+WGST;2807;A04;The Politic of Gender and Health;GRP;T;1635;1725;25
 WGST;2811;A;Masculinities;LEC;T;1135;1325;96
 WGST;2811;A01;Masculinities;GRP;T;1335;1425;25
 WGST;2811;A02;Masculinities;GRP;T;1435;1525;25
@@ -3790,9 +3790,9 @@ WGST;2811;A04;Masculinities;GRP;T;1435;1525;25
 WGST;3804;A;Gender and Literature;SEM;M;1805;2055;58
 WGST;3807;A;Gendered Violence;SEM;M;835;1125;48
 WGST;3809;A;Feminist Thought;SEM;TR;1135;1255;48
-WGST;3812;A;Sel Top:Women&Gender Studies;SEM;W;835;1125;66
-WGST;3812;B;Sel Top:Women&Gender Studies;SEM;;;;
+WGST;3812;A;Sel Top:WomenandGender Studies;SEM;W;835;1125;66
+WGST;3812;B;Sel Top:WomenandGender Studies;SEM;;;;
 WGST;4804;A;Digital Lives in Global Spaces;SEM;F;835;1125;35
 WGST;4811;F;Hons Research Project in WGST;REP;;;;
-WGST;4812;A;Sel Top:Womens&Gender Studi;SEM;W;1435;1725;42
-WGST;4812;B;Sel Top:Womens&Gender Studi;SEM;W;1135;1425;35
+WGST;4812;A;Sel Top:WomensandGender Studi;SEM;W;1435;1725;42
+WGST;4812;B;Sel Top:WomensandGender Studi;SEM;W;1135;1425;35
