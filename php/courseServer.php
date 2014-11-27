@@ -15,7 +15,7 @@
 	
 	$coursesObject = simplexml_load_file("php://input");
 
-	echo $coursesObject;
+	echo count($coursesObject->courses);
 	exit;
 	
 	$Sections = new SectionList();
