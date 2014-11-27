@@ -104,10 +104,10 @@ public class IntroPage extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		SubmitButton source = (SubmitButton)arg0.getSource();
-		if(source.getId() == "introInfo"){
+		if(source.getId().equals("introInfo")){
 			//get all info and send to server
 			String prog;
-			if((String)this.program.getSelectedItem() == "Computer Systems Engineering"){
+			if(((String)this.program.getSelectedItem()).equals("Computer Systems Engineering")){
 				prog = "CSE";
 			}else{
 				prog = "SE";
@@ -140,14 +140,24 @@ public class IntroPage extends JPanel implements ActionListener{
 				connection.connect();
 				
 				OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-				out.write("requesttype=SubmitInfo&requesttype=SubmitInfo&sched="+onoff+"&term="+term+"&yearCompleted="+year+"&programName="+prog);
+				out.write("requesttype=SubmitInfo&sched="+onoff+"&term="+term+"&yearCompleted="+year+"&programName="+prog+"&source=java");
 				out.flush(); //sends to server
 				
 				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				//System.out.println("Response: "+in.readLine());
 				
-				System.out.println("Response: "+in.readLine());
-				System.out.println("Response: "+in.readLine());
-				//System.out.println("&requesttype=SubmitInfo&sched="+onoff+"&term="+term+"&yearCompleted="+year+"&programName="+prog);
+				String result = in.readLine();
+				if(result.equals("success-offsched")){
+					//redirect
+					System.out.println("successful! - offsched");
+				}else if(result.equals("success-onsched")){
+					//redirect
+					System.out.println("successful! - onsched");
+				}
+				
+				out.close();
+				in.close();
+				connection.disconnect();
 				
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
@@ -162,6 +172,11 @@ public class IntroPage extends JPanel implements ActionListener{
 			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
 			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 			connection.setDoOutput(true);
+			connection.setDoInput(true);
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+			connection.setRequestProperty("charset", "utf-8");
+			connection.connect();
 			
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
 			out.write("requesttype=GetPrograms");
@@ -178,7 +193,7 @@ public class IntroPage extends JPanel implements ActionListener{
 			for(int i=0;i<programList.getLength();i++){
 				//System.out.println(programList.item(i).getNodeName());
 				itemTags = programList.item(i).getChildNodes();
-				System.out.println(itemTags.item(2).getTextContent());
+				//System.out.println(itemTags.item(2).getTextContent());
 				program.addItem(itemTags.item(2).getTextContent());	//make a subclass to go in here
 				//program.addItem(new ProgramItem(itemTags.item(1).getTextContent(),itemTags.item(2).getTextContent()),itemTags.item(2).getTextContent());
 			}

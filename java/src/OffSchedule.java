@@ -1,6 +1,8 @@
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -13,6 +15,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -60,27 +63,42 @@ public class OffSchedule extends JPanel{
 			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
 			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 			connection.setDoOutput(true);
+			connection.setDoInput(true);
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+			connection.setRequestProperty("charset", "utf-8");
+			connection.connect();
 			
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-			out.write("requesttype=GetPattern&programName="+prog);
+			out.write("requesttype=GetPattern&program="+prog);
 			out.flush(); //sends to server
 			
-			/*
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(new InputSource(connection.getInputStream()));	//get xml response
-			*/
-			//for(int i=0;i<)
+			
+			//This parsing does not work.
+			Node pattern = doc.getElementsByTagName("pattern").item(0);
+			NodeList items = pattern.getChildNodes();
+			
+			Element node;
+			NodeList courses = items.item(0).getChildNodes();
+			for(int i=0;i<courses.getLength();i++){
+				node = (Element)courses.item(i);
+				System.out.println(node.getElementsByTagName("courseNumber").item(0).getTextContent());
+			}
+			
+			out.close();
+			//in.close();
+			connection.disconnect();
 			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-		/*
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
 			e.printStackTrace();
-		*/
 		}
 		
 	}
