@@ -55,13 +55,18 @@
 			$year = $_POST['yearCompleted'];
 			$term = $_POST['term'];
 			$schedType = $_POST['sched'];
+			$source = $_POST['source'];
 			
 			setcookie("yearCompleted", $year, time() + 3600, "/");	//Set cookies to send to client-side pages
 			setcookie("programName", $program, time() + 3600, "/");
 			setcookie("term", $term, time() + 3600, "/");
 			
 			if ($schedType == "off") {
-				header("location:../pages/Off_Schedule_Courses.php");	//If off schedule sendto off_schedule page so user can specify courses taken
+				if($source == "html"){
+					header("location:../pages/Off_Schedule_Courses.php");	//If off schedule sendto off_schedule page so user can specify courses taken
+				}else{
+					echo "success-offsched";
+				}
 				exit;
 				
 			} else {
@@ -73,7 +78,11 @@
 				fwrite($handle,$ScheduleList);						//output schedules to fileatime
 				fclose($handle);									//close file		
 				setcookie("courses", $filename, time() + 3600, "/");
-				header("location:../pages/my_schedule.php");
+				if($source == "html"){
+					header("location:../pages/my_schedule.php");
+				}else{
+					echo "success-onsched";
+				}
 				exit;
 			}
 			
