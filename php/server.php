@@ -62,9 +62,10 @@
 			setcookie("term", $term, time() + 3600, "/");
 			
 			if ($schedType == "off") {
-				if($source == "html"){
+				if($source == "html") {
 					header("location:../pages/Off_Schedule_Courses.php");	//If off schedule sendto off_schedule page so user can specify courses taken
-				}else{
+				} else {
+					header("content-type: text/plain");
 					echo "success-offsched";
 				}
 				exit;
@@ -78,9 +79,10 @@
 				fwrite($handle,$ScheduleList);						//output schedules to fileatime
 				fclose($handle);									//close file		
 				setcookie("courses", $filename, time() + 3600, "/");
-				if($source == "html"){
+				if($source == "html") {
 					header("location:../pages/my_schedule.php");
-				}else{
+				} else {
+					header("content-type: text/plain");
 					echo "success-onsched";
 				}
 				exit;

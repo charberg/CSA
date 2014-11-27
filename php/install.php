@@ -219,7 +219,7 @@ executed first before your application is evaluated.
 	
 	//Enter Winter Course Data
 	$dataFile = fopen("../data/datawinter.csv","r");	//open data file for reading
-
+	
 	$line = fgetcsv($dataFile, 1024);	//Get first line (Column Names)
 
 	while (!feof($dataFile) ) {		//while not at end of file
