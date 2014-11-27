@@ -69,7 +69,7 @@
 			$sec = $row->fetch_object();
 			
 			if (!is_null($sec->Capacity)) {	//check if course has capacity
-				$result = ($sec->Capacity == $sec->NumberOfStudents);	//ensure its not full
+				$result = ($sec->Capacity <= $sec->NumberOfStudents);	//ensure its not full
 			} else {
 				$result = false;	//if it doesn't it can be updated
 			}

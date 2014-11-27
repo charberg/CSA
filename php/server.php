@@ -9,7 +9,7 @@
 	
 	$db = new DataBase("SchedulerDatabase");
 	
-	switch ($requestType) {
+	switch (trim($requestType)) {
 	
 		case "GetCourseFile":	//WORKING
 		

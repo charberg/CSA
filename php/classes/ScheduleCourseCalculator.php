@@ -1158,6 +1158,14 @@
 							$passFlag = false;
 						}
 						
+					} else if ($root->children[$i]->prereqs[$j][0] === 'S') {
+						
+						$p = intval(substr($root->children[$i]->prereqs[$j], 2, strlen($root->children[$i]->prereqs[$j]) - 3));
+						//if not in same program then fail
+						if ($p != $this->program) {
+							$passFlag = false;
+						}
+						
 					}
 				}
 				if ($passFlag) {

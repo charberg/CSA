@@ -1,3 +1,5 @@
+The following are the symbols used in the prerequiste file, and what they mean
+
 P[program] = means must be registered in program
 C[Course] = means must have taken course previously
 U[Course] = means must have taken course previously OR concurrently

@@ -154,13 +154,6 @@ executed first before your application is evaluated.
 	
 		$values = explode(";",$line[0]);	//Split line into array based on ';'
 	
-		/*for ($i = 0; $i < 9;$i++) {
-			if (!is_null($values[$i])) {
-				echo "|".$values[$i]."|";
-			}
-		}
-		echo "<br/>";*/
-		
 		//Course Table
 		$SubjectID = "$values[0]";
 		$CourseNumber = "$values[1]";
@@ -236,13 +229,6 @@ executed first before your application is evaluated.
 		//	Get Column values for Course and Section Table insertion
 	
 		$values = explode(";",$line[0]);	//Split line into array based on ';'
-	
-		/*for ($i = 0; $i < 9;$i++) {
-			if (!is_null($values[$i])) {
-				echo "|".$values[$i]."|";
-			}
-		}
-		echo "<br/>";*/
 		
 		//Course Table
 		$SubjectID = "$values[0]";
@@ -308,50 +294,39 @@ executed first before your application is evaluated.
 	fclose($dataFile);
 	
 	//Populate Pattern table
-	$dataFile = fopen("../data/Patterns/SE.txt","r");	//open data file for reading
+	if ($handle = opendir('../data/Patterns/')) {
+
+		while (($file = readdir($handle)) !== false) {
+
+			if ($file != "." && $file != "..") {
+
+				$dataFile = fopen("../data/Patterns/".$file,"r");	//open data file for reading
 	
-	while (($line = fgets($dataFile)) !== false) {
-		
-		$values = explode(";", $line);
-		
-		$PopulateP2CMapping = "INSERT IGNORE INTO $table_Patterns VALUES('SE',
-																	   '$values[0]',
-																	   $values[3],
-																	   '$values[4]',
-																	   '$values[1]',
-																	   '$values[2]');";
-		if ($db->execute($PopulateP2CMapping)) {
-			//echo "Successfully populated Patterns Table<br/>";
-		} else {
-			echo "Error populating Patterns Table: ".$db->getError()."<br/>";
-			exit;
+				while (($line = fgets($dataFile)) !== false) {
+					
+					$values = explode(";", $line);
+					
+					$PopulateP2CMapping = "INSERT IGNORE INTO $table_Patterns VALUES('".substr($file,0, strpos($file,".txt") - strlen($file))."',
+																				   '$values[0]',
+																				   $values[3],
+																				   '$values[4]',
+																				   '$values[1]',
+																				   '$values[2]');";
+					if ($db->execute($PopulateP2CMapping)) {
+						//echo "Successfully populated Patterns Table<br/>";
+					} else {
+						echo "Error populating Patterns Table: ".$db->getError()."<br/>";
+						exit;
+					}
+				}
+				
+				fclose($dataFile);	
+			}
 		}
+
+		closedir($handle);
 	}
-	
-	fclose($dataFile);
-	
-	$dataFile = fopen("../data/Patterns/CSE.txt","r");	//open data file for reading
-	
-	while (($line = fgets($dataFile)) !== false) {
-		
-		$values = explode(";", $line);
-		
-		$PopulateP2CMapping = "INSERT IGNORE INTO $table_Patterns VALUES('CSE',
-																	   '$values[0]',
-																	   $values[3],
-																	   '$values[4]',
-																	   '$values[1]',
-																	   '$values[2]');";
-		if ($db->execute($PopulateP2CMapping)) {
-			//echo "Successfully populated Patterns Table<br/>";
-		} else {
-			echo "Error populating Patterns Table: ".$db->getError()."<br/>";
-			exit;
-		}
-	}
-	
-	fclose($dataFile);
-	
+
 	//Populate prerequisites table
 	$dataFile = fopen("../data/prereq.txt","r");	//open data file for reading
 	
@@ -381,9 +356,9 @@ executed first before your application is evaluated.
 
 		$values = explode(" ",$line);
 		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
-																		 '$values[0]',
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
 																		 '$values[1]',
+																		 '$values[2]',
 																		 'complementary');";
 		if ($db->execute($PopulateElectives)) {
 			//echo "Successfully populated Electives Table<br/>";
@@ -402,9 +377,9 @@ executed first before your application is evaluated.
 
 		$values = explode(" ",$line);
 		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
-																		 '$values[0]',
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
 																		 '$values[1]',
+																		 '$values[2]',
 																		 'science');";
 		if ($db->execute($PopulateElectives)) {
 			//echo "Successfully populated Electives Table<br/>";
@@ -423,9 +398,9 @@ executed first before your application is evaluated.
 
 		$values = explode(" ",$line);
 		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
-																		 '$values[0]',
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
 																		 '$values[1]',
+																		 '$values[2]',
 																		 'noteA');";
 		if ($db->execute($PopulateElectives)) {
 			//echo "Successfully populated Electives Table<br/>";
@@ -444,9 +419,9 @@ executed first before your application is evaluated.
 
 		$values = explode(" ",$line);
 		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('SE',
-																		 '$values[0]',
+		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
 																		 '$values[1]',
+																		 '$values[2]',
 																		 'noteB');";
 		if ($db->execute($PopulateElectives)) {
 			//echo "Successfully populated Electives Table<br/>";
