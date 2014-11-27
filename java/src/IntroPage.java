@@ -118,7 +118,7 @@ public class IntroPage extends JPanel implements ActionListener{
 				itemTags = programList.item(i).getChildNodes();
 				//System.out.println(itemTags.item(2).getTextContent());
 				//program.add(itemTags.item(1).getTextContent());	//make a subclass to go in here
-				program.addItem(new ProgramItem(itemTags.item(1).getTextContent(),itemTags.item(2).getTextContent()),itemTags.item(2).getTextContent());
+				//program.addItem(new ProgramItem(itemTags.item(1).getTextContent(),itemTags.item(2).getTextContent()),itemTags.item(2).getTextContent());
 			}
 			
 			out.close();

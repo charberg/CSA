@@ -549,17 +549,26 @@
 		
 		/* Sends the current schedule selected to the course server */
 		function submitSchedule(){
-			var request = new XMLHttpRequest();
-			request.open("post","../php/courseServer.php",true);
-			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
-			request.onreadystatechange = function(){
-				if(request.readyState == 4 && request.status == 200){
-					var response = request.responseText;
-					alert("Server Response: "+response);
+			if(GlobalSched[GlobalCurrentSched]){
+				var request = new XMLHttpRequest();
+				request.open("post","../php/courseServer.php",true);
+				request.setRequestHeader("content-type","application/x-www-form-urlencoded");
+				request.onreadystatechange = function(){
+					if(request.readyState == 4 && request.status == 200){
+						var response = request.responseText;
+						//alert("Server Response: "+response);
+						if(response == "PASS"){
+							alert("You have successfully registered for your courses!");
+						}else{
+							alert("Unable to register your courses.");
+						}
+						document.location.href = "intro_page.html";
+					}
 				}
+				request.send("&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
+			}else{
+				alert("Schedule is empty, cannot be submitted.");
 			}
-			alert(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]));
-			request.send("&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
 		}
 		
 		/* Take time that has 5 min offset and normalize it */

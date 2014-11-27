@@ -9,11 +9,12 @@ public class CourseBox extends JPanel{
 	private String ID,term;
 	private JLabel label;
 	private JCheckBox box;
-	private int year;
+	private int year, code;
 	
-	CourseBox(String name, String t, int y){
+	CourseBox(String name, int c, String t, int y){
 		//setPreferredSize(new Dimension(90,90));
 		//setColour(Color.black);
+		this.code = c;
 		this.ID = name+t+Integer.toString(y);
 		this.label = new JLabel(name);
 		this.box = new JCheckBox();
@@ -27,6 +28,10 @@ public class CourseBox extends JPanel{
 
 	public String getID() {
 		return ID;
+	}
+	
+	public String getSubjectID(){
+		return this.ID + Integer.toString(this.code);
 	}
 	
 	public void setColour(Color c){
