@@ -4,6 +4,18 @@
 	require_once("Section.php");
 	require_once("pattern.php");
 	
+	class PrereqNode {
+		
+		public $children;
+		public $prereqs;
+		
+		function __construct() {
+			$children = array();
+			$prereqs = array();
+		}
+		
+	}
+	
 	abstract class ScheduleCourseCalculator {
 		
 		const NUMSCHED = 10;
@@ -1070,9 +1082,70 @@
 
 			$prereq = $result->fetch_object();
 			
+			if (strlen(trim($prereq)) == 0) {
+				return true;	//No Prereqs
+			}
+			
 			//parse through prereqs and ensure that user meets them
 			
-			return true;
+			$words = explode(' ',$prereq);
+			
+			$root = new PrereqNode();
+
+			$current = new PrereqNode();
+			
+			array_push($root->children, $current);
+			
+			for ($i = 0;$i < count($words);$i++) {
+				
+				switch ($words[$i]) {
+				
+					case 'and':
+					
+						$current = $current;
+						break;
+					case 'or':
+						
+						$current = new PrereqNode();
+						array_push($root->children, $next);
+						break;
+					default:
+						
+						array_push($current->prereqs, $words[$i]);
+						break;				
+				}
+				
+			}	//end for
+
+			//prerequisites are now organized into a tree
+			//check each branch for succesfull prereq
+			
+			$passFlag = true;
+			
+			for ($i = 0;$i < count($root->children);$i = $i + 1) {
+				
+				for ($j = 0;$j < count($root->children[$i]->prereqs);$j = $j + 1) {
+					
+					if ($root->children[$i]->prereqs[$j][0] === 'C') {
+						
+						
+						
+					} else if ($root->children[$i]->prereqs[$j][0] === 'C') {
+						
+						
+						
+					} else if ($root->children[$i]->prereqs[$j][0] === 'S') {
+						
+						
+						
+					}
+				}
+				if ($passFlag) {
+					return true;
+				}
+			}
+			
+			return false;
 				
 		}
 	

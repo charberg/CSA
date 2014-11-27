@@ -10,8 +10,8 @@
 	
 	$courseList = fopen("php://input","i");
 	
-	echo $courseList;
-	exit;
+	//echo $courseList;
+	//exit;
 	
 	$coursesObject = simplexml_load_file("php://input");
 

@@ -1,5 +1,4 @@
 P[program] = means must be registered in program
 C[Course] = means must have taken course previously
 U[Course] = means must have taken course previously OR concurrently
-R[] = means permission
 S[Year] = means must have year status
