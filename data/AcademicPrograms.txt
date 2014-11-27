@@ -1,3 +1,2 @@
-CE;Communications Engineering
 CSE;Computer Systems Engineering
 SE;Software Engineering

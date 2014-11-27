@@ -5,12 +5,12 @@
 	require_once("classes/Section.php");
 	
 	header("content-type: text/plain");
-
+	
 	$db = new DataBase("SchedulerDatabase");
 	
-	$courseList = $_POST['xml']
-	$coursesObject = simplexml_load_string($courseList);
-
+	$courseList = $_POST['xml'];
+	$coursesObject = simplexml_load_string("<?xml version='1.0'?>".$courseList);
+	
 	echo count($coursesObject->courses);
 	exit;
 	
