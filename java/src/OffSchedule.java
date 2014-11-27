@@ -155,10 +155,15 @@ public class OffSchedule extends JPanel implements ActionListener{
 			
 			//send all courses checking checkbox states
 			String message = "";
+			boolean emptyList = true;
 			for(int i=0;i<this.courses.size();i++){
 				if(this.courses.get(i).getChecked()){
 					message += "&coursesTaken[]='" + courses.get(i).getID() + ":"  +courses.get(i).getCode() + "'";
+					emptyList = false;
 				}
+			}
+			if(emptyList){
+				message = "&coursesTaken[]=''";
 			}
 			
 			try {
