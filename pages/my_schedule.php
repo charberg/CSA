@@ -50,7 +50,7 @@
 						}
 					}
 				}
-				request.send("&requesttype=GetCourseFile&fileName="+courseList);
+				request.send("&source=html&requesttype=GetCourseFile&fileName="+courseList);
 			}
 			
 			/* Creates the table to put schedule times into */
@@ -207,7 +207,7 @@
 						document.location.href = "intro_page.html";
 					}
 				}
-				request.send("&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
+				request.send("&source=html&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
 			}else{
 				alert("Schedule is empty, cannot be submitted.");
 			}
@@ -245,7 +245,7 @@
 		function clearTable(){
 			var i=0;
 			var time = "0800";
-			while(time != "2400"){
+			while(time != "2200"){
 				document.getElementById('sun'+time).innerHTML = "";
 				document.getElementById('mon'+time).innerHTML = "";
 				document.getElementById('tues'+time).innerHTML = "";

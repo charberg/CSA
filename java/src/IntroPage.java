@@ -104,7 +104,7 @@ public class IntroPage extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		SubmitButton source = (SubmitButton)arg0.getSource();
-		if(source.getId().equals("introInfo")){
+		if(source.getID().equals("introInfo")){
 			//get all info and send to server
 			String prog;
 			if(((String)this.program.getSelectedItem()).equals("Computer Systems Engineering")){
@@ -179,7 +179,7 @@ public class IntroPage extends JPanel implements ActionListener{
 			connection.connect();
 			
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-			out.write("requesttype=GetPrograms");
+			out.write("requesttype=GetPrograms&source=java");
 			out.flush(); //sends to server
 			
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

@@ -33,6 +33,7 @@
 			$year = $_POST['year'];
 			$term = $_POST['term'];
 			$coursesTaken = $_POST['coursesTaken'];
+			$source = $_POST['source'];
 			
 			//generate possible schedules and send those schedules to schedule selection page
 			$scheduleGen = new OffScheduleCourseCalculator($year, $program, $term, $coursesTaken);
@@ -46,7 +47,11 @@
 			setcookie("programName", $program, time() + 3600, "/");
 			setcookie("term", $term, time() + 3600, "/");
 			setcookie("courses", $filename, time() + 3600, "/");
-			header("location:../pages/my_schedule.php");
+			if($source == "html"){
+				header("location:../pages/my_schedule.php");
+			}else{
+				echo "success-myschedule";
+			}
 			exit;
 			
 		case "SubmitInfo":	//WORKING

@@ -1033,7 +1033,7 @@
 			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {
 				if ($this->pattern->patternItems[$i]->yearRequired == $year) {
 					if ($this->pattern->patternItems[$i]->courseNumber != "") {
-						if (!$this->haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
+						if (!$this->haveTaken($this->pattern->patternItems[$i]->subjectID.":".$this->pattern->patternItems[$i]->courseNumber)) {
 							return false;
 						}
 					}
@@ -1051,7 +1051,7 @@
 			
 				if ($this->pattern->patternItems[$i]->yearRequired == $year &&
 					$this->pattern->patternItems[$i]->courseNumber != "") {
-					if (!$this->haveTaken($this->pattern->patternItems[$i]->subjectID." ".$this->pattern->patternItems[$i]->courseNumber)) {
+					if (!$this->haveTaken($this->pattern->patternItems[$i]->subjectID.":".$this->pattern->patternItems[$i]->courseNumber)) {
 						array_push($returnval,$this->pattern->patternItems[$i]);
 					}
 				}
@@ -1127,7 +1127,7 @@
 						$Coursenum = substr($root->children[$i]->prereqs[$j], 6, 4);
 
 						//If havent taken class before then not passed
-						if (!$this->haveTaken($SID." ".$Coursenum)) {
+						if (!$this->haveTaken($SID.":".$Coursenum)) {
 							$passFlag = false;
 						}
 			
@@ -1136,7 +1136,7 @@
 						$SID = substr($root->children[$i]->prereqs[$j], 2, 4);
 						$Coursenum = substr($root->children[$i]->prereqs[$j], 6, 4);
 						
-						if (!$this->haveTaken($SID." ".$Coursenum)) {
+						if (!$this->haveTaken($SID.":".$Coursenum)) {
 							$passFlag = false;
 						} else {
 							$concurrencyFlag = false;

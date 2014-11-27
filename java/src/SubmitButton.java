@@ -16,7 +16,7 @@ public class SubmitButton extends JButton{
 		return this.nextPanelID;
 	}
 	
-	public String getId() {
+	public String getID() {
 		return id;
 	}
 	
