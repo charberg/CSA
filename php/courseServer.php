@@ -8,12 +8,8 @@
 
 	$db = new DataBase("SchedulerDatabase");
 	
-	$courseList = fopen("php://input","i");
-	
-	//echo $courseList;
-	//exit;
-	
-	$coursesObject = simplexml_load_file("php://input");
+	$courseList = $_POST['xml']
+	$coursesObject = simplexml_load_string($courseList);
 
 	echo count($coursesObject->courses);
 	exit;
