@@ -32,7 +32,7 @@ public class MySchedule extends JPanel{
 		
 		add(timePanel);
 		
-		JButton submitButton = new JButton("PICK THIS SCHEDULE");
+		SubmitButton submitButton = new SubmitButton("PICK THIS SCHEDULE","mysched","none");
 		add(submitButton);
 		
 		setVisible(true);

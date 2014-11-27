@@ -15,7 +15,7 @@ public class OffSchedule extends JPanel{
 		setLayout( new BorderLayout());
 		
 		add(new JLabel("Select Your Courses Taken"),BorderLayout.NORTH);
-		JButton submitButton = new JButton("SUBMIT");
+		SubmitButton submitButton = new SubmitButton("SUBMIT","offsched","none");
 		add(submitButton,BorderLayout.SOUTH);
 		
 		JPanel coursePanel = new JPanel();

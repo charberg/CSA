@@ -3,8 +3,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.*;
 import java.io.*;
-import javax.swing.*;
 
+import javax.swing.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.xml.sax.InputSource;
 
 public class IntroPage extends JPanel implements ActionListener{
 	
@@ -65,7 +73,7 @@ public class IntroPage extends JPanel implements ActionListener{
 			
 			gc.gridx = 0;
 			gc.gridy = 5;
-			JButton submit = new JButton("SUBMIT");
+			SubmitButton submit = new SubmitButton("SUBMIT","introInfo","none");
 			submit.addActionListener(this);
 			panel.add(submit,gc);
 		}else{
@@ -79,7 +87,10 @@ public class IntroPage extends JPanel implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		JButton source = (JButton)arg0.getSource();
+		SubmitButton source = (SubmitButton)arg0.getSource();
+		if(source.getId() == "introInfo"){
+			//do something
+		}
 		System.out.println(source.getText());
 		
 	}
@@ -87,22 +98,31 @@ public class IntroPage extends JPanel implements ActionListener{
 	public boolean fillPrograms(){
 		try{
 			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
-			URLConnection connection = urlpost.openConnection();
+			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 			connection.setDoOutput(true);
+			
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
 			out.write("requesttype=GetPrograms");
-			out.flush();
-			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-			String text;
+			out.flush(); //sends to server
 			
-			text = in.readLine();
-			System.out.println(text);
-			text = in.readLine();
-			System.out.println(text);
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+			DocumentBuilder db = dbf.newDocumentBuilder();
+			Document doc = db.parse(new InputSource(connection.getInputStream()));	//get xml response
 			
+			NodeList programs = doc.getElementsByTagName("programs");
+			NodeList programList = programs.item(0).getChildNodes();	//program
+			NodeList itemTags;
+			
+			for(int i=0;i<programList.getLength();i++){
+				//System.out.println(programList.item(i).getNodeName());
+				itemTags = programList.item(i).getChildNodes();
+				//System.out.println(itemTags.item(2).getTextContent());
+				//program.add(itemTags.item(1).getTextContent());	//make a subclass to go in here
+				program.addItem(new ProgramItem(itemTags.item(1).getTextContent(),itemTags.item(2).getTextContent()),itemTags.item(2).getTextContent());
+			}
 			
 			out.close();
-			in.close();
+			
 			return true;
 		}catch(Exception ion){}
 		return false;

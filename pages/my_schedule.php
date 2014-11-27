@@ -551,14 +551,15 @@
 		function submitSchedule(){
 			var request = new XMLHttpRequest();
 			request.open("post","../php/courseServer.php",true);
-			request.setRequestHeader("content-type","application/xml");
+			request.setRequestHeader("content-type","application/x-www-form-urlencoded");
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
 					var response = request.responseText;
-					alert(response);
+					alert("Server Response: "+response);
 				}
 			}
-			request.send(GlobalSched[GlobalCurrentSched]);
+			alert(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]));
+			request.send("&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
 		}
 		
 		/* Take time that has 5 min offset and normalize it */
