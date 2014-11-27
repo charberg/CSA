@@ -10,8 +10,9 @@
 		public $prereqs;
 		
 		function __construct() {
-			$children = array();
-			$prereqs = array();
+		
+			$this->children = array();
+			$this->prereqs = array();
 		}
 		
 	}
@@ -1061,34 +1062,28 @@
 	
 		//Returns true if course can be taken
 		function hasPrereq($year,$subID,$CN) {
-			
-			$programID = "P[";
-			$yearID = "S[";
-			$courseID = "C[";
-			$concourseID = "U[";
-			$permissonID = "R[]";
-			
+
 			$db = new DataBase("SchedulerDatabase");
 			
 			$getPrereq = "SELECT Prerequisites FROM CourseToPrerequisiteMapping
-							WHERE SubjectID LIKE '$subID' AND
-							CourseNumber LIKE '$CN';";
+							WHERE SubjectID LIKE '%$subID%' AND
+							CourseNumber LIKE '%$CN%';";
 			
 			$result = $db->execute($getPrereq);
-
+			
 			if ($result->num_rows < 1) {
 				return true;	//NO Prereqs
 			}
 
 			$prereq = $result->fetch_object();
 			
-			if (strlen(trim($prereq)) == 0) {
+			if (strlen(trim($prereq->Prerequisites)) == 0) {
 				return true;	//No Prereqs
 			}
 			
 			//parse through prereqs and ensure that user meets them
 			
-			$words = explode(' ',$prereq);
+			$words = explode(' ',$prereq->Prerequisites);
 			
 			$root = new PrereqNode();
 
@@ -1098,16 +1093,16 @@
 			
 			for ($i = 0;$i < count($words);$i++) {
 				
-				switch ($words[$i]) {
+				switch (strtoupper(trim($words[$i]))) {
 				
-					case 'and':
+					case 'AND':
 					
 						$current = $current;
 						break;
-					case 'or':
+					case 'OR':
 						
 						$current = new PrereqNode();
-						array_push($root->children, $next);
+						array_push($root->children, $current);
 						break;
 					default:
 						
@@ -1120,23 +1115,48 @@
 			//prerequisites are now organized into a tree
 			//check each branch for succesfull prereq
 			
-			$passFlag = true;
-			
 			for ($i = 0;$i < count($root->children);$i = $i + 1) {
+				
+				$passFlag = true;
 				
 				for ($j = 0;$j < count($root->children[$i]->prereqs);$j = $j + 1) {
 					
 					if ($root->children[$i]->prereqs[$j][0] === 'C') {
 						
+						$SID = substr($root->children[$i]->prereqs[$j], 2, 4);
+						$Coursenum = substr($root->children[$i]->prereqs[$j], 6, 4);
+
+						//If havent taken class before then not passed
+						if (!$this->haveTaken($SID." ".$Coursenum)) {
+							$passFlag = false;
+						}
+			
+					} else if ($root->children[$i]->prereqs[$j][0] === 'U') {
 						
+						$SID = substr($root->children[$i]->prereqs[$j], 2, 4);
+						$Coursenum = substr($root->children[$i]->prereqs[$j], 6, 4);
 						
-					} else if ($root->children[$i]->prereqs[$j][0] === 'C') {
-						
-						
+						if (!$this->haveTaken($SID." ".$Coursenum)) {
+							$passFlag = false;
+						} else {
+							$concurrencyFlag = false;
+							foreach ($this->courses->SectionItems as $section) {
+								if ($section->subjectID == $SID && $section->courseNum == $Coursenum) {
+									$concurrencyFlag = true;
+								}
+							}
+							if ($concurrencyFlag == false) {
+								$passFlag = false;
+							}
+						}
 						
 					} else if ($root->children[$i]->prereqs[$j][0] === 'S') {
 						
+						$y = intval(substr($root->children[$i]->prereqs[$j], 2, 1));
 						
+						if ($year + 1 < $y) {	// if completed less than the year required then not passed
+							$passFlag = false;
+						}
 						
 					}
 				}
@@ -1378,7 +1398,6 @@
 					}//end if
 				}//end for
 			}//end if
-
 		}	//end function
 		
 	}
