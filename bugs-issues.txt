@@ -2,3 +2,6 @@
 my_schedule.php:
  - Refreshing the page loses all data and shows blank table
 
+IntroPage.java:
+ - The submit button routine takes the stream selector value and has an if statement to
+   convert it into a message, this should be dynamic not hard coded

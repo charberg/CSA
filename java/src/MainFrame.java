@@ -14,11 +14,11 @@ public class MainFrame extends JFrame implements ActionListener{
 		setSize(1200,800);
 		setTitle("Briglio Course Selector");
 		
-		introPage = new IntroPage(this);
-		add(introPage);
+		//introPage = new IntroPage(this);
+		//add(introPage);
 		
-		//offPage = new OffSchedule(this);
-		//add(offPage);
+		offPage = new OffSchedule(this);
+		add(offPage);
 		
 		//mySchedule = new MySchedule(this);
 		//add(mySchedule);

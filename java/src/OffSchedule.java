@@ -62,22 +62,25 @@ public class OffSchedule extends JPanel{
 			connection.setDoOutput(true);
 			
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
-			out.write("requesttype=GetPattern&"+prog);
+			out.write("requesttype=GetPattern&programName="+prog);
 			out.flush(); //sends to server
 			
+			/*
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(new InputSource(connection.getInputStream()));	//get xml response
-			
+			*/
 			//for(int i=0;i<)
 			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
+		/*
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
 			e.printStackTrace();
+		*/
 		}
 		
 	}

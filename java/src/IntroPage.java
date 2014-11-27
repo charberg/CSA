@@ -7,18 +7,20 @@ import java.io.*;
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 public class IntroPage extends JPanel implements ActionListener{
 	
 	private JComboBox program, yearComplete;
-	private JRadioButton onsched, offsched;
-	private ButtonGroup schedButtons;
+	private JRadioButton onsched, offsched, fallTerm, winterTerm;
+	private ButtonGroup schedButtons, termButtons;
 	private MainFrame main;
 	
 	public IntroPage(MainFrame m){
@@ -59,6 +61,20 @@ public class IntroPage extends JPanel implements ActionListener{
 			
 			gc.gridx = 0;
 			gc.gridy = 4;
+			panel.add(new JLabel("What term are you planning?"),gc);
+			gc.gridx = 1;
+			fallTerm = new JRadioButton("Fall",true);
+			winterTerm = new JRadioButton("Winter",false);
+			termButtons = new ButtonGroup();
+			termButtons.add(fallTerm);
+			termButtons.add(winterTerm);
+			gc.gridwidth = 1;
+			panel.add(fallTerm,gc);
+			gc.gridx = 2;
+			panel.add(winterTerm,gc);
+			
+			gc.gridx = 0;
+			gc.gridy = 5;
 			panel.add(new JLabel("Are you on schedule?"),gc);
 			gc.gridx = 1;
 			onsched = new JRadioButton("ON",true);
@@ -72,7 +88,7 @@ public class IntroPage extends JPanel implements ActionListener{
 			panel.add(offsched,gc);
 			
 			gc.gridx = 0;
-			gc.gridy = 5;
+			gc.gridy = 6;
 			SubmitButton submit = new SubmitButton("SUBMIT","introInfo","none");
 			submit.addActionListener(this);
 			panel.add(submit,gc);
@@ -89,10 +105,56 @@ public class IntroPage extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		SubmitButton source = (SubmitButton)arg0.getSource();
 		if(source.getId() == "introInfo"){
-			//do something
+			//get all info and send to server
+			String prog;
+			if((String)this.program.getSelectedItem() == "Computer Systems Engineering"){
+				prog = "CSE";
+			}else{
+				prog = "SE";
+			}
+			
+			String year = (String)this.yearComplete.getSelectedItem();
+			
+			String onoff;
+			if(onsched.isSelected()){
+				onoff = "on";
+			}else{
+				onoff = "off";
+			}
+			
+			String term;
+			if(fallTerm.isSelected()){
+				term = "fall";
+			}else{
+				term = "winter";
+			}
+			
+			try {
+				URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
+				HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
+				connection.setDoOutput(true);
+				connection.setDoInput(true);
+				connection.setRequestMethod("POST");
+				connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+				connection.setRequestProperty("charset", "utf-8");
+				connection.connect();
+				
+				OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+				out.write("requesttype=SubmitInfo&requesttype=SubmitInfo&sched="+onoff+"&term="+term+"&yearCompleted="+year+"&programName="+prog);
+				out.flush(); //sends to server
+				
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				
+				System.out.println("Response: "+in.readLine());
+				System.out.println("Response: "+in.readLine());
+				//System.out.println("&requesttype=SubmitInfo&sched="+onoff+"&term="+term+"&yearCompleted="+year+"&programName="+prog);
+				
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		System.out.println(source.getText());
-		
 	}
 	
 	public boolean fillPrograms(){
@@ -116,8 +178,8 @@ public class IntroPage extends JPanel implements ActionListener{
 			for(int i=0;i<programList.getLength();i++){
 				//System.out.println(programList.item(i).getNodeName());
 				itemTags = programList.item(i).getChildNodes();
-				//System.out.println(itemTags.item(2).getTextContent());
-				//program.add(itemTags.item(1).getTextContent());	//make a subclass to go in here
+				System.out.println(itemTags.item(2).getTextContent());
+				program.addItem(itemTags.item(2).getTextContent());	//make a subclass to go in here
 				//program.addItem(new ProgramItem(itemTags.item(1).getTextContent(),itemTags.item(2).getTextContent()),itemTags.item(2).getTextContent());
 			}
 			
