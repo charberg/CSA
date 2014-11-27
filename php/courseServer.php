@@ -9,10 +9,7 @@
 	$db = new DataBase("SchedulerDatabase");
 	
 	$courseList = $_POST['xml'];
-	$coursesObject = simplexml_load_string("<?xml version='1.0'?>".$courseList);
-	
-	echo count($coursesObject->courses);
-	exit;
+	$coursesObject = simplexml_load_string($courseList);
 	
 	$Sections = new SectionList();
 	
@@ -20,20 +17,21 @@
 	$SectionsUpdated = new SectionList();	
 	
 	//Create section list out of courses return by client
-	for ($i = 0;$i < count($coursesObject->courses);$i = $i + 1) { 
+	foreach ($coursesObject->children() as $course) { 
 	
-		$Sections->addItem(new Section($coursesObject->courses[$i]->subjectID,
-									   $coursesObject->courses[$i]->courseNum,
-									   $coursesObject->courses[$i]->year,
-									   $coursesObject->courses[$i]->term,
-									   $coursesObject->courses[$i]->title,
-									   $coursesObject->courses[$i]->credits,
-									   $coursesObject->courses[$i]->scheduleCode,
-									   $coursesObject->courses[$i]->sectionCode,
-									   $coursesObject->courses[$i]->time,
-									   $coursesObject->courses[$i]->days,
-									   $coursesObject->courses[$i]->capacity,
-									   $coursesObject->courses[$i]->numberOfStudents));
+		$Sections->addItem(new Section($course->children()[0]->__toString(),
+									   $course->children()[1]->__toString(),
+									   $course->children()[2]->__toString(),
+									   $course->children()[3]->__toString(),
+									   $course->children()[4]->__toString(),
+									   $course->children()[5]->__toString(),
+									   $course->children()[6]->__toString(),
+									   $course->children()[7]->__toString(),
+									   $course->children()[8]->__toString(),
+									   $course->children()[9]->__toString(),
+									   $course->children()[10]->__toString(),
+									   $course->children()[11]->__toString()));
+									  
 	}
 	
 	//Query to lock table during transaction
@@ -58,7 +56,7 @@
 		$getSection = "SELECT * FROM Section 
 						WHERE SubjectID LIKE '%$subID%' AND 
 						CourseNumber LIKE '%$CN%' AND 
-						SectionCode LIKE '%$SC%' AND
+						SectionCode = '$SC' AND
 						Year = $year AND
 						Term LIKE '%$term%';";
 		
@@ -71,7 +69,7 @@
 			$sec = $row->fetch_object();
 			
 			if (!is_null($sec->Capacity)) {	//check if course has capacity
-				$result = ($row->Capacity == $row->NumberOfStudents);	//ensure its not full
+				$result = ($sec->Capacity == $sec->NumberOfStudents);	//ensure its not full
 			} else {
 				$result = false;	//if it doesn't it can be updated
 			}
@@ -80,12 +78,12 @@
 			
 				//Query to increment given course
 				$incrementSection = "UPDATE Section 
-									SET NumberOfStudents = NumberOfStudents + 1 
-									WHERE SubjectID LIKE '%$subID%' AND 
-									CourseNumber LIKE '%$CN%' AND 
-									SectionCode LIKE '%$SC%' AND
-									Year = $year AND
-									Term LIKE '%$term%';";
+									 SET NumberOfStudents = NumberOfStudents + 1 
+									 WHERE SubjectID LIKE '%$subID%' AND 
+									 CourseNumber LIKE '%$CN%' AND 
+									 SectionCode = '$SC' AND
+									 Year = $year AND
+									 Term LIKE '%$term%';";
 				
 				$incrementresult = $db->execute($incrementSection);
 				
