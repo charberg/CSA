@@ -89,6 +89,8 @@ To add more patterns, simply add a txt file (with the academic program as the ti
 
 To add Electives for different course, simply add the list to the existing elecives files, specifying the program you are adding them for.
 
+To add new Elective types, simply add the fil to the Electives folder, ensuring the follow the same format as the other electives files (both data and naming convention: *electype*Electives.txt)
+
 To add prerequisites add the course and prerequisite string to the prerreqs.txt in the data folder. Ensure that the prerequisite string
 follows the format specified by the prereqMapping.txt file and that all logic possibilities are seperated by 'OR', with each of the requirements 'AND'D together.
 

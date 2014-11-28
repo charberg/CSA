@@ -341,90 +341,38 @@ executed first before your application is evaluated.
 	
 	fclose($dataFile);
 	
-	//Populate Electives Table witch complementary electives
-	$dataFile = fopen("../data/Electives/complementaryElectives.txt","r");	//open data file for reading
-	
-	while (($line = fgets($dataFile)) !== false) {
+	//Populate Electives Table
+	if ($handle = opendir('../data/Electives/')) {	//open directory to add all pattern files in folder
 
-		$values = explode(" ",$line);
-		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
-																		 '$values[1]',
-																		 '$values[2]',
-																		 'complementary');";
-		if ($db->execute($PopulateElectives)) {
-			//echo "Successfully populated Electives Table<br/>";
-		} else {
-			echo "Error populating Electives Table: ".$db->getError()."<br/>";
-			exit;
-		}
-	}
-	
-	fclose($dataFile);
-	
-	//Populate Electives Table witch science electives
-	$dataFile = fopen("../data/Electives/ScienceElectives.txt","r");	//open data file for reading
-	
-	while (($line = fgets($dataFile)) !== false) {
+		while (($file = readdir($handle)) !== false) {
 
-		$values = explode(" ",$line);
-		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
-																		 '$values[1]',
-																		 '$values[2]',
-																		 'science');";
-		if ($db->execute($PopulateElectives)) {
-			//echo "Successfully populated Electives Table<br/>";
-		} else {
-			echo "Error populating Electives Table: ".$db->getError()."<br/>";
-			exit;
-		}
-	}
-	
-	fclose($dataFile);
-	
-	//Populate Electives Table witch noteA Engineering electives
-	$dataFile = fopen("../data/Electives/noteAElectives.txt","r");	//open data file for reading
-	
-	while (($line = fgets($dataFile)) !== false) {
+			if ($file != "." && $file != "..") {
 
-		$values = explode(" ",$line);
+				$dataFile = fopen("../data/Electives/".$file,"r");	//open data file for reading
+	
+				while (($line = fgets($dataFile)) !== false) {
+					
+					$values = explode(" ",$line);
+					
+					$electype = substr($file,0, strpos($file,"Electives.txt") - strlen($file));
 		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
-																		 '$values[1]',
-																		 '$values[2]',
-																		 'noteA');";
-		if ($db->execute($PopulateElectives)) {
-			//echo "Successfully populated Electives Table<br/>";
-		} else {
-			echo "Error populating Electives Table: ".$db->getError()."<br/>";
-			exit;
+					$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
+																					 '$values[1]',
+																					 '$values[2]',
+																					 '$electype');";
+					if ($db->execute($PopulateElectives)) {
+						//echo "Successfully populated Electives Table<br/>";
+					} else {
+						echo "Error populating Electives Table: ".$db->getError()."<br/>";
+						exit;
+					}
+				}
+				fclose($dataFile);	
+			}
 		}
+		closedir($handle);
 	}
-	
-	fclose($dataFile);
-	
-	//Populate Electives Table witch noteB Engineering electives
-	$dataFile = fopen("../data/Electives/noteBElectives.txt","r");	//open data file for reading
-	
-	while (($line = fgets($dataFile)) !== false) {
 
-		$values = explode(" ",$line);
-		
-		$PopulateElectives = "INSERT IGNORE INTO $table_electives VALUES('$values[0]',
-																		 '$values[1]',
-																		 '$values[2]',
-																		 'noteB');";
-		if ($db->execute($PopulateElectives)) {
-			//echo "Successfully populated Electives Table<br/>";
-		} else {
-			echo "Error populating Electives Table: ".$db->getError()."<br/>";
-			exit;
-		}
-	}
-	
-	fclose($dataFile);
-	
 	echo "Successfull in creating database";
-		
+	exit;
 ?>
