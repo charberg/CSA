@@ -1,3 +1,0 @@
-
-my_schedule.php:
- - Refreshing the page loses all data and shows blank table
