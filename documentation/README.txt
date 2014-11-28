@@ -148,4 +148,7 @@ has direct access to the database and therefore can retrieve any and all informa
 
 Other Notes:
 
- - This program has been tested in Google Chrome & Mozilla Firefox webbrowsers.
+ - This program has been tested in Google Chrome & Mozilla Firefox web browsers.
+ - Due to incomplete course data provided, the program does not have the resources to generate all possible schedules.
+   An example is Fourth Year Winter Term Software Engineering: Not all required courses appear in the schedule (SYSC4927 has incomplete data ie: null values for capacity, time and days).
+   Another example is Fourth Year Fall Term Software Engineering: The schedule cannot be generated.
