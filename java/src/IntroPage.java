@@ -142,7 +142,7 @@ public class IntroPage extends JPanel implements ActionListener{
 			
 			try {
 				//Send information to server
-				URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
+				URL urlpost = new URL("http://localhost/CSA/php/server.php?");
 				HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 				connection.setDoOutput(true);
 				connection.setDoInput(true);
@@ -189,7 +189,7 @@ public class IntroPage extends JPanel implements ActionListener{
 	 */
 	public boolean fillPrograms(){
 		try{
-			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
+			URL urlpost = new URL("http://localhost/CSA/php/server.php?");
 			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 			connection.setDoOutput(true);
 			connection.setDoInput(true);

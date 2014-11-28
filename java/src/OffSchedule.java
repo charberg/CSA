@@ -77,7 +77,7 @@ public class OffSchedule extends JPanel implements ActionListener{
 	public void getCourses(){
 			String prog = main.getProgramName();
 		try {
-			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
+			URL urlpost = new URL("http://localhost/CSA/php/server.php?");
 			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 			connection.setDoOutput(true);
 			connection.setDoInput(true);
@@ -177,7 +177,7 @@ public class OffSchedule extends JPanel implements ActionListener{
 			}
 			
 			try {
-				URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
+				URL urlpost = new URL("http://localhost/CSA/php/server.php?");
 				HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 				connection.setDoOutput(true);
 				connection.setDoInput(true);

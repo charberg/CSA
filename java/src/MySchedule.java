@@ -151,7 +151,7 @@ public class MySchedule extends JPanel implements ActionListener{
 	public void getSchedules(){
 		try {
 			//Send request to server
-			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
+			URL urlpost = new URL("http://localhost/CSA/php/server.php?");
 			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 			connection.setDoOutput(true);
 			connection.setDoInput(true);
@@ -342,7 +342,7 @@ public class MySchedule extends JPanel implements ActionListener{
 		}else if(button.getID().equals("mysched")){
 			//Send request to server
 			try {
-				URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/courseServer.php?");
+				URL urlpost = new URL("http://localhost/CSA/php/courseServer.php?");
 				HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 				connection.setDoOutput(true);
 				connection.setDoInput(true);

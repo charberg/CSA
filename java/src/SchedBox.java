@@ -3,7 +3,11 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
-
+/**
+ * Panel that contains a "schedule" display cell. This is used in the MySchedule Panel.
+ *
+ */
+@SuppressWarnings("serial")
 public class SchedBox extends JPanel{
 	
 	private JLabel nameLabel, timeLabel;
@@ -11,19 +15,21 @@ public class SchedBox extends JPanel{
 	private boolean isLabel;
 	
 	public SchedBox(String i, String l, String t, String d, boolean il){
+		
 		this.ID = i;
 		this.day = d;
 		this.name = l;
 		this.isLabel = il;
 		nameLabel = new JLabel(this.name);
-		add(nameLabel);
+		add(nameLabel, SwingConstants.CENTER);
+		
 		setTime(t);
 		timeLabel = new JLabel(this.startTime+"-"+this.endTime);
-		if(!this.isLabel) add(timeLabel);
+		if(!this.isLabel) add(timeLabel, SwingConstants.CENTER);
 		
-		this.setPreferredSize(new Dimension(100,100));
-		this.setMinimumSize(new Dimension(100,100));
-		this.setMaximumSize(new Dimension(100,100));
+		this.setPreferredSize(new Dimension(100,50));
+		this.setMinimumSize(new Dimension(100,50));
+		this.setMaximumSize(new Dimension(100,50));
 		setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setVisible(true);
 		
@@ -56,11 +62,6 @@ public class SchedBox extends JPanel{
 		if(this.isLabel) this.add(new JLabel(this.getStart()+"-"+this.getEnd()));
 	}
 	
-	public void showTime(){
-		//this.add(timeLabel);
-		add(new JLabel(this.getStart()+"-"+this.getEnd()));
-	}
-	
 	public String getStart(){
 		return this.startTime;
 	}
@@ -81,16 +82,11 @@ public class SchedBox extends JPanel{
 		this.endTime = e;
 	}
 	
-	public void showTime(boolean n){
-		System.out.println(!n);
-		this.isLabel = !n;
-	}
-	
-	public void clearLabels() {
-		this.timeLabel.setText("");
-		this.nameLabel.setText("");
-	}
-	
+	/**
+	 * Normalizes the string input (time) to four digits/on the half hour.
+	 * @param time - String containing time.
+	 * @return String containing normalized time.
+	 */
 	public String normTime(String time){
 		String newTime = time.trim();
 		if(newTime.length() == 3){
