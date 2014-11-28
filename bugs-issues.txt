@@ -8,3 +8,6 @@ IntroPage.java:
 
 ALL JAVA:
  - ALL urls are hard coded
+
+Java:
+ - Have popups that tell you when things have been submitted/accepted...
