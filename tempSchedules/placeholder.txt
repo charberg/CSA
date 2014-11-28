@@ -1,0 +1,1 @@
+This file is kept in this directory to prevent the empty directory from being deleted through git interaction.

@@ -205,7 +205,7 @@
 						}else{
 							alert("Unable to register your courses.");
 						}
-						document.location.href = "intro_page.html";
+						document.location.href = "intro_page.html";	//go back to intro page
 					}
 				}
 				request.send("source=html&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
