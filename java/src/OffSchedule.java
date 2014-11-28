@@ -116,7 +116,6 @@ public class OffSchedule extends JPanel implements ActionListener{
 			}
 			
 			out.close();
-			//in.close();
 			connection.disconnect();
 			
 		} catch (IOException e) {
@@ -149,20 +148,21 @@ public class OffSchedule extends JPanel implements ActionListener{
 		SubmitButton button = (SubmitButton)e.getSource();
 		if(button.getID().equals("offsched")){
 			
-			String prog = "SE";
+			String prog = "SE";		//TODO: automate getting these.
 			String year = "0";
 			String term = "fall";
 			
 			//send all courses checking checkbox states
 			String message = "";
 			boolean emptyList = true;
-			for(int i=0;i<this.courses.size();i++){
+			for(int i=0;i<this.courses.size();i++){		//put all courses taken into the coursesTaken array in the message
 				if(this.courses.get(i).getChecked()){
 					message += "&coursesTaken[]='" + courses.get(i).getID() + ":"  +courses.get(i).getCode() + "'";
 					emptyList = false;
 				}
 			}
-			if(emptyList){
+			
+			if(emptyList){	//check to see if coursesTaken is empty
 				message = "&coursesTaken[]=''";
 			}
 			
@@ -181,8 +181,16 @@ public class OffSchedule extends JPanel implements ActionListener{
 				out.flush(); //sends to server
 				
 				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-				System.out.println("Response: "+in.readLine());
-				System.out.println("Response: "+in.readLine());
+				if(in.readLine().equals("success-myschedule")){
+					//change panel to myschedule
+					System.out.println("Sucess");
+				}else{
+					System.out.println("Error submitting courses taken.");
+				}
+				
+				out.close();
+				in.close();
+				connection.disconnect();
 				
 			} catch (IOException e1) {
 				e1.printStackTrace();

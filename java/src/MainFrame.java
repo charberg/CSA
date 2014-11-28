@@ -15,12 +15,12 @@ public class MainFrame extends JFrame implements ActionListener{
 		setTitle("Briglio Course Selector");
 		
 		//introPage = new IntroPage(this);
-		offPage = new OffSchedule(this);
-		//mySchedule = new MySchedule(this);
+		//offPage = new OffSchedule(this);
+		mySchedule = new MySchedule(this);
 		
 		//setContentPane(introPage);
-		setContentPane(offPage);
-		//setContentPane(mySchedule);
+		//setContentPane(offPage);
+		setContentPane(mySchedule);
 		setVisible(true);
 	}
 	

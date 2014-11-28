@@ -50,7 +50,7 @@
 						}
 					}
 				}
-				request.send("&source=html&requesttype=GetCourseFile&fileName="+courseList);
+				request.send("?source=html&requesttype=GetCourseFile&fileName="+courseList);
 			}
 			
 			/* Creates the table to put schedule times into */

@@ -148,10 +148,10 @@ public class IntroPage extends JPanel implements ActionListener{
 				
 				String result = in.readLine();
 				if(result.equals("success-offsched")){
-					//redirect
+					//redirect to offsched
 					System.out.println("successful! - offsched");
 				}else if(result.equals("success-onsched")){
-					//redirect
+					//redirect to myschedule
 					System.out.println("successful! - onsched");
 				}
 				
