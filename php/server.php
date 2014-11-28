@@ -11,7 +11,7 @@
 	
 	switch (trim($requestType)) {
 	
-		case "GetCourseFile":	//WORKING
+		case "GetCourseFile":
 		
 			$filename = $_POST['fileName'];	//get unique filename from client
 			
@@ -27,7 +27,7 @@
 			echo $returnval;
 			exit;
 		
-		case "OffPatternSchedule":	//WORKING
+		case "OffPatternSchedule":
 			
 			$program = $_POST['program'];
 			$year = $_POST['year'];
@@ -54,7 +54,7 @@
 			}
 			exit;
 			
-		case "SubmitInfo":	//WORKING
+		case "SubmitInfo":
 			
 			$program = $_POST['programName'];	//Retrieve info from client-side
 			$year = $_POST['yearCompleted'];
@@ -95,7 +95,7 @@
 			
 			exit;
 	
-		case "GetPattern":	//WORKING
+		case "GetPattern":
 
 			$program = $_POST['program'];
 			
@@ -127,7 +127,7 @@
 			
 			exit;
 		
-		case "GetPrograms":	//WORKING
+		case "GetPrograms":
 	
 			//Retrieves all academic programs in database and returns them to client-side
 	
@@ -151,69 +151,7 @@
 			
 			exit;
 			
-		case "GetScienceElectives":	//WORKING
-			
-			$program = $_POST['program'];
-			$term = $_POST['term'];
-			$year = $_POST['year'];
-		
-			//Retrieve all Electives to type Science from electives table for given program
-			$getScienceElectives = "SELECT SubjectID, CourseNumber FROM Electives 
-									WHERE ProgramID = '$program' AND 
-									ElectiveType LIKE '%science%';";
-		
-			$rows = $db->execute($getScienceElectives);
-			
-			$courses = new SectionList();
-			
-			$returnval = "<Electives>";
-			
-			//For every course in the electives add to XML
-			while ( ($row = $rows->fetch_object()) ) {
-			
-				$returnval .= "<Elective><SubjectID>".$row->SubjectID."</SubjectID>
-								<CourseNumber>".$row->CourseNumber."</CourseNumber></Elective>";
-			}
-			
-			$returnval .= "</Electives>";
-			
-			header("content-type: text/xml");
-			//Return XML of pattern to client-side
-			echo $returnval;
-			
-			exit;
-			
-		case "GetComplementaryElectives":	//WORKING
-		
-			$program = $_POST['program'];
-			$term = $_POST['term'];
-			$year = $_POST['year'];
-			
-			//Retrieve all Electives to type Complementary from electives table for given program
-			$getcomplementaryElectives = "SELECT * FROM Electives 
-											WHERE ProgramID = '$program' AND 
-											ElectiveType LIKE '%complementary%';";
-		
-			$rows = $db->execute($getcomplementaryElectives);
-			
-			$returnval = "<Electives>";
-			
-			//For every course in the electives add to XML
-			while ( ($row = $rows->fetch_object()) ) {
-			
-				$returnval .= "<Elective><SubjectID>".$row->SubjectID."</SubjectID>
-								<CourseNumber>".$row->CourseNumber."</CourseNumber></Elective>";
-			}
-			
-			$returnval .= "</Electives>";
-			
-			header("content-type: text/xml");
-			//Return XML of pattern to client-side
-			echo $returnval;
-
-			exit;
-			
-		case "GetEngineeringElectives":	//WORKING
+		case "GetElectives":
 	
 			$program = $_POST['program'];
 			$term = $_POST['term'];
@@ -231,7 +169,7 @@
 			
 			//For every course in the electives add to XML
 			while ( ($row = $rows->fetch_object()) ) {
-			
+				
 				$returnval .= "<Elective><SubjectID>".$row->SubjectID."</SubjectID>
 								<CourseNumber>".$row->CourseNumber."</CourseNumber></Elective>";
 			}
