@@ -4,23 +4,26 @@ import java.awt.Dimension;
 import javax.swing.*;
 
 
-/* Label + Checkbox for course selection */
+/**
+ *  Panel containing Label and Checkbox for course selection item. Used in the OffSchedule Panel.
+ */
+@SuppressWarnings("serial")
 public class CourseBox extends JPanel{
 	private String ID,term;
 	private JCheckBox box;
 	private int year, code;
 	
 	CourseBox(String name, int c, String t, int y){
-		setPreferredSize(new Dimension(150,90));
-		setMinimumSize(new Dimension(150,90));
-		setMaximumSize(new Dimension(150,90));
-		//setColour(Color.black);
+		setPreferredSize(new Dimension(150,150));
+		setMinimumSize(new Dimension(150,150));
+		setMaximumSize(new Dimension(150,150));
+		
 		this.code = c;
 		this.ID = name;
 		this.year = y;
 		this.term = t;
 		
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		//setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		add(new JLabel(this.getSubjectID()));
 		if(this.term.equals("either")){
 			add(new JLabel("Either Term"));
@@ -28,8 +31,12 @@ public class CourseBox extends JPanel{
 			add(new JLabel("Both Terms"));
 		}
 		this.box = new JCheckBox();
-		add(this.box);
-		setVisible(true);
+		this.add(this.box);
+		//this.box.setPreferredSize(new Dimension(100,100));
+		//this.box.setMinimumSize(new Dimension(100,100));
+		//this.box.setMaximumSize(new Dimension(100,100));
+		//this.setBorder(BorderFactory.createLineBorder(Color.black));
+		this.setVisible(true);
 	}
 
 	public String getID() {

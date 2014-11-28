@@ -1,10 +1,10 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-
+/**
+ * Main Frame class that contains all frames/panels that will be used.
+ *
+ */
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame{
 	
 	private IntroPage introPage;
@@ -15,21 +15,19 @@ public class MainFrame extends JFrame{
 	public MainFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1200,800);
-		setTitle("Briglio Course Selector");
+		setTitle("Briglio Course Selection Assistant");
 		
 		introPage = new IntroPage(this);
-		//offPage = new OffSchedule(this);
-		//mySchedule = new MySchedule(this);
 		
 		introPage.setup();
 		setContentPane(introPage);
 		setVisible(true);
 	}
 	
-	public static void main(String [ ] args) {
-		MainFrame main = new MainFrame();
-	}
-
+	/**
+	 * Switch current content pane based off of argument string.
+	 * @param panel - String that indicates which panel to switch to.
+	 */
 	public void panelSwitch(String panel){
 		if(panel.equals("intro")){
 			introPage = new IntroPage(this);		//instances are re-initialized to prevent information not refreshing
@@ -80,5 +78,9 @@ public class MainFrame extends JFrame{
 
 	public void setTerm(String term) {
 		Term = term;
+	}
+	
+	public static void main(String [ ] args) {
+		MainFrame main = new MainFrame();
 	}
 }

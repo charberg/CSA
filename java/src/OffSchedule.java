@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -7,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -17,14 +18,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-
+/** Panel containing the current program tree, allowing the user to select which courses they have taken. */
+@SuppressWarnings("serial")
 public class OffSchedule extends JPanel implements ActionListener{
 	
 	private MainFrame main;
@@ -37,16 +37,24 @@ public class OffSchedule extends JPanel implements ActionListener{
 	
 	public void setup(){
 		setLayout(new BorderLayout());
+		JLabel topText = new JLabel("Select Your Courses Taken", SwingConstants.CENTER);
+		topText.setFont(new Font("Calibri",1,40));
+		add(topText,BorderLayout.NORTH);
 		
-		add(new JLabel("Select Your Courses Taken"),BorderLayout.NORTH);
+		JPanel buttonPanel = new JPanel();
 		SubmitButton submitButton = new SubmitButton("SUBMIT","offsched","none");
 		submitButton.addActionListener(this);
-		add(submitButton,BorderLayout.SOUTH);
 		
-		JPanel contentPanel = new JPanel();
-		contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.PAGE_AXIS));
+		SubmitButton backButton = new SubmitButton("BACK","back","none");
+		backButton.addActionListener(this);
+		buttonPanel.add(backButton);
+		buttonPanel.add(submitButton);
+		add(buttonPanel, BorderLayout.SOUTH);
+		
 		JPanel coursePanel = new JPanel();
+		coursePanel.setLayout(new GridLayout(0,8,10,10));
 		termPanels = new ArrayList<JPanel>();
+		
 		for(int i=0;i<8;i++){
 			termPanels.add(new JPanel());
 		}
@@ -56,8 +64,8 @@ public class OffSchedule extends JPanel implements ActionListener{
 			termPanels.get(i).setLayout(new BoxLayout(termPanels.get(i),BoxLayout.PAGE_AXIS));
 			coursePanel.add(termPanels.get(i));
 		}
-		contentPanel.add(coursePanel);
-		add(contentPanel, BorderLayout.CENTER);
+		JScrollPane scrollPanel = new JScrollPane(coursePanel);
+		add(scrollPanel, BorderLayout.CENTER);
 		
 		getCourses();
 		fillTable();
@@ -65,8 +73,9 @@ public class OffSchedule extends JPanel implements ActionListener{
 		setVisible(true);
 	}
 	
+	/** Gets the course list from the server. */
 	public void getCourses(){
-			String prog = "SE";
+			String prog = main.getProgramName();
 		try {
 			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
 			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
@@ -108,12 +117,10 @@ public class OffSchedule extends JPanel implements ActionListener{
 						courseNum = attributes.item(j).getTextContent();
 					}else{
 						//unknown tag
-						//System.out.println("Unknown Tag: "+attributes.item(j).getTextContent());
 					}
 				}
 				if(year != "" & term != "" && courseID != ""){	//courseNum is not considered because electives do not have course numbers
 					if(courseNum == "") courseNum = "-1";
-					//System.out.println("Year: "+year+", Term: "+term+", courseID: "+courseID+", courseNum: "+courseNum);
 					courses.add(new CourseBox(courseID, Integer.parseInt(courseNum),term,Integer.parseInt(year)));
 				}
 			}
@@ -130,7 +137,7 @@ public class OffSchedule extends JPanel implements ActionListener{
 		}
 		
 	}
-	
+	/** Fills the panel table with the courses in the course list. */
 	public void fillTable(){
 		int year = 1;
 		for(int i=0;i<termPanels.size();i++){
@@ -191,7 +198,8 @@ public class OffSchedule extends JPanel implements ActionListener{
 					main.setFileLocation(result.substring(result.indexOf('=')+1));	//file locaiton of schedules output
 					main.panelSwitch("mysched");
 				}else{
-					System.out.println("Error submitting courses taken.");
+					//prompt error
+					JOptionPane.showMessageDialog(this,"Could not submit courses.");
 				}
 				
 				out.close();
@@ -201,6 +209,8 @@ public class OffSchedule extends JPanel implements ActionListener{
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}	
+		}else if(button.getID().equals("back")){
+			main.panelSwitch("intro");
 		}
 		
 	}

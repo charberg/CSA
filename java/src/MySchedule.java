@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,16 +10,12 @@ import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.util.ArrayList;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -30,10 +27,10 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
 
+/** Panel allowing the user to see and select a generated schedule. */
+@SuppressWarnings("serial")
 public class MySchedule extends JPanel implements ActionListener{
 	
 	private MainFrame main;
@@ -51,9 +48,10 @@ public class MySchedule extends JPanel implements ActionListener{
 		setLayout(new BorderLayout());
 		
 		JPanel topPanel = new JPanel();
-		JLabel topLabel = new JLabel("My Schedule");
+		JLabel topLabel = new JLabel("My Schedule", SwingConstants.CENTER);
+		topLabel.setFont(new Font("Calibri",1,30));
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.PAGE_AXIS));
-		topPanel.add(topLabel);
+		topPanel.add(topLabel, SwingConstants.CENTER);
 		
 		JPanel selectPanel = new JPanel();
 		selectPanel.add(new JLabel("Your Options: "));
@@ -108,6 +106,7 @@ public class MySchedule extends JPanel implements ActionListener{
 			timePanel.add(table[4][i]);
 			timePanel.add(table[5][i]);
 			timePanel.add(table[6][i]);
+			
 			i++;
 			
 			//Half hour
@@ -133,9 +132,14 @@ public class MySchedule extends JPanel implements ActionListener{
 		
 		add(scrollPanel, BorderLayout.CENTER);
 		
+		JPanel buttonPanel = new JPanel();
+		SubmitButton homeButton = new SubmitButton("HOME","home","none");
+		homeButton.addActionListener(this);
 		SubmitButton submitButton = new SubmitButton("PICK THIS SCHEDULE","mysched","none");
 		submitButton.addActionListener(this);
-		add(submitButton, BorderLayout.SOUTH);
+		buttonPanel.add(homeButton);
+		buttonPanel.add(submitButton);
+		add(buttonPanel, BorderLayout.SOUTH);
 		
 		getSchedules();
 		
@@ -143,7 +147,7 @@ public class MySchedule extends JPanel implements ActionListener{
 		
 	}
 	
-	/* Sends request to the server and receives all schedules compatible with previous data */
+	/** Sends request to the server and receives all schedules compatible with previous data. */ 
 	public void getSchedules(){
 		try {
 			//Send request to server
@@ -169,7 +173,9 @@ public class MySchedule extends JPanel implements ActionListener{
 			
 			GlobalSchedules = doc.getElementsByTagName("schedules").item(0).getChildNodes();
 			if(GlobalSchedules.getLength() == 0){
-				System.out.println("No schedules found.");
+				//prompt error
+				JOptionPane.showMessageDialog(this,"There are no matching schedules.");
+				//main.panelSwitch("intro");
 			}else{
 				for(int i=0;i<GlobalSchedules.getLength();i++){	//Loads indecies of schedules into combination box based off of xml
 					options.addItem(i+1);
@@ -193,12 +199,13 @@ public class MySchedule extends JPanel implements ActionListener{
 		
 	}
 	
-	/* Sets the grid with the current schedule */
+	/** Sets the panel grid with the current schedule items*/
 	public void setSchedule(int index){
 		
 		NodeList scheduleList = GlobalSchedules;
 		if(scheduleList.item(index) == null){
-			System.out.println("ERROR: Invalid schedule.");
+			//prompt error
+			JOptionPane.showMessageDialog(this,"This schedule is invalid.");
 		}
 		NodeList courses = scheduleList.item(index).getChildNodes();
 		NodeList attributes;
@@ -297,7 +304,7 @@ public class MySchedule extends JPanel implements ActionListener{
 		
 	}
 	
-	/* Function increments 'time' string */
+	/** Increments 'time' string by half hours. */
 	public String incTime(String time){
 		
 		String thisTime = time;
@@ -312,7 +319,7 @@ public class MySchedule extends JPanel implements ActionListener{
 		return thisTime;
 	}
 
-	/* Clear the grid */
+	/** Clears the grid on the main panel. */
 	public void clearGrid(){
 		for(int i=0;i<7;i++){
 			for(int j=0;j<28;j++){
@@ -330,6 +337,8 @@ public class MySchedule extends JPanel implements ActionListener{
 			schedNum = options.getSelectedIndex();
 			setSchedule(schedNum);
 			updateUI();
+		}else if(button.getID().equals("home")){
+			main.panelSwitch("intro");
 		}else if(button.getID().equals("mysched")){
 			//Send request to server
 			try {
@@ -353,9 +362,12 @@ public class MySchedule extends JPanel implements ActionListener{
 				
 				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 				if(in.readLine().equals("PASS")){
-					//redirect to intro
+					//redirect to intro and prompt
+					JOptionPane.showMessageDialog(this,"Your schedule has been registered.");
 					main.panelSwitch("intro");
-					System.out.println("Schedule successfully submitted");
+				}else{
+					//prompt error
+					JOptionPane.showMessageDialog(this,"Could not properly register schedule.");
 				}
 				
 				in.close();

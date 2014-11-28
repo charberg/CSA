@@ -7,15 +7,13 @@ import java.io.*;
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
+/** Introductory page where user enters in information about the schedule they wish to make. */
+@SuppressWarnings("serial")
 public class IntroPage extends JPanel implements ActionListener{
 	
 	private JComboBox program, yearComplete;
@@ -27,9 +25,12 @@ public class IntroPage extends JPanel implements ActionListener{
 		main = m;
 	}
 	
+	/**
+	 * Sets up the page for viewing/use.
+	 */
 	public void setup(){
 		
-		JLabel welcome = new JLabel("Welcome to the Briglio course selector!");
+		JLabel welcome = new JLabel("Welcome to the Briglio Course Selection Assistant", SwingConstants.CENTER);
 		welcome.setFont(new Font("Calibri",1,40));
 		JPanel panel = new JPanel();
 		setLayout(new BorderLayout());
@@ -135,11 +136,12 @@ public class IntroPage extends JPanel implements ActionListener{
 				term = "winter";
 			}
 			
-			main.setProgramName(prog);
+			main.setProgramName(prog);	//set the variables in the main frame
 			main.setYear(year);
 			main.setTerm(term);
 			
 			try {
+				//Send information to server
 				URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
 				HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 				connection.setDoOutput(true);
@@ -154,19 +156,19 @@ public class IntroPage extends JPanel implements ActionListener{
 				out.flush(); //sends to server
 				
 				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-				//System.out.println("Response: "+in.readLine());
 				
 				String result = in.readLine();
 				
 				if(result.contains("success-offsched")){
 					//redirect to offsched
 					main.panelSwitch("offsched");
-					System.out.println("successful! - offsched");
 				}else if(result.contains("success-onsched")){
 					//redirect to myschedule
 					main.setFileLocation(result.substring(result.indexOf('=')+1));	//file locaiton of schedules output
 					main.panelSwitch("mysched");
-					System.out.println("successful! - onsched");
+				}else{
+					//prompt server error
+					JOptionPane.showMessageDialog(this,"Could not send information to server.");
 				}
 				
 				out.close();
@@ -181,6 +183,10 @@ public class IntroPage extends JPanel implements ActionListener{
 		}
 	}
 	
+	/**
+	 * Gets the stream/program list and populates the dropdown menu.
+	 * @return boolean - If successful or not.
+	 */
 	public boolean fillPrograms(){
 		try{
 			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
@@ -205,11 +211,8 @@ public class IntroPage extends JPanel implements ActionListener{
 			NodeList itemTags;
 			
 			for(int i=0;i<programList.getLength();i++){
-				//System.out.println(programList.item(i).getNodeName());
 				itemTags = programList.item(i).getChildNodes();
-				//System.out.println(itemTags.item(2).getTextContent());
 				program.addItem(itemTags.item(2).getTextContent());	//make a subclass to go in here
-				//program.addItem(new ProgramItem(itemTags.item(1).getTextContent(),itemTags.item(2).getTextContent()),itemTags.item(2).getTextContent());
 			}
 			
 			out.close();
