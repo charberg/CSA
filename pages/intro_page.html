@@ -31,41 +31,53 @@
 	</script>
 	<body onload="fillProgNames()">
 		<center>
-			<h1>Welcome to the Briglio Course Selection Assistant</h1><br/>
+			<img src="../resources/logo.png"/>
+			<h1>Course Selection Assistant</h1><br/>
 			
-			<h3>Your Info:</h3>
+			<h3>Enter Your Info:</h3>
 			<br/>
 			<form method="post" action="../php/server.php">
-				Stream:
-				<!-- Drop-down menu for program selection -->
-				<select id="progdropdown" name="programName"></select>
-				<br/><br/>
-				
-				Please select your most recent year completed to date:
-				<select name="yearCompleted">
-					<!-- Drop-down menu for years completed -->
-					<option value="0">None</option>
-					<option value="1">1st</option>
-					<option value="2">2nd</option>
-					<option value="3">3rd</option>
-				</select>
-				<br/><br/>
-				
-				Are you on schedule?
-				<input type="radio" name="sched" value="on" checked>YES</input>
-				<input type="radio" name="sched" value="off">NO</input>
-				<br/><br/>
-				
-				What term are you planning?
-				<input type="radio" name="term" value="fall" checked>Fall</input>
-				<input type="radio" name="term" value="winter">Winter</input>
+				<table cellpadding="8px">
+				<tr>
+					<td>Program:</td>
+					<!-- Drop-down menu for program selection -->
+					<td><select id="progdropdown" name="programName"></select></td>
+				<!--<br/><br/>-->
+				</tr>
+				<tr>
+					<td>Most Recent Year Completed:</td>
+					<td><select name="yearCompleted">
+							<!-- Drop-down menu for years completed -->
+							<option value="0">None</option>
+							<option value="1">1st</option>
+							<option value="2">2nd</option>
+							<option value="3">3rd</option>
+						</select>
+					</td>
+				</tr>
+				<!--<br/><br/>-->
+				<tr>
+					<td>Currently On or Off Schedule</td>
+					<td>
+						<input type="radio" name="sched" value="on" checked>YES</input>
+						<input type="radio" name="sched" value="off">NO</input>
+					</td>
+				</tr>
+				<!--<br/><br/>-->
+				<tr>
+					<td>Term Currently Planning</td>
+					<td>
+						<input type="radio" name="term" value="fall" checked>Fall</input>
+						<input type="radio" name="term" value="winter">Winter</input>
+					</td>
+				</tr>
+			</table>	
 				<br/><br/>
 				
 				<input type="hidden" value="SubmitInfo" name="requesttype"/>
 				<input type="hidden" value="html" name="source"/>
 				<input type="submit" value="SUBMIT"/>
 			</form>
-			<p id="result"></p>		
 		</center>
 	</body>
 
