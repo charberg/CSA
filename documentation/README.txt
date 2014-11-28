@@ -98,7 +98,7 @@ the number of students for each, returning to my_schedule.php whether or not all
 
 6.
 Before running the program for the first time, the install.php file must be executed in the browser in order for
-the database to be created. Please note, the installation of the database may take some time. It currently has a runtime cap
+the database to be created (located in "localhost/CSA/php/"). Please note, the installation of the database may take some time. It currently has a runtime cap
 of 2 minutes, if the runtime is exceeded, simply reload the page. Do this as many times as necessary until the database has been successfully installed.
 From there, the user may navigate through the localhost to the CSA program folder ("http://localhost/CSA"). 
 From here the index.php file will redirect the user to the first view/page of the program.
