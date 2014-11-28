@@ -1,17 +1,17 @@
 <?php
 
-	require_once("classes/database.php");
+	require_once("classes/database.php");	//get classes
 	require_once("classes/Section.php");
 	require_once("classes/pattern.php");
 	require_once("classes/ScheduleCourseCalculator.php");
 
 	$requestType = $_POST['requesttype'];
 	
-	$db = new DataBase("SchedulerDatabase");
+	$db = new DataBase("SchedulerDatabase");	//create database object
 	
 	switch (trim($requestType)) {
 	
-		case "GetCourseFile":
+		case "GetCourseFile":	//reads in file specified by client and returns contents to client, deleting file after read
 		
 			$filename = $_POST['fileName'];	//get unique filename from client
 			
@@ -68,7 +68,7 @@
 			
 			if ($schedType == "off") {
 				if($source == "html") {
-					header("location:../pages/Off_Schedule_Courses.php");	//If off schedule sendto off_schedule page so user can specify courses taken
+					header("location:../pages/Off_Schedule_Courses.php");	//If off schedule send to off_schedule page so user can specify courses taken
 				} else {
 					header("content-type: text/plain");
 					echo "success-offsched";
@@ -95,7 +95,7 @@
 			
 			exit;
 	
-		case "GetPattern":
+		case "GetPattern":	//returns pattern of program specified in XML format
 
 			$program = $_POST['program'];
 			
@@ -129,7 +129,7 @@
 		
 		case "GetPrograms":
 	
-			//Retrieves all academic programs in database and returns them to client-side
+			//Retrieves all academic programs in database and returns them to client-side as XML string
 	
 			$getPrograms = "SELECT * FROM AcademicPrograms;";
 			
@@ -156,7 +156,7 @@
 			$program = $_POST['program'];
 			$term = $_POST['term'];
 			$year = $_POST['year'];
-			$elecType = $_POST['electtype'];	//Need to specidy which type of engineering elctive
+			$elecType = $_POST['electtype'];	//Need to specify which type of engineering elective
 			
 			//Get Engineering Electives of given type for specific program
 			$getengElectives = "SELECT SubjectID, CourseNumber FROM Electives 
@@ -182,7 +182,7 @@
 	
 			exit;
 	
-		default:	//WORKING
+		default:
 		
 			//If client-side gave an invalid request type...
 			header("content-type: text/plain");

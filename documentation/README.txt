@@ -1,6 +1,8 @@
 SYSC 4504 Project
-Course Selection Assistant
+Course Selection Assistant (CSA)
 November 28 2014
+
+README.txt
 
 1.
 Team Members:
@@ -17,16 +19,16 @@ TA: Mr.Abaza.
 Member Contributions:
 
 The program was divided into 2 sections which were completed by the 2 members.
-Christopher was in charge of designing and implement all the back end of the program which would include the database, 
-the files needed to create the database, and all php scripts. (All files in php folder & data folder)
-David was in charge of all the front end which included all html, javascript, and java code. (all files in java folder, css folder, and pages folder)
+Christopher was in charge of designing and implementing all the back end of the program which would include the database, 
+the files needed to create the database, and all php scripts. (All files in php folder & data folder).
+David was in charge of all the front end which included all html, javascript, and java code. 
+(all files in java folder, css folder, and pages folder).
 
 
 5.
 Project Folders:
-Main folder:
-Hub of project. Should hold all sub folders required by program and the index.php
-file to re-direct to the main page.
+CSA folder:
+Hub of project. Should hold all sub folders required by program and the index.php file to re-direct to the main page.
 
 CSS Folder:
 Folder holding all CSS Styles used in the client side HTML pages.
@@ -34,7 +36,7 @@ Folder holding all CSS Styles used in the client side HTML pages.
 Data Folder:
 Holds all data (held in files) needed to create the database. Within are 2 sub-folders. 
 These are the Electives sub-folder, and the Patterns sub-folder. The Electives Sub-folder contains txt files outlining the courses involved
-in aparticular elective groups. The Patterns folder contains text files that represent the individual patterns of academic programs.
+in a particular elective groups for particular programs. The Patterns folder contains text files that represent the individual patterns of academic programs.
 
 Documentation Folder:
 Holds documentation on the project included database UML diagrams, program specs ect.
@@ -43,7 +45,7 @@ Java Folder:
 Folder containing all the java code. This folder holds the java version of the client side interface.
 
 Pages Folder:
-This folder contains all client-side pages writen in HTMl and Javascript.
+This folder contains all client-side pages written in HTMl and Javascript.
 
 php Folder:
 This folder holds all php scripts and all server-side code. Within this folder is a sub-folder called 'classes'. This folder contains php classes
@@ -61,7 +63,7 @@ Upon entering the program (localhost/CSA/), the index.php script will run which 
 within the pages folder. At this point the user will be asked to specify his/her program, the year they've completed, whether or not they are
 on or off pattern, and what term they which to generate a schedule for. From here the page sends all this information to the server.php
 file located within the php folder. The server will take this information and do one of 2 things:
-1) If the User specified on-patter, then it will generate a list of schedules for the specified term using a OnScheduleCourseCalculator
+1) If the User specified on-pattern, then it will generate a list of schedules for the specified term using a OnScheduleCourseCalculator
 object, and send this list of schedules along with the other information specified to the my_schedule.php page located in the pages folder.
 2) If the User specified off-pattern, the server will re-direct the user to the Off_Schedule_Courses.php page inside th pages folder.
 From here the user will specify which courses were previously completed and send this information back to the server.php. 
@@ -70,12 +72,12 @@ using a OffScheduleCourseCalculator object and send this list along with all oth
 
 At this point the my_schedule.php will take that list of schedules and allow the user to choose which one to display. Once the user has choosen
 a schedule, he/she hits the submit button, sending the choosen schedule to courseServer.php. The server then takes this list of courses and increases
-the number of students for each, returning to my_schedule.php wheter or not all the courses were successfully registered in.
+the number of students for each, returning to my_schedule.php whether or not all the courses were successfully registered in.
 
 
 6.
 Before running the program for the first time, the install.php file must be executed in the browser in order that the database be created. 
-From there, the user may just navigate through the local host to the Main program folder. 
+From there, the user may just navigate through the local host to the CSA program folder. 
 From here the index.php file will redirect the user to the first view page of the program.
 
 In order to add more information to the database, the files within the data folder must be updated.

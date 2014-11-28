@@ -82,7 +82,7 @@ executed first before your application is evaluated.
 	
 	$db = new DataBase("$dbName");	//Connect to database created
 	
-	//Create tables
+	/*-- Create tables --*/
 	
 	if ($db->execute($CreateSectionTable)) {
 		//echo "Successfully Created Section Table<br/>";
@@ -144,8 +144,6 @@ executed first before your application is evaluated.
 
 	$line = fgetcsv($dataFile, 1024);	//Get first line (Column Names)
 	
-	$CRNCounter = 1;	//counter to generate MOCK CRN values for course sections since they are not provided in given data
-	
 	while (!feof($dataFile) ) {		//while not at end of file
 
 		$line = fgetcsv($dataFile, 1024);	//read up to 1 kilobyte in a row
@@ -158,14 +156,13 @@ executed first before your application is evaluated.
 		$SubjectID = "$values[0]";
 		$CourseNumber = "$values[1]";
 		$Title = "$values[3]";
-		$Credits = 0.5;
+		$Credits = 0.5;			//Default credit value since not provided
 		
 		//Section Table
-		$CRN = $CRNCounter;
 		$ScheduleCode = "$values[4]";
 		$SectionCode = "$values[2]";
-		$Year = 2014;
-		$Term = "fall";
+		$Year = 2014;			//Default year value since not provided
+		$Term = "fall";			//default term value since not specified within data
 		
 		$StartTime =  "NULL";	//set values to null initialliy. This will account for online courses that don't have a time/day/capacity
 		$EndTime = "NULL";
@@ -211,8 +208,6 @@ executed first before your application is evaluated.
 			exit;
 		}
 		
-		$CRNCounter = $CRNCounter + 1;	//increment CRN counter
-		
 	}
 
 	fclose($dataFile);
@@ -237,7 +232,6 @@ executed first before your application is evaluated.
 		$Credits = 0.5;
 		
 		//Section Table
-		$CRN = $CRNCounter;
 		$ScheduleCode = $values[4];
 		$SectionCode = $values[2];
 		$Year = 2015;
@@ -286,15 +280,13 @@ executed first before your application is evaluated.
 			echo "Error populating Section Table: ".$db->getError()."<br/>";
 			exit;
 		}
-		
-		$CRNCounter = $CRNCounter + 1;	//increment CRN counter
-		
+
 	}
 
 	fclose($dataFile);
 	
 	//Populate Pattern table
-	if ($handle = opendir('../data/Patterns/')) {
+	if ($handle = opendir('../data/Patterns/')) {	//open directory to add all pattern files in folder
 
 		while (($file = readdir($handle)) !== false) {
 

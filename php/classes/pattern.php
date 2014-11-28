@@ -69,6 +69,7 @@
 			array_push($this->patternItems,$item);
 		}
 		
+		//returns pattern based on program
 		static function getPatternByProgram($program) {
 		
 			$pattern = new Pattern();

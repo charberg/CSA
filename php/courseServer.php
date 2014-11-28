@@ -1,6 +1,7 @@
 <?php
 	
-	//to register courses
+	//Script to register courses user has choosen
+	
 	require_once("classes/database.php");
 	require_once("classes/Section.php");
 	
@@ -9,11 +10,12 @@
 	$db = new DataBase("SchedulerDatabase");
 	
 	$courseList = $_POST['xml'];
-	$coursesObject = simplexml_load_string($courseList);
+	
+	$coursesObject = simplexml_load_string($courseList);	//load xml string of courses into XML object
 	
 	$Sections = new SectionList();
 	
-	//List of section that have already been updated, will be used incase one section fails to update, will revert 
+	//List of sections that have already been updated, will be used in case one section fails to update, will revert 
 	$SectionsUpdated = new SectionList();	
 	
 	//Create section list out of courses return by client
@@ -99,7 +101,7 @@
 		}
 	}
 	
-	if ($revert) {
+	if ($revert) {	//if revert is true, run through list of courses already updated and undo update
 	
 		for ($i = 0; $i < count($SectionsUpdated->SectionItems);$i = $i + 1) {
 		
@@ -124,7 +126,7 @@
 	
 	$db->execute($unlockSectionTable);	//unlock table
 
-	if ($revert) {
+	if ($revert) {	//Return to client outcome of update
 		echo "FAIL";
 	} else {
 		echo "PASS";

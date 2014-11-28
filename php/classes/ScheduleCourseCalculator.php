@@ -4,8 +4,14 @@
 	require_once("Section.php");
 	require_once("pattern.php");
 	
+	
 	class PrereqNode {
-		
+			
+		/*
+			Class to represent possible prereq requirement set. If the user has passed all items
+			in prereqs array then he/she is allowed to take class being considered
+		*/
+			
 		public $children;
 		public $prereqs;
 		
@@ -1048,7 +1054,6 @@
 			$returnval = array();
 		
 			for ($i = 0; $i < count($this->pattern->patternItems);$i = $i + 1) {
-			
 				if ($this->pattern->patternItems[$i]->yearRequired == $year &&
 					$this->pattern->patternItems[$i]->courseNumber != "") {
 					if (!$this->haveTaken($this->pattern->patternItems[$i]->subjectID.":".$this->pattern->patternItems[$i]->courseNumber)) {
@@ -1153,7 +1158,6 @@
 					} else if ($root->children[$i]->prereqs[$j][0] === 'S') {
 						
 						$y = intval(substr($root->children[$i]->prereqs[$j], 2, 1));
-						
 						if ($year + 1 < $y) {	// if completed less than the year required then not passed
 							$passFlag = false;
 						}
@@ -1297,7 +1301,7 @@
 					}//end if
 				}//end for
 			}//end if
-			
+
 			if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
 				return;
 			}
@@ -1305,7 +1309,7 @@
 			if (count($coursesNotTaken3) > 0) {	//If the student hasn't completed year 3
 			
 				for ($i = 0;$i < count($coursesNotTaken3);$i++) {	//For every course not yet taken in that year
-				
+
 					if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
 						return;
 					}
@@ -1350,7 +1354,7 @@
 					}//end if
 				}//end for
 			}//end if
-			
+
 			if ($this->numCourses == 5) {	//if reached max amount of courses to be taken exit funtion
 				return;
 			}
