@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,12 +24,13 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 
-public class MySchedule extends JPanel{
+public class MySchedule extends JPanel implements ActionListener{
 	
 	private MainFrame main;
 	private JComboBox options;
 	private int schedNum;
 	private SchedBox[][] table;
+	private NodeList GlobalSchedules;
 	
 	public MySchedule(MainFrame m){
 		main = m;
@@ -40,17 +43,18 @@ public class MySchedule extends JPanel{
 		
 		JPanel selectPanel = new JPanel();
 		selectPanel.add(new JLabel("Your Options: "));
-		options = new JComboBox();
+		options = new JComboBox();						//Contains all of the schedule indexes
 		selectPanel.add(options);
-		JButton selectButton = new JButton("SELECT");
-		selectPanel.add(selectButton);
+		SubmitButton selectButton = new SubmitButton("SELECT", "select",null);
+		selectButton.addActionListener(this);
+		selectPanel.add(selectButton);					//Chooses schedule to load from the combination box
 		topPanel.add(selectPanel);
 		add(topPanel, BorderLayout.NORTH);
 		
 		JPanel timePanel = new JPanel();
 		timePanel.setLayout(new GridLayout(0,8,10,10));
 		
-		JScrollPane scrollPanel = new JScrollPane(timePanel);
+		JScrollPane scrollPanel = new JScrollPane(timePanel);	//Make the schedule scrollable
 		
 		//Put column names into the panel
 		timePanel.add(new JLabel("Time"));
@@ -65,23 +69,23 @@ public class MySchedule extends JPanel{
 		table = new SchedBox[7][28];
 		String extra = "";
 		int j=8;
+		//Fills grid with appropriate cells/panels
 		for(int i=0;i<28;i++){	//28 goes until 22:00
 			if(i<4){
 				extra = "0";
 			}else{
 				extra = "";
 			}
-			//System.out.println(i);
 			
 			//Create schedule cells to go into the grid, and put them into an array
-			timePanel.add(new SchedBox(extra+Integer.toString(j)+"00", extra+Integer.toString(j)+":00", "0000-0000",true));
-			table[0][i] = new SchedBox("sun"+extra+Integer.toString(j)+"00", "0,"+i, extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30",true);
-			table[1][i] = new SchedBox("mon"+extra+Integer.toString(j)+"00", "1,"+i, extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30",true);
-			table[2][i] = new SchedBox("tues"+extra+Integer.toString(j)+"00", "2,"+i, extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30",true);
-			table[3][i] = new SchedBox("wed"+extra+Integer.toString(j)+"00", "3,"+i, extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30",true);
-			table[4][i] = new SchedBox("thurs"+extra+Integer.toString(j)+"00", "4,"+i, extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30",true);
-			table[5][i] = new SchedBox("fri"+extra+Integer.toString(j)+"00", "5,"+i, extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30",true);
-			table[6][i] = new SchedBox("sat"+extra+Integer.toString(j)+"00", "6,"+i, extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30",true);
+			timePanel.add(new SchedBox(extra+Integer.toString(j)+"00", extra+Integer.toString(j)+":00", "0000-0000", "x", true));
+			table[0][i] = new SchedBox("sun"+extra+Integer.toString(j)+"00", "", extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30", "sun", true);
+			table[1][i] = new SchedBox("mon"+extra+Integer.toString(j)+"00", "", extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30", "mon", true);
+			table[2][i] = new SchedBox("tues"+extra+Integer.toString(j)+"00", "", extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30", "tues", true);
+			table[3][i] = new SchedBox("wed"+extra+Integer.toString(j)+"00", "", extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30", "wed", true);
+			table[4][i] = new SchedBox("thurs"+extra+Integer.toString(j)+"00", "", extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30", "thurs", true);
+			table[5][i] = new SchedBox("fri"+extra+Integer.toString(j)+"00", "", extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30", "fri", true);
+			table[6][i] = new SchedBox("sat"+extra+Integer.toString(j)+"00", "", extra+Integer.toString(j)+"00-"+extra+Integer.toString(j)+"30", "sun", true);
 			//Add the cells to the grid
 			timePanel.add(table[0][i]);
 			timePanel.add(table[1][i]);
@@ -92,14 +96,15 @@ public class MySchedule extends JPanel{
 			timePanel.add(table[6][i]);
 			i++;
 			
-			timePanel.add(new SchedBox(extra+Integer.toString(j)+"30", extra+Integer.toString(j)+":30", "0000-0000",true));
-			table[0][i] = new SchedBox("sun"+extra+Integer.toString(j)+"30", "0,"+i, extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00",true);
-			table[1][i] = new SchedBox("mon"+extra+Integer.toString(j)+"30", "1,"+i, extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00",true);
-			table[2][i] = new SchedBox("tues"+extra+Integer.toString(j)+"30", "2,"+i, extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00",true);
-			table[3][i] = new SchedBox("wed"+extra+Integer.toString(j)+"30", "3,"+i, extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00",true);
-			table[4][i] = new SchedBox("thurs"+extra+Integer.toString(j)+"30", "4"+i, extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00",true);
-			table[5][i] = new SchedBox("fri"+extra+Integer.toString(j)+"30", "5"+i, extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00",true);
-			table[6][i] = new SchedBox("sat"+extra+Integer.toString(j)+"30", "6"+i, extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00",true);
+			//Half hour
+			timePanel.add(new SchedBox(extra+Integer.toString(j)+"30", extra+Integer.toString(j)+":30", "0000-0000","x",true));
+			table[0][i] = new SchedBox("sun"+extra+Integer.toString(j)+"30", "", extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00", "sun",true);
+			table[1][i] = new SchedBox("mon"+extra+Integer.toString(j)+"30", "", extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00", "mon",true);
+			table[2][i] = new SchedBox("tues"+extra+Integer.toString(j)+"30", "", extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00", "tues",true);
+			table[3][i] = new SchedBox("wed"+extra+Integer.toString(j)+"30", "", extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00", "wed",true);
+			table[4][i] = new SchedBox("thurs"+extra+Integer.toString(j)+"30", "", extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00", "thurs", true);
+			table[5][i] = new SchedBox("fri"+extra+Integer.toString(j)+"30", "", extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00", "fri", true);
+			table[6][i] = new SchedBox("sat"+extra+Integer.toString(j)+"30", "", extra+Integer.toString(j)+"30-"+extra+Integer.toString(j)+"00", "sat", true);
 			timePanel.add(table[0][i]);
 			timePanel.add(table[1][i]);
 			timePanel.add(table[2][i]);
@@ -111,8 +116,6 @@ public class MySchedule extends JPanel{
 			j++;
 
 		}
-		//timePanel.setVisible(true);
-		//table[2][1].setID("TEST");
 		
 		add(scrollPanel, BorderLayout.CENTER);
 		
@@ -125,8 +128,10 @@ public class MySchedule extends JPanel{
 		
 	}
 	
+	/* Sends request to the server and receives all schedules compatible with previous data */
 	public void getSchedules(){
 		try {
+			//Send request to server
 			URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
 			HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
 			connection.setDoOutput(true);
@@ -137,7 +142,7 @@ public class MySchedule extends JPanel{
 			connection.connect();
 			
 			String fileName = "../tempSchedules/testfile.txt";
-			//System.out.println("sending");
+			
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
 			out.write("requesttype=GetCourseFile&fileName="+fileName+"&source=java");
 			out.flush(); //sends to server
@@ -146,15 +151,15 @@ public class MySchedule extends JPanel{
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			Document doc = db.parse(new InputSource(connection.getInputStream()));	//get xml response
 			
-			NodeList schedules = doc.getElementsByTagName("schedules").item(0).getChildNodes();
-			if(schedules.getLength() == 0){
+			GlobalSchedules = doc.getElementsByTagName("schedules").item(0).getChildNodes();
+			if(GlobalSchedules.getLength() == 0){
 				System.out.println("No schedules found.");
 			}else{
-				for(int i=0;i<schedules.getLength();i++){
+				for(int i=0;i<GlobalSchedules.getLength();i++){	//Loads indecies of schedules into combination box based off of xml
 					options.addItem(i+1);
 				}
 				schedNum = 0;
-				setSchedule(schedNum, schedules);
+				setSchedule(schedNum);			//fills the table with the first schedule
 			}
 			
 			out.close();
@@ -170,60 +175,102 @@ public class MySchedule extends JPanel{
 			e.printStackTrace();
 		}
 		
-		
 	}
 	
-	public void setSchedule(int index, NodeList scheduleList){
+	/* Sets the grid with the current schedule */
+	public void setSchedule(int index){
+		
+		NodeList scheduleList = GlobalSchedules;
 		if(scheduleList.item(index) == null){
 			System.out.println("ERROR: Invalid schedule.");
 		}
 		NodeList courses = scheduleList.item(index).getChildNodes();
 		NodeList attributes;
 		
-		String time, subjectID, code, section, number, days;
+		String time, subjectID, section, number, days, compDay, currentTime;	//temporary variables used in the loop
 		SchedBox temp;
+		String []day;
 		//Go through each course
 		for(int i=0;i<courses.getLength();i++){
 			time = "";
 			subjectID = "";
-			code = "";
 			section = "";
 			number = "";
 			days = "";
 			
 			attributes = courses.item(i).getChildNodes();
 			
-			//System.out.println(attributes.item(0).getTextContent());
 			//Get all course information
-			//System.out.println(courses.item(i).getNodeName());
 			for(int j=0;j<attributes.getLength();j++){
-				//System.out.println(attributes.item(j).getNodeName());
+				//Save all attributes
 				if(attributes.item(j).getNodeName().equals("subjectID")){
 					subjectID = attributes.item(j).getTextContent();
-					//System.out.println(subjectID);
+					
 				}else if(attributes.item(j).getNodeName().equals("time")){
 					time = attributes.item(j).getTextContent();
+					
 				}else if(attributes.item(j).getNodeName().equals("courseNum")){
 					number = attributes.item(j).getTextContent();
-				}else if(attributes.item(j).getNodeName().equals("scheduleCode")){
-					code = attributes.item(j).getTextContent();
+					
 				}else if(attributes.item(j).getNodeName().equals("sectionCode")){
 					section = attributes.item(j).getTextContent();
+					
 				}else if(attributes.item(j).getNodeName().equals("days")){
 					days = attributes.item(j).getTextContent();
+					
 				}
 			}
-			
+			//If a complete course was received, put it on the grid
 			if(subjectID != "" && time != ""){
-				temp = new SchedBox(subjectID+number+section,subjectID+number+section,time,false);
-				String []day = days.split("");
-				for(int n=0;n<7;n++){
-					for(int m=0;m<28;m++){
-						System.out.println(table[n][m].getStart()+" - time: "+temp.getStart());
-						if(table[n][m].getStart().equals(temp.getStart())){
-							table[n][m].setEnd(temp.getEnd());
-							table[n][m].setID(temp.getID());
-							table[n][m].updateLabels();
+				temp = new SchedBox(subjectID+number+section,subjectID+number+section,time,"X",false);
+				day = days.split("");	//split all characters in the days attribute
+				compDay = "";
+				currentTime = "";
+				int mod = 0;	//add to table for multiple cells (more than half hour)
+				for(int ds = 0;ds < days.length();ds++){
+					//interpret days course is on
+					switch(day[ds]){
+						case "M":
+							compDay = "mon";
+							break;
+						case "T":
+							compDay = "tues";
+							break;
+						case "W":
+							compDay = "wed";
+							break;
+						case "R":
+							compDay = "thurs";
+							break;
+						case "F":
+							compDay = "fri";
+							break;
+						case "S":
+							compDay = "sat";
+							break;
+						case "U":
+							compDay = "sun";
+							break;
+						default:
+							//none
+					}
+					//loop over each day and add the course to the grid in the appropriate time slots
+					for(int n=0;n<7;n++){
+						for(int m=0;m<28;m++){
+							currentTime = temp.getStart();
+							if(table[n][m].getDay().equals(compDay) && table[n][m].getID().equals(compDay+currentTime)){
+								//Continue through the schedule until the end time of the course has been reached
+								while(!currentTime.equals(temp.getEnd())){
+									table[n][m+mod].setStart(temp.getStart());
+									table[n][m+mod].setEnd(temp.getEnd());
+									table[n][m+mod].setID(temp.getID());
+									table[n][m+mod].updateLabels();
+									currentTime = incTime(currentTime);
+									mod++;
+								}
+								mod = 0;
+								break; 		//remove?
+							}
 						}
 					}
 				}
@@ -231,6 +278,41 @@ public class MySchedule extends JPanel{
 			
 		}
 		
+	}
+	
+	/* Function increments 'time' string */
+	public String incTime(String time){
+		
+		String thisTime = time;
+		if(thisTime.substring(2).equals("00")){			//if on the hour
+			thisTime = thisTime.substring(0,2) + "30";
+			
+		}else{											//if on the half hour
+			thisTime = Integer.toString(Integer.parseInt(thisTime.substring(0,2)) + 1) + "00";
+			if(thisTime.length() == 3) thisTime = '0' + thisTime;
+			
+		}
+		return thisTime;
+	}
+
+	/* Clear the grid */
+	public void clearGrid(){
+		for(int i=0;i<7;i++){
+			for(int j=0;j<28;j++){
+				table[i][j].hide();
+			}
+		}
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		SubmitButton button = (SubmitButton)arg0.getSource();
+		if(button.getID().equals("select")){
+			clearGrid();
+			schedNum = options.getSelectedIndex();
+			setSchedule(schedNum);
+			updateUI();
+		}
 	}
 	
 }
