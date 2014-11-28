@@ -195,7 +195,7 @@
 		function submitSchedule(){
 			if(GlobalSched[GlobalCurrentSched]){
 				var request = new XMLHttpRequest();
-				request.open("post","../php/courseServer.php",true);
+				request.open("post","../php/courseServer.php?",true);
 				request.setRequestHeader("content-type","application/x-www-form-urlencoded");
 				request.onreadystatechange = function(){
 					if(request.readyState == 4 && request.status == 200){
@@ -208,7 +208,7 @@
 						document.location.href = "intro_page.html";
 					}
 				}
-				request.send("&source=html&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
+				request.send("source=html&xml="+(new XMLSerializer().serializeToString(GlobalSched[GlobalCurrentSched]))); //send xml schedule as a string
 			}else{
 				alert("Schedule is empty, cannot be submitted.");
 			}

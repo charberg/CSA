@@ -6,16 +6,17 @@ import javax.swing.*;
 
 public class SchedBox extends JPanel{
 	
-	private JLabel idLabel, timeLabel, otherLabel;
-	private String ID,startTime, endTime, day;
+	private JLabel nameLabel, timeLabel;
+	private String ID,startTime, endTime, day, name;
 	private boolean isLabel;
 	
 	public SchedBox(String i, String l, String t, String d, boolean il){
 		this.ID = i;
 		this.day = d;
+		this.name = l;
 		this.isLabel = il;
-		idLabel = new JLabel(l);
-		add(idLabel);
+		nameLabel = new JLabel(this.name);
+		add(nameLabel);
 		setTime(t);
 		timeLabel = new JLabel(this.startTime+"-"+this.endTime);
 		if(!this.isLabel) add(timeLabel);
@@ -32,30 +33,32 @@ public class SchedBox extends JPanel{
 		return this.day;
 	}
 	
+	public void setName(String n){
+		this.name = n;
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
 	public void setTime(String time){
-		//System.out.println(this.ID+"- "+time);
+		
 		String[] times = time.split("-");
 		this.startTime = normTime(times[0]);
 		this.endTime = normTime(times[1]);
 	}
 	
 	public void updateLabels(){
-		this.remove(this.idLabel);
+		
+		this.remove(this.nameLabel);
 		this.remove(this.timeLabel);
-		this.add(new JLabel(this.ID));
+		this.add(new JLabel(this.name));
 		if(this.isLabel) this.add(new JLabel(this.getStart()+"-"+this.getEnd()));
 	}
 	
-	public void setID(String i){
-		this.ID = i;
-	}
-	
 	public void showTime(){
-		this.add(timeLabel);
-	}
-	
-	public void removeTime(){
-		this.remove(timeLabel);
+		//this.add(timeLabel);
+		add(new JLabel(this.getStart()+"-"+this.getEnd()));
 	}
 	
 	public String getStart(){
@@ -83,11 +86,9 @@ public class SchedBox extends JPanel{
 		this.isLabel = !n;
 	}
 	
-	public void hide(){
-		this.ID = "";
-		
-		this.timeLabel.setVisible(false);
-		this.idLabel.setVisible(false);
+	public void clearLabels() {
+		this.timeLabel.setText("");
+		this.nameLabel.setText("");
 	}
 	
 	public String normTime(String time){

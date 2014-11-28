@@ -6,8 +6,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -16,6 +18,14 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
@@ -120,6 +130,7 @@ public class MySchedule extends JPanel implements ActionListener{
 		add(scrollPanel, BorderLayout.CENTER);
 		
 		SubmitButton submitButton = new SubmitButton("PICK THIS SCHEDULE","mysched","none");
+		submitButton.addActionListener(this);
 		add(submitButton, BorderLayout.SOUTH);
 		
 		getSchedules();
@@ -222,7 +233,7 @@ public class MySchedule extends JPanel implements ActionListener{
 			}
 			//If a complete course was received, put it on the grid
 			if(subjectID != "" && time != ""){
-				temp = new SchedBox(subjectID+number+section,subjectID+number+section,time,"X",false);
+				temp = new SchedBox(" ",subjectID+number+section,time,"X",false);
 				day = days.split("");	//split all characters in the days attribute
 				compDay = "";
 				currentTime = "";
@@ -261,15 +272,16 @@ public class MySchedule extends JPanel implements ActionListener{
 							if(table[n][m].getDay().equals(compDay) && table[n][m].getID().equals(compDay+currentTime)){
 								//Continue through the schedule until the end time of the course has been reached
 								while(!currentTime.equals(temp.getEnd())){
+									table[n][m+mod].removeAll();
 									table[n][m+mod].setStart(temp.getStart());
 									table[n][m+mod].setEnd(temp.getEnd());
-									table[n][m+mod].setID(temp.getID());
+									table[n][m+mod].setName(temp.getName());
 									table[n][m+mod].updateLabels();
 									currentTime = incTime(currentTime);
 									mod++;
 								}
 								mod = 0;
-								break; 		//remove?
+								break;
 							}
 						}
 					}
@@ -299,10 +311,13 @@ public class MySchedule extends JPanel implements ActionListener{
 	public void clearGrid(){
 		for(int i=0;i<7;i++){
 			for(int j=0;j<28;j++){
-				table[i][j].hide();
+				//table[i][j].updateLabels(true);
+				//table[i][j].clearLabels();
+				table[i][j].removeAll();
 			}
 		}
 	}
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -312,6 +327,47 @@ public class MySchedule extends JPanel implements ActionListener{
 			schedNum = options.getSelectedIndex();
 			setSchedule(schedNum);
 			updateUI();
+		}else if(button.getID().equals("mysched")){
+			//Send request to server
+			try {
+				URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/courseServer.php?");
+				HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();
+				connection.setDoOutput(true);
+				connection.setDoInput(true);
+				connection.setRequestMethod("POST");
+				connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+				connection.setRequestProperty("charset", "utf-8");
+				connection.connect();
+				
+				//Convert schedule back into xml to send back to the server
+				StringWriter strw = new StringWriter();
+				Transformer trans = TransformerFactory.newInstance().newTransformer();
+				trans.transform(new DOMSource(GlobalSchedules.item(schedNum)), new StreamResult(strw));
+				
+				OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+				out.write("source=java&xml="+strw.toString());
+				out.flush(); //sends to server
+				
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				if(in.readLine().equals("PASS")){
+					System.out.println("Schedule successfully submitted");
+				}
+				
+				in.close();
+				out.close();
+				connection.disconnect();
+				
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (TransformerConfigurationException e) {
+				e.printStackTrace();
+			} catch (TransformerFactoryConfigurationError e) {
+				e.printStackTrace();
+			} catch (TransformerException e) {
+				e.printStackTrace();
+			}
+			
 		}
 	}
 	
