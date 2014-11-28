@@ -58,6 +58,8 @@ Useful folder:
 This folder contains reference documents used in the project. These include the project outline, and the 'Tree' of a
 Software Engineer & Computer System Engineer at Carleton. These documents where what the implementation of the program was based off of.
 
+***Please ensure that all folders are present and contain the proper fills in order for the program to work.
+
 The tasks of the project and mapping of the files used within the project between html-php are as follows:
 Upon entering the program (localhost/CSA/), the index.php script will run which will re-direct the user to intro_page.html contained
 within the pages folder. At this point the user will be asked to specify his/her program, the year they've completed, whether or not they are
@@ -76,7 +78,9 @@ the number of students for each, returning to my_schedule.php whether or not all
 
 
 6.
-Before running the program for the first time, the install.php file must be executed in the browser in order that the database be created. 
+Before running the program for the first time, the install.php file must be executed in the browser in order that 
+the database be created. Please note, the installation of the database may take some time. It currently has a runtime cap
+of 2 minutes, if the runtime is execeded, simply reload the page. Do this as many times as necessary untill the database is installed.
 From there, the user may just navigate through the local host to the CSA program folder. 
 From here the index.php file will redirect the user to the first view page of the program.
 
@@ -89,7 +93,7 @@ To add more patterns, simply add a txt file (with the academic program as the ti
 
 To add Electives for different course, simply add the list to the existing elecives files, specifying the program you are adding them for.
 
-To add new Elective types, simply add the fil to the Electives folder, ensuring the follow the same format as the other electives files (both data and naming convention: *electype*Electives.txt)
+To add new Elective types, simply add the file to the Electives folder, ensuring the follow the same format as the other electives files (both data and naming convention: *electype*Electives.txt)
 
 To add prerequisites add the course and prerequisite string to the prerreqs.txt in the data folder. Ensure that the prerequisite string
 follows the format specified by the prereqMapping.txt file and that all logic possibilities are seperated by 'OR', with each of the requirements 'AND'D together.
