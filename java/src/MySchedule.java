@@ -44,6 +44,10 @@ public class MySchedule extends JPanel implements ActionListener{
 	
 	public MySchedule(MainFrame m){
 		main = m;
+	}
+	
+	public void setup(){
+		
 		setLayout(new BorderLayout());
 		
 		JPanel topPanel = new JPanel();
@@ -152,7 +156,8 @@ public class MySchedule extends JPanel implements ActionListener{
 			connection.setRequestProperty("charset", "utf-8");
 			connection.connect();
 			
-			String fileName = "../tempSchedules/testfile.txt";
+			
+			String fileName = main.getFileLocation().trim();
 			
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
 			out.write("requesttype=GetCourseFile&fileName="+fileName+"&source=java");
@@ -311,8 +316,6 @@ public class MySchedule extends JPanel implements ActionListener{
 	public void clearGrid(){
 		for(int i=0;i<7;i++){
 			for(int j=0;j<28;j++){
-				//table[i][j].updateLabels(true);
-				//table[i][j].clearLabels();
 				table[i][j].removeAll();
 			}
 		}
@@ -350,6 +353,8 @@ public class MySchedule extends JPanel implements ActionListener{
 				
 				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 				if(in.readLine().equals("PASS")){
+					//redirect to intro
+					main.panelSwitch("intro");
 					System.out.println("Schedule successfully submitted");
 				}
 				

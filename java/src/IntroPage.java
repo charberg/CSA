@@ -25,6 +25,10 @@ public class IntroPage extends JPanel implements ActionListener{
 	
 	public IntroPage(MainFrame m){
 		main = m;
+	}
+	
+	public void setup(){
+		
 		JLabel welcome = new JLabel("Welcome to the Briglio course selector!");
 		welcome.setFont(new Font("Calibri",1,40));
 		JPanel panel = new JPanel();
@@ -36,7 +40,9 @@ public class IntroPage extends JPanel implements ActionListener{
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		gc.insets = new Insets(2,2,2,2);
 		program = new JComboBox();
-		
+	
+	
+	
 		if(fillPrograms()){
 			gc.gridx = 0;
 			gc.gridy = 1;
@@ -147,11 +153,15 @@ public class IntroPage extends JPanel implements ActionListener{
 				//System.out.println("Response: "+in.readLine());
 				
 				String result = in.readLine();
-				if(result.equals("success-offsched")){
+				
+				if(result.contains("success-offsched")){
 					//redirect to offsched
+					main.panelSwitch("offsched");
 					System.out.println("successful! - offsched");
-				}else if(result.equals("success-onsched")){
+				}else if(result.contains("success-onsched")){
 					//redirect to myschedule
+					main.setFileLocation(result.substring(result.indexOf('=')+1));	//file locaiton of schedules output
+					main.panelSwitch("mysched");
 					System.out.println("successful! - onsched");
 				}
 				

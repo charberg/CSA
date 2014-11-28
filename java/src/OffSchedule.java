@@ -33,6 +33,9 @@ public class OffSchedule extends JPanel implements ActionListener{
 	
 	public OffSchedule(MainFrame m){
 		main = m;
+	}
+	
+	public void setup(){
 		setLayout(new BorderLayout());
 		
 		add(new JLabel("Select Your Courses Taken"),BorderLayout.NORTH);
@@ -181,9 +184,12 @@ public class OffSchedule extends JPanel implements ActionListener{
 				out.flush(); //sends to server
 				
 				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-				if(in.readLine().equals("success-myschedule")){
+				String result = in.readLine();
+				
+				if(result.contains("success-myschedule")){
 					//change panel to myschedule
-					System.out.println("Sucess");
+					main.setFileLocation(result.substring(result.indexOf('=')+1));	//file locaiton of schedules output
+					main.panelSwitch("mysched");
 				}else{
 					System.out.println("Error submitting courses taken.");
 				}

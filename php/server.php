@@ -50,7 +50,8 @@
 			if($source == "html"){
 				header("location:../pages/my_schedule.php");
 			}else{
-				echo "success-myschedule";
+				echo "success-myschedule=";
+				echo $filename;
 			}
 			exit;
 			
@@ -88,7 +89,8 @@
 					header("location:../pages/my_schedule.php");
 				} else {
 					header("content-type: text/plain");
-					echo "success-onsched";
+					echo "success-onsched=";
+					echo $filename;
 				}
 				exit;
 			}

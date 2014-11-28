@@ -8,6 +8,3 @@ IntroPage.java:
 
 ALL JAVA:
  - ALL urls are hard coded
-
-MySchedule.java:
- - Double labels on schedule output
