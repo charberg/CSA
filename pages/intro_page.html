@@ -11,8 +11,6 @@
 				request.onreadystatechange = function(){
 					if(request.readyState == 4 && request.status == 200){
 						var rxml = request.responseXML;
-						//alert(request.responseText);
-						//alert(request.responseXML);
 						if(rxml){
 							var pack = rxml.getElementsByTagName('programs')[0];
 							var programs = pack.getElementsByTagName('program');
@@ -38,45 +36,43 @@
 			<br/>
 			<form method="post" action="../php/server.php">
 				<table cellpadding="8px">
-				<tr>
-					<td>Program:</td>
-					<!-- Drop-down menu for program selection -->
-					<td><select id="progdropdown" name="programName"></select></td>
-				<!--<br/><br/>-->
-				</tr>
-				<tr>
-					<td>Most Recent Year Completed:</td>
-					<td><select name="yearCompleted">
-							<!-- Drop-down menu for years completed -->
-							<option value="0">None</option>
-							<option value="1">1st</option>
-							<option value="2">2nd</option>
-							<option value="3">3rd</option>
-						</select>
-					</td>
-				</tr>
-				<!--<br/><br/>-->
-				<tr>
-					<td>Currently On or Off Schedule</td>
-					<td>
-						<input type="radio" name="sched" value="on" checked>YES</input>
-						<input type="radio" name="sched" value="off">NO</input>
-					</td>
-				</tr>
-				<!--<br/><br/>-->
-				<tr>
-					<td>Term Currently Planning</td>
-					<td>
-						<input type="radio" name="term" value="fall" checked>Fall</input>
-						<input type="radio" name="term" value="winter">Winter</input>
-					</td>
-				</tr>
-			</table>	
+					<tr>
+						<td>Program:</td>
+						<!-- Drop-down menu for program selection -->
+						<td><select id="progdropdown" name="programName"></select></td>
+					</tr>
+					<tr>
+						<!-- Drop-down menu for years completed -->
+						<td>Most Recent Year Completed:</td>
+						<td>
+							<select name="yearCompleted">
+								<option value="0">None</option>
+								<option value="1">1st</option>
+								<option value="2">2nd</option>
+								<option value="3">3rd</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Currently On or Off Schedule</td>
+						<td>
+							<input type="radio" name="sched" value="on" checked>YES</input>
+							<input type="radio" name="sched" value="off">NO</input>
+						</td>
+					</tr>
+					<tr>
+						<td>Term Currently Planning</td>
+						<td>
+							<input type="radio" name="term" value="fall" checked>Fall</input>
+							<input type="radio" name="term" value="winter">Winter</input>
+						</td>
+					</tr>
+				</table>	
 				<br/><br/>
 				
 				<input type="hidden" value="SubmitInfo" name="requesttype"/>
 				<input type="hidden" value="html" name="source"/>
-				<input type="submit" value="SUBMIT"/>
+				<input type="submit" value="SUBMIT" style="width:10%"/>
 			</form>
 		</center>
 	</body>

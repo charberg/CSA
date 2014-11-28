@@ -52,7 +52,7 @@
 				<input type="hidden" name="program"/>
 				<input type="hidden" name="year"/>
 				<input type="hidden" name="term"/>
-				<input type="submit" value="SUBMIT"/>
+				<input type="submit" value="SUBMIT" style="width:10%"/>
 			</form>
 			<br/>
 			<h3><p id="classinfo"></p></h3>
