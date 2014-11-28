@@ -213,19 +213,6 @@
 				return;
 			}
 			
-			var req = "";
-			var electtype = "";		//electtype is set only if the elective is an engineering elective
-			
-			/*Sends the request corresponding to which kind of elective given */
-			if(elective == "COMPLEMENTARY"){
-				req = "GetComplementaryElectives";
-			}else if(elective == "SCIENCE"){
-				req = "GetScienceElectives";
-			}else if(elective == "NOTEA" || elective == "NOTEB"){
-				req = "GetEngineeringElectives";
-				electtype = "&electtype=" + elective;
-			}
-			
 			var prog ="<?php echo $programName;?>";
 			var request = new XMLHttpRequest();
 			request.open("post","../php/server.php?",true);
@@ -233,13 +220,12 @@
 			request.onreadystatechange = function(){
 				if(request.readyState == 4 && request.status == 200){
 					var rxml = request.responseXML;
-					alert(request.responseText);
 					if(rxml){
 						fillElectives(elective, year, term, rxml);	//fills the elective combination boxes if valid response
 					}
 				}
 			}
-			request.send("requesttype="+req+"&program="+prog+"&year="+year+"&term="+term+electtype+"&source=html");
+			request.send("requesttype=GetElectives&program="+prog+"&year="+year+"&term="+term+"&electtype="+elective+"&source=html");
 		}
 		
 		/* Adds a combination box of possible electives that fill the description of the selected elective */
