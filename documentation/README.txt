@@ -148,4 +148,4 @@ has direct access to the database and therefore can retrieve any and all informa
 
 Other Notes:
 
- - This program has been tested in Google Chrome & Morzilla Firefox webbrowsers.
+ - This program has been tested in Google Chrome & Mozilla Firefox webbrowsers.
