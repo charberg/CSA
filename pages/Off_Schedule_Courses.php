@@ -20,7 +20,8 @@
 	<body onload="getClasses()">
 		<center>
 			<form method="post" action="../php/server.php">
-				<h3>Please select the courses you have taken:</h3>
+				<h3>Please Select The Courses You Have Taken</h3>
+				<br/>
 				<table>
 					<tr>
 						<td width="120px" style="border:0px">Year 1 FALL</td>
@@ -52,10 +53,10 @@
 				<input type="hidden" name="year"/>
 				<input type="hidden" name="term"/>
 				<input type="submit" value="SUBMIT"/>
-				
 			</form>
-			<br/><br/>
+			<br/>
 			<h3><p id="classinfo"></p></h3>
+			<img src="../resources/logo.png" style="width:10%"/>
 		</center>
 	</body>
 	

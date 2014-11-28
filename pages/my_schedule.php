@@ -100,7 +100,7 @@
 	<body onload="setupFunc()">
 		<center>
 		<h1>My Schedule</h1>
-		Your schedule options: 
+		Your Schedule Options: 
 		<select id="schedSelect"></select>
 		<input type="button" value="SELECT" onclick="fillTable()"/>
 		<br/><br/>
@@ -118,8 +118,9 @@
 			</tr>
 		</table>
 		<br/><br/>
-		<input type="button" value="Pick This Schedule" onclick="submitSchedule()"/>
+		<input type="button" value="Pick This Schedule" onclick="submitSchedule()" style="width:10%"/>
 		<br/><br/>
+		<img src="../resources/logo.png" style="width:10%"/>
 		<br/><br/>
 		</center>
 	</body>
