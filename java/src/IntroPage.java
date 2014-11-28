@@ -135,6 +135,10 @@ public class IntroPage extends JPanel implements ActionListener{
 				term = "winter";
 			}
 			
+			main.setProgramName(prog);
+			main.setYear(year);
+			main.setTerm(term);
+			
 			try {
 				URL urlpost = new URL("http://localhost/davidweb/4504/project/CSA/php/server.php?");
 				HttpURLConnection connection = (HttpURLConnection)urlpost.openConnection();

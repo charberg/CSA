@@ -18,8 +18,8 @@ public class MainFrame extends JFrame{
 		setTitle("Briglio Course Selector");
 		
 		introPage = new IntroPage(this);
-		offPage = new OffSchedule(this);
-		mySchedule = new MySchedule(this);
+		//offPage = new OffSchedule(this);
+		//mySchedule = new MySchedule(this);
 		
 		introPage.setup();
 		setContentPane(introPage);
@@ -32,17 +32,17 @@ public class MainFrame extends JFrame{
 
 	public void panelSwitch(String panel){
 		if(panel.equals("intro")){
-			//introPage = new IntroPage(this);
+			introPage = new IntroPage(this);		//instances are re-initialized to prevent information not refreshing
 			introPage.setup();
 			setContentPane(introPage);
 			
 		}else if(panel.equals("mysched")){
-			//mySchedule = new MySchedule(this);
+			mySchedule = new MySchedule(this);
 			mySchedule.setup();
 			setContentPane(mySchedule);
 			
 		}else if(panel.equals("offsched")){
-			//offPage = new OffSchedule(this);
+			offPage = new OffSchedule(this);
 			offPage.setup();
 			setContentPane(offPage);
 			
@@ -56,5 +56,29 @@ public class MainFrame extends JFrame{
 	
 	public String getFileLocation(){
 		return this.FileLocation;
+	}
+
+	public String getProgramName() {
+		return ProgramName;
+	}
+
+	public void setProgramName(String programName) {
+		ProgramName = programName;
+	}
+
+	public String getYear() {
+		return Year;
+	}
+
+	public void setYear(String year) {
+		Year = year;
+	}
+
+	public String getTerm() {
+		return Term;
+	}
+
+	public void setTerm(String term) {
+		Term = term;
 	}
 }

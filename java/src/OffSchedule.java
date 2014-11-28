@@ -151,9 +151,9 @@ public class OffSchedule extends JPanel implements ActionListener{
 		SubmitButton button = (SubmitButton)e.getSource();
 		if(button.getID().equals("offsched")){
 			
-			String prog = "SE";		//TODO: automate getting these.
-			String year = "0";
-			String term = "fall";
+			String prog = main.getProgramName();
+			String year = main.getYear();
+			String term = main.getTerm();
 			
 			//send all courses checking checkbox states
 			String message = "";
