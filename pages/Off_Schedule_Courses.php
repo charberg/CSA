@@ -110,38 +110,21 @@
 				switch(counter){
 					
 					case 1:	// Year 1 FALL/BOTH/EITHER
-						if(year == '1'){		//currently all FALL/WINTER/BOTH/EITHER options all do the same thing
-							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "both"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}
+						if(year == '1' && (term == "fall" || term == "both" || term == "either")){		//currently all FALL/WINTER/BOTH/EITHER options all do the same thing
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+							row++;
 						}
 						break;
 					case 2:  // Year 1 WINTER
 						if(year == '1' && term == "winter"){
-							//(ORIGINAL) document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+items[i].getElementsByTagName('subjectID')[0].textContent+"'>"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"<br/><input class='checks' type='checkbox' id='course' name='"+items[i].getElementsByTagName('subjectID')[0].textContent+items[i].getElementsByTagName('courseNumber')[0].textContent+"'/></td>";
 							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
 							row++;
 						}
 						break;
 					case 3:  // Year 2 FALL/BOTH/EITHER
-						if(year == '2'){
-							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "both"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}
+						if(year == '2' && (term == "fall" || term == "both" || term == "either")){
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+							row++;
 						}
 						break;
 					case 4:  // Year 2 WINTER
@@ -151,17 +134,9 @@
 						}
 						break;
 					case 5:  // Year 3 FALL/BOTH/EITHER
-						if(items[i].getElementsByTagName('yearRequired')[0].textContent == '3'){
-							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "both"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}
+						if(year == '3' && (term == "fall" || term == "both" || term == "either")){
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+							row++;
 						}
 						break;
 					case 6:  // Year 3 WINTER
@@ -171,17 +146,9 @@
 						}
 						break;
 					case 7:  // Year 4 FALL/BOTH/EITHER
-						if(year == '4'){
-							if(term == "fall"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "both"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}else if(term == "either"){
-								document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
-								row++;
-							}
+						if(year == '4' && (term == "fall" || term == "both" || term == "either")){
+							document.getElementById('row'+row).innerHTML = document.getElementById('row'+row).innerHTML + "<td id='"+subjectID+"'>"+subjectID+courseNumber+extraLabel+"<br/><input id='"+subjectID+courseNumber+year+term+"' value='"+subjectID+":"+courseNumber+"' class='checks' type='checkbox' name='checks' onclick=\""+onclick+"\"/></td>";
+							row++;
 						}
 						break;
 					case 8:  // Year 4 WINTER

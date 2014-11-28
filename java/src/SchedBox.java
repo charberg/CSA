@@ -11,10 +11,10 @@ public class SchedBox extends JPanel{
 	public SchedBox(String i, String l, String t, boolean isLabel){
 		this.ID = i;
 		idLabel = new JLabel(l);
-		timeLabel = new JLabel(t);
 		add(idLabel);
-		if(!isLabel) add(timeLabel);
 		setTime(t);
+		timeLabel = new JLabel(this.startTime+"-"+this.endTime);
+		if(!isLabel) add(timeLabel);
 		
 		this.setPreferredSize(new Dimension(100,100));
 		this.setMinimumSize(new Dimension(100,100));
@@ -24,11 +24,10 @@ public class SchedBox extends JPanel{
 	}
 	
 	public void setTime(String time){
-		
+		//System.out.println(this.ID+"- "+time);
 		String[] times = time.split("-");
 		this.startTime = normTime(times[0]);
 		this.endTime = normTime(times[1]);
-	
 	}
 	
 	public void updateLabels(){
@@ -61,6 +60,14 @@ public class SchedBox extends JPanel{
 	
 	public String getID(){
 		return this.ID;
+	}
+	
+	public void setStart(String s){
+		this.startTime = s;
+	}
+	
+	public void setEnd(String e){
+		this.endTime = e;
 	}
 	
 	public String normTime(String time){

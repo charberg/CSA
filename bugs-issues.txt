@@ -5,3 +5,6 @@ my_schedule.php:
 IntroPage.java:
  - The submit button routine takes the stream selector value and has an if statement to
    convert it into a message, this should be dynamic not hard coded
+
+ALL JAVA:
+ - ALL urls are hard coded

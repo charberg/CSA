@@ -37,6 +37,7 @@
 							var xmlSchedule = rxml.getElementsByTagName('schedules')[0];
 							if(xmlSchedule.textContent == ""){
 								alert("There were no compatible schedules found.");
+								document.location.href = "intro_page.html";
 								return;
 							}
 							GlobalSched = xmlSchedule.getElementsByTagName('courses');
