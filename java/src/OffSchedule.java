@@ -1,7 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -24,9 +23,9 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 /** Panel containing the current program tree, allowing the user to select which courses they have taken. */
-@SuppressWarnings("serial")
 public class OffSchedule extends JPanel implements ActionListener{
-	
+
+	private static final long serialVersionUID = 1L;
 	private MainFrame main;
 	private ArrayList<CourseBox> courses;
 	private ArrayList<JPanel> termPanels;

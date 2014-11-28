@@ -1,12 +1,9 @@
 import javax.swing.JFrame;
 
-/**
- * Main Frame class that contains all frames/panels that will be used.
- *
- */
-@SuppressWarnings("serial")
+/** Main Frame class that contains all frames/panels that will be used. */
 public class MainFrame extends JFrame{
-	
+
+	private static final long serialVersionUID = 1L;
 	private IntroPage introPage;
 	private OffSchedule offPage; 
 	private MySchedule mySchedule;
@@ -15,7 +12,7 @@ public class MainFrame extends JFrame{
 	public MainFrame(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1200,800);
-		setTitle("Briglio Course Selection Assistant");
+		setTitle("Course Selection Assistant");
 		
 		introPage = new IntroPage(this);
 		
@@ -81,6 +78,7 @@ public class MainFrame extends JFrame{
 	}
 	
 	public static void main(String [ ] args) {
+		@SuppressWarnings("unused")
 		MainFrame main = new MainFrame();
 	}
 }

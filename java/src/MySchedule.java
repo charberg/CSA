@@ -30,11 +30,11 @@ import org.xml.sax.SAXException;
 import org.w3c.dom.NodeList;
 
 /** Panel allowing the user to see and select a generated schedule. */
-@SuppressWarnings("serial")
 public class MySchedule extends JPanel implements ActionListener{
-	
+
+	private static final long serialVersionUID = 1L;
 	private MainFrame main;
-	private JComboBox options;
+	private JComboBox<Integer> options;
 	private int schedNum;
 	private SchedBox[][] table;
 	private NodeList GlobalSchedules;
@@ -55,7 +55,7 @@ public class MySchedule extends JPanel implements ActionListener{
 		
 		JPanel selectPanel = new JPanel();
 		selectPanel.add(new JLabel("Your Options: "));
-		options = new JComboBox();						//Contains all of the schedule indexes
+		options = new JComboBox<Integer>();						//Contains all of the schedule indexes
 		selectPanel.add(options);
 		SubmitButton selectButton = new SubmitButton("SELECT", "select",null);
 		selectButton.addActionListener(this);
@@ -127,7 +127,7 @@ public class MySchedule extends JPanel implements ActionListener{
 			timePanel.add(table[6][i]);
 			
 			j++;
-
+			
 		}
 		
 		add(scrollPanel, BorderLayout.CENTER);

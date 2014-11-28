@@ -1,8 +1,8 @@
 import javax.swing.JButton;
 
-
+/** Button that is used to store ID and leading panel. */
 public class SubmitButton extends JButton{
-	
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private String nextPanelID;
 	

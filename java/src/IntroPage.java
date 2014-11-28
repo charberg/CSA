@@ -13,10 +13,10 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 /** Introductory page where user enters in information about the schedule they wish to make. */
-@SuppressWarnings("serial")
 public class IntroPage extends JPanel implements ActionListener{
-	
-	private JComboBox program, yearComplete;
+
+	private static final long serialVersionUID = 1L;
+	private JComboBox<String> program, yearComplete;
 	private JRadioButton onsched, offsched, fallTerm, winterTerm;
 	private ButtonGroup schedButtons, termButtons;
 	private MainFrame main;
@@ -25,24 +25,20 @@ public class IntroPage extends JPanel implements ActionListener{
 		main = m;
 	}
 	
-	/**
-	 * Sets up the page for viewing/use.
-	 */
+	/** Sets up the page for viewing/use. */
 	public void setup(){
 		
-		JLabel welcome = new JLabel("Welcome to the Briglio Course Selection Assistant", SwingConstants.CENTER);
+		JLabel welcome = new JLabel("Course Selection Assistant", SwingConstants.CENTER);
 		welcome.setFont(new Font("Calibri",1,40));
-		JPanel panel = new JPanel();
 		setLayout(new BorderLayout());
 		add(welcome,BorderLayout.NORTH);
 		
+		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());
 		GridBagConstraints gc = new GridBagConstraints();
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		gc.insets = new Insets(2,2,2,2);
-		program = new JComboBox();
-	
-	
+		program = new JComboBox<String>();
 	
 		if(fillPrograms()){
 			gc.gridx = 0;
@@ -62,8 +58,8 @@ public class IntroPage extends JPanel implements ActionListener{
 			gc.gridy = 3;
 			panel.add(new JLabel("Total number of years completed:"),gc);
 			gc.gridx = 1;
-			String[] years = {"1","2","3"};
-			yearComplete = new JComboBox(years);
+			String[] years = {"0","1","2","3"};
+			yearComplete = new JComboBox<String>(years);
 			panel.add(yearComplete,gc);
 			
 			gc.gridx = 0;
@@ -187,6 +183,7 @@ public class IntroPage extends JPanel implements ActionListener{
 	 * Gets the stream/program list and populates the dropdown menu.
 	 * @return boolean - If successful or not.
 	 */
+	
 	public boolean fillPrograms(){
 		try{
 			URL urlpost = new URL("http://localhost/CSA/php/server.php?");

@@ -3,12 +3,12 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 
-
-/**
- *  Panel containing Label and Checkbox for course selection item. Used in the OffSchedule Panel.
- */
-@SuppressWarnings("serial")
+/** Panel containing Label and Checkbox for course selection item. Used in the OffSchedule Panel. */
 public class CourseBox extends JPanel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String ID,term;
 	private JCheckBox box;
 	private int year, code;
@@ -23,7 +23,6 @@ public class CourseBox extends JPanel{
 		this.year = y;
 		this.term = t;
 		
-		//setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		add(new JLabel(this.getSubjectID()));
 		if(this.term.equals("either")){
 			add(new JLabel("Either Term"));
@@ -32,10 +31,6 @@ public class CourseBox extends JPanel{
 		}
 		this.box = new JCheckBox();
 		this.add(this.box);
-		//this.box.setPreferredSize(new Dimension(100,100));
-		//this.box.setMinimumSize(new Dimension(100,100));
-		//this.box.setMaximumSize(new Dimension(100,100));
-		//this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setVisible(true);
 	}
 
